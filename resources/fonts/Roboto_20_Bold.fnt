@@ -1,0 +1,17 @@
+info face="Roboto" size=20 bold=1 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+common lineHeight=20 base=16 scaleW=109 scaleH=14 pages=2 packed=0 alphaChnl=0 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="Roboto_20_Bold_0.png"
+page id=1 file="Roboto_20_Bold_1.png"
+chars count=12
+char id=32   x=0     y=0     width=3     height=1     xoffset=-1    yoffset=19    xadvance=4     page=1  chnl=15
+char id=37   x=0     y=0     width=12    height=13    xoffset=0     yoffset=4     xadvance=12    page=0  chnl=15
+char id=48   x=13    y=0     width=9     height=13    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15
+char id=49   x=102   y=0     width=6     height=12    xoffset=1     yoffset=4     xadvance=9     page=0  chnl=15
+char id=50   x=62    y=0     width=9     height=12    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15
+char id=51   x=23    y=0     width=9     height=13    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15
+char id=52   x=72    y=0     width=9     height=12    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15
+char id=53   x=53    y=0     width=8     height=13    xoffset=1     yoffset=4     xadvance=9     page=0  chnl=15
+char id=54   x=33    y=0     width=9     height=13    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15
+char id=55   x=82    y=0     width=9     height=12    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15
+char id=56   x=43    y=0     width=9     height=13    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15
+char id=57   x=92    y=0     width=9     height=12    xoffset=0     yoffset=4     xadvance=9     page=0  chnl=15

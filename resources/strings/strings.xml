@@ -1,0 +1,25 @@
+<strings>
+  <string id="AppName">GRun</string>
+  <string id="DeviceModel">Unknown</string>
+  
+  <string id="PARAM_HEADER_POSITION">Header Position</string>
+  <string id="PARAM_HEADER_POSITION_PROMPT">Header Position TEST</string>
+  <string id="PARAM_HEADER_POSITION_1">Top / Top</string>
+  <string id="PARAM_HEADER_POSITION_2">Top / Bottom</string>
+  <string id="PARAM_HEADER_POSITION_3">Bottom / Top</string>
+  
+  <string id="PARAM_MIN_PACE">Minimum Pace</string>
+  <string id="PARAM_MAX_PACE">Maximum Pace</string>
+  <string id="PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">Middle Column Percentage Size</string>
+  
+  <string id="PARAM_AREA1">Area 1</string>
+  <string id="PARAM_AREA2">Area 2</string>
+  <string id="PARAM_AREA3">Area 3</string>
+  <string id="PARAM_AREA4">Area 4</string>
+  <string id="PARAM_AREA5">Area 5</string>
+  <string id="PARAM_AREA6">Area 6</string>
+  <string id="PARAM_AREA7">Area 7</string>
+  <string id="PARAM_AREA8">Area 8</string>
+  <string id="PARAM_AREA9">Area 9</string>
+  <string id="PARAM_AREA10">Area 10</string>
+</strings>

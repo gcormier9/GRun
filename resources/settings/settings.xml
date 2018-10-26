@@ -1,0 +1,62 @@
+<settings>
+  <setting propertyKey="@Properties.HeaderPosition" title="@Strings.PARAM_HEADER_POSITION">
+    <settingConfig type="list">
+      <listEntry value="1">@Strings.PARAM_HEADER_POSITION_1</listEntry>
+      <listEntry value="2">@Strings.PARAM_HEADER_POSITION_2</listEntry>
+      <listEntry value="3">@Strings.PARAM_HEADER_POSITION_3</listEntry>
+    </settingConfig>
+  </setting>
+  
+  <setting propertyKey="@Properties.MinPace" title="@Strings.PARAM_MIN_PACE">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+    
+  <setting propertyKey="@Properties.MaxPace" title="@Strings.PARAM_MAX_PACE">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.MiddleColumnPercentageSize" title="@Strings.PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+
+  <setting propertyKey="@Properties.Area1" title="@Strings.PARAM_AREA1">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area2" title="@Strings.PARAM_AREA2">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area3" title="@Strings.PARAM_AREA3">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area4" title="@Strings.PARAM_AREA4">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area5" title="@Strings.PARAM_AREA5">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area6" title="@Strings.PARAM_AREA6">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area7" title="@Strings.PARAM_AREA7">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area8" title="@Strings.PARAM_AREA8">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area9" title="@Strings.PARAM_AREA9">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+  <setting propertyKey="@Properties.Area10" title="@Strings.PARAM_AREA10">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
+</settings>
