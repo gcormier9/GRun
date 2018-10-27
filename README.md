@@ -55,6 +55,21 @@ Header Position can have 3 positions.
 #### 3) Bottom / Top
 ![GRun BottomTop](/doc/GRunWatch4.png)
 
+### Minimum/Maximum Pace
+Current Pace and Average Pace are displayed in color based on application parameters
+  - Blue if too fast, Green if between Min and Max Pace, Red if too slow
+
+![GRun PaceColor](/doc/GRunWatch5.png)
+
+### Middle Column Percentage Size
+You can reduce or increase the width of the middle column. Simply configure the value as a percentage of the original value. I personally set it to 75% in order to have left and right column larger. I can then set value in format MM:SS on left and right column and keep decimal value in the middle column.
+
+If you prefer, you could also set it to 100 in order to have all the columns of the same size.
+![GRun MiddleColumn100](/doc/GRunWatch6.png)
+
+Or you could also set it to a value higher than 100 (Example 125) to have the middle column 125% larger.
+![GRun MiddleColumn125](/doc/GRunWatch7.png)
+
 ### Less fields
 If some fields are configured with option  **Empty**, the other fields on the same line will automatically expand. For example, the following screen is configured with **Field 2B = Empty**.
 
