@@ -401,26 +401,16 @@ class GRunView extends WatchUi.DataField
     //  - OPTION_ETA_MARATHON = 24
     v1 = getParameter("Area1", OPTION_CURRENT_HEART_RATE);
     v2 = getParameter("Area2", OPTION_PREVIOUS_KM_OR_MILE);
-    //v3 = getParameter("Area3", OPTION_CURRENT_CADENCE);
+    v3 = getParameter("Area3", OPTION_CURRENT_CADENCE);
     v4 = getParameter("Area4", OPTION_CURRENT_PACE);
     v5 = getParameter("Area5", OPTION_ELAPSED_DISTANCE);
     v6 = getParameter("Area6", OPTION_ALTITUDE);
     v7 = getParameter("Area7", OPTION_AVERAGE_PACE);
-    //v8 = getParameter("Area8", OPTION_TIMER_TIME);
+    v8 = getParameter("Area8", OPTION_TIMER_TIME);
     v9 = getParameter("Area9", OPTION_CURRENT_TIME);
     v10 = getParameter("Area10", OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY);
     
-    headerPosition = 1;
-    v2 = OPTION_AVERAGE_PACE;
-    v4 = OPTION_ETA_MARATHON;
-    v5 = OPTION_CURRENT_PACE;
-    v6 = OPTION_ELAPSED_DISTANCE;
-    v7 = OPTION_TIMER_TIME;
-    minPace = 315;
-    maxPace = 345;
-    
     hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
-    
     deviceModel = WatchUi.loadResource(Rez.Strings.DeviceModel);
     deviceWidth = System.getDeviceSettings().screenWidth;
     deviceHeight = System.getDeviceSettings().screenHeight;
