@@ -70,7 +70,13 @@ If you prefer, you could also set it to 100 in order to have all the columns of 
 Or you could also set it to a value higher than 100 (Example 125) to have the middle column 125% larger.
 ![GRun MiddleColumn125](/doc/GRunWatch7.png)
 
-### Less fields
+### Fields
+Up to 10 fields can be displayed using application parameters.
+
+![GRun GarminConnectParams](/doc/GarminConnectParams.png)
+![GRun Fields](/doc/GRunWatchFields.png)
+
+#### Less fields
 If some fields are configured with option  **Empty**, the other fields on the same line will automatically expand. For example, the following screen is configured with **Field 2B = Empty**.
 
 ![GRun Expand](/doc/GRunWatch1.png)
