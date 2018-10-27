@@ -24,11 +24,6 @@ class GRunView extends WatchUi.DataField
   private var timerLastKM;
   // Exact time when "currentKM" was last changed
   private var startTimerCurrentKM;
-  // ETA
-  private var eta5k;
-  private var eta10k;
-  private var etaHalfMarathon;
-  private var etaMarathon;
   
   // Header Position change the layout. Possible values are 1, 2 and 3
   private var headerPosition;
@@ -762,10 +757,7 @@ class GRunView extends WatchUi.DataField
       return info.elapsedDistance / 1000;
     }
     
-    //OPTION_ETA_5K = 21,
-    //OPTION_ETA_10K = 22,
-    //OPTION_ETA_HALF_MARATHON = 23,
-    //OPTION_ETA_MARATHON = 24
+    // Estimated Time for 5 km
     if ( (value == OPTION_ETA_5K) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 5000 - info.elapsedDistance;
@@ -773,6 +765,7 @@ class GRunView extends WatchUi.DataField
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
+    // Estimated Time for 10 km
     if ( (value == OPTION_ETA_10K) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 10000 - info.elapsedDistance;
@@ -780,6 +773,7 @@ class GRunView extends WatchUi.DataField
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
+    // Estimated Time for half marathon (21.075.5 km)
     if ( (value == OPTION_ETA_HALF_MARATHON) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 21097.5 - info.elapsedDistance;
@@ -787,6 +781,7 @@ class GRunView extends WatchUi.DataField
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
+    // Estimated Time for marathon (42.195 km)
     if ( (value == OPTION_ETA_MARATHON) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 42195 - info.elapsedDistance;

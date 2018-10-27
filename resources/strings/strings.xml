@@ -8,18 +8,18 @@
   <string id="PARAM_HEADER_POSITION_2">Top / Bottom</string>
   <string id="PARAM_HEADER_POSITION_3">Bottom / Top</string>
   
-  <string id="PARAM_MIN_PACE">Minimum Pace</string>
-  <string id="PARAM_MAX_PACE">Maximum Pace</string>
+  <string id="PARAM_MIN_PACE">Minimum Pace (in seconds)</string>
+  <string id="PARAM_MAX_PACE">Maximum Pace (in seconds)</string>
   <string id="PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">Middle Column Percentage Size</string>
   
-  <string id="PARAM_AREA1">Area 1</string>
-  <string id="PARAM_AREA2">Area 2</string>
-  <string id="PARAM_AREA3">Area 3</string>
-  <string id="PARAM_AREA4">Area 4</string>
-  <string id="PARAM_AREA5">Area 5</string>
-  <string id="PARAM_AREA6">Area 6</string>
-  <string id="PARAM_AREA7">Area 7</string>
-  <string id="PARAM_AREA8">Area 8</string>
-  <string id="PARAM_AREA9">Area 9</string>
-  <string id="PARAM_AREA10">Area 10</string>
+  <string id="PARAM_AREA1">Field 1</string>
+  <string id="PARAM_AREA2">Field 2A</string>
+  <string id="PARAM_AREA3">Field 2B</string>
+  <string id="PARAM_AREA4">Field 2C</string>
+  <string id="PARAM_AREA5">Field 3A</string>
+  <string id="PARAM_AREA6">Field 3B</string>
+  <string id="PARAM_AREA7">Field 3C</string>
+  <string id="PARAM_AREA8">Field 4A</string>
+  <string id="PARAM_AREA9">Field 3B</string>
+  <string id="PARAM_AREA10">Field 5</string>
 </strings>
