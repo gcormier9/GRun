@@ -35,12 +35,9 @@ The following fields are currently supported:
 - ETA Marathon (42.195 km)
 
 ## Notes
-Fields related to distance are displayed in km or mile depending on the user profile.
-
-Fields related to speed are displayed in km/h or mile/h depending on the user profile.
-
-Fields related to pace are displayed in min/km or min/mile depending on the user profile.
-
-Heart Rate is displayed in color based on user profile heart rate zone.
-
-Current Pace and Average Pace are displayed in color based on application parameters (Blue if too fast, Green if between Min and Max Pace, Red if too slow).
+- Fields related to distance are displayed in km or mile depending on the user profile.
+- Fields related to speed are displayed in km/h or mile/h depending on the user profile.
+- Fields related to pace are displayed in min/km or min/mile depending on the user profile.
+- Heart Rate is displayed in color based on user profile heart rate zone.
+- Current Pace and Average Pace are displayed in color based on application parameters
+  - Blue if too fast, Green if between Min and Max Pace, Red if too slow
