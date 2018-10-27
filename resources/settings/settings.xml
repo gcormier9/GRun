@@ -18,45 +18,305 @@
   <setting propertyKey="@Properties.MiddleColumnPercentageSize" title="@Strings.PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">
     <settingConfig type="numeric" min="0" />
   </setting>
-
+  
   <setting propertyKey="@Properties.Area1" title="@Strings.PARAM_AREA1">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area2" title="@Strings.PARAM_AREA2">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area3" title="@Strings.PARAM_AREA3">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area4" title="@Strings.PARAM_AREA4">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area5" title="@Strings.PARAM_AREA5">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area6" title="@Strings.PARAM_AREA6">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area7" title="@Strings.PARAM_AREA7">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area8" title="@Strings.PARAM_AREA8">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area9" title="@Strings.PARAM_AREA9">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
   <setting propertyKey="@Properties.Area10" title="@Strings.PARAM_AREA10">
-    <settingConfig type="numeric" min="0" />
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.Field00</listEntry>
+      <listEntry value="1">@Strings.Field01</listEntry>
+      <listEntry value="2">@Strings.Field02</listEntry>
+      <listEntry value="3">@Strings.Field03</listEntry>
+      <listEntry value="4">@Strings.Field04</listEntry>
+      <listEntry value="5">@Strings.Field05</listEntry>
+      <listEntry value="6">@Strings.Field06</listEntry>
+      <listEntry value="7">@Strings.Field07</listEntry>
+      <listEntry value="8">@Strings.Field08</listEntry>
+      <listEntry value="9">@Strings.Field09</listEntry>
+      <listEntry value="10">@Strings.Field10</listEntry>
+      <listEntry value="11">@Strings.Field11</listEntry>
+      <listEntry value="12">@Strings.Field12</listEntry>
+      <listEntry value="13">@Strings.Field13</listEntry>
+      <listEntry value="14">@Strings.Field14</listEntry>
+      <listEntry value="15">@Strings.Field15</listEntry>
+      <listEntry value="16">@Strings.Field16</listEntry>
+      <listEntry value="17">@Strings.Field17</listEntry>
+      <listEntry value="18">@Strings.Field18</listEntry>
+      <listEntry value="19">@Strings.Field19</listEntry>
+      <listEntry value="20">@Strings.Field20</listEntry>
+      <listEntry value="21">@Strings.Field21</listEntry>
+      <listEntry value="22">@Strings.Field22</listEntry>
+      <listEntry value="23">@Strings.Field23</listEntry>
+      <listEntry value="24">@Strings.Field24</listEntry>
+    </settingConfig>
   </setting>
   
 </settings>
