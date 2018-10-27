@@ -6,6 +6,7 @@ using Toybox.Time.Gregorian;
 using Toybox.UserProfile;
 
 const CONVERSION_KM_TO_MILE = 0.62137119;
+const CONVERSION_MILE_TO_METER = 1609.344;
 const CONVERSION_METER_TO_FEET = 3.28084;
 const LENGTH_GPS_ICON = 28;
 const LENGTH_BATTERY_ICON = 50;
@@ -400,14 +401,23 @@ class GRunView extends WatchUi.DataField
     //  - OPTION_ETA_MARATHON = 24
     v1 = getParameter("Area1", OPTION_CURRENT_HEART_RATE);
     v2 = getParameter("Area2", OPTION_PREVIOUS_KM_OR_MILE);
-    v3 = getParameter("Area3", OPTION_CURRENT_CADENCE);
+    //v3 = getParameter("Area3", OPTION_CURRENT_CADENCE);
     v4 = getParameter("Area4", OPTION_CURRENT_PACE);
     v5 = getParameter("Area5", OPTION_ELAPSED_DISTANCE);
     v6 = getParameter("Area6", OPTION_ALTITUDE);
     v7 = getParameter("Area7", OPTION_AVERAGE_PACE);
-    v8 = getParameter("Area8", OPTION_TIMER_TIME);
+    //v8 = getParameter("Area8", OPTION_TIMER_TIME);
     v9 = getParameter("Area9", OPTION_CURRENT_TIME);
     v10 = getParameter("Area10", OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY);
+    
+    headerPosition = 1;
+    v2 = OPTION_AVERAGE_PACE;
+    v4 = OPTION_ETA_MARATHON;
+    v5 = OPTION_CURRENT_PACE;
+    v6 = OPTION_ELAPSED_DISTANCE;
+    v7 = OPTION_TIMER_TIME;
+    minPace = 315;
+    maxPace = 345;
     
     hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
     
@@ -655,13 +665,13 @@ class GRunView extends WatchUi.DataField
       
       if (System.getDeviceSettings().paceUnits == System.UNIT_STATUTE) {
         // Convert in second per mile
-        return (1000 / info.averageSpeed * CONVERSION_KM_TO_MILE).toNumber(); 
+        return (CONVERSION_MILE_TO_METER /  info.averageSpeed).toNumber();
       }
       
       return (1000 / info.averageSpeed).toNumber();
     }
     
-    /* Not required to manual calculate Pace. Use OPTION_AVERAGE_PACE instead
+    // Average pace in second per kilometer (Calculated mnually using timer/distance)
     if ( (value == OPTION_AVERAGE_PACE_MANUAL_CALC) && (info has :elapsedDistance) && (info.elapsedDistance != null) && (info has :timerTime) && (info.timerTime != null) )
     {
       // Convert to kilometers (km)
@@ -675,7 +685,6 @@ class GRunView extends WatchUi.DataField
       // Convert in seconds per km
       return (info.timerTime.toFloat() / info.elapsedDistance).toNumber();
     }
-    */
     
     // Average speed during the current activity in meters per second (mps)
     if ( (value == OPTION_AVERAGE_SPEED) && (info has :averageSpeed) && (info.averageSpeed != null) )
@@ -726,7 +735,7 @@ class GRunView extends WatchUi.DataField
       
       if (System.getDeviceSettings().paceUnits == System.UNIT_STATUTE) {
         // Convert in second per mile
-        return (1000 / info.currentSpeed * CONVERSION_KM_TO_MILE).toNumber(); 
+        return (CONVERSION_MILE_TO_METER /  info.currentSpeed).toNumber();
       }
       
       // Convert in second per kilometer
@@ -769,25 +778,29 @@ class GRunView extends WatchUi.DataField
     //OPTION_ETA_MARATHON = 24
     if ( (value == OPTION_ETA_5K) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
-      var remainingDistance = 5000 - (info.elapsedDistance / 1000);
+      var remainingDistance = 5000 - info.elapsedDistance;
+      if (remainingDistance < 0) { valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
     if ( (value == OPTION_ETA_10K) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
-      var remainingDistance = 10000 - (info.elapsedDistance / 1000);
+      var remainingDistance = 10000 - info.elapsedDistance;
+      if (remainingDistance < 0) { valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
     if ( (value == OPTION_ETA_HALF_MARATHON) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
-      var remainingDistance = 21097.5 - (info.elapsedDistance / 1000);
+      var remainingDistance = 21097.5 - info.elapsedDistance;
+      if (remainingDistance < 0) { valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
     if ( (value == OPTION_ETA_MARATHON) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
-      var remainingDistance = 42195 - (info.elapsedDistance / 1000);
+      var remainingDistance = 42195 - info.elapsedDistance;
+      if (remainingDistance < 0) { valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
