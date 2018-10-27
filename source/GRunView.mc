@@ -761,7 +761,7 @@ class GRunView extends WatchUi.DataField
     if ( (value == OPTION_ETA_5K) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 5000 - info.elapsedDistance;
-      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { valueData; }
+      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { return valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
@@ -769,7 +769,7 @@ class GRunView extends WatchUi.DataField
     if ( (value == OPTION_ETA_10K) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 10000 - info.elapsedDistance;
-      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { valueData; }
+      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { return valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
@@ -777,7 +777,7 @@ class GRunView extends WatchUi.DataField
     if ( (value == OPTION_ETA_HALF_MARATHON) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 21097.5 - info.elapsedDistance;
-      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { valueData; }
+      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { return valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
@@ -785,7 +785,7 @@ class GRunView extends WatchUi.DataField
     if ( (value == OPTION_ETA_MARATHON) && (info has :averageSpeed) && (info.averageSpeed != null) && (info has :elapsedDistance) && (info.elapsedDistance != null)  && (info has :timerTime) && (info.timerTime != null))
     {
       var remainingDistance = 42195 - info.elapsedDistance;
-      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { valueData; }
+      if ( (remainingDistance < 0) || (info.averageSpeed <= 0) ) { return valueData; }
       return (info.timerTime / 1000) + (remainingDistance / info.averageSpeed);
     }
     
