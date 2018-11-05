@@ -4,7 +4,7 @@ Configurable Garmin Watch datafield
 ![GRun Cover Image](/doc/GRunWatch.png) 
 
 ## Release Notes
-### Version 1.10
+### Version 1.11
  - Area 4 and 6 expand vertically: If values 4A/4B or 5 are missing, area 4A/4B or 5 will expand vertically
  - ETA Auto-Switch: If one area is configured with "ETA 5K" and you reach 5 km during your run. the value will automatically change to "ETA 10K", then "ETA 21K", then "ETA 42K". Same apply to "ETA 10K" and "ETA 21K".
  - "Time spend on current km/mile" displays a background color indicating progress on the current km/mile.
