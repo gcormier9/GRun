@@ -16,7 +16,7 @@
   <string id="Field01">Time</string>
   <string id="Field02">Timer</string>
   <string id="Field03">Time spend on current km/mile</string>
-  <string id="Field04">Last km/mile Time</string>
+  <string id="Field04">Time spend on previous km/mile</string>
   <string id="Field05">Distance</string>
   <string id="Field06">Current Heart Rate</string>
   <string id="Field07">Current Pace</string>
@@ -46,6 +46,6 @@
   <string id="PARAM_AREA6">Field 3B</string>
   <string id="PARAM_AREA7">Field 3C</string>
   <string id="PARAM_AREA8">Field 4A</string>
-  <string id="PARAM_AREA9">Field 3B</string>
+  <string id="PARAM_AREA9">Field 4B</string>
   <string id="PARAM_AREA10">Field 5</string>
 </strings>
