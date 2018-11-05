@@ -3,6 +3,17 @@ Configurable Garmin Watch datafield
 
 ![GRun Cover Image](/doc/GRunWatch.png) 
 
+## Release Notes
+### Version 1.10
+ - Area 4 and 6 expand vertically: If values 4A/4B or 5 are missing, area 4A/4B or 5 will expand vertically
+ - ETA Auto-Switch: If one area is configured with "ETA 5K" and you reach 5 km during your run. the value will automatically change to "ETA 10K", then "ETA 21K", then "ETA 42K". Same apply to "ETA 10K" and "ETA 21K".
+ - "Time spend on current km/mile" displays a background color indicating progress on the current km/mile.
+ - Float fields are displayed with 2 digits if lower than 10 (Example: 9.92). Values greather than 10 display a single digit (Example: 10.1)
+ - Bug Fix: Area "Battery Icon" now display the battery icon instead of the GPS icon
+ - Code Optimization to minimize memory usage
+ 
+ ![GRun Version 1.10](/doc/GRunWatch8.png)
+
 ## Description
 Highly configurable datafield where you can select up to 10 fields to display. If less fields are configured, the field area on each line will automatically expand.
 The second and third row display a header field with the value. The Header fields can be positioned Top/Top, Top/Bottom or Bottom/Top.
