@@ -422,20 +422,7 @@ class GRunView extends WatchUi.DataField
     v8 = getParameter("Area8", OPTION_TIMER_TIME);
     v9 = getParameter("Area9", OPTION_CURRENT_TIME);
     v10 = getParameter("Area10", OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY);
-    
-    
-    middleColumnPercentageSize = 100;
-    v1 = OPTION_CURRENT_HEART_RATE;
-    v2 = OPTION_CURRENT_PACE;
-    v3 = OPTION_AVERAGE_PACE;
-    v4 = null;
-    v5 = OPTION_TIMER_TIME;
-    v6 = OPTION_ELAPSED_DISTANCE;
-    v7 = OPTION_ETA_5K;
-    v8 = OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE;
-    v9 = OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE;
-    v10 = null; //OPTION_CURRENT_TIME; 
-    
+        
     hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
     deviceModel = WatchUi.loadResource(Rez.Strings.DeviceModel);
     deviceWidth = deviceSettings.screenWidth;
