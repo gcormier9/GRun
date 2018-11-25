@@ -1,4 +1,8 @@
 <settings>
+  <setting propertyKey="@Properties.AppVersion" title="@Strings.PARAM_APP_VERSION">
+    <settingConfig type="alphaNumeric" readonly="true" />
+  </setting>
+    
   <setting propertyKey="@Properties.HeaderPosition" title="@Strings.PARAM_HEADER_POSITION">
     <settingConfig type="list">
       <listEntry value="1">@Strings.PARAM_HEADER_POSITION_1</listEntry>

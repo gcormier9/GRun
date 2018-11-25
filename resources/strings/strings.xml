@@ -1,5 +1,6 @@
 <strings>
   <string id="AppName">GRun</string>
+  <string id="PARAM_APP_VERSION">GRun Version</string>
   <string id="DeviceModel">Unknown</string>
   
   <string id="PARAM_HEADER_POSITION">Header Position</string>
