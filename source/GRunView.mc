@@ -732,7 +732,7 @@ class GRunView extends WatchUi.DataField
     if (info.timerTime != null)
     {
       // Convert in second
-      timer = info.timerTime / 1000;
+      timer = info.timerTime / 1000.0;
     }
     
     // Elapsed  of the current activity in meters (m)
@@ -835,7 +835,7 @@ class GRunView extends WatchUi.DataField
       var lapDistance = distance - startDistanceCurrentLap;
       
       if (lapDistance <= 0) { return 0; }
-      return lapTimer.toFloat() / lapDistance;
+      return lapTimer / lapDistance;
     }
     
     // Current altitude in meters (m)
@@ -890,7 +890,7 @@ class GRunView extends WatchUi.DataField
     if ( (value == OPTION_AVERAGE_PACE_MANUAL_CALC) && (info.elapsedDistance != null) )
     {
       if (distance <= 0) { return 0; }
-      return timer.toFloat() / distance;
+      return timer / distance;
     }
     
     // Average speed during the current activity in meters per second (mps)
@@ -1709,6 +1709,7 @@ class GRunView extends WatchUi.DataField
       case OPTION_CURRENT_PACE:
       case OPTION_AVERAGE_PACE:
       case OPTION_AVERAGE_PACE_MANUAL_CALC:
+      case OPTION_CURRENT_LAP_PACE:
         if (value <= 0) { return ((id >= 8) && (id <= 10)) ? foregroundColor2 : foregroundColor1; }
         else if (value < minPace) { return Graphics.COLOR_BLUE; }
         else if (value > maxPace) { return Graphics.COLOR_RED; }

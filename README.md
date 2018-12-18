@@ -4,6 +4,9 @@ Configurable Garmin Watch datafield
 ![GRun Cover Image](/doc/GRunWatch.png) 
 
 ## Release Notes
+### Version 1.15
+ - Added color for Lap Pace
+
 ### Version 1.14
  - Added the following fields: Lap Time, Lap Distance, Lap Pace
  
