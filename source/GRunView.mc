@@ -1244,7 +1244,7 @@ class GRunView extends WatchUi.DataField
     var valueY = valueArea[1] + (valueArea[3] / 2);
     if (deviceModel.equals("fenixFixFont")) {
       if (id > 7) { valueY -= 1; }
-      else if (id > 1) { valueY -= 3; }
+      //else if (id > 1) { valueY -= 3; }
     }
     
     // Set Data background color
