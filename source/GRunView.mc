@@ -24,14 +24,17 @@ class GRunView extends WatchUi.DataField
   private var avgSpeed = 0;
   // Integer indicating the current km or mile. For example, if the distance currently traveled is 3.25 km, the variable will be equal to 3.
   private var currentKM = 0;
-  // Time taken on current km/mile
-  private var timerCurrentKM = 0;
   // Time taken on previous km or mile
   private var timerLastKM = 0;
   // Exact time when "currentKM" was last changed
   private var startTimerCurrentKM = 0;
   // Distance reset every km or mile
   private var distanceOnCurrentKM = 0;
+  
+  // Exact time when lap has changed
+  private var startTimerCurrentLap = 0;
+  // Exact distance when lap has changed
+  private var startDistanceCurrentLap = 0;
   
   // Display data in Metric or Imperial
   private var isPaceUnitsImperial;
@@ -111,7 +114,10 @@ class GRunView extends WatchUi.DataField
     OPTION_ETA_5K = 21,
     OPTION_ETA_10K = 22,
     OPTION_ETA_HALF_MARATHON = 23,
-    OPTION_ETA_MARATHON = 24
+    OPTION_ETA_MARATHON = 24,
+    OPTION_CURRENT_LAP_TIME = 25,
+    OPTION_CURRENT_LAP_DISTANCE = 26,
+    OPTION_CURRENT_LAP_PACE = 27
     /*
     OPTION_AMBIENT_PRESSURE = 25,
     OPTION_AVERAGE_CADENCE = 26,
@@ -347,6 +353,15 @@ class GRunView extends WatchUi.DataField
       
       case OPTION_ETA_MARATHON:
         return "OPTION_ETA_MARATHON";
+      
+      case OPTION_CURRENT_LAP_TIME:
+        return "OPTION_CURRENT_LAP_TIME";
+      
+      case OPTION_CURRENT_LAP_DISTANCE:
+        return "OPTION_CURRENT_LAP_DISTANCE";
+      
+      case OPTION_CURRENT_LAP_PACE:
+        return "OPTION_CURRENT_LAP_PACE";
     }
   }
   */
@@ -412,6 +427,9 @@ class GRunView extends WatchUi.DataField
     //  - OPTION_ETA_10K = 22
     //  - OPTION_ETA_HALF_MARATHON = 23
     //  - OPTION_ETA_MARATHON = 24
+    //  - OPTION_CURRENT_LAP_TIME = 25
+    //  - OPTION_CURRENT_LAP_DISTANCE = 26
+    //  - OPTION_CURRENT_LAP_PACE = 27
     v1 = getParameter("Area1", OPTION_CURRENT_HEART_RATE);
     v2 = getParameter("Area2", OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE);
     v3 = getParameter("Area3", OPTION_CURRENT_CADENCE);
@@ -422,7 +440,7 @@ class GRunView extends WatchUi.DataField
     v8 = getParameter("Area8", OPTION_TIMER_TIME);
     v9 = getParameter("Area9", OPTION_CURRENT_TIME);
     v10 = getParameter("Area10", OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY);
-        
+    
     hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
     deviceModel = WatchUi.loadResource(Rez.Strings.DeviceModel);
     deviceWidth = deviceSettings.screenWidth;
@@ -655,6 +673,20 @@ class GRunView extends WatchUi.DataField
   {
   }
   
+  // A lap event has occurred.
+  // This method is called when a lap is added to the current activity. A notification is triggered after the lap record has been written to the FIT file.
+  function onTimerLap()
+  {
+    startTimerCurrentLap = timer;
+    startDistanceCurrentLap = distance;
+  }
+  
+  
+  function onWorkoutStepComplete()
+  {
+    onTimerLap();
+  }
+  
   
   function configureID(id, selectedOption)
   {
@@ -770,7 +802,6 @@ class GRunView extends WatchUi.DataField
       }
       
       distanceOnCurrentKM = distance - Math.floor(distance);
-      timerCurrentKM = timer - startTimerCurrentKM;
     }
     
     // Time taken on previous km or mile
@@ -782,7 +813,29 @@ class GRunView extends WatchUi.DataField
     // Elapsed time for the current km or mile
     if (value == OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE)
     {
-      return timerCurrentKM;
+      return (timer - startTimerCurrentKM);
+    }
+    
+    // Elapsed time for the current lap
+    if (value == OPTION_CURRENT_LAP_TIME)
+    {
+      return (timer - startTimerCurrentLap);
+    }
+    
+    // Elapsed distance for the current lap
+    if (value == OPTION_CURRENT_LAP_DISTANCE)
+    {
+      return (distance - startDistanceCurrentLap);
+    }
+    
+    // Average Pace for the current lap
+    if (value == OPTION_CURRENT_LAP_PACE)
+    {
+      var lapTimer = timer - startTimerCurrentLap;
+      var lapDistance = distance - startDistanceCurrentLap;
+      
+      if (lapDistance <= 0) { return 0; }
+      return lapTimer.toFloat() / lapDistance;
     }
     
     // Current altitude in meters (m)
@@ -1481,6 +1534,15 @@ class GRunView extends WatchUi.DataField
 
       case OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE:
         return (isDistanceUnitsImperial == true) ? "CUR MI" : "CUR KM";
+      
+      case OPTION_CURRENT_LAP_TIME:
+        return "LAP TIME";
+
+      case OPTION_CURRENT_LAP_DISTANCE:
+        return "LAP DIST";
+
+      case OPTION_CURRENT_LAP_PACE:
+        return "LAP PACE";
 
       case OPTION_TOTAL_ASCENT:
         return "ASCENT";
@@ -1533,6 +1595,7 @@ class GRunView extends WatchUi.DataField
       case OPTION_AVERAGE_PACE_MANUAL_CALC:
       case OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE:
       case OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE:
+      case OPTION_CURRENT_LAP_PACE:
         return formatDuration(value, false);
       
       case OPTION_TIMER_TIME:
@@ -1540,6 +1603,7 @@ class GRunView extends WatchUi.DataField
       case OPTION_ETA_10K:
       case OPTION_ETA_HALF_MARATHON:
       case OPTION_ETA_MARATHON:
+      case OPTION_CURRENT_LAP_TIME:
         return formatDuration(value, true);
       
       case OPTION_CURRENT_TIME:

@@ -1,5 +1,5 @@
 <properties>
-	<property id="AppVersion" type="string">1.13</property>
+	<property id="AppVersion" type="string">1.14</property>
 	<property id="HeaderPosition" type="number">1</property>
 	<property id="MinPace" type="number">315</property>
 	<property id="MaxPace" type="number">345</property>

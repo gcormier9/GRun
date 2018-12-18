@@ -4,6 +4,12 @@ Configurable Garmin Watch datafield
 ![GRun Cover Image](/doc/GRunWatch.png) 
 
 ## Release Notes
+### Version 1.14
+ - Added the following fields: Lap Time, Lap Distance, Lap Pace
+ 
+### Version 1.13
+ - Adjust font vertical position for fenix 5s and fenix chronos
+
 ### Version 1.11
  - Area 4 and 6 expand vertically: If values 4A/4B or 5 are missing, area 4A/4B or 5 will expand vertically
  - ETA Auto-Switch: If one area is configured with "ETA 5K" and you reach 5 km during your run. the value will automatically change to "ETA 10K", then "ETA 21K", then "ETA 42K". Same apply to "ETA 10K" and "ETA 21K".
