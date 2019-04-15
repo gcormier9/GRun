@@ -167,6 +167,213 @@ class GRunView extends WatchUi.DataField
     */
   //}
   
+  /* Uncomment for debug purpose only. This part of code is commented to optimize memory usage
+  function log(text)
+  {
+    var date = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+    var formattedDate = date.year + "-" + date.month.format("%02d") + "-" + date.day.format("%02d") + " " + date.hour.format("%02d") + ":" + date.min.format("%02d") + ":" + date.sec.format("%02d");
+    System.println(formattedDate + " " + text);
+  }
+  
+  function getOptionName(type)
+  {
+    switch (type)
+    {
+      case OPTION_ALTITUDE:
+        return "OPTION_ALTITUDE";
+      
+      case OPTION_AMBIENT_PRESSURE:
+        return "OPTION_AMBIENT_PRESSURE";
+      
+      case OPTION_AVERAGE_CADENCE:
+        return "OPTION_AVERAGE_CADENCE";
+      
+      case OPTION_AVERAGE_DISTANCE:
+        return "OPTION_AVERAGE_DISTANCE";
+      
+      case OPTION_AVERAGE_HEART_RATE:
+        return "OPTION_AVERAGE_HEART_RATE";
+      
+      case OPTION_AVERAGE_PACE:
+        return "OPTION_AVERAGE_PACE";
+      
+      case OPTION_AVERAGE_PACE_MANUAL_CALC:
+        return "OPTION_AVERAGE_PACE_MANUAL_CALC";
+      
+      case OPTION_AVERAGE_POWER:
+        return "OPTION_AVERAGE_POWER";
+      
+      case OPTION_AVERAGE_SPEED:
+        return "OPTION_AVERAGE_SPEED";
+      
+      case OPTION_BEARING:
+        return "OPTION_BEARING";
+      
+      case OPTION_BEARING_FROM_START:
+        return "OPTION_BEARING_FROM_START";
+      
+      case OPTION_CALORIES:
+        return "OPTION_CALORIES";
+      
+      case OPTION_CURRENT_BATTERY:
+        return "OPTION_CURRENT_BATTERY";
+      
+      case OPTION_CURRENT_CADENCE:
+        return "OPTION_CURRENT_CADENCE";
+      
+      case OPTION_CURRENT_HEADING:
+        return "OPTION_CURRENT_HEADING";
+      
+      case OPTION_CURRENT_HEART_RATE:
+        return "OPTION_CURRENT_HEART_RATE";
+      
+      case OPTION_CURRENT_LOCATION:
+        return "OPTION_CURRENT_LOCATION";
+      
+      case OPTION_CURRENT_LOCATION_ACCURACY:
+        return "OPTION_CURRENT_LOCATION_ACCURACY";
+      
+      case OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY:
+        return "OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY";
+      
+      case OPTION_CURRENT_PACE:
+        return "OPTION_CURRENT_PACE";
+      
+      case OPTION_CURRENT_POWER:
+        return "OPTION_CURRENT_POWER";
+      
+      case OPTION_CURRENT_SPEED:
+        return "OPTION_CURRENT_SPEED";
+      
+      case OPTION_CURRENT_TIME:
+        return "OPTION_CURRENT_TIME";
+      
+      case OPTION_DISTANCE_TO_DESTINATION:
+        return "OPTION_DISTANCE_TO_DESTINATION";
+      
+      case OPTION_DISTANCE_TO_NEXT_POINT:
+        return "OPTION_DISTANCE_TO_NEXT_POINT";
+      
+      case OPTION_ELAPSED_DISTANCE:
+        return "OPTION_ELAPSED_DISTANCE";
+      
+      case OPTION_ELAPSED_TIME:
+        return "OPTION_ELAPSED_TIME";
+      
+      case OPTION_ELEVATION_AT_DESTINATION:
+        return "OPTION_ELEVATION_AT_DESTINATION";
+      
+      case OPTION_ELEVATION_AT_NEXT_POINT:
+        return "OPTION_ELEVATION_AT_NEXT_POINT";
+      
+      case OPTION_ENERGY_EXPENDITURE:
+        return "OPTION_ENERGY_EXPENDITURE";
+      
+      case OPTION_FRONT_DERAILLEUR_INDEX:
+        return "OPTION_FRONT_DERAILLEUR_INDEX";
+      
+      case OPTION_FRONT_DERAILLEUR_MAX:
+        return "OPTION_FRONT_DERAILLEUR_MAX";
+      
+      case OPTION_FRONT_DERAILLEUR_SIZE:
+        return "OPTION_FRONT_DERAILLEUR_SIZE";
+      
+      case OPTION_MAX_CADENCE:
+        return "OPTION_MAX_CADENCE";
+      
+      case OPTION_MAX_HEART_RATE:
+        return "OPTION_MAX_HEART_RATE";
+      
+      case OPTION_MAX_POWER:
+        return "OPTION_MAX_POWER";
+      
+      case OPTION_MAX_SPEED:
+        return "OPTION_MAX_SPEED";
+      
+      case OPTION_MEAN_SEA_LEVEL_PRESSURE:
+        return "OPTION_MEAN_SEA_LEVEL_PRESSURE";
+      
+      case OPTION_NAME_OF_DESTINATION:
+        return "OPTION_NAME_OF_DESTINATION";
+      
+      case OPTION_NAME_OF_NEXT_POINT:
+        return "OPTION_NAME_OF_NEXT_POINT";
+      
+      case OPTION_OFF_COURSE_DISTANCE:
+        return "OPTION_OFF_COURSE_DISTANCE";
+      
+      case OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE:
+        return "OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE";
+      
+      case OPTION_RAW_AMBIENT_PRESSURE:
+        return "OPTION_RAW_AMBIENT_PRESSURE";
+      
+      case OPTION_REAR_DERAILLEUR_INDEX:
+        return "OPTION_REAR_DERAILLEUR_INDEX";
+      
+      case OPTION_REAR_DERAILLEUR_MAX:
+        return "OPTION_REAR_DERAILLEUR_MAX";
+      
+      case OPTION_REAR_DERAILLEUR_SIZE:
+        return "OPTION_REAR_DERAILLEUR_SIZE";
+      
+      case OPTION_START_LOCATION:
+        return "OPTION_START_LOCATION";
+      
+      case OPTION_START_TIME:
+        return "OPTION_START_TIME";
+      
+      case OPTION_SWIM_STROKE_TYPE:
+        return "OPTION_SWIM_STROKE_TYPE";
+      
+      case OPTION_SWIM_SWOLF:
+        return "OPTION_SWIM_SWOLF";
+      
+      case OPTION_TIMER_STATE:
+        return "OPTION_TIMER_STATE";
+      
+      case OPTION_TIMER_TIME:
+        return "OPTION_TIMER_TIME";
+      
+      case OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE:
+        return "OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE";
+      
+      case OPTION_TOTAL_ASCENT:
+        return "OPTION_TOTAL_ASCENT";
+      
+      case OPTION_TOTAL_DESCENT:
+        return "OPTION_TOTAL_DESCENT";
+      
+      case OPTION_TRACK:
+        return "OPTION_TRACK";
+      
+      case OPTION_TRAINING_EFFECT:
+        return "OPTION_TRAINING_EFFECT";
+      
+      case OPTION_ETA_5K:
+        return "OPTION_ETA_5K";
+      
+      case OPTION_ETA_10K:
+        return "OPTION_ETA_10K";
+      
+      case OPTION_ETA_HALF_MARATHON:
+        return "OPTION_ETA_HALF_MARATHON";
+      
+      case OPTION_ETA_MARATHON:
+        return "OPTION_ETA_MARATHON";
+      
+      case OPTION_CURRENT_LAP_TIME:
+        return "OPTION_CURRENT_LAP_TIME";
+      
+      case OPTION_CURRENT_LAP_DISTANCE:
+        return "OPTION_CURRENT_LAP_DISTANCE";
+      
+      case OPTION_CURRENT_LAP_PACE:
+        return "OPTION_CURRENT_LAP_PACE";
+    }
+  }
+  */
+  
   function getParameter(paramName, defaultValue)
   {
     var paramValue = Application.Properties.getValue(paramName);
