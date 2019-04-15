@@ -62,6 +62,9 @@ The following fields are currently supported:
 - ETA 10K
 - ETA Half Marathon (21.075.5 km)
 - ETA Marathon (42.195 km)
+- Lap Time
+- Lap Distance
+- Lap Pace
 
 ## Notes
 - Fields related to distance are displayed in km or mile depending on the user profile.
