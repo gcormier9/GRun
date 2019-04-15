@@ -473,8 +473,8 @@ class GRunView extends WatchUi.DataField
   }
   
   
-  //function initDataVariables(v)
-  //{
+  function initDataVariables(v)
+  {
     //if ( (v == 6 /* OPTION_CURRENT_HEART_RATE */) || (v == 9 /* OPTION_AVERAGE_HEART_RATE */) || (v == OPTION_MAX_HEART_RATE) )
     //if ( (v == 6 /* OPTION_CURRENT_HEART_RATE */) || (v == 9 /* OPTION_AVERAGE_HEART_RATE */) )
     //{
@@ -486,18 +486,18 @@ class GRunView extends WatchUi.DataField
     //  return -1;
     //}
     
-    //if (v == 1 /* OPTION_CURRENT_TIME */)
-    //{
-    //  return System.getClockTime();
-    //}
+    if (v == 1 /* OPTION_CURRENT_TIME */)
+    {
+      return System.getClockTime();
+    }
     
     //if ( (v == 12 /* OPTION_AVERAGE_SPEED */) || (v == 8 /* OPTION_CURRENT_SPEED */) || (v == 5 /* OPTION_ELAPSED_DISTANCE */) )
     //{
     //  return 0.0;
     //}
     
-    //return 0;
-  //}
+    return 0;
+  }
   
  
   function initialize()
@@ -603,16 +603,16 @@ class GRunView extends WatchUi.DataField
     v9 = mergeArray[1];
     
     // Set default values
-    v1data = 0; //initDataVariables(v1);
-    v2data = 0; //initDataVariables(v2);
-    v3data = 0; //initDataVariables(v3);
-    v4data = 0; //initDataVariables(v4);
-    v5data = 0; //initDataVariables(v5);
-    v6data = 0; //initDataVariables(v6);
-    v7data = 0; //initDataVariables(v7);
-    v8data = 0; //initDataVariables(v8);
-    v9data = 0; //initDataVariables(v9);
-    v10data = 0; //initDataVariables(v10);
+    v1data = initDataVariables(v1);
+    v2data = initDataVariables(v2);
+    v3data = initDataVariables(v3);
+    v4data = initDataVariables(v4);
+    v5data = initDataVariables(v5);
+    v6data = initDataVariables(v6);
+    v7data = initDataVariables(v7);
+    v8data = initDataVariables(v8);
+    v9data = initDataVariables(v9);
+    v10data = initDataVariables(v10);
   }
   
   
