@@ -23,6 +23,14 @@
     <settingConfig type="numeric" min="0" />
   </setting>
   
+  <setting propertyKey="@Properties.HeaderBackgroundColor" title="@Strings.PARAM_HEADER_BACKGROUND_COLOR">
+    <settingConfig type="boolean" />
+  </setting>
+  
+  <setting propertyKey="@Properties.DataForegroundColor" title="@Strings.PARAM_DATA_FOREGROUND_COLOR">
+    <settingConfig type="boolean" />
+  </setting>
+  
   <setting propertyKey="@Properties.Area1" title="@Strings.PARAM_AREA1">
     <settingConfig type="list">
       <listEntry value="0">@Strings.Field00</listEntry>

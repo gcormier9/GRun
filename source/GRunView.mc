@@ -5,11 +5,12 @@ using Toybox.Time;
 using Toybox.Time.Gregorian;
 using Toybox.UserProfile;
 
-const CONVERSION_KM_TO_MILE = 0.62137119;
-const CONVERSION_MILE_TO_KM = 1.609344;
-const CONVERSION_METER_TO_FEET = 3.28084;
-const LENGTH_GPS_ICON = 28;
-const LENGTH_BATTERY_ICON = 50;
+// In order to use less memory, numbers have been hardcoded instead of using const..
+//const CONVERSION_KM_TO_MILE = 0.62137119;
+//const CONVERSION_MILE_TO_KM = 1.609344;
+//const CONVERSION_METER_TO_FEET = 3.28084;
+//const LENGTH_GPS_ICON = 28;
+//const LENGTH_BATTERY_ICON = 50;
 
 
 class GRunView extends WatchUi.DataField
@@ -17,11 +18,9 @@ class GRunView extends WatchUi.DataField
   // Array of the current heart rate zone threshold values in beats per minute (bpm)
   private var hrZones;
   // Elapsed Distance
-  private var distance = 0;
+  private var distance = 0.0;
   // Timer
   private var timer = 0;
-  // Average Speed
-  private var avgSpeed = 0;
   // Integer indicating the current km or mile. For example, if the distance currently traveled is 3.25 km, the variable will be equal to 3.
   private var currentKM = 0;
   // Time taken on previous km or mile
@@ -40,6 +39,16 @@ class GRunView extends WatchUi.DataField
   private var isPaceUnitsImperial;
   private var isDistanceUnitsImperial;
   private var isElevationUnitsImperial;
+  
+  private var color1 = Graphics.COLOR_BLACK;
+  private var color2 = Graphics.COLOR_WHITE;
+  private var colorBorder = Graphics.COLOR_DK_GRAY;
+  private var colorHeader = Graphics.COLOR_LT_GRAY;
+  
+  // Display Header background in red/green/blue based on values (exemple current pace)
+  private var dynamicHeaderColor;
+  // Display Data foreground in red/green/blue based on values (exemple current pace)
+  private var dynamicForegroundColor;
   
   // Header Position change the layout. Possible values are 1, 2 and 3
   private var headerPosition;
@@ -83,13 +92,11 @@ class GRunView extends WatchUi.DataField
   //  - FONT_NUMBER_THAI_HOT: FNT_NOTO_SANS_BOLD_NMBR_94PX 
   private var fontIcons = WatchUi.loadResource(Rez.Fonts.Icons);
   private var fontTiny = WatchUi.loadResource(Rez.Fonts.Roboto_20_Bold);
-  private var fontTinyHeader = Graphics.FONT_XTINY;
-  private var fontSmallHeader = Graphics.FONT_SMALL;
-  private var fontMediumHeader = Graphics.FONT_MEDIUM;
-  private var fontSmallNumericValue = Graphics.FONT_NUMBER_MILD;
-  private var fontMediumNumericValue = Graphics.FONT_NUMBER_MEDIUM;
-    
-  enum {
+  
+  // In order to use less memory, numbers have been hardcoded instead of using enum..
+  // This makes code less readable, but is required since memory on Garmin watch is very limited
+  //enum {
+  /*
     OPTION_EMPTY = 0,
     OPTION_CURRENT_TIME = 1,
     OPTION_TIMER_TIME = 2,
@@ -118,7 +125,8 @@ class GRunView extends WatchUi.DataField
     OPTION_CURRENT_LAP_TIME = 25,
     OPTION_CURRENT_LAP_DISTANCE = 26,
     OPTION_CURRENT_LAP_PACE = 27
-    /*
+    */
+    /* Options below this line can be uncommented if someone required the functionnality
     OPTION_AMBIENT_PRESSURE = 25,
     OPTION_AVERAGE_CADENCE = 26,
     OPTION_AVERAGE_DISTANCE = 27,
@@ -157,214 +165,7 @@ class GRunView extends WatchUi.DataField
     OPTION_TRACK = 60,
     OPTION_TRAINING_EFFECT = 61
     */
-  }
-  
-  /* Uncomment for debug purpose only. This part of code is commented to optimize memory usage
-  function log(text)
-  {
-    var date = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-    var formattedDate = date.year + "-" + date.month.format("%02d") + "-" + date.day.format("%02d") + " " + date.hour.format("%02d") + ":" + date.min.format("%02d") + ":" + date.sec.format("%02d");
-    System.println(formattedDate + " " + text);
-  }
-  
-  function getOptionName(type)
-  {
-    switch (type)
-    {
-      case OPTION_ALTITUDE:
-        return "OPTION_ALTITUDE";
-      
-      case OPTION_AMBIENT_PRESSURE:
-        return "OPTION_AMBIENT_PRESSURE";
-      
-      case OPTION_AVERAGE_CADENCE:
-        return "OPTION_AVERAGE_CADENCE";
-      
-      case OPTION_AVERAGE_DISTANCE:
-        return "OPTION_AVERAGE_DISTANCE";
-      
-      case OPTION_AVERAGE_HEART_RATE:
-        return "OPTION_AVERAGE_HEART_RATE";
-      
-      case OPTION_AVERAGE_PACE:
-        return "OPTION_AVERAGE_PACE";
-      
-      case OPTION_AVERAGE_PACE_MANUAL_CALC:
-        return "OPTION_AVERAGE_PACE_MANUAL_CALC";
-      
-      case OPTION_AVERAGE_POWER:
-        return "OPTION_AVERAGE_POWER";
-      
-      case OPTION_AVERAGE_SPEED:
-        return "OPTION_AVERAGE_SPEED";
-      
-      case OPTION_BEARING:
-        return "OPTION_BEARING";
-      
-      case OPTION_BEARING_FROM_START:
-        return "OPTION_BEARING_FROM_START";
-      
-      case OPTION_CALORIES:
-        return "OPTION_CALORIES";
-      
-      case OPTION_CURRENT_BATTERY:
-        return "OPTION_CURRENT_BATTERY";
-      
-      case OPTION_CURRENT_CADENCE:
-        return "OPTION_CURRENT_CADENCE";
-      
-      case OPTION_CURRENT_HEADING:
-        return "OPTION_CURRENT_HEADING";
-      
-      case OPTION_CURRENT_HEART_RATE:
-        return "OPTION_CURRENT_HEART_RATE";
-      
-      case OPTION_CURRENT_LOCATION:
-        return "OPTION_CURRENT_LOCATION";
-      
-      case OPTION_CURRENT_LOCATION_ACCURACY:
-        return "OPTION_CURRENT_LOCATION_ACCURACY";
-      
-      case OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY:
-        return "OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY";
-      
-      case OPTION_CURRENT_PACE:
-        return "OPTION_CURRENT_PACE";
-      
-      case OPTION_CURRENT_POWER:
-        return "OPTION_CURRENT_POWER";
-      
-      case OPTION_CURRENT_SPEED:
-        return "OPTION_CURRENT_SPEED";
-      
-      case OPTION_CURRENT_TIME:
-        return "OPTION_CURRENT_TIME";
-      
-      case OPTION_DISTANCE_TO_DESTINATION:
-        return "OPTION_DISTANCE_TO_DESTINATION";
-      
-      case OPTION_DISTANCE_TO_NEXT_POINT:
-        return "OPTION_DISTANCE_TO_NEXT_POINT";
-      
-      case OPTION_ELAPSED_DISTANCE:
-        return "OPTION_ELAPSED_DISTANCE";
-      
-      case OPTION_ELAPSED_TIME:
-        return "OPTION_ELAPSED_TIME";
-      
-      case OPTION_ELEVATION_AT_DESTINATION:
-        return "OPTION_ELEVATION_AT_DESTINATION";
-      
-      case OPTION_ELEVATION_AT_NEXT_POINT:
-        return "OPTION_ELEVATION_AT_NEXT_POINT";
-      
-      case OPTION_ENERGY_EXPENDITURE:
-        return "OPTION_ENERGY_EXPENDITURE";
-      
-      case OPTION_FRONT_DERAILLEUR_INDEX:
-        return "OPTION_FRONT_DERAILLEUR_INDEX";
-      
-      case OPTION_FRONT_DERAILLEUR_MAX:
-        return "OPTION_FRONT_DERAILLEUR_MAX";
-      
-      case OPTION_FRONT_DERAILLEUR_SIZE:
-        return "OPTION_FRONT_DERAILLEUR_SIZE";
-      
-      case OPTION_MAX_CADENCE:
-        return "OPTION_MAX_CADENCE";
-      
-      case OPTION_MAX_HEART_RATE:
-        return "OPTION_MAX_HEART_RATE";
-      
-      case OPTION_MAX_POWER:
-        return "OPTION_MAX_POWER";
-      
-      case OPTION_MAX_SPEED:
-        return "OPTION_MAX_SPEED";
-      
-      case OPTION_MEAN_SEA_LEVEL_PRESSURE:
-        return "OPTION_MEAN_SEA_LEVEL_PRESSURE";
-      
-      case OPTION_NAME_OF_DESTINATION:
-        return "OPTION_NAME_OF_DESTINATION";
-      
-      case OPTION_NAME_OF_NEXT_POINT:
-        return "OPTION_NAME_OF_NEXT_POINT";
-      
-      case OPTION_OFF_COURSE_DISTANCE:
-        return "OPTION_OFF_COURSE_DISTANCE";
-      
-      case OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE:
-        return "OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE";
-      
-      case OPTION_RAW_AMBIENT_PRESSURE:
-        return "OPTION_RAW_AMBIENT_PRESSURE";
-      
-      case OPTION_REAR_DERAILLEUR_INDEX:
-        return "OPTION_REAR_DERAILLEUR_INDEX";
-      
-      case OPTION_REAR_DERAILLEUR_MAX:
-        return "OPTION_REAR_DERAILLEUR_MAX";
-      
-      case OPTION_REAR_DERAILLEUR_SIZE:
-        return "OPTION_REAR_DERAILLEUR_SIZE";
-      
-      case OPTION_START_LOCATION:
-        return "OPTION_START_LOCATION";
-      
-      case OPTION_START_TIME:
-        return "OPTION_START_TIME";
-      
-      case OPTION_SWIM_STROKE_TYPE:
-        return "OPTION_SWIM_STROKE_TYPE";
-      
-      case OPTION_SWIM_SWOLF:
-        return "OPTION_SWIM_SWOLF";
-      
-      case OPTION_TIMER_STATE:
-        return "OPTION_TIMER_STATE";
-      
-      case OPTION_TIMER_TIME:
-        return "OPTION_TIMER_TIME";
-      
-      case OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE:
-        return "OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE";
-      
-      case OPTION_TOTAL_ASCENT:
-        return "OPTION_TOTAL_ASCENT";
-      
-      case OPTION_TOTAL_DESCENT:
-        return "OPTION_TOTAL_DESCENT";
-      
-      case OPTION_TRACK:
-        return "OPTION_TRACK";
-      
-      case OPTION_TRAINING_EFFECT:
-        return "OPTION_TRAINING_EFFECT";
-      
-      case OPTION_ETA_5K:
-        return "OPTION_ETA_5K";
-      
-      case OPTION_ETA_10K:
-        return "OPTION_ETA_10K";
-      
-      case OPTION_ETA_HALF_MARATHON:
-        return "OPTION_ETA_HALF_MARATHON";
-      
-      case OPTION_ETA_MARATHON:
-        return "OPTION_ETA_MARATHON";
-      
-      case OPTION_CURRENT_LAP_TIME:
-        return "OPTION_CURRENT_LAP_TIME";
-      
-      case OPTION_CURRENT_LAP_DISTANCE:
-        return "OPTION_CURRENT_LAP_DISTANCE";
-      
-      case OPTION_CURRENT_LAP_PACE:
-        return "OPTION_CURRENT_LAP_PACE";
-    }
-  }
-  */
+  //}
   
   function getParameter(paramName, defaultValue)
   {
@@ -374,7 +175,7 @@ class GRunView extends WatchUi.DataField
       Application.Properties.setValue(paramName, defaultValue);
     }
     
-    if (paramValue == OPTION_EMPTY) { return null; }
+    if (paramValue == null) { return 0 /* OPTION_EMPTY */; }
     return paramValue;
   }
   
@@ -388,6 +189,9 @@ class GRunView extends WatchUi.DataField
   
     headerPosition = getParameter("HeaderPosition", 1);
     middleColumnPercentageSize = getParameter("MiddleColumnPercentageSize", 75);
+    
+    dynamicHeaderColor = getParameter("HeaderBackgroundColor", true);
+    dynamicForegroundColor = getParameter("DataForegroundColor", false);
     
     if (isPaceUnitsImperial == true) {
       minPace = getParameter("MinPace", 510);
@@ -430,16 +234,16 @@ class GRunView extends WatchUi.DataField
     //  - OPTION_CURRENT_LAP_TIME = 25
     //  - OPTION_CURRENT_LAP_DISTANCE = 26
     //  - OPTION_CURRENT_LAP_PACE = 27
-    v1 = getParameter("Area1", OPTION_CURRENT_HEART_RATE);
-    v2 = getParameter("Area2", OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE);
-    v3 = getParameter("Area3", OPTION_CURRENT_CADENCE);
-    v4 = getParameter("Area4", OPTION_CURRENT_PACE);
-    v5 = getParameter("Area5", OPTION_ELAPSED_DISTANCE);
-    v6 = getParameter("Area6", OPTION_ALTITUDE);
-    v7 = getParameter("Area7", OPTION_AVERAGE_PACE);
-    v8 = getParameter("Area8", OPTION_TIMER_TIME);
-    v9 = getParameter("Area9", OPTION_CURRENT_TIME);
-    v10 = getParameter("Area10", OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY);
+    v1 = getParameter("Area1", 6 /* OPTION_CURRENT_HEART_RATE */);
+    v2 = getParameter("Area2", 4 /* OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE */);
+    v3 = getParameter("Area3", 14 /* OPTION_CURRENT_CADENCE */);
+    v4 = getParameter("Area4", 7 /* OPTION_CURRENT_PACE */);
+    v5 = getParameter("Area5", 5 /* OPTION_ELAPSED_DISTANCE */);
+    v6 = getParameter("Area6", 15 /* OPTION_ALTITUDE */);
+    v7 = getParameter("Area7", 10 /* OPTION_AVERAGE_PACE */);
+    v8 = getParameter("Area8", 2 /* OPTION_TIMER_TIME */);
+    v9 = getParameter("Area9", 1 /* OPTION_CURRENT_TIME */);
+    v10 = getParameter("Area10", 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */);    
     
     hrZones = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
     deviceModel = WatchUi.loadResource(Rez.Strings.DeviceModel);
@@ -462,58 +266,37 @@ class GRunView extends WatchUi.DataField
   }
   
   
-  function initDataVariables(v)
-  {
-    if (v == OPTION_EMPTY)
-    {
-      return "";
-    }
+  //function initDataVariables(v)
+  //{
+    //if ( (v == 6 /* OPTION_CURRENT_HEART_RATE */) || (v == 9 /* OPTION_AVERAGE_HEART_RATE */) || (v == OPTION_MAX_HEART_RATE) )
+    //if ( (v == 6 /* OPTION_CURRENT_HEART_RATE */) || (v == 9 /* OPTION_AVERAGE_HEART_RATE */) )
+    //{
+    //  return "--";
+    //}
     
-    //if ( (v == OPTION_CURRENT_HEART_RATE) || (v == OPTION_AVERAGE_HEART_RATE) || (v == OPTION_MAX_HEART_RATE) )
-    if ( (v == OPTION_CURRENT_HEART_RATE) || (v == OPTION_AVERAGE_HEART_RATE) )
-    {
-      return "--";
-    }
+    //if (v == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */ || v == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */)
+    //{
+    //  return -1;
+    //}
     
-    if (v == OPTION_CURRENT_LOCATION_ACCURACY)
-    {
-      return -1;
-    }
+    //if (v == 1 /* OPTION_CURRENT_TIME */)
+    //{
+    //  return System.getClockTime();
+    //}
     
-    if (v == OPTION_CURRENT_TIME)
-    {
-      return System.getClockTime();
-    }
+    //if ( (v == 12 /* OPTION_AVERAGE_SPEED */) || (v == 8 /* OPTION_CURRENT_SPEED */) || (v == 5 /* OPTION_ELAPSED_DISTANCE */) )
+    //{
+    //  return 0.0;
+    //}
     
-    if (v == OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY)
-    {
-      return -1;
-    }
-    
-    if ( (v == OPTION_AVERAGE_SPEED) || (v == OPTION_CURRENT_SPEED) || (v == OPTION_ELAPSED_DISTANCE) )
-    {
-      return 0.0;
-    }
-    
-    return 0;
-  }
+    //return 0;
+  //}
   
  
   function initialize()
   {
     DataField.initialize();
     initializeUserData();
-    
-    v1data = initDataVariables(v1);
-    v2data = initDataVariables(v2);
-    v3data = initDataVariables(v3);
-    v4data = initDataVariables(v4);
-    v5data = initDataVariables(v5);
-    v6data = initDataVariables(v6);
-    v7data = initDataVariables(v7);
-    v8data = initDataVariables(v8);
-    v9data = initDataVariables(v9);
-    v10data = initDataVariables(v10);
     
     var columnWidth = deviceWidth / 3;
     var shrinkValue = (1 - (middleColumnPercentageSize.toFloat() / 100)) * columnWidth / 2;
@@ -572,7 +355,7 @@ class GRunView extends WatchUi.DataField
       h7area[1] = y2h;
       v7area[1] = y2;
     }
-    
+
     else if (headerPosition == 3)
     {
       y1h = y1 + valueHeight;
@@ -585,7 +368,18 @@ class GRunView extends WatchUi.DataField
       h4area[1] = y1h;
       v4area[1] = y1;
     }
+
+    // Move empty area to the top
+    if ( (v8 == 0 /* OPTION_EMPTY */) && (v9 == 0 /* OPTION_EMPTY */) ) {
+      v8 = v10;
+      v10 = 0 /* OPTION_EMPTY */;
+    }
     
+    if (v10 == 0 /* OPTION_EMPTY */) {
+      v8area[3] = deviceHeight - y3 - 10; // Remove last 10 pixels from the bottom of the screen (Not enough width)
+      v9area[3] = deviceHeight - y3 - 10; // Remove last 10 pixels from the bottom of the screen (Not enough width)
+    }
+        
     // Merge area if not defined
     var mergeArray = mergeArea(v2, v3, v4, h2area, v2area, h3area, v3area, h4area, v4area);
     v2 = mergeArray[0];
@@ -601,57 +395,56 @@ class GRunView extends WatchUi.DataField
     v8 = mergeArray[0];
     v9 = mergeArray[1];
     
-    if (v1 == null) { v1 = OPTION_EMPTY; }
-    if (v10 == null) {
-      v8area[3] = deviceHeight - y3;
-      v9area[3] = deviceHeight - y3;
-    }
-    
-    else if ( (v8 == OPTION_EMPTY) && (v9 == OPTION_EMPTY) ) {
-      v8 = null;
-      v9 = null;
-      v10area[1] = y3;
-      v10area[3] = deviceHeight - y3;
-    }
+    // Set default values
+    v1data = 0; //initDataVariables(v1);
+    v2data = 0; //initDataVariables(v2);
+    v3data = 0; //initDataVariables(v3);
+    v4data = 0; //initDataVariables(v4);
+    v5data = 0; //initDataVariables(v5);
+    v6data = 0; //initDataVariables(v6);
+    v7data = 0; //initDataVariables(v7);
+    v8data = 0; //initDataVariables(v8);
+    v9data = 0; //initDataVariables(v9);
+    v10data = 0; //initDataVariables(v10);
   }
   
   
   function mergeArea(v1, v2, v3, h1area, v1area, h2area, v2area, h3area, v3area)
   {
-    if ( (v1 == null) && (v2 == null) && (v3 == null) )
+    if ( (v1 == 0 /* OPTION_EMPTY */) && (v2 == 0 /* OPTION_EMPTY */) && (v3 == 0 /* OPTION_EMPTY */) )
     {
-      return [ OPTION_EMPTY, OPTION_EMPTY, OPTION_EMPTY ];
+      return [ 0 /* OPTION_EMPTY */, 0 /* OPTION_EMPTY */, 0 /* OPTION_EMPTY */ ];
     }
     
-    // Move empty area (null) to the left
-    if (v1 == null)
+    // Move empty area  to the right
+    if (v1 == 0 /* OPTION_EMPTY */)
     {
-      if (v2 != null)
+      if (v2 != 0 /* OPTION_EMPTY */)
       {
         v1 = v2;
-        v2 = null;
+        v2 = 0 /* OPTION_EMPTY */;
       }
       
-      else if (v3 != null)
+      else if (v3 != 0 /* OPTION_EMPTY */ && v3 != null) // v3 can be null for field v8,v9
       {
         v1 = v3;
-        v3 = null;
+        v3 = 0 /* OPTION_EMPTY */;
       }
     }
     
-    if ( (v2 == null) && (v3 != null) )
+    if ( (v2 == 0 /* OPTION_EMPTY */) && (v3 != 0 /* OPTION_EMPTY */) && (v3 != null) ) // v3 can be null for field v8,v9
     {
       v2 = v3;
-      v3 = null;
+      v3 = 0 /* OPTION_EMPTY */;
     }
     
-    if ( (v2 == null) && (v3 == null) )
+    if ( (v2 == 0 /* OPTION_EMPTY */) && ((v3 == 0 /* OPTION_EMPTY */) || (v3 == null)) )
     {
       if (h1area != null) { h1area[2] = deviceWidth; } // if mergeArea() is called for Area 8 and 9 (only 2 fields without Headers)
       v1area[2] = deviceWidth;
     }
     
-    else if (v3 == null)
+    else if (v3 == 0 /* OPTION_EMPTY */)
     {
       if (h1area != null) { // if mergeArea() is called for Area 8 and 9 (only 2 fields without Headers)
         h2area[0] = deviceWidth / 2;
@@ -703,7 +496,7 @@ class GRunView extends WatchUi.DataField
   }
   
   
-  function calculateETA(id, distanceGoal, nextGoalOption, valueData)
+  function calculateETA(id, avgSpeed, distanceGoal, nextGoalOption, valueData)
   {
     var remainingDistance = distanceGoal - (distance * 1000);
     if (remainingDistance < 0) {
@@ -738,61 +531,55 @@ class GRunView extends WatchUi.DataField
     // Elapsed  of the current activity in meters (m)
     if (info.elapsedDistance != null)
     {
-      distance = convertUnitIfRequired(info.elapsedDistance / 1000, CONVERSION_KM_TO_MILE, isDistanceUnitsImperial);
-    }
-    
-    // Average speed during the current activity in meters per second (mps)
-    if (info.averageSpeed != null)
-    {
-      avgSpeed = info.averageSpeed;
+      distance = convertUnitIfRequired(info.elapsedDistance / 1000, 0.62137119 /* CONVERSION_KM_TO_MILE */, isDistanceUnitsImperial);
     }
     
     // The current timer value
-    if (value == OPTION_TIMER_TIME)
+    if (value == 2 /* OPTION_TIMER_TIME */)
     {
       return timer;
     }
     
     // Elapsed  of the current activity in meters (m)
-    if (value == OPTION_ELAPSED_DISTANCE)
+    if (value == 5 /* OPTION_ELAPSED_DISTANCE */)
     {
       return distance;
     }
     
     // Current heart rate in beats per minute (bpm)
-    if ( (value == OPTION_CURRENT_HEART_RATE) && (info.currentHeartRate != null) ) 
+    if ( (value == 6 /* OPTION_CURRENT_HEART_RATE */) && (info.currentHeartRate != null) ) 
     {
       return info.currentHeartRate;
     }
     
     // Current pace in second per kilometer
-    if ( (value == OPTION_CURRENT_PACE) && (info.currentSpeed != null) )
+    if ( (value == 7 /* OPTION_CURRENT_PACE */) && (info.currentSpeed != null) )
     {
       if (info.currentSpeed <= 0) { return 0; }
-      return convertUnitIfRequired(1000 / info.currentSpeed, CONVERSION_MILE_TO_KM, isPaceUnitsImperial);
+      return convertUnitIfRequired(1000 / info.currentSpeed, 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
     }
     
     // Average pace in second per kilometer
-    if (value == OPTION_AVERAGE_PACE)
+    if ( (value == 10 /* OPTION_AVERAGE_PACE */) && (info.averageSpeed != null) )
     {
-      if (avgSpeed <= 0) { return 0; }
-      return convertUnitIfRequired(1000 / avgSpeed, CONVERSION_MILE_TO_KM, isPaceUnitsImperial);
+      if (info.averageSpeed <= 0) { return 0; }
+      return convertUnitIfRequired(1000 / info.averageSpeed, 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
     }
     
     // Current speed in meters per second (mps)
-    if ( (value == OPTION_CURRENT_SPEED) && (info.currentSpeed != null) )
+    if ( (value == 8 /* OPTION_CURRENT_SPEED */) && (info.currentSpeed != null) )
     {
-      return convertUnitIfRequired(info.currentSpeed * 3.6, CONVERSION_KM_TO_MILE, isPaceUnitsImperial);
+      return convertUnitIfRequired(info.currentSpeed * 3.6, 0.62137119 /* CONVERSION_KM_TO_MILE */, isPaceUnitsImperial);
     }
     
     // Current Clock Time
-    if (value == OPTION_CURRENT_TIME)
+    if (value == 1 /* OPTION_CURRENT_TIME */)
     {
       return System.getClockTime();
     }
     
     // Calculate fields used by other options
-    if ( (value == OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE) || (value == OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE) ) 
+    if ( (value == 4 /* OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE */) || (value == 3 /* OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE */) ) 
     {
       if (currentKM != Math.floor(distance))
       {
@@ -805,31 +592,31 @@ class GRunView extends WatchUi.DataField
     }
     
     // Time taken on previous km or mile
-    if (value == OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE) 
+    if (value == 4 /* OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE */) 
     {
       return timerLastKM;
     }
     
     // Elapsed time for the current km or mile
-    if (value == OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE)
+    if (value == 3 /* OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE */)
     {
       return (timer - startTimerCurrentKM);
     }
     
     // Elapsed time for the current lap
-    if (value == OPTION_CURRENT_LAP_TIME)
+    if (value == 25 /* OPTION_CURRENT_LAP_TIME */)
     {
       return (timer - startTimerCurrentLap);
     }
     
     // Elapsed distance for the current lap
-    if (value == OPTION_CURRENT_LAP_DISTANCE)
+    if (value == 26 /* OPTION_CURRENT_LAP_DISTANCE */)
     {
       return (distance - startDistanceCurrentLap);
     }
     
     // Average Pace for the current lap
-    if (value == OPTION_CURRENT_LAP_PACE)
+    if (value == 27 /* OPTION_CURRENT_LAP_PACE */)
     {
       var lapTimer = timer - startTimerCurrentLap;
       var lapDistance = distance - startDistanceCurrentLap;
@@ -839,88 +626,92 @@ class GRunView extends WatchUi.DataField
     }
     
     // Current altitude in meters (m)
-    if ( (value == OPTION_ALTITUDE) && (info.altitude  != null) )
+    if ( (value == 15 /* OPTION_ALTITUDE */) && (info.altitude  != null) )
     {
-      return convertUnitIfRequired(info.altitude, CONVERSION_METER_TO_FEET, isElevationUnitsImperial).toNumber();
+      return convertUnitIfRequired(info.altitude, 3.28084 /* CONVERSION_METER_TO_FEET */, isElevationUnitsImperial).toNumber();
     }
     
     // Current cadence in revolutions per minute (rpm)
-    if ( (value == OPTION_CURRENT_CADENCE) && (info.currentCadence != null) )
+    if ( (value == 14 /* OPTION_CURRENT_CADENCE */) && (info.currentCadence != null) )
     {
       return info.currentCadence;
     }
     
     // Current GPS accuracy
-    if ( (value == OPTION_CURRENT_LOCATION_ACCURACY) && (info.currentLocationAccuracy != null) )
+    if ( (value == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */) && (info.currentLocationAccuracy != null) )
     {
       return info.currentLocationAccuracy;
     }
     
     // Current GPS accuracy & Battery Usage
-    if ( (value == OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY) && (info.currentLocationAccuracy != null) )
+    if ( (value == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) && (info.currentLocationAccuracy != null) )
     {
       return info.currentLocationAccuracy;
     }
     
     // Estimated Time for 5 km
-    if (value == OPTION_ETA_5K)
+    if (value == 21 /* OPTION_ETA_5K */)
     {
-      return calculateETA(id, 5000, OPTION_ETA_10K, valueData);
+      var avgSpeed = info.averageSpeed == null ? 0 : info.averageSpeed;
+      return calculateETA(id, avgSpeed, 5000, 22 /* OPTION_ETA_10K */, valueData);
     }
     
     // Estimated Time for 10 km
-    if (value == OPTION_ETA_10K)
+    if (value == 22 /* OPTION_ETA_10K */)
     {
-      return calculateETA(id, 10000, OPTION_ETA_HALF_MARATHON, valueData);
+      var avgSpeed = info.averageSpeed == null ? 0 : info.averageSpeed;
+      return calculateETA(id, avgSpeed, 10000, 23 /* OPTION_ETA_HALF_MARATHON */, valueData);
     }
     
     // Estimated Time for half marathon (21.075.5 km)
-    if (value == OPTION_ETA_HALF_MARATHON)
+    if (value == 23 /* OPTION_ETA_HALF_MARATHON */)
     {
-      return calculateETA(id, 21097.5, OPTION_ETA_MARATHON, valueData);
+      var avgSpeed = info.averageSpeed == null ? 0 : info.averageSpeed;
+      return calculateETA(id, avgSpeed, 21097.5, 24 /* OPTION_ETA_MARATHON */, valueData);
     }
     
     // Estimated Time for marathon (42.195 km)
-    if (value == OPTION_ETA_MARATHON)
+    if (value == 24 /* OPTION_ETA_MARATHON */)
     {
-      return calculateETA(id, 42195, null, valueData);
+      var avgSpeed = info.averageSpeed == null ? 0 : info.averageSpeed;
+      return calculateETA(id, avgSpeed, 42195, null, valueData);
     }
     
     // Average pace in second per kilometer (Calculated mnually using timer/distance)
-    if ( (value == OPTION_AVERAGE_PACE_MANUAL_CALC) && (info.elapsedDistance != null) )
+    if (value == 11 /* OPTION_AVERAGE_PACE_MANUAL_CALC */)
     {
       if (distance <= 0) { return 0; }
       return timer / distance;
     }
     
     // Average speed during the current activity in meters per second (mps)
-    if (value == OPTION_AVERAGE_SPEED)
+    if ( (value == 12 /* OPTION_AVERAGE_SPEED */) && (info.averageSpeed != null) )
     {
-      return convertUnitIfRequired(avgSpeed * 3.6, CONVERSION_KM_TO_MILE, isPaceUnitsImperial);
+      return convertUnitIfRequired(info.averageSpeed * 3.6, 0.62137119 /* CONVERSION_KM_TO_MILE */, isPaceUnitsImperial);
     }
     
     // Average heart rate during the current activity in beats per minute (bpm)
-    if ( (value == OPTION_AVERAGE_HEART_RATE) && (info.averageHeartRate != null) ) 
+    if ( (value == 9 /* OPTION_AVERAGE_HEART_RATE */) && (info.averageHeartRate != null) ) 
     {
       return info.averageHeartRate;
     }
     
     // Calories burned throughout the current activity in kilocalories (kcal)
-    if ( (value == OPTION_CALORIES) && (info.calories != null) ) 
+    if ( (value == 13 /* OPTION_CALORIES */) && (info.calories != null) ) 
     {
       return info.calories;
     }
     
     // The total ascent during the current activity in meters (m)
-    if ( (value == OPTION_TOTAL_ASCENT) && (info.totalAscent != null) )
+    if ( (value == 16 /* OPTION_TOTAL_ASCENT */) && (info.totalAscent != null) )
     {
-      return convertUnitIfRequired(info.totalAscent, CONVERSION_METER_TO_FEET, isElevationUnitsImperial).toNumber();
+      return convertUnitIfRequired(info.totalAscent, 3.28084 /* CONVERSION_METER_TO_FEET */, isElevationUnitsImperial).toNumber();
     }
 
     // The total descent during the current activity in meters (m)
-    if ( (value == OPTION_TOTAL_DESCENT) && (info.totalDescent != null) )
+    if ( (value == 17 /* OPTION_TOTAL_DESCENT */) && (info.totalDescent != null) )
     {
-      return convertUnitIfRequired(info.totalDescent, CONVERSION_METER_TO_FEET, isElevationUnitsImperial).toNumber();
+      return convertUnitIfRequired(info.totalDescent, 3.28084 /* CONVERSION_METER_TO_FEET */, isElevationUnitsImperial).toNumber();
     }
 
     //return computeExtraValue(info, id, value, valueData);
@@ -1229,6 +1020,21 @@ class GRunView extends WatchUi.DataField
   // once a second when the data field is visible.
   function onUpdate(dc)
   {
+    // Set colors
+    if (DataField.getBackgroundColor() == Graphics.COLOR_BLACK) {
+      color1 = Graphics.COLOR_WHITE;
+      color2 = Graphics.COLOR_BLACK;
+      colorBorder = Graphics.COLOR_DK_GRAY;
+      colorHeader = Graphics.COLOR_DK_GRAY;
+    }
+    
+    else {
+      color1 = Graphics.COLOR_BLACK;
+      color2 = Graphics.COLOR_WHITE;
+      colorBorder = Graphics.COLOR_LT_GRAY;
+      colorHeader = Graphics.COLOR_LT_GRAY;
+    }
+    
     // Display Area
     displayArea(dc, 1, v1, v1data, null, v1area);
     displayArea(dc, 2, v2, v2data, h2area, v2area);
@@ -1241,16 +1047,16 @@ class GRunView extends WatchUi.DataField
     displayArea(dc, 9, v9, v9data, null, v9area);
     displayArea(dc, 10, v10, v10data, null, v10area);
     
-    if ( (v8 != null) && (v9 != null) && (v8 != OPTION_EMPTY) && (v9 != OPTION_EMPTY) )
+    if ( (v8 != 0 /* OPTION_EMPTY */) && (v9 != 0 /* OPTION_EMPTY */) )
     {
       dc.setPenWidth(3);
-      dc.setColor(getForegroundColor(8,v8, v8data), Graphics.COLOR_TRANSPARENT);
+      dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
       dc.drawLine(v8area[2], v8area[1] + 5, v8area[2], v8area[1] + v8area[3] - 5);
       dc.setPenWidth(1);
     }
     
     // Display horizontal lines
-    dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(colorBorder, Graphics.COLOR_TRANSPARENT);
     dc.drawLine(0, h2area[1], deviceWidth, h2area[1]);
     dc.drawLine(0, h5area[1], deviceWidth, h5area[1]);
     dc.drawLine(0, v8area[1], deviceWidth, v8area[1]);
@@ -1261,9 +1067,10 @@ class GRunView extends WatchUi.DataField
   
   function displayArea(dc, id, type, value, headerArea, valueArea)
   {
-    if (type == null) { return; }
+    if (type == 0 /* OPTION_EMPTY */) { return; }
     var leftOffsetX = 0;
     var rightOffsetX = 0;
+    var color = getColor(id, type, value);
   
     // Set Header values, except for Area 1, 8 and 9
     if ( (id >= 2) && (id <= 7) )
@@ -1273,11 +1080,12 @@ class GRunView extends WatchUi.DataField
       var headerY = headerArea[1] + (headerArea[3] / 2);
       
       // Set Header background color
-      dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+      if (dynamicHeaderColor && (color != null)) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
+      else { dc.setColor(colorHeader, Graphics.COLOR_TRANSPARENT); }
       dc.fillRectangle(headerArea[0], headerArea[1], headerArea[2], headerArea[3]);
       if (headerArea[0] > 0)
       {
-        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(colorBorder, Graphics.COLOR_TRANSPARENT);
         dc.drawLine(headerArea[0], headerArea[1], headerArea[0], headerArea[1] + headerArea[3]);
       }
       
@@ -1287,30 +1095,35 @@ class GRunView extends WatchUi.DataField
       if ( (id == 2) || (id == 3) || (id == 5) || (id == 6) ) { rightOffsetX += 1; }
       if ( (id == 3) || (id == 4) || (id == 6) || (id == 7) ) { leftOffsetX += 2; }
       dc.setClip(headerArea[0] + leftOffsetX, headerArea[1], headerArea[2] - leftOffsetX - rightOffsetX, headerArea[3]);
-      dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-      dc.drawText(headerX + (leftOffsetX / 2) - (rightOffsetX / 2), headerY, fontTinyHeader, getHeaderName(type), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+      
+      if (dynamicHeaderColor && (color != null)) { dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT); }
+      else { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+      dc.drawText(headerX + (leftOffsetX / 2) - (rightOffsetX / 2), headerY, Graphics.FONT_XTINY, getHeaderName(type), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
       dc.clearClip();
     }
     
     // Get coordinate of Data elements
     var valueX = valueArea[0] + (valueArea[2] / 2);
-    var valueY = valueArea[1] + (valueArea[3] / 2);
+    var valueY = valueArea[1] + (valueArea[3] / 2) ;
+    if ( (id >= 2) && (id <= 7) ) { valueY -= 2; }
     if (deviceModel.equals("fenixFixFont")) {
       if (id > 7) { valueY -= 1; }
       //else if (id > 1) { valueY -= 3; }
     }
     
     // Set Data background color
-    dc.setColor(getBackgroundColor(id), Graphics.COLOR_TRANSPARENT);
-    dc.fillRectangle(valueArea[0], valueArea[1], valueArea[2], valueArea[3]);
+    if (id < 8) { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); } 
+    else { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+    if (v10 == 0 /* OPTION_EMPTY */) { dc.fillRectangle(valueArea[0], valueArea[1], valueArea[2], 240); } 
+    else { dc.fillRectangle(valueArea[0], valueArea[1], valueArea[2], valueArea[3]); }
     
     if ( (valueArea[0] > 0) && (id >= 2) && (id <= 7) )
     {
-      dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+      dc.setColor(colorBorder, Graphics.COLOR_TRANSPARENT);
       dc.drawLine(valueArea[0], valueArea[1], valueArea[0], valueArea[1] + valueArea[3]);
     }
     
-    if (type == OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE)
+    if (type == 3 /* OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE */)
     {
       var y = valueY > (deviceHeight / 2) ? valueArea[1] : valueArea[1] + valueArea[3];
       if (valueArea[0] == 0) { leftOffsetX = (deviceWidth - getWidth(y)) / 2; }
@@ -1324,47 +1137,58 @@ class GRunView extends WatchUi.DataField
     if (valueArea[0] == 0) { leftOffsetX = (deviceWidth - getWidth(valueY)) / 2; }
     if (valueArea[0] + valueArea[2] == deviceWidth) { rightOffsetX = (deviceWidth - getWidth(valueY)) / 2; }
     dc.setClip(valueArea[0] + leftOffsetX, valueArea[1], valueArea[2] - leftOffsetX - rightOffsetX, valueArea[3]);
-    dc.setColor(getForegroundColor(id, type, value), Graphics.COLOR_TRANSPARENT);
+    
+    if (dynamicForegroundColor && (color != null)) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
+    else if (id < 8) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+    else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
     
     valueX += (leftOffsetX / 2) - (rightOffsetX / 2);
     
-    if (type == OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY)
+    if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */)
     {
       valueY -= 2;
-      var gpsLength = LENGTH_GPS_ICON + 6;
-      var batteryLength = LENGTH_BATTERY_ICON + 6;
-      drawGPS(dc, valueX - (batteryLength / 2), valueY, LENGTH_GPS_ICON, value);
-      drawBattery(dc, valueX + (gpsLength / 2), valueY, LENGTH_BATTERY_ICON, System.getSystemStats().battery, true);
+      var gpsLength = 28 /* LENGTH_GPS_ICON */ + 6;
+      var batteryLength = 50 /* LENGTH_BATTERY_ICON */ + 6;
+      drawGPS(dc, valueX - (batteryLength / 2), valueY, 28 /* LENGTH_GPS_ICON */, value);
+      drawBattery(dc, valueX + (gpsLength / 2), valueY, 50 /* LENGTH_BATTERY_ICON */, System.getSystemStats().battery);
     }
     
-    else if (type == OPTION_CURRENT_LOCATION_ACCURACY)
+    else if (type == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */)
     {
       valueY -= 2;
-      drawGPS(dc, valueX, valueY, LENGTH_GPS_ICON, value);
+      drawGPS(dc, valueX, valueY, 28 /* LENGTH_GPS_ICON */, value);
     }
     
-    else if (type == OPTION_CURRENT_BATTERY)
+    else if (type == 18 /* OPTION_CURRENT_BATTERY */)
     {
       valueY -= 2;
-      drawBattery(dc, valueX, valueY, LENGTH_BATTERY_ICON, System.getSystemStats().battery, true);
+      drawBattery(dc, valueX, valueY, 50 /* LENGTH_BATTERY_ICON */, System.getSystemStats().battery);
     }
       
     else
     {
       var formattedValue = getFormattedValue(id, type, value);
       // Display HR icon if in Area 1, 8 or 9
-      if ( (type == OPTION_CURRENT_HEART_RATE) && ((id == 1) || (id == 8) || (id == 9) || (id == 10)) )
+      if ( (type == 6 /* OPTION_CURRENT_HEART_RATE */) && ((id == 1) || (id == 8) || (id == 9) || (id == 10)) )
       {
         var iconLength = dc.getTextWidthInPixels("0", fontIcons);
-        var textLength = dc.getTextWidthInPixels(" " + value, fontMediumHeader);
+        var font = getFont(dc, id, type, formattedValue, valueArea[2] - leftOffsetX - rightOffsetX - (iconLength * 1.5), valueArea[3]);
+        var textLength = (iconLength / 2) + dc.getTextWidthInPixels(formattedValue, font);
+        
+        // Always display HR icon in color
+        if (color != null) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
         dc.drawText(valueX - (textLength / 2), valueY, fontIcons, 0, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        dc.drawText(valueX + (iconLength / 2), valueY, fontMediumHeader, " " + formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        
+        if (dynamicForegroundColor && (color != null)) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
+        else if (id < 8) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+        else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
+        dc.drawText(valueX + (iconLength / 2), valueY, font, formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
       }
       
       // Display regular field
       else
       {
-        dc.drawText(valueX, valueY, getFont(dc, id, formattedValue, valueArea[2] - leftOffsetX - rightOffsetX), formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(valueX, valueY, getFont(dc, id, type, formattedValue, valueArea[2] - leftOffsetX - rightOffsetX, valueArea[3]), formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
       }
     }
     
@@ -1374,11 +1198,9 @@ class GRunView extends WatchUi.DataField
   // Uncompute values are keep commented to save memory usage.
   function getHeaderName(type)
   {
-    if (type == null) { return ""; }
-    
     switch (type)
     {
-      case OPTION_ALTITUDE:
+      case 15 /* OPTION_ALTITUDE */:
         return "ALT";
 
       //case OPTION_AMBIENT_PRESSURE:
@@ -1390,17 +1212,17 @@ class GRunView extends WatchUi.DataField
       //case OPTION_AVERAGE_DISTANCE:
       //  return "AVG DIST";
 
-      case OPTION_AVERAGE_HEART_RATE:
+      case 9 /* OPTION_AVERAGE_HEART_RATE */:
         return "AVG HR";
 
-      case OPTION_AVERAGE_PACE:
-      case OPTION_AVERAGE_PACE_MANUAL_CALC:
+      case 10 /* OPTION_AVERAGE_PACE */:
+      case 11 /* OPTION_AVERAGE_PACE_MANUAL_CALC */:
         return "AVG PACE";
 
       //case OPTION_AVERAGE_POWER:
       //  return "AVG POW";
 
-      case OPTION_AVERAGE_SPEED:
+      case 12 /* OPTION_AVERAGE_SPEED */:
         return "AVG SPD";
 
       //case OPTION_BEARING:
@@ -1409,40 +1231,40 @@ class GRunView extends WatchUi.DataField
       //case OPTION_BEARING_FROM_START:
       //  return "BEARS";
 
-      case OPTION_CALORIES:
+      case 13 /* OPTION_CALORIES */:
         return "CAL";
 
-      case OPTION_CURRENT_BATTERY:
+      case 18 /* OPTION_CURRENT_BATTERY */:
         return "BAT";
 
-      case OPTION_CURRENT_CADENCE:
+      case 14 /* OPTION_CURRENT_CADENCE */:
         return "CAD";
 
       //case OPTION_CURRENT_HEADING:
       //  return "COMP";
 
-      case OPTION_CURRENT_HEART_RATE:
+      case 6 /* OPTION_CURRENT_HEART_RATE */:
         return "HR";
 
       //case OPTION_CURRENT_LOCATION:
       //  return "LOC";
 
-      case OPTION_CURRENT_LOCATION_ACCURACY:
+      case 19 /* OPTION_CURRENT_LOCATION_ACCURACY */:
         return "GPS";
 
-      case OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY:
+      case 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */:
         return "GPS/BAT";
 
-      case OPTION_CURRENT_PACE:
+      case 7 /* OPTION_CURRENT_PACE */:
         return "PACE";
 
       //case OPTION_CURRENT_POWER:
       //  return "POW";
 
-      case OPTION_CURRENT_SPEED:
+      case 8 /* OPTION_CURRENT_SPEED */:
         return "SPD";
 
-      case OPTION_CURRENT_TIME:
+      case 1 /* OPTION_CURRENT_TIME */:
         return "TIME";
 
       //case OPTION_DISTANCE_TO_DESTINATION:
@@ -1451,7 +1273,7 @@ class GRunView extends WatchUi.DataField
       //case OPTION_DISTANCE_TO_NEXT_POINT:
       //  return "DISTN";
 
-      case OPTION_ELAPSED_DISTANCE:
+      case 5 /* OPTION_ELAPSED_DISTANCE */:
         return "DIST";
 
       //case OPTION_ELAPSED_TIME:
@@ -1499,7 +1321,7 @@ class GRunView extends WatchUi.DataField
       //case OPTION_OFF_COURSE_DISTANCE:
       //  return "DIST NP";
 
-      case OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE:
+      case 4 /* OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE */:
         return (isDistanceUnitsImperial == true) ? "LAST MI" : "LAST KM";
 
       //case OPTION_RAW_AMBIENT_PRESSURE:
@@ -1529,25 +1351,25 @@ class GRunView extends WatchUi.DataField
       //case OPTION_TIMER_STATE:
       //  return "TMR ST";
 
-      case OPTION_TIMER_TIME:
+      case 2 /* OPTION_TIMER_TIME */:
         return "TIMER";
 
-      case OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE:
+      case 3 /* OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE */:
         return (isDistanceUnitsImperial == true) ? "CUR MI" : "CUR KM";
       
-      case OPTION_CURRENT_LAP_TIME:
+      case 25 /* OPTION_CURRENT_LAP_TIME */:
         return "LAP TIME";
 
-      case OPTION_CURRENT_LAP_DISTANCE:
+      case 26 /* OPTION_CURRENT_LAP_DISTANCE */:
         return "LAP DIST";
 
-      case OPTION_CURRENT_LAP_PACE:
+      case 27 /* OPTION_CURRENT_LAP_PACE */:
         return "LAP PACE";
 
-      case OPTION_TOTAL_ASCENT:
+      case 16 /* OPTION_TOTAL_ASCENT */:
         return "ASCENT";
 
-      case OPTION_TOTAL_DESCENT:
+      case 17 /* OPTION_TOTAL_DESCENT */:
         return "DESCENT";
 
       //case OPTION_TRACK:
@@ -1556,16 +1378,16 @@ class GRunView extends WatchUi.DataField
       //case OPTION_TRAINING_EFFECT:
       //  return "TRAIN EFF";
       
-      case OPTION_ETA_5K:
+      case 21 /* OPTION_ETA_5K */:
         return "ETA 5K";
       
-      case OPTION_ETA_10K:
+      case 22 /* OPTION_ETA_10K */:
         return "ETA 10K";
       
-      case OPTION_ETA_HALF_MARATHON:
+      case 23 /* OPTION_ETA_HALF_MARATHON */:
         return "ETA 21K";
       
-      case OPTION_ETA_MARATHON:
+      case 24 /* OPTION_ETA_MARATHON */:
         return "ETA 42K";
     }
     
@@ -1583,141 +1405,109 @@ class GRunView extends WatchUi.DataField
   
   function getFormattedValue(id, type, value)
   {
-    if (type == null) { return ""; }
-    
     switch (type)
     {
-      case OPTION_EMPTY:
+      case 0 /* OPTION_EMPTY */:
         return "";
       
-      case OPTION_CURRENT_PACE:
-      case OPTION_AVERAGE_PACE:
-      case OPTION_AVERAGE_PACE_MANUAL_CALC:
-      case OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE:
-      case OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE:
-      case OPTION_CURRENT_LAP_PACE:
+      case 7 /* OPTION_CURRENT_PACE */:
+      case 10 /* OPTION_AVERAGE_PACE */:
+      case 11 /* OPTION_AVERAGE_PACE_MANUAL_CALC */:
+      case 4 /* OPTION_TIMER_TIME_ON_PREVIOUS_KM_OR_MILE */:
+      case 3 /* OPTION_TIMER_TIME_ON_CURRENT_KM_OR_MILE */:
+      case 27 /* OPTION_CURRENT_LAP_PACE */:
         return formatDuration(value, false);
       
-      case OPTION_TIMER_TIME:
-      case OPTION_ETA_5K:
-      case OPTION_ETA_10K:
-      case OPTION_ETA_HALF_MARATHON:
-      case OPTION_ETA_MARATHON:
-      case OPTION_CURRENT_LAP_TIME:
+      case 2 /* OPTION_TIMER_TIME */:
+      case 21 /* OPTION_ETA_5K */:
+      case 22 /* OPTION_ETA_10K */:
+      case 23 /* OPTION_ETA_HALF_MARATHON */:
+      case 24 /* OPTION_ETA_MARATHON */:
+      case 25 /* OPTION_CURRENT_LAP_TIME */:
         return formatDuration(value, true);
       
-      case OPTION_CURRENT_TIME:
-        if ( (type == v1) || (type == v8) || (type == v9) || (type == v10) ) { return getHour(value.hour) + "h" + value.min.format("%02d"); }
-        return getHour(value.hour) + ":" + value.min.format("%02d");
+      case 1 /* OPTION_CURRENT_TIME */:
+        //if ( (type == v1) || (type == v8) || (type == v9) || (type == v10) ) { return getHour(value.hour) + "h" + value.min.format("%02d"); }
+        //return getHour(value.hour) + ":" + value.min.format("%02d");
+        return getHour(value.hour) + "h" + value.min.format("%02d");
     }
 
     if (value instanceof Float) { return formatFloat(value); }
     return value.toString();
   }
   
-  
-  function getFont(dc, id, value, maxWidth)
+  function isEnoughSpace(dc, value, font, maxWidth, maxHeight)
   {
-    var fontID = 5;
-    var textWidth = 0;
-    
-    if ( (id <=1) || (id >= 8) )
+    var textDimension = dc.getTextDimensions(value, font);
+    textDimension[1] = textDimension[1] - (2 * dc.getFontDescent(font));
+    if (textDimension[0] <= maxWidth && textDimension[1] <= maxHeight) { return true; }
+    return false;
+  }
+  
+  
+  function getFont(dc, id, type, value, maxWidth, maxHeight)
+  {
+    var fontID = 6;
+    var textDimension = [0, 0];
+    if (type == 1 /* OPTION_CURRENT_TIME */) { fontID = 3; }
+        
+    if (fontID >= 6) 
     {
-        fontID = 3;
+      if (isEnoughSpace(dc, value, Graphics.FONT_NUMBER_HOT, maxWidth, maxHeight)) { return Graphics.FONT_NUMBER_HOT; }
+      fontID -= 1;
     }
     
     if (fontID >= 5) 
     {
-      textWidth = dc.getTextWidthInPixels(value, fontMediumNumericValue);
-      if (textWidth <= maxWidth) { return fontMediumNumericValue; }
+      if (isEnoughSpace(dc, value, Graphics.FONT_NUMBER_MEDIUM, maxWidth, maxHeight)) { return Graphics.FONT_NUMBER_MEDIUM; }
       fontID -= 1;
     }
     
     if (fontID >= 4) 
     {
-      textWidth = dc.getTextWidthInPixels(value, fontSmallNumericValue);
-      if (textWidth <= maxWidth) { return fontSmallNumericValue; }
+      if (isEnoughSpace(dc, value, Graphics.FONT_NUMBER_MILD, maxWidth, maxHeight)) { return Graphics.FONT_NUMBER_MILD; }
       fontID -= 1;
     }
     
     if (fontID >= 3) 
     {
-      textWidth = dc.getTextWidthInPixels(value, fontMediumHeader);
-      if (textWidth <= maxWidth) { return fontMediumHeader; }
+      if (isEnoughSpace(dc, value, Graphics.FONT_MEDIUM, maxWidth, maxHeight)) { return Graphics.FONT_MEDIUM; }
       fontID -= 1;
     }
     
     if (fontID >= 2) 
     {
-      textWidth = dc.getTextWidthInPixels(value, fontSmallHeader);
-      if (textWidth <= maxWidth) { return fontSmallHeader; }
+      if (isEnoughSpace(dc, value, Graphics.FONT_SMALL, maxWidth, maxHeight)) { return Graphics.FONT_SMALL; }
       fontID -= 1;
     }
     
-    return fontTinyHeader;
+    return Graphics.FONT_XTINY;
   }
   
   
-  function getBackgroundColor(id)
+  function getColor(id, type, value)
   {
-    var backgroundColor1 = Graphics.COLOR_WHITE;
-    var backgroundColor2 = Graphics.COLOR_BLACK;
-    
-    if (DataField.getBackgroundColor() == Graphics.COLOR_BLACK) {
-      backgroundColor1 = Graphics.COLOR_BLACK;
-      backgroundColor2 = Graphics.COLOR_WHITE;
-    }
-    
-    if (id == null) { return backgroundColor1; }
-    
-    if ( (id >= 8) && (id <= 10) ) {
-        return backgroundColor2;
-    }
-    
-    return backgroundColor1;
-  }
-  
-  
-  function getForegroundColor(id, type, value)
-  {
-    var foregroundColor1 = Graphics.COLOR_BLACK;
-    var foregroundColor2 = Graphics.COLOR_WHITE;
-    
-    if (DataField.getBackgroundColor() == Graphics.COLOR_BLACK) {
-      foregroundColor1 = Graphics.COLOR_WHITE;
-      foregroundColor2 = Graphics.COLOR_BLACK;
-    }
-    
-    if (id == null) { return foregroundColor1; }
-    
     switch (type)
     {
-      case OPTION_CURRENT_HEART_RATE:
-      case OPTION_AVERAGE_HEART_RATE:
-        if (value instanceof Toybox.Lang.Number == false)
-        {
-          if ((id >= 8) && (id <= 10)) { return foregroundColor2; }
-          return foregroundColor1;
-        }
-        
-        else if (value < hrZones[1]) { return 0x555555; } // Grey
+      case 6 /* OPTION_CURRENT_HEART_RATE */:
+      case 9 /* OPTION_AVERAGE_HEART_RATE */:
+        if (value < hrZones[1]) { if (id < 8) { return color1; } else { return color2; } } // Black
         else if (value < hrZones[2]) { return 0x00AAFF; } // Blue
         else if (value < hrZones[3]) { return 0x00AA00; } // Green
         else if (value < hrZones[4]) { return 0xFF5500; } // Orange
         return 0xFF0000;                                  // Red
         
-      case OPTION_CURRENT_PACE:
-      case OPTION_AVERAGE_PACE:
-      case OPTION_AVERAGE_PACE_MANUAL_CALC:
-      case OPTION_CURRENT_LAP_PACE:
-        if (value <= 0) { return ((id >= 8) && (id <= 10)) ? foregroundColor2 : foregroundColor1; }
+      case 7 /* OPTION_CURRENT_PACE */:
+      case 10 /* OPTION_AVERAGE_PACE */:
+      case 11 /* OPTION_AVERAGE_PACE_MANUAL_CALC */:
+      case 27 /* OPTION_CURRENT_LAP_PACE */:
+        if (value <= 0) { return null; }
         else if (value < minPace) { return Graphics.COLOR_BLUE; }
         else if (value > maxPace) { return Graphics.COLOR_RED; }
         return Graphics.COLOR_DK_GREEN;
     }
     
-    if ( ((id >= 8) && (id <= 10)) ) { return foregroundColor2; }
-    return foregroundColor1;
+    return null;
   }
   
   
@@ -1768,7 +1558,6 @@ class GRunView extends WatchUi.DataField
     return hh > 0 ? hh + ":" + mm.format("%02d") + ":" + ss.format("%02d") : mm.format("%d") + ":" + ss.format("%02d");
   }
   
-  
   function drawGPS(dc, x, y, width, gpsAccuracy)
   {
     var height = width * 5/7;
@@ -1777,43 +1566,18 @@ class GRunView extends WatchUi.DataField
     var space = 2;
     var barWidth = (width / 4) - space;
     
-    if (gpsAccuracy <= 0)
-    {
-      dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-    }
-    
-    else
-    {
-      dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-    }
+    if (gpsAccuracy <= 0) { dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT); }
+    else { dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT); }
     
     dc.fillRectangle(x1 + 0 * (barWidth + space), y1 + (0.6 * height), barWidth, 0.4 * height);
     dc.fillRectangle(x1 + 1 * (barWidth + space), y1 + (0.4 * height), barWidth, 0.6 * height);
     dc.fillRectangle(x1 + 2 * (barWidth + space), y1 + (0.2 * height), barWidth, 0.8 * height);
     dc.fillRectangle(x1 + 3 * (barWidth + space), y1 + (0.0 * height), barWidth, 1.0 * height);
     
-    switch (gpsAccuracy)
-    {
-      case 1:
-        dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-        break;
-      
-      case 2:
-        dc.setColor(Graphics.COLOR_ORANGE, Graphics.COLOR_TRANSPARENT);
-        break;
-      
-      case 3:
-        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
-        break;
-      
-      case 4:
-        dc.setColor(Graphics.COLOR_DK_GREEN, Graphics.COLOR_TRANSPARENT);
-        break;
-      
-      default:
-        dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-        break;
-    }
+    if (gpsAccuracy == 2) { dc.setColor(Graphics.COLOR_ORANGE, Graphics.COLOR_TRANSPARENT); }
+    else if (gpsAccuracy == 3) { dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT); }
+    else if (gpsAccuracy == 4) { dc.setColor(Graphics.COLOR_DK_GREEN, Graphics.COLOR_TRANSPARENT); }
+    else { dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT); }
     
     switch (gpsAccuracy)
     {
@@ -1832,7 +1596,7 @@ class GRunView extends WatchUi.DataField
     }
   }
   
-  function drawBattery(dc, x, y, width, batteryPercentage, fixedBackground)
+  function drawBattery(dc, x, y, width, batteryPercentage/*, fixedBackground*/)
   {
     var height = (width * 2/5).toNumber();
     var radius = 0.15 * height;
@@ -1851,11 +1615,12 @@ class GRunView extends WatchUi.DataField
     dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
     dc.fillRoundedRectangle(x1 + 2, y1 + 2, width - 4, height - 4, 2);
     
-    if (fixedBackground == true)
-    {
+    //if (fixedBackground == true)
+    //{
       dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-    }
+    //}
     
+    /*
     else
     {
       // Display background according to battery percentage
@@ -1872,6 +1637,7 @@ class GRunView extends WatchUi.DataField
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
       }
     }
+    */
     
     dc.drawText(x, y - 1, fontTiny, batteryPercentage.format("%d") + "%", Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
   }

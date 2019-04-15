@@ -13,6 +13,9 @@
   <string id="PARAM_MAX_PACE">Maximum Pace (in seconds)</string>
   <string id="PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">Middle Column Percentage Size</string>
   
+  <string id="PARAM_HEADER_BACKGROUND_COLOR">Header Background Color</string>
+  <string id="PARAM_DATA_FOREGROUND_COLOR">Data Foreground Color</string>
+  
   <string id="Field00">Empty</string>
   <string id="Field01">Time</string>
   <string id="Field02">Timer</string>
