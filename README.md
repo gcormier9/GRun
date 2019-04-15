@@ -4,7 +4,7 @@ Configurable Garmin Watch datafield
 ![GRun Cover Image](/doc/GRunWatch.png) 
 
 ## Release Notes
-### Version 1.16
+### Version 1.17
  - Added options to display Header background or data foreground in color
  - Area 4a/4b and 5 can be shrinked together if one of them is empty
  - Improve code to use less memory
