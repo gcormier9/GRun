@@ -11,6 +11,14 @@
     </settingConfig>
   </setting>
   
+  <setting propertyKey="@Properties.HeaderHeight" title="@Strings.PARAM_HEADER_HEIGHT">
+    <settingConfig type="numeric" min="0" max="30" />
+  </setting>
+  
+  <setting propertyKey="@Properties.LapDistance" title="@Strings.PARAM_LAP_DISTANCE">
+    <settingConfig type="numeric" min="0" />
+  </setting>
+  
   <setting propertyKey="@Properties.MinPace" title="@Strings.PARAM_MIN_PACE">
     <settingConfig type="numeric" min="0" />
   </setting>

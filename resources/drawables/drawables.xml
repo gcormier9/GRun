@@ -1,3 +1,33 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="GPS0" filename="gps0.png" dithering="none">
+        <palette disableTransparency="false">
+            <color>555555</color>
+            <color>FF0000</color>
+        </palette>
+    </bitmap>
+    <bitmap id="GPS1" filename="gps1.png" dithering="none">
+        <palette disableTransparency="false">
+            <color>555555</color>
+            <color>FF0000</color>
+        </palette>
+    </bitmap>
+    <bitmap id="GPS2" filename="gps2.png" dithering="none">
+        <palette disableTransparency="false">
+            <color>555555</color>
+            <color>FF5500</color>
+        </palette>
+    </bitmap>
+    <bitmap id="GPS3" filename="gps3.png" dithering="none">
+        <palette disableTransparency="false">
+            <color>555555</color>
+            <color>FFAA00</color>
+        </palette>
+    </bitmap>
+    <bitmap id="GPS4" filename="gps4.png" dithering="none">
+        <palette disableTransparency="false">
+            <color>555555</color>
+            <color>00AA00</color>
+        </palette>
+    </bitmap>
 </drawables>

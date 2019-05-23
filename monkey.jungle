@@ -1,1 +1,68 @@
 project.manifest = manifest.xml
+
+# Source Files
+#######################################################
+# Default used low memory
+base.sourcePath = source;source-lowmem
+
+# High Memory (124.7 KB)
+d2charlie.sourcePath = source;source-highmem
+d2delta.sourcePath = source;source-highmem
+d2deltapx.sourcePath = source;source-highmem
+d2deltas.sourcePath = source;source-highmem
+edge1030.sourcePath = source;source-highmem
+edge1030bontrager.sourcePath = source;source-highmem
+edge520plus.sourcePath = source;source-highmem
+edgeexplore.sourcePath = source;source-highmem
+fenix5plus.sourcePath = source;source-highmem
+fenix5splus.sourcePath = source;source-highmem
+fenix5x.sourcePath = source;source-highmem
+fenix5xplus.sourcePath = source;source-highmem
+
+# High Memory (60.7 KB)
+fr645m.sourcePath = source;source-highmem
+
+# Low Memory (28.7 KB)
+#edge130.sourcePath = source;source-lowmem
+#fenix5.sourcePath = source;source-lowmem
+fenix5s.sourcePath = source;source-fenix5s
+fenixchronos.sourcePath = source;source-fenixchronos
+#fr645.sourcePath = source;source-lowmem
+#fr935.sourcePath = source;source-lowmem
+#vivoactive3.sourcePath = source;source-lowmem
+#vivoactive3m.sourcePath = source;source-lowmem
+
+# Resource Files
+#######################################################
+base.resourcePath = resources
+
+# High Memory (124.7 KB) without "Training Effect" support
+d2charlie.resourcePath = resources;resources-highmem
+d2delta.resourcePath = resources;resources-highmem
+d2deltapx.resourcePath = resources;resources-highmem
+d2deltas.resourcePath = resources;resources-highmem
+edgeexplore.resourcePath = resources;resources-highmem
+fenix5plus.resourcePath = resources;resources-highmem
+fenix5splus.resourcePath = resources;resources-highmem
+
+# High Memory (124.7 KB) with "Training Effect" support
+edge1030.resourcePath = resources;resources-highmem-te
+edge1030bontrager.resourcePath = resources;resources-highmem-te
+edge520plus.resourcePath = resources;resources-highmem-te
+fenix5x.resourcePath = resources;resources-highmem-te
+fenix5xplus.resourcePath = resources;resources-highmem-te
+
+# High Memory (60.7 KB) with "Training Effect" support
+fr645m.resourcePath = resources;resources-highmem-te
+
+# Low Memory (28.7 KB) without "Training Effect" support
+#edge130.resourcePath = resources;resources-edge130
+#vivoactive3.resourcePath = resources;resources-vivoactive3
+#vivoactive3m.resourcePath = resources;resources-vivoactive3m
+
+# Low Memory (28.7 KB) with "Training Effect" support
+fenix5.resourcePath = resources;resources-lowmem-te
+fenix5s.resourcePath = resources;resources-lowmem-te
+fenixchronos.resourcePath = resources;resources-lowmem-te
+fr645.resourcePath = resources;resources-lowmem-te
+fr935.resourcePath = resources;resources-lowmem-te

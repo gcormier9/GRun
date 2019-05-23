@@ -1,17 +1,18 @@
 <strings>
   <string id="AppName">GRun</string>
   <string id="PARAM_APP_VERSION">GRun Version</string>
-  <string id="DeviceModel">Unknown</string>
   
   <string id="PARAM_HEADER_POSITION">Header Position</string>
-  <string id="PARAM_HEADER_POSITION_PROMPT">Header Position TEST</string>
   <string id="PARAM_HEADER_POSITION_1">Top / Top</string>
   <string id="PARAM_HEADER_POSITION_2">Top / Bottom</string>
   <string id="PARAM_HEADER_POSITION_3">Bottom / Top</string>
   
-  <string id="PARAM_MIN_PACE">Minimum Pace (in seconds)</string>
-  <string id="PARAM_MAX_PACE">Maximum Pace (in seconds)</string>
-  <string id="PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">Middle Column Percentage Size</string>
+  <string id="PARAM_HEADER_HEIGHT">Header Height in pixels [0 to hide headers, Min Value=0, Max Value=30]</string>
+  <string id="PARAM_LAP_DISTANCE">Lap Distance [Auto correct distance when lap button is pressed (0=disable, 1000=1km, 1609=1mile)]</string>
+  
+  <string id="PARAM_MIN_PACE">Minimum Pace (Fastest) (in seconds)</string>
+  <string id="PARAM_MAX_PACE">Maximum Pace (Slowest) (in seconds)</string>
+  <string id="PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">Middle Column Percentage Size [Make middle column larger (&gt; 100) or smaller (&lt; 100) than left/right columns]</string>
   
   <string id="PARAM_HEADER_BACKGROUND_COLOR">Header Background Color</string>
   <string id="PARAM_DATA_FOREGROUND_COLOR">Data Foreground Color</string>
@@ -39,11 +40,12 @@
   <string id="Field20">GPS Icon and Battery Icon</string>
   <string id="Field21">ETA 5K</string>
   <string id="Field22">ETA 10K</string>
-  <string id="Field23">ETA Half Marathon (21.075.5 km)</string>
+  <string id="Field23">ETA Half Marathon (21.0975 km)</string>
   <string id="Field24">ETA Marathon (42.195 km)</string>
   <string id="Field25">Lap Time</string>
   <string id="Field26">Lap Distance</string>
   <string id="Field27">Lap Pace</string>
+  <string id="Field28">Training Effect</string>
   
   <string id="PARAM_AREA1">Field 1</string>
   <string id="PARAM_AREA2">Field 2A</string>
