@@ -4,10 +4,16 @@ Configurable Garmin Watch datafield
 ![GRun Cover Image](/doc/GRunWatch.png) 
 
 ## Release Notes
+### Version 1.19
+ - Application Settings can be changed while application is running
+ - Redesign settings to adjust column width (Less user friend, but more customizable)
+ - Add a parameter to set "Header Height" in percentage. This allow to completely hide headers to maximize space.
+ - Header Font tried to used the maximum space possible
+ - Changed default parameters
+
 ### Version 1.18
  - Added Training Effect on supported devices (Fenix 5, Fenix 5s, Fenix 5x, Fenix 5x Plus, Fenix Chronos, Forerunnner 645, Forerunnner 645 Music, Forerunnner 935, Edge 1030, Edge 520 Plus)
  - Add a parameter to correct distance on lap. Distance is rounded to the nearest "Lap Distance".
- - Add a parameter to set "Header Height" in pixel. This allow to completely hide headers to maximize space.
  - Code improvement to optimize memory
  - Code Framework using Jungles to implement features for specific devices (Example: Training Effect)
 

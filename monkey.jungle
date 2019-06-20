@@ -3,34 +3,34 @@ project.manifest = manifest.xml
 # Source Files
 #######################################################
 # Default used low memory
-base.sourcePath = source;source-lowmem
+base.sourcePath = source
 
 # High Memory (124.7 KB)
-d2charlie.sourcePath = source;source-highmem
-d2delta.sourcePath = source;source-highmem
-d2deltapx.sourcePath = source;source-highmem
-d2deltas.sourcePath = source;source-highmem
-edge1030.sourcePath = source;source-highmem
-edge1030bontrager.sourcePath = source;source-highmem
-edge520plus.sourcePath = source;source-highmem
-edgeexplore.sourcePath = source;source-highmem
-fenix5plus.sourcePath = source;source-highmem
-fenix5splus.sourcePath = source;source-highmem
-fenix5x.sourcePath = source;source-highmem
-fenix5xplus.sourcePath = source;source-highmem
+d2charlie.sourcePath = source;source-highmem;source-highmem-default
+d2delta.sourcePath = source;source-highmem;source-highmem-default
+d2deltapx.sourcePath = source;source-highmem;source-highmem-default
+d2deltas.sourcePath = source;source-highmem;source-highmem-default
+edge1030.sourcePath = source;source-highmem;source-highmem-edge1030
+edge1030bontrager.sourcePath = source;source-highmem;source-highmem-edge1030
+edge520plus.sourcePath = source;source-highmem;source-highmem-edge520plus
+edgeexplore.sourcePath = source;source-highmem;source-highmem-edge520plus
+fenix5plus.sourcePath = source;source-highmem;source-highmem-default
+fenix5splus.sourcePath = source;source-highmem;source-highmem-default
+fenix5x.sourcePath = source;source-highmem;source-highmem-default
+fenix5xplus.sourcePath = source;source-highmem;source-highmem-default
 
 # High Memory (60.7 KB)
-fr645m.sourcePath = source;source-highmem
+fr645m.sourcePath = source;source-highmem;source-highmem-default
 
 # Low Memory (28.7 KB)
-#edge130.sourcePath = source;source-lowmem
-#fenix5.sourcePath = source;source-lowmem
-fenix5s.sourcePath = source;source-fenix5s
-fenixchronos.sourcePath = source;source-fenixchronos
-#fr645.sourcePath = source;source-lowmem
-#fr935.sourcePath = source;source-lowmem
-#vivoactive3.sourcePath = source;source-lowmem
-#vivoactive3m.sourcePath = source;source-lowmem
+edge130.sourcePath = source;source-lowmem-default
+fenix5.sourcePath = source;source-lowmem-default
+fenix5s.sourcePath = source;source-lowmem-fenix5s
+fenixchronos.sourcePath = source;source-lowmem-fenixchronos
+fr645.sourcePath = source;source-lowmem-default
+fr935.sourcePath = source;source-lowmem-default
+vivoactive3.sourcePath = source;source-lowmem-default
+vivoactive3m.sourcePath = source;source-lowmem-default
 
 # Resource Files
 #######################################################

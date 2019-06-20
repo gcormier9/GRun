@@ -12,7 +12,7 @@
   </setting>
   
   <setting propertyKey="@Properties.HeaderHeight" title="@Strings.PARAM_HEADER_HEIGHT">
-    <settingConfig type="numeric" min="0" max="30" />
+    <settingConfig type="numeric" min="0" max="100" />
   </setting>
   
   <setting propertyKey="@Properties.LapDistance" title="@Strings.PARAM_LAP_DISTANCE">
@@ -27,8 +27,12 @@
     <settingConfig type="numeric" min="0" />
   </setting>
   
-  <setting propertyKey="@Properties.MiddleColumnPercentageSize" title="@Strings.PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">
-    <settingConfig type="numeric" min="0" />
+  <setting propertyKey="@Properties.ColumnWidthRatio1" title="@Strings.PARAM_COLUMN_WIDTH_RATIO_1">
+    <settingConfig type="alphaNumeric" />
+  </setting>
+  
+  <setting propertyKey="@Properties.ColumnWidthRatio2" title="@Strings.PARAM_COLUMN_WIDTH_RATIO_2">
+    <settingConfig type="alphaNumeric" />
   </setting>
   
   <setting propertyKey="@Properties.HeaderBackgroundColor" title="@Strings.PARAM_HEADER_BACKGROUND_COLOR">
@@ -69,6 +73,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -102,6 +107,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -135,6 +141,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -168,6 +175,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -201,6 +209,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -234,6 +243,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -267,6 +277,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -300,6 +311,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -333,6 +345,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   
@@ -366,6 +379,7 @@
       <listEntry value="25">@Strings.Field25</listEntry>
       <listEntry value="26">@Strings.Field26</listEntry>
       <listEntry value="27">@Strings.Field27</listEntry>
+      <listEntry value="99">@Strings.Field29</listEntry>
     </settingConfig>
   </setting>
   

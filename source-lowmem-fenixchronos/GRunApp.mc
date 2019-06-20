@@ -6,18 +6,19 @@ class GRunApp extends Application.AppBase
   
   function initialize()
   {
-    //System.println("Garmin (Low Memory)");
+    //System.println("Garmin Fenix Chronos (Low Memory)");
     AppBase.initialize();
-    gRunView = new GRunView(0);
+    gRunView = new GRunView();
+    gRunView.yOffset = -1;
   }
 
-  /*
+  
   function onSettingsChanged()
   {
     AppBase.onSettingsChanged();
-    gRunView.initializeUserData();
+    //gRunView.initializeUserData();
   }
-  */
+  
 
   function getInitialView()
   {

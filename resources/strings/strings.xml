@@ -7,12 +7,13 @@
   <string id="PARAM_HEADER_POSITION_2">Top / Bottom</string>
   <string id="PARAM_HEADER_POSITION_3">Bottom / Top</string>
   
-  <string id="PARAM_HEADER_HEIGHT">Header Height in pixels [0 to hide headers, Min Value=0, Max Value=30]</string>
+  <string id="PARAM_HEADER_HEIGHT">Header Height (%) [0 to hide headers]</string>
   <string id="PARAM_LAP_DISTANCE">Lap Distance [Auto correct distance when lap button is pressed (0=disable, 1000=1km, 1609=1mile)]</string>
   
   <string id="PARAM_MIN_PACE">Minimum Pace (Fastest) (in seconds)</string>
   <string id="PARAM_MAX_PACE">Maximum Pace (Slowest) (in seconds)</string>
-  <string id="PARAM_MIDDLE_COLUMN_PERCENTAGE_SIZE">Middle Column Percentage Size [Make middle column larger (&gt; 100) or smaller (&lt; 100) than left/right columns]</string>
+  <string id="PARAM_COLUMN_WIDTH_RATIO_1">Column Width Ratio for second row [Example: 1,2,1 means middle column will be 2 times larger than column 1 and 3]</string>
+  <string id="PARAM_COLUMN_WIDTH_RATIO_2">Column Width Ratio for third row</string>
   
   <string id="PARAM_HEADER_BACKGROUND_COLOR">Header Background Color</string>
   <string id="PARAM_DATA_FOREGROUND_COLOR">Data Foreground Color</string>
@@ -46,6 +47,7 @@
   <string id="Field26">Lap Distance</string>
   <string id="Field27">Lap Pace</string>
   <string id="Field28">Training Effect</string>
+  <string id="Field29">Total Corrected Distance (meter)</string>
   
   <string id="PARAM_AREA1">Field 1</string>
   <string id="PARAM_AREA2">Field 2A</string>
