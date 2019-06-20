@@ -165,7 +165,6 @@ class GRunView extends WatchUi.DataField
   function configureAreaDimension(s, v1, v2, v3, valueArea1, valueArea2, valueArea3, y, height)
   {
     var i = 0;
-    var totalWidthRatio = 0;
     var commaIndex = s.find(",");
     var numberArray = [0, 0, 0];
     
@@ -196,6 +195,7 @@ class GRunView extends WatchUi.DataField
     
     if (nonEmptyValues == i && i < 3)
     {
+      var count = 0;
       if (v1 != 0 /* OPTION_EMPTY */) { numberArray[0] = numberArray[count]; count++; }
       if (v2 != 0 /* OPTION_EMPTY */) { numberArray[1] = numberArray[count]; count++; }
       if (v3 != 0 /* OPTION_EMPTY */) { numberArray[2] = numberArray[count]; }
@@ -205,7 +205,7 @@ class GRunView extends WatchUi.DataField
     if (v2 == 0 /* OPTION_EMPTY */) { numberArray[1] = 0; }
     if (v3 == 0 /* OPTION_EMPTY */) { numberArray[2] = 0; }
     
-    totalWidthRatio = numberArray[0] + numberArray[1] + numberArray[2];
+    var totalWidthRatio = numberArray[0] + numberArray[1] + numberArray[2];
     if (totalWidthRatio == 0) { totalWidthRatio = 1; }
     var columnWidth1 = deviceWidth * numberArray[0] / totalWidthRatio;
     var columnWidth2 = deviceWidth * numberArray[1] / totalWidthRatio;
@@ -416,11 +416,6 @@ class GRunView extends WatchUi.DataField
   
   function computeValue(info, id, value, valueData)
   {
-    if (value == 0 /* OPTION_EMPTY */)
-    {
-      return valueData;
-    }
-    
     // Current Clock Time
     if (value == 1 /* OPTION_CURRENT_TIME */)
     {

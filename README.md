@@ -6,7 +6,8 @@ Configurable Garmin Watch datafield
 ## Release Notes
 ### Version 1.19
  - Application Settings can be changed while application is running
- - Redesign settings to adjust column width (Less user friend, but more customizable)
+ - Redesign settings to adjust column width (Less user friend, but more customizable).
+   + Default value is "2,1,2" which means first column will have a width of 2/5, second column will have a width of 1/5 and third column will have a width of 2/5. If a parameter is set to Empty, the value is ignored. For example, if column2 is empty, that the ratio become 2/4 for column #1 and 2/4, 0/4 for column #2 and 2/4 for column #3.
  - Add a parameter to set "Header Height" in percentage. This allow to completely hide headers to maximize space.
  - Header Font tried to used the maximum space possible
  - Changed default parameters
