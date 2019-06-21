@@ -65,7 +65,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -135,7 +135,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -205,7 +205,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -275,7 +275,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -345,7 +345,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -415,7 +415,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -485,7 +485,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -555,7 +555,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -625,7 +625,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
@@ -695,7 +695,7 @@
       <listEntry value="62">@Strings.Field62</listEntry>
       <listEntry value="63">@Strings.Field63</listEntry>
       <listEntry value="64">@Strings.Field64</listEntry>
-      <listEntry value="99">@Strings.Field65</listEntry>
+      <listEntry value="65">@Strings.Field65</listEntry>
     </settingConfig>
   </setting>
   
