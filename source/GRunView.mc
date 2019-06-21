@@ -227,7 +227,7 @@ class GRunView extends WatchUi.DataField
     isElevationUnitsImperial = (deviceSettings.elevationUnits == System.UNIT_STATUTE);
   
     headerPosition = getParameter("HeaderPosition", 1);
-    var headerHeightPercentage = getParameter("HeaderHeight", 32).toFloat() / 100;
+    var headerHeightPercentage = getParameter("HeaderHeight", 30).toFloat() / 100;
     columnWidthRatio1 = getParameter("ColumnWidthRatio1", "2,1,2");
     columnWidthRatio2 = getParameter("ColumnWidthRatio2", "2,1,2");
     
