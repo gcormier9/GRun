@@ -64,12 +64,15 @@ Header Position can have 3 positions.
 ### Header Height
 On row #2 and #3, header height can be configured using a percentage of the area.
 You can hide headers by setting the value to 0:
+
 ![GRun Hide Headers](/doc/GRunHeaders0.png)
 
 A value of 100 will hide the actual values (not very useful):
+
 ![GRun Hide Headers](/doc/GRunHeaders100.png)
 
 Default value of 30 looks like this:
+
 ![GRun Hide Headers](/doc/GRunHeaders30.png)
 
 ### Lap Distance
