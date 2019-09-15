@@ -108,6 +108,10 @@ If some fields are configured with option  **Empty**, the other fields on the sa
 ![GRun Expand](/doc/GRunWatch1.png)
 
 ## Release Notes
+### Version 1.20
+ - Connect IQ SDK Version 3.1.3
+ - Added support for new watches (Descent Mk1, Edge 530, Edge 820, Edge 830, Fenix 6, Fenix 6 Pro, Fenix 6S, Fenix 6S Pro, Fenix 6x Pro, Forerunner 245, Forerunner 245m, Forerunner 945, Captain Marvel, First Avenger, MARQ Athlete, MARQ Aviator, MARQ Captain, MARQ Driver, MARQ Expedition, Oregon 7xx, Rino 7xx, Venu, Vivoactive 3d, Vivoactive 3m LTE, Vivoactive 4, Vivoactive 4S)
+ 
 ### Version 1.19
  - Redesign settings to adjust column width (Less user friend, but more customizable).
    + Default value is "2,1,2" which means first column will have a width of 2/5, second column will have a width of 1/5 and third column will have a width of 2/5. If a parameter is set to Empty, the value is ignored. For example, if column2 is empty, that the ratio become 2/4 for column #1 and 2/4, 0/4 for column #2 and 2/4 for column #3.
