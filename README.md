@@ -55,7 +55,6 @@ The following fields are currently supported:
 Header Position can have 3 positions.
 #### 1) Top / Top
 ![GRun TopTop](/doc/GRunWatch2.png)
-
 #### 2) Top / Bottom
 ![GRun TopBottom](/doc/GRunWatch3.png)
 #### 3) Bottom / Top
@@ -77,9 +76,11 @@ Default value of 30 looks like this:
 
 ### Uniform Background Color
 By default, rows 4 and 5 have a different background color.
+
 ![GRun BottomTop](/doc/GRunWatch10.png)
 
 To have a uniform background color, simply enable this setting.
+
 ![GRun BottomTop](/doc/GRunWatch11.png)
 
 ### Lap Distance
