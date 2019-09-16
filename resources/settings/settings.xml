@@ -15,6 +15,10 @@
     <settingConfig type="numeric" min="0" max="100" />
   </setting>
   
+  <setting propertyKey="@Properties.SingleBackgroundColor" title="@Strings.PARAM_SINGLE_BACKGROUND_COLOR">
+    <settingConfig type="boolean" />
+  </setting>
+  
   <setting propertyKey="@Properties.LapDistance" title="@Strings.PARAM_LAP_DISTANCE">
     <settingConfig type="numeric" min="0" />
   </setting>

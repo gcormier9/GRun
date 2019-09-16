@@ -75,6 +75,13 @@ Default value of 30 looks like this:
 
 ![GRun Hide Headers](/doc/GRunHeaders30.png)
 
+### Uniform Background Color
+By default, rows 4 and 5 have a different background color.
+![GRun BottomTop](/doc/GRunWatch10.png)
+
+To have a uniform background color, simply enable this setting.
+![GRun BottomTop](/doc/GRunWatch11.png)
+
 ### Lap Distance
 Lap Distance is useful for people running in competition. It allows to readjust distance. For example, if you set the value to 1000 (meters), it allows you to press the lap button at each kilometer. If Garmin had calculated a value of 1.01 km at km #1, it will readjust to 1.00 km when you press the lap button. Average Speed, Pace, ETA will be readjust using the updated distance. To determine what the new distance should be, the distance is divided by "Lap Distance" and is adjusted to the closest value. For example, if "Lap Distance" is set to 400 meters and you press the lap button at 1195 meters, the distance will be corrected to 1200 meters. If the distance was 1225 meters, it would be corrected to 1200 meters. It is important to note that you do not have to press lap button on every lap since the value is always corrected using the closest lap distance.
 
@@ -109,7 +116,7 @@ If some fields are configured with option  **Empty**, the other fields on the sa
 
 ## Release Notes
 ### Version 1.20
- - Connect IQ SDK Version 3.1.3
+ - Added a parameter to have a uniform background color. By default rows 4 and 5 have a different background color.
  - Added support for new watches (Descent Mk1, Edge 530, Edge 820, Edge 830, Fenix 6, Fenix 6 Pro, Fenix 6S, Fenix 6S Pro, Fenix 6x Pro, Forerunner 245, Forerunner 245m, Forerunner 945, Captain Marvel, First Avenger, MARQ Athlete, MARQ Aviator, MARQ Captain, MARQ Driver, MARQ Expedition, Oregon 7xx, Rino 7xx, Venu, Vivoactive 3d, Vivoactive 3m LTE, Vivoactive 4, Vivoactive 4S)
  
 ### Version 1.19

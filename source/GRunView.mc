@@ -54,6 +54,8 @@ class GRunView extends WatchUi.DataField
   protected var headerPosition;
   // Header Height in pixel. Calculated using HeaderHeight parameter in percentage
   protected var headerHeight;
+  // If true, rows 4/5 have same color as rows 1/2/3
+  protected var singleBackgroundColor;
   
   //Allow to set column for second row with different size 
   protected var columnWidthRatio1;
@@ -228,6 +230,7 @@ class GRunView extends WatchUi.DataField
   
     headerPosition = getParameter("HeaderPosition", 1);
     var headerHeightPercentage = getParameter("HeaderHeight", 30).toFloat() / 100;
+    singleBackgroundColor = getParameter("SingleBackgroundColor", false);
     columnWidthRatio1 = getParameter("ColumnWidthRatio1", "2,1,2");
     columnWidthRatio2 = getParameter("ColumnWidthRatio2", "2,1,2");
     
@@ -668,8 +671,11 @@ class GRunView extends WatchUi.DataField
     }
     
     // Inverse background for row 4 and 5
-    dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
-    dc.fillRectangle(v8area[0], v8area[1], deviceWidth, deviceHeight); 
+    if (singleBackgroundColor == false)
+    {
+      dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+      dc.fillRectangle(v8area[0], v8area[1], deviceWidth, deviceHeight);
+    } 
     
     // Display Area
     displayArea(dc, 1, v1, v1data, v1area);
@@ -686,7 +692,8 @@ class GRunView extends WatchUi.DataField
     if ( (v8 != 0 /* OPTION_EMPTY */) && (v9 != 0 /* OPTION_EMPTY */) )
     {
       dc.setPenWidth(3);
-      dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+      if (singleBackgroundColor) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+      else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
       dc.drawLine(v8area[2], v8area[1] + 5, v8area[2], v8area[1] + v8area[3] - 5);
       dc.setPenWidth(1);
     }
@@ -798,7 +805,7 @@ class GRunView extends WatchUi.DataField
     areaXcenter += (leftOffsetX / 2) - (rightOffsetX / 2);
     
     if (dynamicForegroundColor && (color != null)) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
-    else if (id < 8) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+    else if (id < 8 || singleBackgroundColor) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
     else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
     
     if (type == 18 /* OPTION_CURRENT_BATTERY */)
@@ -836,7 +843,7 @@ class GRunView extends WatchUi.DataField
         dc.drawText(areaXcenter - (textWidth / 2), areaYcenter, fontIcons, 0, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         
         if (dynamicForegroundColor && (color != null)) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
-        else if (id < 8) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+        else if (id < 8 || singleBackgroundColor) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
         else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
         dc.drawText(areaXcenter + (iconWidth / 2), areaYcenter, font, formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
       }
@@ -1045,7 +1052,7 @@ class GRunView extends WatchUi.DataField
     // (0xFF55555 Bitwise AND 0xFFFFFF = 0xFF55555 & 0xFFFFFF = 0x555555 (COLOR_DK_GRAY)
     //var grayColor = (id >= 8) ? colorBorder : ~colorBorder&0xFFFFFF;
     //var grayColor = (id >= 8) ? colorBorder : colorHeader;
-    var grayColor = (id >= 8) ? colorHeader : colorBorder;
+    var grayColor = (id >= 8 && singleBackgroundColor == false) ? colorHeader : colorBorder;
     
     dc.setClip(x1 + width + 1, y1, radius - 1, height);
     dc.setColor(grayColor, Graphics.COLOR_TRANSPARENT);

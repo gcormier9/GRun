@@ -8,6 +8,7 @@
   <string id="PARAM_HEADER_POSITION_3">Bottom / Top</string>
   
   <string id="PARAM_HEADER_HEIGHT">Header Height (%) [0 to hide headers]</string>
+  <string id="PARAM_SINGLE_BACKGROUND_COLOR">Uniform Background Color [If true, rows 4/5 have same color as rows 1/2/3]</string>
   <string id="PARAM_LAP_DISTANCE">Lap Distance [Auto correct distance when lap button is pressed (0=disable, 1000=1km, 1609=1mile)]</string>
   
   <string id="PARAM_MIN_PACE">Minimum Pace (Fastest) (in seconds)</string>
@@ -15,8 +16,8 @@
   <string id="PARAM_COLUMN_WIDTH_RATIO_1">Column Width Ratio for second row [Example: 1,2,1 means middle column will be 2 times larger than column 1 and 3]</string>
   <string id="PARAM_COLUMN_WIDTH_RATIO_2">Column Width Ratio for third row</string>
   
-  <string id="PARAM_HEADER_BACKGROUND_COLOR">Header Background Color</string>
-  <string id="PARAM_DATA_FOREGROUND_COLOR">Data Foreground Color</string>
+  <string id="PARAM_HEADER_BACKGROUND_COLOR">Dynamic Header Background Color</string>
+  <string id="PARAM_DATA_FOREGROUND_COLOR">Dynamic Data Foreground Color</string>
   
   <string id="Field00">Empty</string>
   <string id="Field01">Time</string>
