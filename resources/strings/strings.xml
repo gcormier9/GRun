@@ -22,15 +22,12 @@
   <string id="Field00">Empty</string>
   <string id="Field01">Time</string>
   <string id="Field02">Timer</string>
-  <string id="Field03">Time spend on current km/mile</string>
-  <string id="Field04">Time spend on previous km/mile</string>
   <string id="Field05">Distance</string>
   <string id="Field06">Current Heart Rate</string>
   <string id="Field07">Current Pace</string>
   <string id="Field08">Current Speed</string>
   <string id="Field09">Average Heart Rate</string>
   <string id="Field10">Average Pace</string>
-  <string id="Field11">Average Pace (Calculated manually using timer/distance)</string>
   <string id="Field12">Average Speed</string>
   <string id="Field13">Calories</string>
   <string id="Field14">Current Cadence</string>
@@ -49,6 +46,9 @@
   <string id="Field27">Lap Pace</string>
   <string id="Field28">Training Effect</string>
   <string id="Field29">Total Corrected Distance (meter)</string>
+  <string id="Field30">Previous Lap Time</string>
+  <string id="Field31">ETA Lap</string>
+  <string id="Field32">Lap Count</string>
   
   <string id="PARAM_AREA1">Field 1</string>
   <string id="PARAM_AREA2">Field 2A</string>

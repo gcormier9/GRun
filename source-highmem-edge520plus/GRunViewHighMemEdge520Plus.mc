@@ -12,7 +12,7 @@ class GRunViewHighMemEdge520Plus extends GRunViewHighMem
   {
     var fontID = Graphics.FONT_NUMBER_THAI_HOT;
     var textDimension;
-    if (type == 1 /* OPTION_CURRENT_TIME */ || type == 37 /* OPTION_CURRENT_LOCATION */) { fontID = Graphics.FONT_LARGE; }
+    if (type == 1 /* OPTION_CURRENT_TIME */ || type == 108 /* OPTION_CURRENT_LOCATION */) { fontID = Graphics.FONT_LARGE; }
     
     while (fontID > 0)
     {

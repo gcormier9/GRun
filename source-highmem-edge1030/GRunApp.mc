@@ -6,7 +6,7 @@ class GRunApp extends Application.AppBase
   
   function initialize()
   {
-    //System.println("Garmin (High Memory)");
+    //System.println("Garmin Edge 1030 Plus (High Memory)");
     AppBase.initialize();
     gRunView = new GRunViewHighMemEdge1030();
   }
