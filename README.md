@@ -118,10 +118,9 @@ If some fields are configured with option  **Empty**, the other fields on the sa
 ## Release Notes
 ### Version 1.21
  - Removed "Average Pace (Calculated manually using timer/distance)" field
- - Removed field "Time spend on current km/mile"
+ - Replaced field "Time spend on current km/mile" by "ETA Lap"
  - Replaced field "Time spend on previous km/mile" by "Previous Lap Time"
  - Added field "Lap Count" 
- - Added field "ETA Lap"
  - Increased line width between fields from 1 pixel to 2 pixels
 
  - Memory Usage on va3 (Current | Peak) : 
