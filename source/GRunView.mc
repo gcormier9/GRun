@@ -920,7 +920,7 @@ class GRunView extends WatchUi.DataField
         type == 27 /* OPTION_CURRENT_LAP_PACE */ ||
         type ==  30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */)
     {
-      return formatDuration(value, false);
+      return formatDuration(Math.round(value), false);
     }
     
     if (type == 2 /* OPTION_TIMER_TIME */ ||
@@ -931,7 +931,7 @@ class GRunView extends WatchUi.DataField
         type == 25 /* OPTION_CURRENT_LAP_TIME */ ||
         type == 31 /* OPTION_ETA_LAP */)
     {
-      return formatDuration(value, true);
+      return formatDuration(Math.round(value), true);
     }
 
     if (value instanceof Float) { return formatFloat(value); }
