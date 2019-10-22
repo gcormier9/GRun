@@ -14,15 +14,12 @@ The following fields are currently supported:
 - Empty
 - Time
 - Timer
-- Time spend on current km/mile
-- Last km/mile Time
 - Distance
 - Current Heart Rate
 - Current Pace
 - Current Speed
 - Average Heart Rate
 - Average Pace
-- Average Pace (Calculated mnually using timer/distance)
 - Average Speed
 - Calories
 - Current Cadence
@@ -36,6 +33,9 @@ The following fields are currently supported:
 - ETA 10K
 - ETA Half Marathon (21.075.5 km)
 - ETA Marathon (42.195 km)
+- ETA Lap
+- Lap Count
+- Previous Lap Time
 - Lap Time
 - Lap Distance
 - Lap Pace
