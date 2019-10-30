@@ -583,7 +583,6 @@ class GRunView extends WatchUi.DataField
     
     if (value == 31 /* OPTION_ETA_LAP */)
     {
-      //System.println("!!!! VALIDER SI FONCTIONNEL EN MILE VS KM");
       if (lapDistance <= 0 || timer <= 0) { return 0; }
       
       var distanceMetric = convertUnitIfRequired(distance * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
@@ -591,8 +590,6 @@ class GRunView extends WatchUi.DataField
       
       var distanceCurrentLap = distanceMetric - startDistanceCurrentLapMetric;
       var remainingLapDistance = lapDistance - distanceCurrentLap;
-      //System.println("distance: " + distance + ", distanceMetric: " + distanceMetric + ", startDistanceCurrentLapMetric: " + startDistanceCurrentLapMetric + ", lapDistance: " + lapDistance + ", distanceCurrentLap: " + distanceCurrentLap);
-      //if (distanceCurrentLap <= 0 || remainingLapDistance <= 0) { return valueData; }
       if (remainingLapDistance <= 0) { remainingLapDistance = 0; }
       
       // Elapsed time for the current lap
@@ -795,14 +792,14 @@ class GRunView extends WatchUi.DataField
     
     dc.setClip(areaX + leftOffsetX, areaY, areaWidth - leftOffsetX - rightOffsetX, areaHeight);
     
-    if (type == 25 /* OPTION_CURRENT_LAP_TIME = 25 */)
+    if ( (type == 25 /* OPTION_CURRENT_LAP_TIME = 25 */) && (lapDistance > 0) )
     {
       var distanceMetric = convertUnitIfRequired(distance * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
       var startDistanceCurrentLapMetric = convertUnitIfRequired(startDistanceCurrentLap * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
-      var lapPercenrage = (distanceMetric - startDistanceCurrentLapMetric) / lapDistance;
+      var lapPercentage = (distanceMetric - startDistanceCurrentLapMetric) / lapDistance;
       
       dc.setColor(0x00AA00, Graphics.COLOR_TRANSPARENT);
-      dc.fillRectangle(areaX + leftOffsetX, areaY, (areaWidth - leftOffsetX - rightOffsetX) * lapPercenrage, areaHeight);
+      dc.fillRectangle(areaX + leftOffsetX, areaY, (areaWidth - leftOffsetX - rightOffsetX) * lapPercentage, areaHeight);
     }
     
     if (type == 18 /* OPTION_CURRENT_BATTERY */)

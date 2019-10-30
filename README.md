@@ -116,6 +116,10 @@ If some fields are configured with option  **Empty**, the other fields on the sa
 ![GRun Expand](/doc/GRunWatch1.png)
 
 ## Release Notes
+### Version 1.22
+ - BugFix : It it now possible to use "Lap Time" if "Lap Distance" is set to 0
+ - Compiled using Connect IQ SDK Release 3.1.6
+
 ### Version 1.21
  - Removed "Average Pace (Calculated manually using timer/distance)" field
  - Replaced field "Time spend on current km/mile" by "ETA Lap"
@@ -130,7 +134,6 @@ If some fields are configured with option  **Empty**, the other fields on the sa
  
  - Compiled using Connect IQ SDK Release 3.1.5
  
-
 ### Version 1.20
  - Added a parameter to have a uniform background color. By default rows 4 and 5 have a different background color.
  - Added support for new watches (Descent Mk1, Edge 530, Edge 820, Edge 830, Fenix 6, Fenix 6 Pro, Fenix 6S, Fenix 6S Pro, Fenix 6x Pro, Forerunner 245, Forerunner 245m, Forerunner 945, Captain Marvel, First Avenger, MARQ Athlete, MARQ Aviator, MARQ Captain, MARQ Driver, MARQ Expedition, Oregon 7xx, Rino 7xx, Venu, Vivoactive 3d, Vivoactive 3m LTE, Vivoactive 4, Vivoactive 4S)
