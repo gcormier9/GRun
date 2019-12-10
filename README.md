@@ -243,13 +243,13 @@ This field is helpful to determine the pace/speed required to finish your race a
    + Average Vertical Speed over a defined period of time (in meter or feet per hour)
    + HR Zone Number
    + Target Pace/Speed (5K, 10K, Half Marathon, Marathon, Lap Distance)
-  
-  
- - Memory Usage on va3   (Current | Peak) : 
+
+Memory Usage on va3   (Current | Peak) : 
    * At startup:           25.5 kB | 27.0 kB
    * 10 sec running:       25.5 kB | 27.4 kB
    * After setting change: 25.5 kB | 28.4 kB
- - Memory Usage on fr945 (Current | Peak) : 
+
+Memory Usage on fr945 (Current | Peak) : 
    * At startup:           31.5 kB | 33.4 kB
    * 10 sec running:       31.5 kB | 33.7 kB
    * After setting change: 31.5 kB | 34.5 kB
