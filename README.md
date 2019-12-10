@@ -118,6 +118,36 @@ Power is supported on the following devices:
 - MARQ Driver
 - MARQ Expedition
 
+List of High-Memory devices:
+- D2 Charlie
+- D2 Delta
+- D2 Delta PX
+- D2 Delta S
+- Descent Mk1
+- Edge 1030
+- Edge 1030 Bontrager
+- Edge 520 Plus
+- Edge 530
+- Edge 820
+- Edge 830
+- Edge Explore
+- fenix 5 Plus
+- fenix 5S Plus
+- fenix 5X
+- fenix 5X Plus
+- fenix 6 Pro
+- fenix 6S Pro
+- fenix 6X Pro
+- Forerunner 645 Music
+- Forerunner 945
+- MARQ Athlete
+- MARQ Aviator
+- MARQ Captain
+- MARQ Driver
+- MARQ Expedition
+- Oregon 7xx
+- Rino 7xx
+
 ## Notes
 - Fields related to distance are displayed in km or mile depending on the user profile.
 - Fields related to speed are displayed in km/h or mile/h depending on the user profile.
