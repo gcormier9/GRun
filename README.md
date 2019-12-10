@@ -140,7 +140,7 @@ Pace Range is used to determine if your pace/speed is too slow or too fast. For 
 ### Lap Distance (in meters)
 Lap Distance is useful for people running in competition. It allows to readjust distance. For example, if you set the value to 1000 (meters), it allows you to press the lap button at each kilometer. If Garmin had calculated a value of 1.01 km at km #1, it will readjust to 1.00 km when you press the lap button. Average Speed, Pace, ETA, etc. will be readjusted using the updated distance. To determine what the new distance should be, the distance is divided by "Lap Distance" and is adjusted to the closest value. For example, if "Lap Distance" is set to 400 meters and you press the lap button at 1195 meters, the distance will be corrected to 1200 meters. If the distance was 1225 meters, it would also be corrected to 1200 meters. It is important to note that you do not have to press lap button on every lap since the value is always corrected using the closest lap distance.
 
-*** Note : Lap Distance must always be set in meters regarless of the watch settings. If you'd like to set the "Lap Distance" to 1 mile, you have to configure it to 1609 (1609 meters = 1 mile).
+__*** Note__ : Lap Distance must always be set in meters regarless of the watch settings. If you'd like to set the "Lap Distance" to 1 mile, you have to configure it to 1609 (1609 meters = 1 mile).
 
 ### Header Position
 Header Position can have 3 positions.
@@ -243,8 +243,8 @@ This field is helpful to determine the pace/speed required to finish your race a
    + Average Vertical Speed over a defined period of time (in meter or feet per hour)
    + HR Zone Number
    + Target Pace/Speed (5K, 10K, Half Marathon, Marathon, Lap Distance)
-
-
+  
+  
  - Memory Usage on va3   (Current | Peak) : 
    * At startup:           25.5 kB | 27.0 kB
    * 10 sec running:       25.5 kB | 27.4 kB
