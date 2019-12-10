@@ -62,59 +62,67 @@ vivoactive4s.sourcePath = source;source-lowmem-default
 #######################################################
 base.resourcePath = resources
 
-# High Memory (124.7 KB) without "Training Effect" support
-d2charlie.resourcePath = resources;resources-highmem
-d2delta.resourcePath = resources;resources-highmem
-d2deltapx.resourcePath = resources;resources-highmem
-d2deltas.resourcePath = resources;resources-highmem
-edgeexplore.resourcePath = resources;resources-highmem
-fenix5plus.resourcePath = resources;resources-highmem
-fenix5splus.resourcePath = resources;resources-highmem
-edge820.resourcePath = resources;resources-highmem
-oregon7xx.resourcePath = resources;resources-highmem
-rino7xx.resourcePath = resources;resources-highmem
+# High Memory (124.7 KB) with no specific feature
+edgeexplore.resourcePath = resources;resources-highmem;resources-highmem-basic
+oregon7xx.resourcePath = resources;resources-highmem;resources-highmem-basic
+rino7xx.resourcePath = resources;resources-highmem;resources-highmem-basic
 
-# High Memory (124.7 KB) with "Training Effect" support
-edge1030.resourcePath = resources;resources-highmem-te
-edge1030bontrager.resourcePath = resources;resources-highmem-te
-edge520plus.resourcePath = resources;resources-highmem-te
-edge530.resourcePath = resources;resources-highmem-te
-edge830.resourcePath = resources;resources-highmem-te
-fenix5x.resourcePath = resources;resources-highmem-te
-fenix5xplus.resourcePath = resources;resources-highmem-te
-descentmk1.resourcePath = resources;resources-highmem-te
-fr945.resourcePath = resources;resources-highmem-te
-marqathlete.resourcePath = resources;resources-highmem-te
-marqaviator.resourcePath = resources;resources-highmem-te
-marqcaptain.resourcePath = resources;resources-highmem-te
-marqdriver.resourcePath = resources;resources-highmem-te
-marqexpedition.resourcePath = resources;resources-highmem-te
-fenix6pro.resourcePath = resources;resources-highmem-te
-fenix6spro.resourcePath = resources;resources-highmem-te
-fenix6xpro.resourcePath = resources;resources-highmem-te
+# High Memory (124.7 KB) with "Power" support
+d2charlie.resourcePath = resources;resources-highmem;resources-highmem-power
+d2delta.resourcePath = resources;resources-highmem;resources-highmem-power
+d2deltapx.resourcePath = resources;resources-highmem;resources-highmem-power
+d2deltas.resourcePath = resources;resources-highmem;resources-highmem-power
+edge820.resourcePath = resources;resources-highmem;resources-highmem-power
+fenix5plus.resourcePath = resources;resources-highmem;resources-highmem-power
+fenix5splus.resourcePath = resources;resources-highmem;resources-highmem-power
 
 # High Memory (60.7 KB) with "Training Effect" support
-fr645m.resourcePath = resources;resources-highmem-te
+fr645m.resourcePath = resources;resources-highmem;resources-highmem-te
 
-# Low Memory (28.7 KB) without "Training Effect" support
-#edge130.resourcePath = resources;resources-edge130
-#vivoactive3.resourcePath = resources;resources-vivoactive3
-#vivoactive3d.resourcePath = resources;resources-vivoactive3d
-#vivoactive3m.resourcePath = resources;resources-vivoactive3m
-#vivoactive3mlte.resourcePath = resources;resources-vivoactive3mlte
-#legacyherocaptainmarvel.resourcePath = resources;resources-legacyherocaptainmarvel
-#legacyherofirstavenger.resourcePath = resources;resources-legacyherofirstavenger
-#venu.resourcePath = resources;resources-venu
-#vivoactive4.resourcePath = resources;resources-vivoactive4
-#vivoactive4s.resourcePath = resources;resources-vivoactive4s
+# High Memory (124.7 KB) with "Power" and "Training Effect" support
+descentmk1.resourcePath = resources;resources-highmem;resources-highmem-power-te
+edge1030.resourcePath = resources;resources-highmem;resources-highmem-power-te
+edge1030bontrager.resourcePath = resources;resources-highmem;resources-highmem-power-te
+edge520plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
+edge530.resourcePath = resources;resources-highmem;resources-highmem-power-te
+edge830.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix5x.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix5xplus.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix6pro.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix6spro.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix6xpro.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr945.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marqathlete.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marqaviator.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marqcaptain.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marqdriver.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marqexpedition.resourcePath = resources;resources-highmem;resources-highmem-power-te
+
+# Low Memory (28.7 KB) with no specific feature
+vivoactive3.resourcePath = resources;resources-lowmem-basic
+vivoactive3d.resourcePath = resources;resources-lowmem-basic
+vivoactive3m.resourcePath = resources;resources-lowmem-basic
+vivoactive3mlte.resourcePath = resources;resources-lowmem-basic
+legacyherocaptainmarvel.resourcePath = resources;resources-lowmem-basic
+legacyherofirstavenger.resourcePath = resources;resources-lowmem-basic
+venu.resourcePath = resources;resources-lowmem-basic
+vivoactive4.resourcePath = resources;resources-lowmem-basic
+vivoactive4s.resourcePath = resources;resources-lowmem-basic
+
+# Low Memory (28.7 KB) with "Power" support
+# Power is supported on these models, but not implemented to limit memory
+edge130.resourcePath = resources;resources-lowmem-basic
 
 # Low Memory (28.7 KB) with "Training Effect" support
-fenix5.resourcePath = resources;resources-lowmem-te
-fenix5s.resourcePath = resources;resources-lowmem-te
-fenixchronos.resourcePath = resources;resources-lowmem-te
 fr245.resourcePath = resources;resources-lowmem-te
 fr245m.resourcePath = resources;resources-lowmem-te
 fr645.resourcePath = resources;resources-lowmem-te
-fr935.resourcePath = resources;resources-lowmem-te
+
+# Low Memory (28.7 KB)  with "Power" and "Training Effect" support
+# Power is supported on these models, but not implemented to limit memory
+fenix5.resourcePath = resources;resources-lowmem-te
+fenix5s.resourcePath = resources;resources-lowmem-te
 fenix6.resourcePath = resources;resources-lowmem-te
 fenix6s.resourcePath = resources;resources-lowmem-te
+fenixchronos.resourcePath = resources;resources-lowmem-te
+fr935.resourcePath = resources;resources-lowmem-te

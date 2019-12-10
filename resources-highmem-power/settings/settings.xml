@@ -18,6 +18,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -43,7 +46,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -69,6 +71,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -94,7 +99,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -120,6 +124,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -145,7 +152,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -171,6 +177,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -196,7 +205,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -222,6 +230,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -247,7 +258,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -273,6 +283,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -298,7 +311,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -324,6 +336,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -349,7 +364,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -375,6 +389,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -400,7 +417,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -426,6 +442,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -451,7 +470,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -477,6 +495,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -502,7 +523,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->

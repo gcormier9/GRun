@@ -1,24 +1,44 @@
 <strings>
   <string id="AppName">GRun</string>
   <string id="PARAM_APP_VERSION">GRun Version</string>
+
+  <string id="PARAM_TARGET_PACE">Target Pace (in seconds per km or mile)</string>
+  <string id="PARAM_DESC_TARGET_PACE">Example: 330 for 5min and 30sec (km/mile is chosen automatically based on watch settings</string>
+  <string id="PARAM_PACE_RANGE">Pace Range (in seconds)</string>
+  <string id="PARAM_DESC_PACE_RANGE">Use to display speed/pace in color if outside the range</string>
+
+  <string id="PARAM_LAP_DISTANCE">Lap Distance (in meters)</string>
+  <string id="PARAM_DESC_LAP_DISTANCE">Auto correct distance when lap button is pressed (0=disable, 1000=1km, 1609=1mile)</string>
   
   <string id="PARAM_HEADER_POSITION">Header Position</string>
   <string id="PARAM_HEADER_POSITION_1">Top / Top</string>
   <string id="PARAM_HEADER_POSITION_2">Top / Bottom</string>
   <string id="PARAM_HEADER_POSITION_3">Bottom / Top</string>
   
-  <string id="PARAM_HEADER_HEIGHT">Header Height (%) [0 to hide headers]</string>
-  <string id="PARAM_SINGLE_BACKGROUND_COLOR">Uniform Background Color [If true, rows 4/5 have same color as rows 1/2/3]</string>
-  <string id="PARAM_LAP_DISTANCE">Lap Distance [Auto correct distance when lap button is pressed (0=disable, 1000=1km, 1609=1mile)]</string>
+  <string id="PARAM_HEADER_HEIGHT">Header Height (%)</string>
+  <string id="PARAM_DESC_HEADER_HEIGHT">0 to hide headers</string>
   
-  <string id="PARAM_MIN_PACE">Minimum Pace (Fastest) (in seconds)</string>
-  <string id="PARAM_MAX_PACE">Maximum Pace (Slowest) (in seconds)</string>
-  <string id="PARAM_COLUMN_WIDTH_RATIO_1">Column Width Ratio for second row [Example: 1,2,1 means middle column will be 2 times larger than column 1 and 3]</string>
+  <string id="PARAM_COLUMN_WIDTH_RATIO_1">Column Width Ratio for second row</string>
+  <string id="PARAM_DESC_COLUMN_WIDTH_RATIO_1">Example: 1,2,1 means middle column will be 2 times larger than column 1 and 3</string>
   <string id="PARAM_COLUMN_WIDTH_RATIO_2">Column Width Ratio for third row</string>
+
+  <string id="PARAM_SINGLE_BACKGROUND_COLOR">Uniform Background Color</string>
+  <string id="PARAM_DESC_SINGLE_BACKGROUND_COLOR">If true, rows 4/5 have same color as rows 1/2/3</string>
   
   <string id="PARAM_HEADER_BACKGROUND_COLOR">Dynamic Header Background Color</string>
   <string id="PARAM_DATA_FOREGROUND_COLOR">Dynamic Data Foreground Color</string>
-  
+
+  <string id="PARAM_AREA1">Field 1</string>
+  <string id="PARAM_AREA2">Field 2A</string>
+  <string id="PARAM_AREA3">Field 2B</string>
+  <string id="PARAM_AREA4">Field 2C</string>
+  <string id="PARAM_AREA5">Field 3A</string>
+  <string id="PARAM_AREA6">Field 3B</string>
+  <string id="PARAM_AREA7">Field 3C</string>
+  <string id="PARAM_AREA8">Field 4A</string>
+  <string id="PARAM_AREA9">Field 4B</string>
+  <string id="PARAM_AREA10">Field 5</string>    
+
   <string id="Field00">Empty</string>
   <string id="Field01">Time</string>
   <string id="Field02">Timer</string>
@@ -45,19 +65,10 @@
   <string id="Field26">Lap Distance</string>
   <string id="Field27">Lap Pace</string>
   <string id="Field28">Training Effect</string>
-  <string id="Field29">Total Corrected Distance (meter)</string>
   <string id="Field30">Previous Lap Time</string>
   <string id="Field31">ETA Lap</string>
   <string id="Field32">Lap Count</string>
-  
-  <string id="PARAM_AREA1">Field 1</string>
-  <string id="PARAM_AREA2">Field 2A</string>
-  <string id="PARAM_AREA3">Field 2B</string>
-  <string id="PARAM_AREA4">Field 2C</string>
-  <string id="PARAM_AREA5">Field 3A</string>
-  <string id="PARAM_AREA6">Field 3B</string>
-  <string id="PARAM_AREA7">Field 3C</string>
-  <string id="PARAM_AREA8">Field 4A</string>
-  <string id="PARAM_AREA9">Field 4B</string>
-  <string id="PARAM_AREA10">Field 5</string>
+  <string id="Field33">Average Cadence</string>
+  <string id="Field34">Time Ahead/Behind</string>
+
 </strings>

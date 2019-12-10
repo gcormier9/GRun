@@ -1,11 +1,11 @@
 <properties>
-  <property id="AppVersion" type="string">1.22</property>
+  <property id="AppVersion" type="string">1.23</property>
   <property id="HeaderPosition" type="number">1</property>
   <property id="HeaderHeight" type="number">30</property>
   <property id="SingleBackgroundColor" type="boolean">false</property>
   <property id="LapDistance" type="number">0</property>
-  <property id="MinPace" type="number">315</property>
-  <property id="MaxPace" type="number">345</property>
+  <property id="TargetPace" type="number">330</property>
+  <property id="PaceRange" type="number">15</property>
   <property id="ColumnWidthRatio1" type="string">2,1,2</property>
   <property id="ColumnWidthRatio2" type="string">2,1,2</property>
   <property id="HeaderBackgroundColor" type="boolean">true</property>

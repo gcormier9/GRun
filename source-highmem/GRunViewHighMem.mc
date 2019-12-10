@@ -1,11 +1,32 @@
 using Toybox.WatchUi;
 
-const CONVERSION_KM_TO_MILE = 0.62137119;
-const CONVERSION_MILE_TO_KM = 1.609344;
-const CONVERSION_METER_TO_FEET = 3.28084;
-
 class GRunViewHighMem extends GRunView
 {
+  // Used to determine if Activity has been paused
+  protected var previousTimer;
+
+  // Current distance
+  var currentDistance;
+  // Boolean to make sure value is added once per second in distanceArray
+  protected var distanceArrayRequired = false;
+  // Index for distanceArray
+  protected var arrayDistPointer = 0;
+  // Precision in seconds for distanceArray
+  protected var arrayDistPrecision;
+  // Circular Array to calculate custom average speed
+  protected var distanceArray;
+  
+  // Current altitude
+  var currentAltitude;
+  // Boolean to make sure value is added once per second in distanceArray
+  protected var altitudeArrayRequired = false;
+  // Index for altitudeArray
+  protected var arrayAltPointer = 0;
+  // Precision in seconds for altitudeArray
+  protected var arrayAltPrecision;
+  // Circular Array to calculate custom average vertical speed
+  protected var altitudeArray;
+  
   enum {
 /*
     OPTION_EMPTY = 0,
@@ -34,20 +55,24 @@ class GRunViewHighMem extends GRunView
     OPTION_CURRENT_LAP_DISTANCE = 26,
     OPTION_CURRENT_LAP_PACE = 27,
     OPTION_TRAINING_EFFECT = 28,
-    OPTION_CORRECTED_DISTANCE = 29,
     OPTION_TIMER_TIME_ON_PREVIOUS_LAP = 30,
     OPTION_ETA_LAP = 31.
-    OPTION_LAP_COUNT = 32
+    OPTION_LAP_COUNT = 32,
+    OPTION_AVERAGE_CADENCE = 33,
 */
+/*
     OPTION_AMBIENT_PRESSURE = 101,
-    OPTION_AVERAGE_CADENCE = 102,
     OPTION_AVERAGE_DISTANCE = 103,
+*/
     OPTION_AVERAGE_POWER = 104,
+/*
     OPTION_BEARING = 105,
     OPTION_BEARING_FROM_START = 106,
     OPTION_CURRENT_HEADING = 107,
     OPTION_CURRENT_LOCATION = 108,
+*/
     OPTION_CURRENT_POWER = 109,
+/*
     OPTION_DISTANCE_TO_DESTINATION = 110,
     OPTION_DISTANCE_TO_NEXT_POINT = 111,
     OPTION_ELAPSED_TIME = 112,
@@ -59,7 +84,9 @@ class GRunViewHighMem extends GRunView
     OPTION_FRONT_DERAILLEUR_SIZE = 118,
     OPTION_MAX_CADENCE = 119,
     OPTION_MAX_HEART_RATE = 120,
+*/
     OPTION_MAX_POWER = 121,
+/*
     OPTION_MAX_SPEED = 122,
     OPTION_MEAN_SEA_LEVEL_PRESSURE = 123,
     OPTION_NAME_OF_DESTINATION = 124,
@@ -74,10 +101,99 @@ class GRunViewHighMem extends GRunView
     OPTION_SWIM_STROKE_TYPE = 133,
     OPTION_SWIM_SWOLF = 134,
     OPTION_TIMER_STATE = 135,
-    OPTION_TRACK = 136
+    OPTION_TRACK = 136,
+*/
+    OPTION_AVERAGE_PACE_CUSTOM = 137,
+    OPTION_AVERAGE_SPEED_CUSTOM = 138,
+    OPTION_AVERAGE_VERTICAL_SPEED_MIN = 139,
+    OPTION_AVERAGE_VERTICAL_SPEED_HOUR = 140,
+    OPTION_HR_ZONE = 141,
+    OPTION_REQUISITE_PACE_5K = 142,
+    OPTION_REQUISITE_PACE_10K = 143,
+    OPTION_REQUISITE_PACE_HALF_MARATHON = 144,
+    OPTION_REQUISITE_PACE_MARATHON = 145,
+    OPTION_REQUISITE_PACE_LAP = 146,
+    OPTION_REQUISITE_SPEED_5K = 147,
+    OPTION_REQUISITE_SPEED_10K = 148,
+    OPTION_REQUISITE_SPEED_HALF_MARATHON = 149,
+    OPTION_REQUISITE_SPEED_MARATHON = 150,
+    OPTION_REQUISITE_SPEED_LAP = 151
   }
-
-
+  
+  
+  function getParameter(paramName, defaultValue)
+  {
+    var paramValue = GRunView.getParameter(paramName, defaultValue);
+    if ( (paramName.length() > 4) && (paramName.substring(0, 4).equals("Area")) )
+    {
+      if ( (paramValue == OPTION_AVERAGE_PACE_CUSTOM) || (paramValue == OPTION_AVERAGE_SPEED_CUSTOM) )
+      {
+        distanceArrayRequired = true;
+      }
+      
+      if ( (paramValue == OPTION_AVERAGE_VERTICAL_SPEED_MIN) || (paramValue == OPTION_AVERAGE_VERTICAL_SPEED_HOUR) )
+      {
+        altitudeArrayRequired = true;
+      }
+    }
+    
+    return paramValue;
+  }
+  
+  function initializeUserData()
+  {
+    distanceArrayRequired = false;
+    altitudeArrayRequired = false;
+    GRunView.initializeUserData();
+    var info = Activity.getActivityInfo();
+    
+    if (distanceArrayRequired == false)
+    {
+      distanceArray = null;
+    }
+    
+    else
+    {
+      var oldParam = arrayDistPrecision;
+      arrayDistPrecision = getParameter("AvgSpeedTime", 15).toNumber();
+      if (oldParam != arrayDistPrecision)
+      {
+        distanceArray = new [arrayDistPrecision];
+        currentDistance = info.elapsedDistance == null ? 0 : info.elapsedDistance;
+        
+        for (var i = 0; i < arrayDistPrecision; i++)
+        {
+          distanceArray[i] = currentDistance;
+        }
+      }
+    }
+    
+    if (altitudeArrayRequired == false)
+    {
+      altitudeArray = null;
+    }
+    
+    else
+    {
+      var oldParam = arrayAltPrecision;
+      arrayAltPrecision = getParameter("AvgVerticalSpeedTime", 60).toNumber();
+      if (oldParam != arrayAltPrecision)
+      {
+        altitudeArray = new [arrayAltPrecision];
+        currentAltitude = info.altitude == null ? 0 : info.altitude;
+        
+        for (var i = 0; i < arrayAltPrecision; i++)
+        {
+          altitudeArray[i] = currentAltitude;
+        }
+      }
+    }
+    
+    // DEBUG
+    //System.println("elapsedDistance,OPTION_TIMER_TIME,OPTION_TIMER_TIME,OPTION_ELAPSED_DISTANCE,OPTION_ELAPSED_DISTANCE,OPTION_CURRENT_HEART_RATE,OPTION_CURRENT_HEART_RATE,OPTION_CURRENT_PACE,OPTION_CURRENT_PACE,OPTION_CURRENT_SPEED,OPTION_CURRENT_SPEED,OPTION_AVERAGE_HEART_RATE,OPTION_AVERAGE_HEART_RATE,OPTION_AVERAGE_PACE,OPTION_AVERAGE_PACE,OPTION_AVERAGE_SPEED,OPTION_AVERAGE_SPEED,OPTION_CALORIES,OPTION_CALORIES,OPTION_CURRENT_CADENCE,OPTION_CURRENT_CADENCE,OPTION_ALTITUDE,OPTION_ALTITUDE,OPTION_TOTAL_ASCENT,OPTION_TOTAL_ASCENT,OPTION_TOTAL_DESCENT,OPTION_TOTAL_DESCENT,OPTION_ETA_5K,OPTION_ETA_5K,OPTION_ETA_10K,OPTION_ETA_10K,OPTION_ETA_HALF_MARATHON,OPTION_ETA_HALF_MARATHON,OPTION_ETA_MARATHON,OPTION_ETA_MARATHON,OPTION_CURRENT_LAP_TIME,OPTION_CURRENT_LAP_TIME,OPTION_CURRENT_LAP_DISTANCE,OPTION_CURRENT_LAP_DISTANCE,OPTION_CURRENT_LAP_PACE,OPTION_CURRENT_LAP_PACE,OPTION_TRAINING_EFFECT,OPTION_TRAINING_EFFECT,OPTION_TIMER_TIME_ON_PREVIOUS_LAP,OPTION_TIMER_TIME_ON_PREVIOUS_LAP,OPTION_ETA_LAP,OPTION_ETA_LAP,OPTION_LAP_COUNT,OPTION_LAP_COUNT,OPTION_AVERAGE_CADENCE,OPTION_AVERAGE_CADENCE,OPTION_TIME_OFFSET,OPTION_TIME_OFFSET,OPTION_AVERAGE_POWER,OPTION_AVERAGE_POWER,OPTION_CURRENT_POWER,OPTION_CURRENT_POWER,OPTION_MAX_POWER,OPTION_MAX_POWER,OPTION_AVERAGE_SPEED_CUSTOM,OPTION_AVERAGE_SPEED_CUSTOM,OPTION_AVERAGE_PACE_CUSTOM,OPTION_AVERAGE_PACE_CUSTOM,OPTION_AVERAGE_VERTICAL_SPEED_MIN,OPTION_AVERAGE_VERTICAL_SPEED_MIN,OPTION_AVERAGE_VERTICAL_SPEED_HOUR,OPTION_AVERAGE_VERTICAL_SPEED_HOUR,OPTION_HR_ZONE,OPTION_HR_ZONE,OPTION_REQUISITE_PACE_5K,OPTION_REQUISITE_PACE_5K,OPTION_REQUISITE_PACE_10K,OPTION_REQUISITE_PACE_10K,OPTION_REQUISITE_PACE_HALF_MARATHON,OPTION_REQUISITE_PACE_HALF_MARATHON,OPTION_REQUISITE_PACE_MARATHON,OPTION_REQUISITE_PACE_MARATHON,OPTION_REQUISITE_PACE_LAP,OPTION_REQUISITE_PACE_LAP,OPTION_REQUISITE_SPEED_5K,OPTION_REQUISITE_SPEED_5K,OPTION_REQUISITE_SPEED_10K,OPTION_REQUISITE_SPEED_10K,OPTION_REQUISITE_SPEED_HALF_MARATHON,OPTION_REQUISITE_SPEED_HALF_MARATHON,OPTION_REQUISITE_SPEED_MARATHON,OPTION_REQUISITE_SPEED_MARATHON,OPTION_REQUISITE_SPEED_LAP,OPTION_REQUISITE_SPEED_LAP,");
+  }
+  
+  
   function initialize()
   {
     GRunView.initialize();
@@ -95,12 +211,6 @@ class GRunViewHighMem extends GRunView
       return info.ambientPressure;
     }
     
-    // Average cadence during the current activity in revolutions per minute (rpm)
-    if ( (value == OPTION_AVERAGE_CADENCE) && (info.averageCadence != null) )
-    {
-      return info.averageCadence;
-    }
-    
     // Average swim stroke distance from the previous interval in meters (m)
     if ( (value == OPTION_AVERAGE_DISTANCE) && (info.averageDistance != null) )
     {
@@ -112,6 +222,7 @@ class GRunViewHighMem extends GRunView
       // Convert to kilometers (km)
       return (info.averageDistance / 1000).toNumber();
     }
+    */
 
     // Average power during the current activity in Watts (W)
     if ( (value == OPTION_AVERAGE_POWER) && (info.averagePower != null) ) 
@@ -119,6 +230,7 @@ class GRunViewHighMem extends GRunView
       return info.averagePower;
     }
     
+    /*
     // Current bearing in radians
     if ( (value == OPTION_BEARING) && (info.bearing != null) ) 
     {
@@ -143,6 +255,7 @@ class GRunViewHighMem extends GRunView
       // return [ latitude, longitude ]
       return info.currentLocation.toDegrees();
     }
+    */
     
     // Current power in Watts (W)
     if ( (value == OPTION_CURRENT_POWER) && (info.currentPower != null) )
@@ -150,6 +263,7 @@ class GRunViewHighMem extends GRunView
       return info.currentPower;
     }
     
+    /*
     // Distance to the destination in meters (m)
     if ( (value == OPTION_DISTANCE_TO_DESTINATION) && (info.distanceToDestination != null) )   
     {
@@ -239,13 +353,15 @@ class GRunViewHighMem extends GRunView
     {
       return info.maxHeartRate;
     }
-
+    */
+    
     // Maximum power recorded during the current activity in Watts (W)
     if ( (value == OPTION_MAX_POWER) && (info.maxPower != null) )
     {
       return info.maxPower;
     }
     
+    /*
     // Maximum speed recorded during the current activity in meters per second (mps)
     if ( (value == OPTION_MAX_SPEED) && (info.maxSpeed != null) )
     {
@@ -353,140 +469,344 @@ class GRunViewHighMem extends GRunView
     }
     */
     
+    // Current Speed calculated using the last arrayDistPrecision seconds
+    if ( (value == OPTION_AVERAGE_SPEED_CUSTOM) && (currentDistance != null) )
+    {
+      var calculatedDistance = currentDistance - distanceArray[arrayDistPointer % arrayDistPrecision];
+      var indexLastArrayElement = (arrayDistPointer + 1) < arrayDistPrecision ? arrayDistPointer + 1 : arrayDistPrecision;
+      return convertUnitIfRequired(calculatedDistance / indexLastArrayElement * 3.6, 0.62137119 /* CONVERSION_KM_TO_MILE */, isPaceUnitsImperial);
+    }
+    
+    // Current Pace calculated using the last arrayDistPrecision seconds
+    if ( (value == OPTION_AVERAGE_PACE_CUSTOM) && (currentDistance != null) )
+    {
+      var calculatedDistance = currentDistance - distanceArray[arrayDistPointer % arrayDistPrecision];
+      if (calculatedDistance <= 0) { return 0; }
+      
+      var indexLastArrayElement = (arrayDistPointer + 1) < arrayDistPrecision ? arrayDistPointer + 1 : arrayDistPrecision;
+      return convertUnitIfRequired(indexLastArrayElement / (calculatedDistance / 1000.0), 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
+    }
+    
+    // Vertical Speed in meter or feet per min calculated using the last arrayAltPrecision seconds
+    if ( (value == OPTION_AVERAGE_VERTICAL_SPEED_MIN) && (currentAltitude  != null) )
+    {
+      var calculatedAltitude = currentAltitude - altitudeArray[arrayAltPointer % arrayAltPrecision];
+      var indexLastArrayElement = (arrayAltPointer + 1) < arrayAltPrecision ? arrayAltPointer + 1 : arrayAltPrecision;
+      return convertUnitIfRequired((calculatedAltitude / indexLastArrayElement) * 60, 3.28084 /* CONVERSION_METER_TO_FEET */, isElevationUnitsImperial);
+    }
+    
+    // Vertical Speed in meter or feet per hour calculated using the last arrayAltPrecision seconds
+    if ( (value == OPTION_AVERAGE_VERTICAL_SPEED_HOUR) && (currentAltitude  != null) )
+    {
+      var calculatedAltitude = currentAltitude - altitudeArray[arrayAltPointer % arrayAltPrecision];
+      var indexLastArrayElement = (arrayAltPointer + 1) < arrayAltPrecision ? arrayAltPointer + 1 : arrayAltPrecision;
+      return convertUnitIfRequired((calculatedAltitude / indexLastArrayElement) * 3600, 3.28084 /* CONVERSION_METER_TO_FEET */, isElevationUnitsImperial);
+    }
+    
+    if ( (value == OPTION_HR_ZONE) && (info.currentHeartRate != null) )
+    {
+      var hr = info.currentHeartRate.toFloat();
+      if (hr < hrZones[0]) { return hr / hrZones[0]; }
+      if (hr < hrZones[1]) { return (hr - hrZones[0]) / (hrZones[1] - hrZones[0]) + 1; }
+      if (hr < hrZones[2]) { return (hr - hrZones[1]) / (hrZones[2] - hrZones[1]) + 2; }
+      if (hr < hrZones[3]) { return (hr - hrZones[2]) / (hrZones[3] - hrZones[2]) + 3; }
+      if (hr < hrZones[4]) { return (hr - hrZones[3]) / (hrZones[4] - hrZones[3]) + 4; }
+      return (hr - hrZones[4]) / (hrZones[5] - hrZones[4]) + 5;
+    }
+    
+    if ( (value >= OPTION_REQUISITE_PACE_5K && value <= OPTION_REQUISITE_PACE_MARATHON) ||
+         (value >= OPTION_REQUISITE_SPEED_5K && value <= OPTION_REQUISITE_SPEED_MARATHON) )
+    {
+      var etaGoalTable = [5000, 10000, 21097.5, 42195];
+      var index = value < OPTION_REQUISITE_SPEED_5K ? OPTION_REQUISITE_PACE_5K : OPTION_REQUISITE_SPEED_5K;
+      var etaDistance = convertUnitIfRequired(etaGoalTable[value - index] / 1000.0, 0.62137119 /* CONVERSION_KM_TO_MILE */, isDistanceUnitsImperial);
+      
+      var remainingDistance = etaDistance - distance;
+      if (remainingDistance < 0)
+      {
+        if ( (value < OPTION_REQUISITE_PACE_MARATHON) ||
+             (value >= OPTION_REQUISITE_SPEED_5K && value < OPTION_REQUISITE_SPEED_MARATHON) )
+        {
+          configureID(id, value + 1);
+        }
+        
+        else
+        {
+          return valueData;
+        }
+      }
+      
+      var targetTime = targetPace * etaDistance;
+      var remainingTime = targetTime - timer;
+      
+      if (value <= OPTION_REQUISITE_PACE_MARATHON)
+      {
+        if (remainingDistance == 0) { return 0; }
+
+        return remainingTime / remainingDistance;
+      }
+      
+      if (remainingTime == 0) { return 0; }
+      return remainingDistance / remainingTime * 3600;
+    }
+    
+    if ( (value == OPTION_REQUISITE_PACE_LAP) || (value == OPTION_REQUISITE_SPEED_LAP) )
+    {
+      var distanceMetric = convertUnitIfRequired(distance * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
+      var startDistanceCurrentLapMetric = convertUnitIfRequired(startDistanceCurrentLap * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
+      
+      var distanceCurrentLap = distanceMetric - startDistanceCurrentLapMetric;
+      var remainingLapDistance = (lapDistance - distanceCurrentLap) / 1000.0;
+      if (remainingLapDistance <= 0) { return 0; }
+      
+      // Elapsed time for the current lap
+      var timerCurrentLap = timer - startTimerCurrentLap;
+      if (timerCurrentLap <= 0) { return valueData; }
+      
+      var targetPaceMetric = convertUnitIfRequired(targetPace,  0.62137119 /* CONVERSION_KM_TO_MILE */, isPaceUnitsImperial);
+      var targetTime = targetPaceMetric * (lapDistance / 1000.0);
+      var remainingTime = targetTime - timerCurrentLap;
+      
+      if (value <= OPTION_REQUISITE_PACE_LAP)
+      {
+        return convertUnitIfRequired(remainingTime / remainingLapDistance, 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
+      }
+      
+      if (remainingTime == 0) { return 0; }
+      return convertUnitIfRequired(remainingLapDistance / remainingTime * 3600, 0.62137119 /* CONVERSION_KM_TO_MILE */, isPaceUnitsImperial);
+    }
+    
     return valueData;
+  }
+  
+  /*
+  function debugMetric(name, type, defaultValue, info)
+  {
+    var value = computeValue(info, 1, type, defaultValue);
+    System.print(value + "," + getFormattedValue(1, type, value) + ",");
+  }
+  
+  function printAllMetrics(info)
+  {
+    System.print(info.elapsedDistance + ",");
+    debugMetric("OPTION_TIMER_TIME", 2, "", info);    
+    debugMetric("OPTION_ELAPSED_DISTANCE", 5, "", info);
+    debugMetric("OPTION_CURRENT_HEART_RATE", 6, "", info);
+    debugMetric("OPTION_CURRENT_PACE", 7, "", info);
+    debugMetric("OPTION_CURRENT_SPEED", 8, 0, info);
+    debugMetric("OPTION_AVERAGE_HEART_RATE", 9, "", info);
+    debugMetric("OPTION_AVERAGE_PACE", 10, "", info);
+    debugMetric("OPTION_AVERAGE_SPEED", 12, 0, info);
+    debugMetric("OPTION_CALORIES", 13, "", info);
+    debugMetric("OPTION_CURRENT_CADENCE", 14, "", info);
+    debugMetric("OPTION_ALTITUDE", 15, "", info);
+    debugMetric("OPTION_TOTAL_ASCENT", 16, 0, info);
+    debugMetric("OPTION_TOTAL_DESCENT", 17, 0, info);
+    debugMetric("OPTION_ETA_5K", 21, "", info);
+    debugMetric("OPTION_ETA_10K", 22, "", info);
+    debugMetric("OPTION_ETA_HALF_MARATHON", 23, "", info);
+    debugMetric("OPTION_ETA_MARATHON", 24, "", info);
+    debugMetric("OPTION_CURRENT_LAP_TIME", 25, "", info);
+    debugMetric("OPTION_CURRENT_LAP_DISTANCE", 26, "", info);
+    debugMetric("OPTION_CURRENT_LAP_PACE", 27, "", info);
+    debugMetric("OPTION_TRAINING_EFFECT", 28, 0, info);
+    debugMetric("OPTION_TIMER_TIME_ON_PREVIOUS_LAP", 30, "", info);
+    debugMetric("OPTION_ETA_LAP", 31, "", info);
+    debugMetric("OPTION_LAP_COUNT", 32, "", info);
+    debugMetric("OPTION_AVERAGE_CADENCE", 33, "", info);
+    debugMetric("OPTION_TIME_OFFSET", 34, "", info);
+    
+    debugMetric("OPTION_AVERAGE_POWER", OPTION_AVERAGE_POWER, "", info);
+    debugMetric("OPTION_CURRENT_POWER", OPTION_CURRENT_POWER, "", info);
+    debugMetric("OPTION_MAX_POWER", OPTION_MAX_POWER, "", info);
+    debugMetric("OPTION_AVERAGE_SPEED_CUSTOM", OPTION_AVERAGE_SPEED_CUSTOM, 0, info);
+    debugMetric("OPTION_AVERAGE_PACE_CUSTOM", OPTION_AVERAGE_PACE_CUSTOM, "", info);
+    debugMetric("OPTION_AVERAGE_VERTICAL_SPEED_MIN", OPTION_AVERAGE_VERTICAL_SPEED_MIN, 0, info);
+    debugMetric("OPTION_AVERAGE_VERTICAL_SPEED_HOUR", OPTION_AVERAGE_VERTICAL_SPEED_HOUR, 0, info);
+    debugMetric("OPTION_HR_ZONE", OPTION_HR_ZONE, "", info);
+    debugMetric("OPTION_REQUISITE_PACE_5K", OPTION_REQUISITE_PACE_5K, "", info);
+    debugMetric("OPTION_REQUISITE_PACE_10K", OPTION_REQUISITE_PACE_10K, "", info);
+    debugMetric("OPTION_REQUISITE_PACE_HALF_MARATHON", OPTION_REQUISITE_PACE_HALF_MARATHON, "", info);
+    debugMetric("OPTION_REQUISITE_PACE_MARATHON", OPTION_REQUISITE_PACE_MARATHON, "", info);
+    debugMetric("OPTION_REQUISITE_PACE_LAP", OPTION_REQUISITE_PACE_LAP, "", info);
+    debugMetric("OPTION_REQUISITE_SPEED_5K", OPTION_REQUISITE_SPEED_5K, 0, info);
+    debugMetric("OPTION_REQUISITE_SPEED_10K", OPTION_REQUISITE_SPEED_10K, 0, info);
+    debugMetric("OPTION_REQUISITE_SPEED_HALF_MARATHON", OPTION_REQUISITE_SPEED_HALF_MARATHON, 0, info);
+    debugMetric("OPTION_REQUISITE_SPEED_MARATHON", OPTION_REQUISITE_SPEED_MARATHON, 0, info);
+    debugMetric("OPTION_REQUISITE_SPEED_LAP", OPTION_REQUISITE_SPEED_LAP, 0, info);
+    System.print(altitudeArray);
+    System.println("");
+  }
+  */
+  
+  function compute(info)
+  {
+    previousTimer = timer;
+    currentDistance = info.elapsedDistance;
+    currentAltitude = info.altitude;
+    GRunView.compute(info);
+    
+    // DEBUG
+    //printAllMetrics(info);
+    
+    if (previousTimer == timer) { return; }
+    
+    if (distanceArray != null && currentDistance != null && currentDistance > 0)
+    {
+      distanceArray[arrayDistPointer % arrayDistPrecision] = currentDistance;
+      arrayDistPointer++;
+    }
+    
+    if (altitudeArray != null && currentAltitude != null)
+    {
+      altitudeArray[arrayAltPointer % arrayAltPrecision] = currentAltitude;
+      arrayAltPointer++;
+    }
   }
   
   
   function getHeaderName(type)
   {
     if (type <= 100) { return GRunView.getHeaderName(type); }
-    /*
-    switch (type)
-    {
-      case OPTION_AMBIENT_PRESSURE:
-        return "PRES";
-
-      case OPTION_AVERAGE_CADENCE:
-        return "A CAD";
-
-      case OPTION_AVERAGE_DISTANCE:
-        return "A DIST";
-
-      case OPTION_AVERAGE_POWER:
-        return "A POW";
-
-      case OPTION_BEARING:
-        return "BEAR";
-
-      case OPTION_BEARING_FROM_START:
-        return "BEARS";
-
-      case OPTION_CURRENT_HEADING:
-        return "HEAD";
-
-      case OPTION_CURRENT_LOCATION:
-        return "LOC";
-
-      case OPTION_CURRENT_POWER:
-        return "POW";
-
-      case OPTION_DISTANCE_TO_DESTINATION:
-        return "DISTD";
-
-      case OPTION_DISTANCE_TO_NEXT_POINT:
-        return "DISTN";
-
-      case OPTION_ELAPSED_TIME:
-        return "TIME";
-
-      case OPTION_ELEVATION_AT_DESTINATION:
-        return "ELVD";
-
-      case OPTION_ELEVATION_AT_NEXT_POINT:
-        return "DELNP";
-
-      case OPTION_ENERGY_EXPENDITURE:
-        return "NRG";
-
-      case OPTION_FRONT_DERAILLEUR_INDEX:
-        return "DERI";
-
-      case OPTION_FRONT_DERAILLEUR_MAX:
-        return "DERM";
-
-      case OPTION_FRONT_DERAILLEUR_SIZE:
-        return "DERS";
-
-      case OPTION_MAX_CADENCE:
-        return "MAX CAD";
-
-      case OPTION_MAX_HEART_RATE:
-        return "MAX HR";
-
-      case OPTION_MAX_POWER:
-        return "MAX POW";
-
-      case OPTION_MAX_SPEED:
-        return "MAX SPD";
-
-      case OPTION_MEAN_SEA_LEVEL_PRESSURE:
-        return "SEA PRES";
-
-      case OPTION_NAME_OF_DESTINATION:
-        return "DEST";
-
-      case OPTION_NAME_OF_NEXT_POINT:
-        return "NEXT P";
-
-      case OPTION_OFF_COURSE_DISTANCE:
-        return "DIST NP";
-
-      case OPTION_RAW_AMBIENT_PRESSURE:
-        return "PRESS";
-
-      case OPTION_REAR_DERAILLEUR_INDEX:
-        return "RDERI";
-
-      case OPTION_REAR_DERAILLEUR_MAX:
-        return "RDERM";
-
-      case OPTION_REAR_DERAILLEUR_SIZE:
-        return "RDERS";
-
-      case OPTION_START_LOCATION:
-        return "S LOC";
-
-      case OPTION_START_TIME:
-        return "S TIME";
-
-      case OPTION_SWIM_STROKE_TYPE:
-        return "STK TYPE";
-
-      case OPTION_SWIM_SWOLF:
-        return "SWOLF";
-
-      case OPTION_TIMER_STATE:
-        return "TMR ST";
-
-      case OPTION_TRACK:
-        return "TRACK";
-    }
-    */
+    
+    //if (type == OPTION_AMBIENT_PRESSURE) { return "PRES"; }
+    //if (type == OPTION_AVERAGE_DISTANCE) { return "A DIST"; }
+    if (type == OPTION_AVERAGE_POWER) { return "A POW"; }
+    //if (type == OPTION_BEARING) { return "BEAR"; }
+    //if (type == OPTION_BEARING_FROM_START) { return "BEARS"; }
+    //if (type == OPTION_CURRENT_HEADING) { return "HEAD"; }
+    //if (type == OPTION_CURRENT_LOCATION) { return "LOC"; }
+    if (type == OPTION_CURRENT_POWER) { return "POW"; }
+    //if (type == OPTION_DISTANCE_TO_DESTINATION) { return "DISTD"; }
+    //if (type == OPTION_DISTANCE_TO_NEXT_POINT) { return "DISTN"; }
+    //if (type == OPTION_ELAPSED_TIME) { return "TIME"; }
+    //if (type == OPTION_ELEVATION_AT_DESTINATION) { return "ELVD"; }
+    //if (type == OPTION_ELEVATION_AT_NEXT_POINT) { return "DELNP"; }
+    //if (type == OPTION_ENERGY_EXPENDITURE) { return "NRG"; }
+    //if (type == OPTION_FRONT_DERAILLEUR_INDEX) { return "DERI"; }
+    //if (type == OPTION_FRONT_DERAILLEUR_MAX) { return "DERM"; }
+    //if (type == OPTION_FRONT_DERAILLEUR_SIZE) { return "DERS"; }
+    //if (type == OPTION_MAX_CADENCE) { return "MAX CAD"; }
+    //if (type == OPTION_MAX_HEART_RATE) { return "MAX HR"; }
+    if (type == OPTION_MAX_POWER) { return "MAX POW"; }
+    //if (type == OPTION_MAX_SPEED) { return "MAX SPD"; }
+    //if (type == OPTION_MEAN_SEA_LEVEL_PRESSURE) { return "SEA PRES"; }
+    //if (type == OPTION_NAME_OF_DESTINATION) { return "DEST"; }
+    //if (type == OPTION_NAME_OF_NEXT_POINT) { return "NEXT P"; }
+    //if (type == OPTION_OFF_COURSE_DISTANCE) { return "DIST NP"; }
+    //if (type == OPTION_RAW_AMBIENT_PRESSURE) { return "PRESS"; }
+    //if (type == OPTION_REAR_DERAILLEUR_INDEX) { return "RDERI"; }
+    //if (type == OPTION_REAR_DERAILLEUR_MAX) { return "RDERM"; }
+    //if (type == OPTION_REAR_DERAILLEUR_SIZE) { return "RDERS"; }
+    //if (type == OPTION_START_LOCATION) { return "S LOC"; }
+    //if (type == OPTION_START_TIME) { return "S TIME"; }
+    //if (type == OPTION_SWIM_STROKE_TYPE) { return "STK TYPE"; }
+    //if (type == OPTION_SWIM_SWOLF) { return "SWOLF"; }
+    //if (type == OPTION_TIMER_STATE) { return "TMR ST"; }
+    //if (type == OPTION_TRACK) { return "TRACK"; }
+    if (type == OPTION_AVERAGE_SPEED_CUSTOM) { return "SPD(" + arrayDistPrecision + ")"; }
+    if (type == OPTION_AVERAGE_PACE_CUSTOM) { return "PACE(" + arrayDistPrecision + ")"; }
+    if ( (type == OPTION_AVERAGE_VERTICAL_SPEED_MIN) || (type == OPTION_AVERAGE_VERTICAL_SPEED_HOUR) ) { return "V SPD(" + arrayAltPrecision + ")"; }
+    if (type == OPTION_HR_ZONE) { return "HR Z"; }
+    if (type == OPTION_REQUISITE_PACE_5K) { return "PACE 5K"; }
+    if (type == OPTION_REQUISITE_PACE_10K) { return "PACE 10K"; }
+    if (type == OPTION_REQUISITE_PACE_HALF_MARATHON) { return "PACE 21K"; }
+    if (type == OPTION_REQUISITE_PACE_MARATHON) { return "PACE 42K"; }
+    if (type == OPTION_REQUISITE_PACE_LAP) { return "PACE LAP"; }
+    if (type == OPTION_REQUISITE_SPEED_5K) { return "SPD 5K"; }
+    if (type == OPTION_REQUISITE_SPEED_10K) { return "SPD 10K"; }
+    if (type == OPTION_REQUISITE_SPEED_HALF_MARATHON) { return "SPD 21K"; }
+    if (type == OPTION_REQUISITE_SPEED_MARATHON) { return "SPD 42K"; }
+    if (type == OPTION_REQUISITE_SPEED_LAP) { return "SPD LAP"; }
+    
     return "";
   }
   
+  
   function getFormattedValue(id, type, value)
   {
-    /*
-    switch (type)
+    if (type <= 100) { return GRunView.getFormattedValue(id, type, value); }
+    
+    //if ( (type == OPTION_CURRENT_LOCATION) && (value instanceof Array) )
+    //{
+    //  return "[" + value[0].format("%.2f") + "," + value[1].format("%.2f") + "]";
+    //}
+    
+    if (type == OPTION_AVERAGE_SPEED_CUSTOM ||
+        type == OPTION_REQUISITE_SPEED_5K ||
+        type == OPTION_REQUISITE_SPEED_10K ||
+        type == OPTION_REQUISITE_SPEED_HALF_MARATHON ||
+        type == OPTION_REQUISITE_SPEED_MARATHON ||
+        type == OPTION_REQUISITE_SPEED_LAP)
     {
-      case OPTION_CURRENT_LOCATION:
-        if (value instanceof Array) {
-          return "[" + value[0].format("%.2f") + "," + value[1].format("%.2f") + "]";
-        }
+      if (value < 10) { return value.format("%.2f"); }
+      return value.format("%.1f");
     }
-    */
+      
+    if (type == OPTION_AVERAGE_PACE_CUSTOM ||
+        type == OPTION_REQUISITE_PACE_5K ||
+        type == OPTION_REQUISITE_PACE_10K ||
+        type == OPTION_REQUISITE_PACE_HALF_MARATHON ||
+        type == OPTION_REQUISITE_PACE_MARATHON ||
+        type == OPTION_REQUISITE_PACE_LAP)
+    {
+      return formatDuration(value, false);
+    }
+    
+    if (type == OPTION_AVERAGE_VERTICAL_SPEED_MIN ||
+        type == OPTION_AVERAGE_VERTICAL_SPEED_HOUR)
+    {
+      return Math.round(value).format("%.0f");
+    }
     
     return GRunView.getFormattedValue(id, type, value);
+  }
+  
+  
+  function getColor(type, value)
+  {
+    if (type <= 100) { return GRunView.getColor(type, value); }
+    
+    if (type == OPTION_AVERAGE_SPEED_CUSTOM)
+    {
+      if (value > 0) {
+        type = OPTION_AVERAGE_PACE_CUSTOM;
+        value = 1000 / (value / 3.6);
+      }
+    }
+    
+    if (type == OPTION_AVERAGE_PACE_CUSTOM)
+    {
+      if (value <= 0) { return null; }
+      if (value < (targetPace - paceRange)) { return Graphics.COLOR_BLUE; }
+      if (value > (targetPace + paceRange)) { return Graphics.COLOR_RED; }
+      return Graphics.COLOR_DK_GREEN;
+    }
+    
+    if (type == OPTION_REQUISITE_SPEED_5K ||
+        type == OPTION_REQUISITE_SPEED_10K ||
+        type == OPTION_REQUISITE_SPEED_HALF_MARATHON ||
+        type == OPTION_REQUISITE_SPEED_MARATHON ||
+        type == OPTION_REQUISITE_SPEED_LAP)
+    {
+      if (value >= 0.5) {
+        type = OPTION_REQUISITE_PACE_5K;
+        value = 1000 / (value / 3.6);
+      }
+    }
+    
+    if (type == OPTION_REQUISITE_PACE_5K ||
+        type == OPTION_REQUISITE_PACE_10K ||
+        type == OPTION_REQUISITE_PACE_HALF_MARATHON ||
+        type == OPTION_REQUISITE_PACE_MARATHON ||
+        type == OPTION_REQUISITE_PACE_LAP)
+    {
+      value = Math.round(value).toNumber();
+      if (value == targetPace) { return Graphics.COLOR_DK_GREEN; }
+      if (value > targetPace) { return Graphics.COLOR_BLUE; }
+      if (value < targetPace) { return Graphics.COLOR_RED; }
+    }
+    
+    return null;
   }
 }

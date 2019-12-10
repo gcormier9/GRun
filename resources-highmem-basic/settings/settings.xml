@@ -43,7 +43,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -94,7 +93,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -145,7 +143,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -196,7 +193,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -247,7 +243,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -298,7 +293,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -349,7 +343,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -400,7 +393,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -451,7 +443,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -502,7 +493,6 @@
       <listEntry value="149">@Strings.Field149</listEntry>   <!-- 149 Target Speed Half Marathon (21.0975 km) -->
       <listEntry value="150">@Strings.Field150</listEntry>   <!-- 150 Target Speed Marathon (42.195 km) -->
       <listEntry value="151">@Strings.Field151</listEntry>   <!-- 151 Target Speed Lap Distance -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->

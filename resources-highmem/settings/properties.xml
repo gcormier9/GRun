@@ -1,0 +1,4 @@
+<properties>
+  <property id="AvgSpeedTime" type="number">15</property>
+  <property id="AvgVerticalSpeedTime" type="number">60</property>
+</properties>

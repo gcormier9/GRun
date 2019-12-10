@@ -28,7 +28,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -64,7 +63,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -100,7 +98,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -136,7 +133,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -172,7 +168,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -208,7 +203,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -244,7 +238,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -280,7 +273,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -316,7 +308,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->
@@ -352,7 +343,6 @@
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
       <listEntry value="34">@Strings.Field34</listEntry>     <!-- 34 Time Ahead/Behind -->
-      <listEntry value="28">@Strings.Field28</listEntry>     <!-- 28 Training Effect -->
       <listEntry value="18">@Strings.Field18</listEntry>     <!-- 18 Battery Icon -->
       <listEntry value="19">@Strings.Field19</listEntry>     <!-- 19 GPS Icon -->
       <listEntry value="20">@Strings.Field20</listEntry>     <!-- 20 GPS Icon and Battery Icon -->

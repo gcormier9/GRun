@@ -18,6 +18,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -69,6 +72,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -120,6 +126,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -171,6 +180,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -222,6 +234,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -273,6 +288,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -324,6 +342,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -375,6 +396,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -426,6 +450,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
@@ -477,6 +504,9 @@
       <listEntry value="140">@Strings.Field140</listEntry>   <!-- 140 Average Vertical Speed (/hour) (Last X sec) -->
       <listEntry value="14">@Strings.Field14</listEntry>     <!-- 14 Current Cadence -->
       <listEntry value="33">@Strings.Field33</listEntry>     <!-- 33 Average Cadence -->
+      <listEntry value="109">@Strings.Field109</listEntry>   <!-- 109 Current Power -->
+      <listEntry value="104">@Strings.Field104</listEntry>   <!-- 104 Average Power -->
+      <listEntry value="121">@Strings.Field121</listEntry>   <!-- 121 Max Power -->
       <listEntry value="13">@Strings.Field13</listEntry>     <!-- 13 Calories -->
       <listEntry value="15">@Strings.Field15</listEntry>     <!-- 15 Altitude -->
       <listEntry value="16">@Strings.Field16</listEntry>     <!-- 16 Total Ascent -->
