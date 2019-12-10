@@ -63,7 +63,7 @@ High-Memory devices also supports the following fields:
 - Target Speed Marathon (42.195 km)
 - Target Speed Lap Distance
 
-* Training Effect is supported on the following devices:
+Training Effect is supported on the following devices:
 - Descent Mk1
 - Edge 1030
 - Edge 1030 Bontrager
@@ -92,7 +92,7 @@ High-Memory devices also supports the following fields:
 - MARQ Driver
 - MARQ Expedition
 
-* Power is supported on the following devices:
+Power is supported on the following devices:
 - D2 Charlie
 - D2 Delta
 - D2 Delta PX
@@ -139,6 +139,7 @@ Pace Range is used to determine if your pace/speed is too slow or too fast. For 
 
 ### Lap Distance (in meters)
 Lap Distance is useful for people running in competition. It allows to readjust distance. For example, if you set the value to 1000 (meters), it allows you to press the lap button at each kilometer. If Garmin had calculated a value of 1.01 km at km #1, it will readjust to 1.00 km when you press the lap button. Average Speed, Pace, ETA, etc. will be readjusted using the updated distance. To determine what the new distance should be, the distance is divided by "Lap Distance" and is adjusted to the closest value. For example, if "Lap Distance" is set to 400 meters and you press the lap button at 1195 meters, the distance will be corrected to 1200 meters. If the distance was 1225 meters, it would also be corrected to 1200 meters. It is important to note that you do not have to press lap button on every lap since the value is always corrected using the closest lap distance.
+
 *** Note : Lap Distance must always be set in meters regarless of the watch settings. If you'd like to set the "Lap Distance" to 1 mile, you have to configure it to 1609 (1609 meters = 1 mile).
 
 ### Header Position
@@ -169,6 +170,7 @@ Default value of 30 looks like this:
 "Column Width Ratio" is used to configured the width of each fields on row #2 and #3. You simply have to provide 3 numbers separated by comma. The default value is 2,1,2 meaning colum #1 and #3 are 2 times bigger than column number #2. For those who prefer percentage, similar result would have been achieved with "40,20,40" : column #1 and #3 taking 40% of the available width while column #2 taking 20%. If a parameter is set to "Empty", its percentage will be set to 0. If we keep the example of "2,1,2" with parameter #2 set to empty, value will automatically became "2,0,2". In this case, it will mean column #1 and #3 will take 50% of the screen.
 
 Default value: "2,1,2" with middle parameter set to Empty on first row
+
 ![GRun MiddleColumn100](/doc/GRunWatch6.png)
 
 Configuration using "1,1,1" with middle parameter set to Empty on first row
@@ -241,7 +243,8 @@ This field is helpful to determine the pace/speed required to finish your race a
    + Average Vertical Speed over a defined period of time (in meter or feet per hour)
    + HR Zone Number
    + Target Pace/Speed (5K, 10K, Half Marathon, Marathon, Lap Distance)
-   
+
+
  - Memory Usage on va3   (Current | Peak) : 
    * At startup:           25.5 kB | 27.0 kB
    * 10 sec running:       25.5 kB | 27.4 kB
@@ -261,6 +264,7 @@ This field is helpful to determine the pace/speed required to finish your race a
  - Replaced field "Time spend on previous km/mile" by "Previous Lap Time"
  - Added field "Lap Count" 
  - Increased line width between fields from 1 pixel to 2 pixels
+
 
  - Memory Usage on va3 (Current | Peak) : 
    * At startup:           25.6 kB | 27.0 kB
