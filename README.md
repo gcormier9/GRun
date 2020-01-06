@@ -255,6 +255,19 @@ This field is helpful to determine the pace/speed required to finish your race a
 
 
 ## Release Notes
+### Version 1.24
+ - Bugfix on Garmin Venue to properly display fields
+
+Memory Usage on va3   (Current | Peak) : 
+   * At startup:           25.6 kB | 27.0 kB
+   * 10 sec running:       25.6 kB | 27.4 kB
+   * After setting change: 25.6 kB | 28.4 kB
+
+Memory Usage on fr945 (Current | Peak) : 
+   * At startup:           31.5 kB | 33.4 kB
+   * 10 sec running:       31.5 kB | 33.7 kB
+   * After setting change: 31.5 kB | 34.5 kB
+
 ### Version 1.23
  - Replaced "Min Pace", "Max Pace" settings with "Target Pace" and "Pace Range"
  - Reorder settings

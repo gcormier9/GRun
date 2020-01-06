@@ -649,6 +649,10 @@ class GRunView extends WatchUi.DataField
       colorHeader = tempColor;
     }
     
+    // Bugfix on Garmin Venue.
+    dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+    dc.fillRectangle(0, 0, deviceWidth, deviceHeight);
+    
     // Inverse background for row 4 and 5
     if (singleBackgroundColor == false)
     {
