@@ -255,6 +255,15 @@ This field is helpful to determine the pace/speed required to finish your race a
 
 
 ## Release Notes
+### Version 1.25
+ - Added "Required pace to meet Target Pace" for 5K, 10K, Half Marathon and Marathon distance
+ - Replaced option for "Dynamic Data Color". Data Color can now be more customized
+
+Memory Usage on va3   (Current | Peak) : 
+   * At startup:           25.4 kB | 27.0 kB
+   * 10 sec running:       25.4 kB | 27.3 kB
+   * After setting change: 25.4 kB | 28.2 kB
+
 ### Version 1.24
  - Bugfix on Garmin Venue to properly display fields
 

@@ -53,8 +53,8 @@ class GRunView extends WatchUi.DataField
   
   // Display Header background in red/green/blue based on values (exemple current pace)
   protected var dynamicHeaderColor;
-  // Display Data foreground in red/green/blue based on values (exemple current pace)
-  protected var dynamicForegroundColor;
+  // Display Data in red/green/blue based on values (exemple current pace)
+  protected var dynamicDataColor;
   
   // Header Position change the layout. Possible values are 1, 2 and 3
   protected var headerPosition;
@@ -143,7 +143,11 @@ class GRunView extends WatchUi.DataField
     OPTION_ETA_LAP = 31.
     OPTION_LAP_COUNT = 32,
     OPTION_AVERAGE_CADENCE = 33,
-    OPTION_TIME_OFFSET = 34
+    OPTION_TIME_OFFSET = 34,
+    OPTION_REQUIRED_PACE_5K = 35,
+    OPTION_REQUIRED_PACE_10K = 36,
+    OPTION_REQUIRED_PACE_HALF_MARATHON = 37,
+    OPTION_REQUIRED_PACE_MARATHON = 38
     */
   //}
   
@@ -241,7 +245,7 @@ class GRunView extends WatchUi.DataField
     columnWidthRatio2 = getParameter("ColumnWidthRatio2", "2,1,2");
     
     dynamicHeaderColor = getParameter("HeaderBackgroundColor", true);
-    dynamicForegroundColor = getParameter("DataForegroundColor", false);
+    dynamicDataColor = getParameter("DataColor", 0);
     
     lapDistance = getParameter("LapDistance", 0).toNumber();
 
@@ -498,29 +502,43 @@ class GRunView extends WatchUi.DataField
       return info.currentLocationAccuracy;
     }
     
-    if (value >= 21 /* OPTION_ETA_5K */ && value <= 24 /* OPTION_ETA_MARATHON */)
+    if ( (value >= 21 /* OPTION_ETA_5K */ && value <= 24 /* OPTION_ETA_MARATHON */) ||
+         (value >= 35 /* OPTION_REQUIRED_PACE_5K */ && value <= 38 /* OPTION_REQUIRED_PACE_MARATHON */) )
     {
+      var baseKey = value >= 35 /* OPTION_REQUIRED_PACE_5K */ ? 35 /* OPTION_REQUIRED_PACE_5K */ : 21 /* OPTION_ETA_5K */;
       var etaGoalTable = [5000, 10000, 21097.5, 42195];
       var distanceMetric = convertUnitIfRequired(distance * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
-      var remainingDistanceMetric = etaGoalTable[value - 21 /* OPTION_ETA_5K */] - distanceMetric;
+      var remainingDistanceMetric = etaGoalTable[value - baseKey] - distanceMetric;
       if (remainingDistanceMetric < 0) {
         if (value < 24 /* OPTION_ETA_MARATHON */) { configureID(id, value + 1); }
+        else if ( (value >= 35 /* OPTION_REQUIRED_PACE_5K */) && (value < 38 /* OPTION_REQUIRED_PACE_MARATHON */) ) { configureID(id, value + 1); }
         else { return valueData; }
       }
-
-      var avgSpeedMetric = 0;
-      if (lapDistance > 0 && distanceOffset != 0)
+      
+      if (value <= 24 /* OPTION_ETA_MARATHON */)
       {
-        if (timer > 0) { avgSpeedMetric = distanceMetric / timer; }
+        var avgSpeedMetric = 0;
+        if (lapDistance > 0 && distanceOffset != 0)
+        {
+          if (timer > 0) { avgSpeedMetric = distanceMetric / timer; }
+        }
+      
+        else if (info.averageSpeed != null)
+        {
+          avgSpeedMetric = info.averageSpeed;
+        }
+      
+        if (avgSpeedMetric <= 0) { return valueData; }
+        return timer + (remainingDistanceMetric / avgSpeedMetric);
       }
       
-      else if (info.averageSpeed != null)
-      {
-        avgSpeedMetric = info.averageSpeed;
-      }
       
-      if (avgSpeedMetric <= 0) { return valueData; }
-      return timer + (remainingDistanceMetric / avgSpeedMetric);
+      // else (value >= 35 /* OPTION_REQUIRED_PACE_5K */)
+      var targetTimer = targetPace * etaGoalTable[value - 35 /* OPTION_REQUIRED_PACE_5K */];
+      var remainingTimer = targetTimer - timer;
+      
+      if (remainingDistanceMetric <= 0) { return valueData; }
+      return convertUnitIfRequired(remainingTimer / remainingDistanceMetric, 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
     }
     
     // Elapsed time for the current lap
@@ -718,6 +736,10 @@ class GRunView extends WatchUi.DataField
   function displayArea(dc, id, type, value, valueArea)
   {
     if (type == 0 /* OPTION_EMPTY */) { return; }
+    var hasHeader = false;
+    
+    var fgColor = null;
+    var bgColor = null;
     var color = getColor(type, value);
     
     var areaX = valueArea[0];
@@ -727,48 +749,83 @@ class GRunView extends WatchUi.DataField
     var areaXcenter = areaX + (areaWidth / 2);
   
     // Set Header values, except for Area 1, 8 and 9
-    if ( (id >= 2) && (id <= 7) && (headerHeight > 0) )
+    if ( (id >= 2) && (id <= 7) )
     {
-      var leftOffsetX = 0;
-      var rightOffsetX = 0;
-      var headerY = valueArea[1];
-      areaHeight -= headerHeight;
-      
-      if ( (headerPosition == 2 && id > 4) || (headerPosition == 3 && id < 5) )
+      hasHeader = true;
+      if (headerHeight > 0)
       {
-        headerY += valueArea[3] - headerHeight;
+        var leftOffsetX = 0;
+        var rightOffsetX = 0;
+        var headerY = valueArea[1];
+        areaHeight -= headerHeight;
+        
+        if ( (headerPosition == 2 && id > 4) || (headerPosition == 3 && id < 5) )
+        {
+          headerY += valueArea[3] - headerHeight;
+        }
+        
+        else
+        {
+          areaY += headerHeight;
+        }
+        
+        var headerYcenter = headerY + (headerHeight / 2);
+        if (areaX == 0) { leftOffsetX = (deviceWidth - getWidth(headerYcenter)) / 2; }
+        if (areaX + areaWidth == deviceWidth) { rightOffsetX = (deviceWidth - getWidth(headerYcenter)) / 2; }
+        if ( (id == 2) || (id == 3) || (id == 5) || (id == 6) ) { rightOffsetX += 1; }
+        if ( (id == 3) || (id == 4) || (id == 6) || (id == 7) ) { leftOffsetX += 2; }
+        var headerXcenter = areaXcenter + (leftOffsetX / 2) - (rightOffsetX / 2);
+        
+        if (initCompleted > 0)
+        {
+          initCompleted--;
+          var font = getFont(dc, 1, getHeaderName(type), areaWidth - leftOffsetX - rightOffsetX, headerHeight - 2);
+          if (font < fontHeader) { fontHeader = font; }
+        }
+        
+        // Header Background Color
+        var headerBackgroundColor = (dynamicHeaderColor && (color != null)) ? color : colorHeader;
+        dc.setColor(headerBackgroundColor, Graphics.COLOR_TRANSPARENT);
+        dc.fillRectangle(areaX, headerY, areaWidth, headerHeight);
+        
+        // Header Text
+        var textColor = (dynamicHeaderColor && (color != null)) ? Graphics.COLOR_WHITE : color1;
+        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
+        dc.setClip(areaX + leftOffsetX, headerY, areaWidth - leftOffsetX - rightOffsetX, headerHeight);
+        dc.drawText(headerXcenter, headerYcenter, fontHeader, getHeaderName(type), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);      
+        dc.clearClip();
+        
+        if (color != null)
+        {
+          if ( (dynamicDataColor == 1) || (dynamicDataColor == 3) )
+          {
+            bgColor = color;
+            fgColor = Graphics.COLOR_WHITE;
+          }
+          
+          else if ( (dynamicDataColor == 4) || (dynamicDataColor == 6) )
+          {
+            fgColor = color;
+          }
+        }
       }
-      
-      else
+    }
+    
+    else
+    {
+      if (color != null)
       {
-        areaY += headerHeight;
+        if ( (dynamicDataColor == 1) || (dynamicDataColor == 2) )
+        {
+          bgColor = color;
+          fgColor = Graphics.COLOR_WHITE;
+        }
+        
+        else if ( (dynamicDataColor == 4) || (dynamicDataColor == 5) )
+        {
+          fgColor = color;
+        }
       }
-      
-      var headerYcenter = headerY + (headerHeight / 2);
-      if (areaX == 0) { leftOffsetX = (deviceWidth - getWidth(headerYcenter)) / 2; }
-      if (areaX + areaWidth == deviceWidth) { rightOffsetX = (deviceWidth - getWidth(headerYcenter)) / 2; }
-      if ( (id == 2) || (id == 3) || (id == 5) || (id == 6) ) { rightOffsetX += 1; }
-      if ( (id == 3) || (id == 4) || (id == 6) || (id == 7) ) { leftOffsetX += 2; }
-      var headerXcenter = areaXcenter + (leftOffsetX / 2) - (rightOffsetX / 2);
-      
-      if (initCompleted > 0)
-      {
-        initCompleted--;
-        var font = getFont(dc, 1, getHeaderName(type), areaWidth - leftOffsetX - rightOffsetX, headerHeight - 2);
-        if (font < fontHeader) { fontHeader = font; }
-      }
-      
-      // Header Background Color
-      var bgColor = (dynamicHeaderColor && (color != null)) ? color : colorHeader;
-      dc.setColor(bgColor, Graphics.COLOR_TRANSPARENT);
-      dc.fillRectangle(areaX, headerY, areaWidth, headerHeight);
-      
-      // Header Text
-      var textColor = (dynamicHeaderColor && (color != null)) ? Graphics.COLOR_WHITE : color1;
-      dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-      dc.setClip(areaX + leftOffsetX, headerY, areaWidth - leftOffsetX - rightOffsetX, headerHeight);
-      dc.drawText(headerXcenter, headerYcenter, fontHeader, getHeaderName(type), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);      
-      dc.clearClip();
     }
     
     // Set Data values
@@ -781,6 +838,12 @@ class GRunView extends WatchUi.DataField
     
     // Realign row 4 and 5 on some devices
     if (id > 7) { areaYcenter += yOffset; }
+    
+    if (bgColor != null)
+    {
+      dc.setColor(bgColor, Graphics.COLOR_TRANSPARENT);
+      dc.fillRectangle(areaX, areaY, areaWidth, areaHeight);
+    }
     
     dc.setClip(areaX + leftOffsetX, areaY, areaWidth - leftOffsetX - rightOffsetX, areaHeight);
     
@@ -815,26 +878,25 @@ class GRunView extends WatchUi.DataField
     
     else
     {
-      if (dynamicForegroundColor && (color != null)) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
+      if (fgColor != null) { dc.setColor(fgColor, Graphics.COLOR_TRANSPARENT); }
       else if (id < 8 || singleBackgroundColor) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
       else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
     
       var formattedValue = getFormattedValue(id, type, value);
       // Display HR icon if in Area 1, 8 or 9
-      if ( ((type == 6 /* OPTION_CURRENT_HEART_RATE */) || (type == 9 /* OPTION_AVERAGE_HEART_RATE */)) && ((id == 1) || (id >= 8)) )
+      if ( ((type == 6 /* OPTION_CURRENT_HEART_RATE */) || (type == 9 /* OPTION_AVERAGE_HEART_RATE */)) && (hasHeader == false) )
       {
         var iconWidth = 24; //dc.getTextWidthInPixels("0", fontIcons);
         var font = getFont(dc, type, formattedValue, areaWidth - leftOffsetX - rightOffsetX - (iconWidth * 1.5), areaHeight);
         var textWidth = (iconWidth / 2) + dc.getTextWidthInPixels(formattedValue, font);
         
-        // Always display HR icon in color
-        if (color != null) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
-        dc.drawText(areaXcenter - (textWidth / 2), areaYcenter, fontIcons, 0, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-        
-        if (dynamicForegroundColor && (color != null)) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
-        else if (id < 8 || singleBackgroundColor) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
-        else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
+        // Display HR value
         dc.drawText(areaXcenter + (iconWidth / 2), areaYcenter, font, formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        
+        // Always display HR icon in color
+        if (bgColor != null) { dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT); }
+        else if (color != null) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
+        dc.drawText(areaXcenter - (textWidth / 2), areaYcenter, fontIcons, 0, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
       }
       
       // Display regular field
@@ -880,6 +942,10 @@ class GRunView extends WatchUi.DataField
     if (type == 32 /* OPTION_LAP_COUNT */) { return "LAP"; }
     if (type == 33 /*OPTION_AVERAGE_CADENCE */) { return "A CAD"; }
     if (type == 34 /* OPTION_TIME_OFFSET */) { return "+/-"; }
+    if (type == 35 /* OPTION_REQUIRED_PACE_5K */) { return "RP 5K"; }
+    if (type == 36 /* OPTION_REQUIRED_PACE_10K */) { return "RP 10K"; }
+    if (type == 37 /* OPTION_REQUIRED_PACE_HALF_MARATHON */) { return "RP 21K"; }
+    if (type == 38 /* OPTION_REQUIRED_PACE_MARATHON */) { return "RP 42K"; }
     
     return "";
   }
@@ -900,7 +966,11 @@ class GRunView extends WatchUi.DataField
     
     if (type == 7 /* OPTION_CURRENT_PACE */ ||
         type == 10 /* OPTION_AVERAGE_PACE */ ||
-        type == 27 /* OPTION_CURRENT_LAP_PACE */)
+        type == 27 /* OPTION_CURRENT_LAP_PACE */ ||
+        type == 35 /* OPTION_REQUIRED_PACE_5K */ ||
+        type == 36 /* OPTION_REQUIRED_PACE_10K */ ||
+        type == 37 /* OPTION_REQUIRED_PACE_HALF_MARATHON */ ||
+        type == 38 /* OPTION_REQUIRED_PACE_MARATHON */)
     {
       return formatDuration(value, false);
     }
@@ -955,7 +1025,7 @@ class GRunView extends WatchUi.DataField
   {
     var fontID = Graphics.FONT_NUMBER_THAI_HOT;
     var textDimension;
-    if (type == 1 /* OPTION_CURRENT_TIME */ || type == 35 /* OPTION_CURRENT_LOCATION */) { fontID = Graphics.FONT_LARGE; }
+    if (type == 1 /* OPTION_CURRENT_TIME */) { fontID = Graphics.FONT_LARGE; }
     
     while (fontID > 0)
     {

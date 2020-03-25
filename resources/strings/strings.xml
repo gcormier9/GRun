@@ -25,8 +25,16 @@
   <string id="PARAM_SINGLE_BACKGROUND_COLOR">Uniform Background Color</string>
   <string id="PARAM_DESC_SINGLE_BACKGROUND_COLOR">If true, rows 4/5 have same color as rows 1/2/3</string>
   
+  <string id="PARAM_DISABLE_COLOR">Disable</string>
+  <string id="PARAM_ALL_BACKGROUND_COLOR">Background (All fields)</string>
+  <string id="PARAM_TOP_BOTTOM_BACKGROUND_COLOR">Background on row 1, 4 and 5 only</string>
+  <string id="PARAM_MIDDLE_BACKGROUND_COLOR">Background on row 2 and 3 only</string>
+  <string id="PARAM_ALL_FOREGROUND_COLOR">Foreground (All fields)</string>
+  <string id="PARAM_TOP_BOTTOM_FOREGROUND_COLOR">Foreground on row 1, 4 and 5 only</string>
+  <string id="PARAM_MIDDLE_FOREGROUND_COLOR">Foreground on row 2 and 3 only</string>
+      
   <string id="PARAM_HEADER_BACKGROUND_COLOR">Dynamic Header Background Color</string>
-  <string id="PARAM_DATA_FOREGROUND_COLOR">Dynamic Data Foreground Color</string>
+  <string id="PARAM_DATA_COLOR">Dynamic Data Color</string>
 
   <string id="PARAM_AREA1">Field 1</string>
   <string id="PARAM_AREA2">Field 2A</string>
@@ -70,5 +78,9 @@
   <string id="Field32">Lap Count</string>
   <string id="Field33">Average Cadence</string>
   <string id="Field34">Time Ahead/Behind</string>
+  <string id="Field35">Required Pace 5K</string>
+  <string id="Field36">Required Pace 10K</string>
+  <string id="Field37">Required Pace Half Marathon (21.0975 km)</string>
+  <string id="Field38">Required Pace Marathon (42.195 km)</string>
 
 </strings>
