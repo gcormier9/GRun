@@ -1049,7 +1049,7 @@ class GRunView extends WatchUi.DataField
     {
       if (value < hrZones[1]) { return null; }     // Black
       if (value < hrZones[2]) { return 0x00AAFF; } // Blue
-      if (value < hrZones[3]) { return 0x00AA00; } // Green
+      if (value < hrZones[3]) { return 0x00AA00; } // Dark Green
       if (value < hrZones[4]) { return 0xFF5500; } // Orange
       return 0xFF0000;                             // Red
     }
