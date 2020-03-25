@@ -153,6 +153,11 @@ List of High-Memory devices:
 - Fields related to speed are displayed in km/h or mile/h depending on the user profile.
 - Fields related to pace are displayed in min/km or min/mile depending on the user profile.
 - Heart Rate is displayed in color based on user profile heart rate zone.
+  - Zone 1 : Black
+  - Zone 2 : Blue
+  - Zone 3 : Green
+  - Zone 4 : Orange
+  - Zone 5 : Red
 - Current Pace/Speed, Average Pace/Speed, Lap Pace, Target Pace (5k, 10k, etc.) and "Time Ahead/Behind" are displayed in color based on application parameters
   - Blue if too fast, Green if within Target Pace Range, Red if too slow
 
