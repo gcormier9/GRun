@@ -30,7 +30,7 @@ class GRunView extends WatchUi.DataField
   protected var distance = 0.0;
   // Determine distance offset on each lap (in meter)
   protected var distanceOffset = 0.0;
-  // Timer
+  // Timer (in second)
   protected var timer = 0;
   // Number of lap
   protected var lapCount = 0;
@@ -505,8 +505,9 @@ class GRunView extends WatchUi.DataField
     if ( (value >= 21 /* OPTION_ETA_5K */ && value <= 24 /* OPTION_ETA_MARATHON */) ||
          (value >= 35 /* OPTION_REQUIRED_PACE_5K */ && value <= 38 /* OPTION_REQUIRED_PACE_MARATHON */) )
     {
-      var baseKey = value >= 35 /* OPTION_REQUIRED_PACE_5K */ ? 35 /* OPTION_REQUIRED_PACE_5K */ : 21 /* OPTION_ETA_5K */;
       var etaGoalTable = [5000, 10000, 21097.5, 42195];
+      var baseKey = value >= 35 /* OPTION_REQUIRED_PACE_5K */ ? 35 /* OPTION_REQUIRED_PACE_5K */ : 21 /* OPTION_ETA_5K */;
+      
       var distanceMetric = convertUnitIfRequired(distance * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
       var remainingDistanceMetric = etaGoalTable[value - baseKey] - distanceMetric;
       if (remainingDistanceMetric < 0) {
@@ -534,11 +535,11 @@ class GRunView extends WatchUi.DataField
       
       
       // else (value >= 35 /* OPTION_REQUIRED_PACE_5K */)
-      var targetTimer = targetPace * etaGoalTable[value - 35 /* OPTION_REQUIRED_PACE_5K */];
+      var targetTimer = targetPace * (etaGoalTable[value - 35 /* OPTION_REQUIRED_PACE_5K */] / 1000.0);
       var remainingTimer = targetTimer - timer;
       
       if (remainingDistanceMetric <= 0) { return valueData; }
-      return convertUnitIfRequired(remainingTimer / remainingDistanceMetric, 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
+      return convertUnitIfRequired(remainingTimer / (remainingDistanceMetric / 1000.0), 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
     }
     
     // Elapsed time for the current lap
