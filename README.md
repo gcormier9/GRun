@@ -265,9 +265,14 @@ This field is helpful to determine the pace/speed required to finish your race a
  - Replaced option for "Dynamic Data Color". Data Color can now be more customized
 
 Memory Usage on va3   (Current | Peak) : 
-   * At startup:           25.4 kB | 27.0 kB
-   * 10 sec running:       25.4 kB | 27.3 kB
-   * After setting change: 25.4 kB | 28.2 kB
+   * At startup:           25.7 kB | 27.3 kB
+   * 10 sec running:       25.7 kB | 27.6 kB
+   * After setting change: 25.7 kB | 28.5 kB
+   
+Memory Usage on fr945 (Current | Peak) : 
+   * At startup:           31.4 kB | 33.2 kB
+   * 10 sec running:       31.4 kB | 33.6 kB
+   * After setting change: 31.4 kB | 34.3 kB
 
 ### Version 1.24
  - Bugfix on Garmin Venue to properly display fields
