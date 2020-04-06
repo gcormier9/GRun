@@ -178,7 +178,6 @@ class GRunView extends WatchUi.DataField
     var i = 0; // Number of param defined in string s, should be equal to 3 for row 2 and 3 and equal to 2 for for 4
     var commaIndex = s.find(",");
     var numberArray = new [3]b; // Contained numbers parsed in string s. "new [3]b" seems equal to [0,0,0]
-    System.println(numberArray);
     
     try
     {
