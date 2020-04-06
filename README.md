@@ -230,7 +230,7 @@ Default value of 30 looks like this:
 
 Default value: "2,1,2" with middle parameter set to Empty on first row
 
-Note: Configuration using "1,1,1" with middle parameter set to Empty would give the same result
+**Note**: Configuration using "1,1,1" with middle parameter set to Empty would give the same result
 
 ![GRun MiddleColumn100](/doc/GRunWatch6.png)
 
