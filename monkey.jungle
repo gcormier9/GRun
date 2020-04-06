@@ -6,6 +6,7 @@ project.manifest = manifest.xml
 base.sourcePath = source
 
 # High Memory (124.7 KB)
+approachs62.sourcePath = source;source-highmem;source-highmem-default
 d2charlie.sourcePath = source;source-highmem;source-highmem-default
 d2delta.sourcePath = source;source-highmem;source-highmem-default
 d2deltapx.sourcePath = source;source-highmem;source-highmem-default
@@ -23,9 +24,11 @@ fenix5x.sourcePath = source;source-highmem;source-highmem-default
 fenix5xplus.sourcePath = source;source-highmem;source-highmem-default
 descentmk1.sourcePath = source;source-highmem;source-highmem-default
 fr945.sourcePath = source;source-highmem;source-highmem-default
+marqadventurer.sourcePath = source;source-highmem;source-highmem-default
 marqathlete.sourcePath = source;source-highmem;source-highmem-default
 marqaviator.sourcePath = source;source-highmem;source-highmem-default
 marqcaptain.sourcePath = source;source-highmem;source-highmem-default
+marqcommander.sourcePath = source;source-highmem;source-highmem-default
 marqdriver.sourcePath = source;source-highmem;source-highmem-default
 marqexpedition.sourcePath = source;source-highmem;source-highmem-default
 oregon7xx.sourcePath = source;source-highmem;source-highmem-default
@@ -52,6 +55,8 @@ vivoactive3m.sourcePath = source;source-lowmem-default
 vivoactive3mlte.sourcePath = source;source-lowmem-default
 legacyherocaptainmarvel.sourcePath = source;source-lowmem-default
 legacyherofirstavenger.sourcePath = source;source-lowmem-default
+legacysagadarthvader.sourcePath = source;source-lowmem-default
+legacysagarey.sourcePath = source;source-lowmem-default
 fenix6.sourcePath = source;source-lowmem-default
 fenix6s.sourcePath = source;source-lowmem-default
 venu.sourcePath = source;source-lowmem-default
@@ -63,6 +68,7 @@ vivoactive4s.sourcePath = source;source-lowmem-default
 base.resourcePath = resources
 
 # High Memory (124.7 KB) with no specific feature
+approachs62.resourcePath = resources;resources-highmem;resources-highmem-basic
 edgeexplore.resourcePath = resources;resources-highmem;resources-highmem-basic
 oregon7xx.resourcePath = resources;resources-highmem;resources-highmem-basic
 rino7xx.resourcePath = resources;resources-highmem;resources-highmem-basic
@@ -92,9 +98,11 @@ fenix6pro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix6spro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix6xpro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr945.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marqadventurer.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqathlete.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqaviator.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqcaptain.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marqcommander.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqdriver.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqexpedition.resourcePath = resources;resources-highmem;resources-highmem-power-te
 
@@ -105,6 +113,8 @@ vivoactive3m.resourcePath = resources;resources-lowmem-basic
 vivoactive3mlte.resourcePath = resources;resources-lowmem-basic
 legacyherocaptainmarvel.resourcePath = resources;resources-lowmem-basic
 legacyherofirstavenger.resourcePath = resources;resources-lowmem-basic
+legacysagadarthvader.resourcePath = resources;resources-lowmem-basic
+legacysagarey.resourcePath = resources;resources-lowmem-basic
 venu.resourcePath = resources;resources-lowmem-basic
 vivoactive4.resourcePath = resources;resources-lowmem-basic
 vivoactive4s.resourcePath = resources;resources-lowmem-basic

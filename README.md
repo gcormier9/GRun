@@ -110,9 +110,11 @@ Training Effect is supported on the following devices:
 - Forerunner 645 Music
 - Forerunner 935
 - Forerunner 945
+- MARQ Adventurer
 - MARQ Athlete
 - MARQ Aviator
 - MARQ Captain
+- MARQ Commander
 - MARQ Driver
 - MARQ Expedition
 
@@ -136,13 +138,16 @@ Power is supported on the following devices:
 - Fenix 6S Pro
 - Fenix 6X Pro
 - Forerunner 945
+- MARQ Adventurer
 - MARQ Athlete
 - MARQ Aviator
 - MARQ Captain
+- MARQ Commander
 - MARQ Driver
 - MARQ Expedition
 
 List of High-Memory devices:
+- Approach S62
 - D2 Charlie
 - D2 Delta
 - D2 Delta PX
@@ -164,9 +169,11 @@ List of High-Memory devices:
 - fenix 6X Pro
 - Forerunner 645 Music
 - Forerunner 945
+- MARQ Adventurer
 - MARQ Athlete
 - MARQ Aviator
 - MARQ Captain
+- MARQ Commander
 - MARQ Driver
 - MARQ Expedition
 - Oregon 7xx
