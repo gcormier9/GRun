@@ -4,6 +4,27 @@ Configurable Garmin Watch datafield
 ![GRun Cover Image](/doc/GRunCover.png) 
 
 
+## How to use
+1. Press the button to view the activity list
+2. Select an activity
+3. Select the activity settings.
+4. Select Data Screens
+5. Depending on your watch model:
+
+
+vivoactive3/4
+  
+- Select Layout, and select 1
+- Select Screen 1 > Edit Data Fields, and select Connect IQ > GRun
+
+
+fenix5
+  
+- Select a data screen to customize.
+- Select Layout, and select 1
+- Select Field 1, and select Connect IQ > GRun
+
+
 ## Description
 Highly configurable datafield where you can select up to 10 fields to display. If less fields are configured, the field area on each line will automatically expand.
 The second and third row display a header field with the value. The Header fields can be positioned Top/Top, Top/Bottom or Bottom/Top.
@@ -17,6 +38,7 @@ The following fields are currently supported:
 - Distance
 - Current Heart Rate
 - Average Heart Rate
+- Heart Rate Zone
 - Current Pace
 - Average Pace
 - Current Speed
@@ -31,6 +53,12 @@ The following fields are currently supported:
 - ETA 10K
 - ETA Half Marathon (21.0975 km)
 - ETA Marathon (42.195 km)
+- ETA 100K
+- Required Pace 5K
+- Required Pace 10K
+- Required Pace Half Marathon (21.0975 km)
+- Required Pace Marathon (42.195 km)
+- Required Pace 100K
 - ETA Lap
 - Lap Count
 - Previous Lap Time
@@ -44,7 +72,6 @@ The following fields are currently supported:
 - GPS Icon and Battery Icon
 
 High-Memory devices also supports the following fields:
-- Heart Rate Zone
 - Average Pace (Last X sec)
 - Average Speed (Last X sec)
 - Average Vertical Speed (m/min) (Last X sec)
@@ -52,16 +79,13 @@ High-Memory devices also supports the following fields:
 - Current Power (on supported devices)
 - Average Power (on supported devices)
 - Max Power (on supported devices)
-- Target Pace 5K
-- Target Pace 10K
-- Target Pace Half Marathon (21.0975 km)
-- Target Pace Marathon (42.195 km)
-- Target Pace Lap Distance
-- Target Speed 5K
-- Target Speed 10K
-- Target Speed Half Marathon (21.0975 km)
-- Target Speed Marathon (42.195 km)
-- Target Speed Lap Distance
+- Required Speed 5K
+- Required Speed 10K
+- Required Speed Half Marathon (21.0975 km)
+- Required Speed Marathon (42.195 km)
+- Required Speed 100K
+- Required Pace Lap Distance
+- Required Speed Lap Distance
 
 Training Effect is supported on the following devices:
 - Descent Mk1
@@ -158,7 +182,7 @@ List of High-Memory devices:
   - Zone 3 : Green
   - Zone 4 : Orange
   - Zone 5 : Red
-- Current Pace/Speed, Average Pace/Speed, Lap Pace, Target Pace (5k, 10k, etc.) and "Time Ahead/Behind" are displayed in color based on application parameters
+- Current Pace/Speed, Average Pace/Speed, Lap Pace and "Time Ahead/Behind" are displayed in color based on application parameters
   - Blue if too fast, Green if within Target Pace Range, Red if too slow
 
 ## Configuration
@@ -205,11 +229,10 @@ Default value of 30 looks like this:
 "Column Width Ratio" is used to configured the width of each fields on row #2 and #3. You simply have to provide 3 numbers separated by comma. The default value is 2,1,2 meaning colum #1 and #3 are 2 times bigger than column number #2. For those who prefer percentage, similar result would have been achieved with "40,20,40" : column #1 and #3 taking 40% of the available width while column #2 taking 20%. If a parameter is set to "Empty", its percentage will be set to 0. If we keep the example of "2,1,2" with parameter #2 set to empty, value will automatically became "2,0,2". In this case, it will mean column #1 and #3 will take 50% of the screen.
 
 Default value: "2,1,2" with middle parameter set to Empty on first row
+Note: Configuration using "1,1,1" with middle parameter set to Empty would give the same result
 
 ![GRun MiddleColumn100](/doc/GRunWatch6.png)
 
-Configuration using "1,1,1" with middle parameter set to Empty on first row
-![GRun MiddleColumn125](/doc/GRunWatch7.png)
  
 ### Uniform Background Color
 By default, rows 4 and 5 have a different background color.
@@ -221,10 +244,20 @@ To have a uniform background color, simply enable this setting.
 ![GRun BottomTop](/doc/GRunWatch11.png)
 
 ### Dynamic Header Background Color
-If enabled, background colors will changed depending on your pace/speed.
+If enabled, Header background colors will changed depending on your pace/speed.
+
+![GRun BottomTop](/doc/GRunWatch12.png)
+
+### Dynamic Data Background Color
+If enabled, data background colors will changed depending on your pace/speed.
+
+![GRun BottomTop](/doc/GRunWatch13.png)
 
 ### Dynamic Data Foreground Color
 If enabled, data foreground colors will changed depending on your pace/speed.
+
+![GRun BottomTop](/doc/GRunWatch14.png)
+
 
 ### Fields
 Up to 10 fields can be displayed using application parameters.
@@ -238,10 +271,15 @@ If some fields are configured with option  **Empty**, the other fields on the sa
 ![GRun Expand](/doc/GRunWatch1.png)
 
 #### Fields Description
-Most of the fields do not required explanation, but others might...
+Most fields do not require explanation, but others might...
 
-##### ETA (5K, 10K, Half Marathon, Marathon, Lap Distance)
-ETA fields help determine your finish time based on your average speed/pace. It can help determine the finish time for 5 km, 10 km, half-marathon (21.0975 km) a marathon (42.195) or the "Lap Distance" configured on the "Lap Distance" parameters.
+##### ETA (5K, 10K, Half Marathon, Marathon, 100K, Lap Distance)
+ETA fields help determine your finish time based on your average speed/pace. It can help determine the finish time for 5 km, 10 km, half-marathon (21.0975 km), marathon (42.195), 100K or the "Lap Distance" configured on the "Lap Distance" parameters.
+Except for "ETA Lap Distance", each ETA field will automatically changed once distance has been reached. For example, if you use "ETA 5K", the field will automatically changed to "ETA 10K" once you have run 5 kilometers.
+
+##### Required Pace/Speed (5K, 10K, Half Marathon, Marathon, 100K, Lap Distance)
+This field is helpful to determine the pace/speed required to finish your race at "Target Pace". For example, if your "Target Pace" is configured to 360 (6:00 minutes/km) and you have run 3 km in 15 minutes, "Required Pace 5K" will display "7:30" since you still have 15 minutes to run 2 km.
+Except for "Required Pace/Speed Lap Distance", each Required Pace/Speed field will automatically changed once distance has been reached. For example, if you use "Required Pace/Speed 5K", the field will automatically changed to "Required Pace/Speed 10K" once you have run 5 kilometers.
 
 ##### Time Ahead/Behind
 Use this field to determine how far you are from your "Target Pace". For example, if your "Target Pace" is configured to 360 (6:00 minutes/km) and you have run 3 km in 28 minutes and 30 seconds, the field will display "-1:30" since you are 1 min and 30 seconds faster than planned.
@@ -255,24 +293,25 @@ You can use this metric if you'd like more control over the calculated speed. Th
 ##### Average Vertical Speed (/min)
 Calculate the vertical speed in meter/min or feet/min depending on the watch settings. This field calculates the vertical speed of the last X seconds by calculating the altitude difference between now and the previous X seconds. You configure the number of seconds you'd like to use using the field "Vertical Speed (Last X sec)".
 
-##### Target Pace/Speed (5K, 10K, Half Marathon, Marathon, Lap Distance)
-This field is helpful to determine the pace/speed required to finish your race at "Target Pace". For example, if your "Target Pace" is configured to 360 (6:00 minutes/km) and you have run 3 km in 15 minutes, "Target Pace 5K" will display "7:30" since you still have 15 minutes to run 2 km.
-
 
 ## Release Notes
 ### Version 1.25
- - Added "Required pace to meet Target Pace" for 5K, 10K, Half Marathon and Marathon distance
+ - Added "Required Pace to meet Target Pace" for 5K, 10K, Half Marathon, Marathon distance and 100K on all devices.
+ - Added ETA 100K on all devices
+ - Added Heart Rate Zone on all devices
  - Replaced option for "Dynamic Data Color". Data Color can now be more customized
+ - Replaced blue/green color code on white background
+ - Code improvement to optimize memory utilization
 
 Memory Usage on va3   (Current | Peak) : 
-   * At startup:           25.7 kB | 27.3 kB
-   * 10 sec running:       25.7 kB | 27.6 kB
-   * After setting change: 25.7 kB | 28.5 kB
-   
+   * At startup:           24.6 kB | 26.2 kB
+   * 10 sec running:       24.6 kB | 26.6 kB
+   * After setting change: 24.6 kB | 27.5 kB
+
 Memory Usage on fr945 (Current | Peak) : 
-   * At startup:           31.4 kB | 33.2 kB
-   * 10 sec running:       31.4 kB | 33.6 kB
-   * After setting change: 31.4 kB | 34.3 kB
+   * At startup:           28.9 kB | 30.8 kB
+   * 10 sec running:       28.9 kB | 31.2 kB
+   * After setting change: 28.9 kB | 32.0 kB
 
 ### Version 1.24
  - Bugfix on Garmin Venue to properly display fields
