@@ -233,7 +233,12 @@ Note: Configuration using "1,1,1" with middle parameter set to Empty would give 
 
 ![GRun MiddleColumn100](/doc/GRunWatch6.png)
 
- 
+#### Less fields
+If some fields are configured with option  **Empty**, the other fields on the same line will automatically expand. For example, the following screen is configured with **Field 2B = Empty**.
+
+![GRun Expand](/doc/GRunWatch1.png)
+
+
 ### Uniform Background Color
 By default, rows 4 and 5 have a different background color.
 
@@ -264,11 +269,6 @@ Up to 10 fields can be displayed using application parameters.
 
 ![GRun GarminConnectParams](/doc/GarminConnectParams.png)
 ![GRun Fields](/doc/GRunWatchFields.png)
-
-#### Less fields
-If some fields are configured with option  **Empty**, the other fields on the same line will automatically expand. For example, the following screen is configured with **Field 2B = Empty**.
-
-![GRun Expand](/doc/GRunWatch1.png)
 
 #### Fields Description
 Most fields do not require explanation, but others might...
