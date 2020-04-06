@@ -6,17 +6,15 @@
   <string id="Field138">Speed (Last X sec)</string>
   <string id="Field139">Vertical Speed (/min) (Last X sec)</string>
   <string id="Field140">Vertical Speed (/hour) (Last X sec)</string>
-  <string id="Field141">HR Zone</string>
-  <string id="Field142">Target Pace 5K</string>
-  <string id="Field143">Target Pace 10K</string>
-  <string id="Field144">Target Pace Half Marathon (21.0975 km)</string>
-  <string id="Field145">Target Pace Marathon (42.195 km)</string>
-  <string id="Field146">Target Pace Lap Distance</string>
-  <string id="Field147">Target Speed 5K</string>
-  <string id="Field148">Target Speed 10K</string>
-  <string id="Field149">Target Speed Half Marathon (21.0975 km)</string>
-  <string id="Field150">Target Speed Marathon (42.195 km)</string>
-  <string id="Field151">Target Speed Lap Distance</string>
+
+  <string id="Field147">Required Speed 5K</string>
+  <string id="Field148">Required Speed 10K</string>
+  <string id="Field149">Required Speed Half Marathon (21.0975 km)</string>
+  <string id="Field150">Required Speed Marathon (42.195 km)</string>
+  <string id="Field151">Required Speed 100K</string>
+
+  <string id="Field152">Required Pace Lap Distance</string>
+  <string id="Field153">Required Speed Lap Distance</string>
     
   <string id="PARAM_AVG_SPEED_TIME">Speed/Pace (Last X sec)</string>
   <string id="PARAM_DESC_AVG_SPEED_TIME">Number of seconds to calculate Speed/Pace (Last X sec)</string>

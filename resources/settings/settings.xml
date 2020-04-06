@@ -43,16 +43,23 @@
     <settingConfig type="boolean" />
   </setting>
   
-  <setting propertyKey="@Properties.DataColor" title="@Strings.PARAM_DATA_COLOR">
+  <setting propertyKey="@Properties.DataBackgroundColor" title="@Strings.PARAM_DATA_BACKGROUND_COLOR">
     <settingConfig type="list">
       <listEntry value="0">@Strings.PARAM_DISABLE_COLOR</listEntry>
-      <listEntry value="1">@Strings.PARAM_ALL_BACKGROUND_COLOR</listEntry>
-      <listEntry value="2">@Strings.PARAM_TOP_BOTTOM_BACKGROUND_COLOR</listEntry>
-      <listEntry value="3">@Strings.PARAM_MIDDLE_BACKGROUND_COLOR</listEntry>
-      <listEntry value="4">@Strings.PARAM_ALL_FOREGROUND_COLOR</listEntry>
-      <listEntry value="5">@Strings.PARAM_TOP_BOTTOM_FOREGROUND_COLOR</listEntry>
-      <listEntry value="6">@Strings.PARAM_MIDDLE_FOREGROUND_COLOR</listEntry>
+      <listEntry value="4">@Strings.PARAM_ALL_BACKGROUND_COLOR</listEntry>
+      <listEntry value="1">@Strings.PARAM_TOP_BOTTOM_BACKGROUND_COLOR</listEntry>
+      <listEntry value="2">@Strings.PARAM_MIDDLE_BACKGROUND_COLOR</listEntry>
     </settingConfig>
   </setting>
   
+
+  <setting propertyKey="@Properties.DataForegroundColor" title="@Strings.PARAM_DATA_FOREGROUND_COLOR">
+    <settingConfig type="list">
+      <listEntry value="0">@Strings.PARAM_DISABLE_COLOR</listEntry>
+      <listEntry value="4">@Strings.PARAM_ALL_FOREGROUND_COLOR</listEntry>
+      <listEntry value="1">@Strings.PARAM_TOP_BOTTOM_FOREGROUND_COLOR</listEntry>
+      <listEntry value="2">@Strings.PARAM_MIDDLE_FOREGROUND_COLOR</listEntry>
+    </settingConfig>
+  </setting>
+
 </settings>

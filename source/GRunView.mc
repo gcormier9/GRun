@@ -46,15 +46,15 @@ class GRunView extends WatchUi.DataField
   protected var isDistanceUnitsImperial;
   protected var isElevationUnitsImperial;
   
-  protected var color1 = Graphics.COLOR_BLACK;
-  protected var color2 = Graphics.COLOR_WHITE;
-  protected var colorBorder = Graphics.COLOR_DK_GRAY;
-  protected var colorHeader = Graphics.COLOR_LT_GRAY;
+  // Default colors
+  protected var primaryForegroundColor = Graphics.COLOR_BLACK;
+  protected var headerBackgroundColor = Graphics.COLOR_LT_GRAY;
   
-  // Display Header background in red/green/blue based on values (exemple current pace)
-  protected var dynamicHeaderColor;
-  // Display Data in red/green/blue based on values (exemple current pace)
-  protected var dynamicDataColor;
+  // The last 3 bytes contains parameter for: HeaderBackgroundColor, DataBackgroundColor & DataForegroundColor
+  //   HeaderBackgroundColor: Display Header background in red/green/blue based on values (exemple current pace)
+  //   DataBackgroundColor: Display Data background in red/green/blue based on values (exemple current pace)
+  //   DataForegroundColor: Display Data foreground in red/green/blue based on values (exemple current pace)
+  protected var dynamicColor;
   
   // Header Position change the layout. Possible values are 1, 2 and 3
   protected var headerPosition;
@@ -63,10 +63,6 @@ class GRunView extends WatchUi.DataField
   // If true, rows 4/5 have same color as rows 1/2/3
   protected var singleBackgroundColor;
   
-  //Allow to set column for second row with different size 
-  protected var columnWidthRatio1;
-  //Allow to set column for third row with different size 
-  protected var columnWidthRatio2;
   // If greater than 0, distance will be rounded to the nearest lapDistance every time lap button is pressed
   protected var lapDistance;
   // Used to determine if we are ahead or behinh de schedule
@@ -74,12 +70,12 @@ class GRunView extends WatchUi.DataField
   // Used to determine if speed/pace is too slow or too fast
   protected var paceRange;
   
-  // vX variables are used to stored the type of data each area will display (Exemple: Current Pace, Distance, etc.)
-  protected var v1, v2, v3, v4, v5, v6, v7, v8, v9, v10;
-  // vXdata variables contains the actuel value to display. For example, if v1 is configure to display current pace, v1data will display MM:SS
-  protected var v1data, v2data, v3data, v4data, v5data, v6data, v7data, v8data, v9data, v10data;
-  // vXarea indicates the x/y coordonate of the Value area, including header
-  protected var v1area = new [4], v2area = new [4], v3area = new [4], v4area = new [4], v5area = new [4], v6area = new [4], v7area = new [4], v8area = new [4], v9area = new [4], v10area = new [4];
+  // Used to stored the type of data each area will display (Exemple: Current Pace, Distance, etc.)
+  protected var vType = new [10]b;
+  // Contains the actuel value to display. For example, if vData[0] is configure to display current pace, vData[0] will display MM:SS
+  protected var vData = new [10];
+  // vArea indicates the x/y coordonate of the Value area, including header
+  protected var vArea = new [10];
   
   // Adjust text vertical position for specific device model
   public var yOffset = 0;
@@ -131,10 +127,6 @@ class GRunView extends WatchUi.DataField
     OPTION_CURRENT_BATTERY = 18,
     OPTION_CURRENT_LOCATION_ACCURACY = 19,
     OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY = 20,
-    OPTION_ETA_5K = 21,
-    OPTION_ETA_10K = 22,
-    OPTION_ETA_HALF_MARATHON = 23,
-    OPTION_ETA_MARATHON = 24,
     OPTION_CURRENT_LAP_TIME = 25,
     OPTION_CURRENT_LAP_DISTANCE = 26,
     OPTION_CURRENT_LAP_PACE = 27,
@@ -144,10 +136,17 @@ class GRunView extends WatchUi.DataField
     OPTION_LAP_COUNT = 32,
     OPTION_AVERAGE_CADENCE = 33,
     OPTION_TIME_OFFSET = 34,
-    OPTION_REQUIRED_PACE_5K = 35,
-    OPTION_REQUIRED_PACE_10K = 36,
-    OPTION_REQUIRED_PACE_HALF_MARATHON = 37,
-    OPTION_REQUIRED_PACE_MARATHON = 38
+    OPTION_HR_ZONE = 35,
+    OPTION_ETA_5K = 50,
+    OPTION_ETA_10K = 51,
+    OPTION_ETA_HALF_MARATHON = 52,
+    OPTION_ETA_MARATHON = 53,
+    OPTION_ETA_100K = 54,
+    OPTION_REQUIRED_PACE_5K = 55,
+    OPTION_REQUIRED_PACE_10K = 56,
+    OPTION_REQUIRED_PACE_HALF_MARATHON = 57,
+    OPTION_REQUIRED_PACE_MARATHON = 58,
+    OPTION_REQUIRED_PACE_100K = 59
     */
   //}
   
@@ -174,11 +173,12 @@ class GRunView extends WatchUi.DataField
   }
   
   
-  function configureAreaDimension(s, v1, v2, v3, valueArea1, valueArea2, valueArea3, y, height)
+  function configureAreaDimension(s, typeArray, areaArray, y, height)
   {
-    var i = 0;
+    var i = 0; // Number of param defined in string s, should be equal to 3 for row 2 and 3 and equal to 2 for for 4
     var commaIndex = s.find(",");
-    var numberArray = [0, 0, 0];
+    var numberArray = new [3]b; // Contained numbers parsed in string s. "new [3]b" seems equal to [0,0,0]
+    System.println(numberArray);
     
     try
     {
@@ -194,38 +194,55 @@ class GRunView extends WatchUi.DataField
       i++;
     } catch (exception) {}
     
-    var nonEmptyValues = (v1 == 0 ? 0 : 1) + (v2 == 0 ? 0 : 1) + (v3 == 0 ? 0 : 1);
+    // Count the number of values to display (!= OPTION_EMPTY)
+    var nonEmptyValues = 0;
+    for (var j = 0; j < typeArray.size(); j++)
+    {
+      if (typeArray[j] != 0 /* OPTION_EMPTY */) { nonEmptyValues += 1; }
+    }
     
     // String s is missing parameters (comma missing)
     // Redefine string s using default value: 2,1,2
     if (nonEmptyValues > i)
     {
-      numberArray[0] = 2;
-      numberArray[1] = 1;
-      numberArray[2] = 2;
+      numberArray = [2, 1, 2]b;
     }
     
-    if (nonEmptyValues == i && i < 3)
+    // If string s contains less than 3 parameters, move value in numberArray accordingly.
+    // Example: s = "1,2", typeArray = [7 /* OPTION_CURRENT_PACE */, 0 /* OPTION_EMPTY */, 8 /* OPTION_CURRENT_SPEED */]
+    // After parsing string s, numberArray = [1,2,0]. After running the code below, numberArray = [1,0,2]
+    // For the first step, we copy values for non empty field. [1,2,0] will become [1,2,2]
+    var count = 0;
+    for (var j = 0; j < typeArray.size(); j++)
     {
-      var count = 0;
-      if (v1 != 0 /* OPTION_EMPTY */) { numberArray[0] = numberArray[count]; count++; }
-      if (v2 != 0 /* OPTION_EMPTY */) { numberArray[1] = numberArray[count]; count++; }
-      if (v3 != 0 /* OPTION_EMPTY */) { numberArray[2] = numberArray[count]; }
+      if ( (typeArray[j] != 0 /* OPTION_EMPTY */) && (nonEmptyValues == i) && (i < 3) )
+      {
+        numberArray[j] = numberArray[count];
+        count++;
+      }
     }
     
-    if (v1 == 0 /* OPTION_EMPTY */) { numberArray[0] = 0; }
-    if (v2 == 0 /* OPTION_EMPTY */) { numberArray[1] = 0; }
-    if (v3 == 0 /* OPTION_EMPTY */) { numberArray[2] = 0; }
+    // For the second step, we insert 0 value for empty field. [1,2,2] will become [1,0,2]
+    for (var j = 0; j < typeArray.size(); j++)
+    {
+      if (typeArray[j] == 0 /* OPTION_EMPTY */)
+      {
+        // Set size to 0 if value = 0 /* OPTION_EMPTY */
+        numberArray[j] = 0;
+      }
+    }
     
+    // Configure each area [x,y,width,height] in areaArray 
+    var lastX = 0;
+    var columnWidth = [0, 0, 0, 0];
     var totalWidthRatio = numberArray[0] + numberArray[1] + numberArray[2];
-    if (totalWidthRatio == 0) { totalWidthRatio = 1; }
-    var columnWidth1 = deviceWidth * numberArray[0] / totalWidthRatio;
-    var columnWidth2 = deviceWidth * numberArray[1] / totalWidthRatio;
-    var columnWidth3 = deviceWidth * numberArray[2] / totalWidthRatio;
-
-    assignAreaValues(valueArea1, 0, y, columnWidth1, height);
-    assignAreaValues(valueArea2, columnWidth1, y, columnWidth2, height);
-    if (valueArea3 != null) { assignAreaValues(valueArea3, columnWidth1 + columnWidth2, y, columnWidth3, height); }
+    if (totalWidthRatio <= 0) { totalWidthRatio = 1; }
+    for (var j = 1; j < areaArray.size() + 1; j++)
+    {
+      columnWidth[j] = deviceWidth * numberArray[j - 1] / totalWidthRatio;
+      assignAreaValues(areaArray[j - 1], lastX + columnWidth[j - 1], y, columnWidth[j], height);
+      lastX = columnWidth[j - 1];
+    }
   }
   
   
@@ -241,30 +258,44 @@ class GRunView extends WatchUi.DataField
     headerPosition = getParameter("HeaderPosition", 1);
     var headerHeightPercentage = getParameter("HeaderHeight", 30).toFloat() / 100;
     singleBackgroundColor = getParameter("SingleBackgroundColor", false);
-    columnWidthRatio1 = getParameter("ColumnWidthRatio1", "2,1,2");
-    columnWidthRatio2 = getParameter("ColumnWidthRatio2", "2,1,2");
     
-    dynamicHeaderColor = getParameter("HeaderBackgroundColor", true);
-    dynamicDataColor = getParameter("DataColor", 0);
+    // Column width for second row
+    var columnWidthRatio1 = getParameter("ColumnWidthRatio1", "2,1,2");
+    // Column width for third row
+    var columnWidthRatio2 = getParameter("ColumnWidthRatio2", "2,1,2");
+    
+    dynamicColor = getParameter("HeaderBackgroundColor", true) ? 1 : 0;
+    dynamicColor = dynamicColor<<4 | getParameter("DataBackgroundColor", 0);
+    dynamicColor = dynamicColor<<4 | getParameter("DataForegroundColor", 0);
     
     lapDistance = getParameter("LapDistance", 0).toNumber();
-
     targetPace = getParameter("TargetPace", isPaceUnitsImperial ? 530 : 330).toNumber();
     paceRange = getParameter("PaceRange", 15).toNumber();
     
+    var TYPE_DEFAULT_VALUE = [
+      6 /* OPTION_CURRENT_HEART_RATE */,
+      50 /* OPTION_ETA_5K */,
+      0 /* OPTION_EMPTY */,
+      7 /* OPTION_CURRENT_PACE */,
+      5 /* OPTION_ELAPSED_DISTANCE */,
+      14 /* OPTION_CURRENT_CADENCE */,
+      10 /* OPTION_AVERAGE_PACE */,
+      2 /* OPTION_TIMER_TIME */,
+      1 /* OPTION_CURRENT_TIME */,
+      20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */
+    ];
+    
     // Select which values are displayed in each area
     // Value must be selected according to the enum
-    v1 = getParameter("Area1", 6 /* OPTION_CURRENT_HEART_RATE */);
-    v2 = getParameter("Area2", 21 /* OPTION_ETA_5K */);
-    v3 = getParameter("Area3", 0 /* OPTION_EMPTY */);
-    v4 = getParameter("Area4", 7 /* OPTION_CURRENT_PACE */);
-    v5 = getParameter("Area5", 5 /* OPTION_ELAPSED_DISTANCE */);
-    v6 = getParameter("Area6", 14 /* OPTION_CURRENT_CADENCE */);
-    v7 = getParameter("Area7", 10 /* OPTION_AVERAGE_PACE */);
-    v8 = getParameter("Area8", 2 /* OPTION_TIMER_TIME */);
-    v9 = getParameter("Area9", 1 /* OPTION_CURRENT_TIME */);
-    v10 = getParameter("Area10", 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */);
-    
+    for (var i = 0; i < 10; i++)
+    {
+      // Retrieve configured type
+      vType[i] = getParameter("Area" + (i + 1).toString(), TYPE_DEFAULT_VALUE[i]);
+      
+      // Set default value
+      vData[i] = initDataVariables(vType[i]);
+    }
+        
     hrZones = UserProfile.getHeartRateZones(UserProfile.getCurrentSport());
     deviceWidth = deviceSettings.screenWidth;
     deviceHeight = deviceSettings.screenHeight;
@@ -293,36 +324,24 @@ class GRunView extends WatchUi.DataField
     var height = y2 - y1;
     headerHeight = Math.round((height * headerHeightPercentage)).toNumber();
     
-    assignAreaValues(v1area, 0, 0, deviceWidth, y1);
-    configureAreaDimension(columnWidthRatio1, v2, v3, v4, v2area, v3area, v4area, y1, height);
-    configureAreaDimension(columnWidthRatio2, v5, v6, v7, v5area, v6area, v7area, y2, height);
-    configureAreaDimension("1,1", v8, v9, 0, v8area, v9area, null, y3, y4 - y3);
-    assignAreaValues(v10area, 0, y4, deviceWidth, deviceHeight - y4);
+    assignAreaValues(vArea[0], 0, 0, deviceWidth, y1);
+    configureAreaDimension(columnWidthRatio1, vType.slice(1, 4), vArea.slice(1, 4), y1, height);
+    configureAreaDimension(columnWidthRatio2, vType.slice(4, 7), vArea.slice(4, 7), y2, height);
+    configureAreaDimension("1,1", vType.slice(7, 9), vArea.slice(7, 9), y3, y4 - y3);
+    assignAreaValues(vArea[9], 0, y4, deviceWidth, deviceHeight - y4);
 
     // Move empty area to the top
-    if ( (v8 == 0 /* OPTION_EMPTY */) && (v9 == 0 /* OPTION_EMPTY */) ) {
-      v8area[2] = deviceWidth;
-      v8 = v10;
-      v10 = 0 /* OPTION_EMPTY */;
+    if ( (vType[7] == 0 /* OPTION_EMPTY */) && (vType[8] == 0 /* OPTION_EMPTY */) ) {
+      vArea[7][2] = deviceWidth;
+      vType[7] = vType[9];
+      vType[9] = 0 /* OPTION_EMPTY */;
     }
     
-    if (v10 == 0 /* OPTION_EMPTY */) {
+    if (vType[9] == 0 /* OPTION_EMPTY */) {
       height = deviceHeight - y3 - 10;  // Remove last 10 pixels from the bottom of the screen (Not enough width)
-      v8area[3] = height;
-      v9area[3] = height;
+      vArea[7][3] = height;
+      vArea[8][3] = height;
     }
-    
-    // Set default values
-    v1data = initDataVariables(v1);
-    v2data = initDataVariables(v2);
-    v3data = initDataVariables(v3);
-    v4data = initDataVariables(v4);
-    v5data = initDataVariables(v5);
-    v6data = initDataVariables(v6);
-    v7data = initDataVariables(v7);
-    v8data = initDataVariables(v8);
-    v9data = initDataVariables(v9);
-    v10data = initDataVariables(v10);
   }
   
   
@@ -340,6 +359,13 @@ class GRunView extends WatchUi.DataField
   function initialize()
   {
     DataField.initialize();
+    
+    // Initialize 2 dimensional array. The sub-array contains [x,y,width,height]
+    for (var i = 0; i < 10; i++ )
+    {
+      vArea[i] = new [4];
+    }
+    
     initializeUserData();
   }
   
@@ -371,21 +397,6 @@ class GRunView extends WatchUi.DataField
   function onWorkoutStepComplete()
   {
     onTimerLap();
-  }
-  
-  
-  function configureID(id, selectedOption)
-  {
-    if (id == 1) { v1 = selectedOption; }
-    else if (id == 2) { v2 = selectedOption; }
-    else if (id == 3) { v3 = selectedOption; }
-    else if (id == 4) { v4 = selectedOption; }
-    else if (id == 5) { v5 = selectedOption; }
-    else if (id == 6) { v6 = selectedOption; }
-    else if (id == 7) { v7 = selectedOption; }
-    else if (id == 8) { v8 = selectedOption; }
-    else if (id == 9) { v9 = selectedOption; }
-    else if (id == 10) { v10 = selectedOption; }
   }
   
   
@@ -502,46 +513,6 @@ class GRunView extends WatchUi.DataField
       return info.currentLocationAccuracy;
     }
     
-    if ( (value >= 21 /* OPTION_ETA_5K */ && value <= 24 /* OPTION_ETA_MARATHON */) ||
-         (value >= 35 /* OPTION_REQUIRED_PACE_5K */ && value <= 38 /* OPTION_REQUIRED_PACE_MARATHON */) )
-    {
-      var etaGoalTable = [5000, 10000, 21097.5, 42195];
-      var baseKey = value >= 35 /* OPTION_REQUIRED_PACE_5K */ ? 35 /* OPTION_REQUIRED_PACE_5K */ : 21 /* OPTION_ETA_5K */;
-      
-      var distanceMetric = convertUnitIfRequired(distance * 1000, 1.609344 /* CONVERSION_MILE_TO_KM */, isDistanceUnitsImperial);
-      var remainingDistanceMetric = etaGoalTable[value - baseKey] - distanceMetric;
-      if (remainingDistanceMetric < 0) {
-        if (value < 24 /* OPTION_ETA_MARATHON */) { configureID(id, value + 1); }
-        else if ( (value >= 35 /* OPTION_REQUIRED_PACE_5K */) && (value < 38 /* OPTION_REQUIRED_PACE_MARATHON */) ) { configureID(id, value + 1); }
-        else { return valueData; }
-      }
-      
-      if (value <= 24 /* OPTION_ETA_MARATHON */)
-      {
-        var avgSpeedMetric = 0;
-        if (lapDistance > 0 && distanceOffset != 0)
-        {
-          if (timer > 0) { avgSpeedMetric = distanceMetric / timer; }
-        }
-      
-        else if (info.averageSpeed != null)
-        {
-          avgSpeedMetric = info.averageSpeed;
-        }
-      
-        if (avgSpeedMetric <= 0) { return valueData; }
-        return timer + (remainingDistanceMetric / avgSpeedMetric);
-      }
-      
-      
-      // else (value >= 35 /* OPTION_REQUIRED_PACE_5K */)
-      var targetTimer = targetPace * (etaGoalTable[value - 35 /* OPTION_REQUIRED_PACE_5K */] / 1000.0);
-      var remainingTimer = targetTimer - timer;
-      
-      if (remainingDistanceMetric <= 0) { return valueData; }
-      return convertUnitIfRequired(remainingTimer / (remainingDistanceMetric / 1000.0), 1.609344 /* CONVERSION_MILE_TO_KM */, isPaceUnitsImperial);
-    }
-    
     // Elapsed time for the current lap
     if (value == 25 /* OPTION_CURRENT_LAP_TIME */)
     {
@@ -616,6 +587,51 @@ class GRunView extends WatchUi.DataField
       return timer - (targetPace * distance);
     }
     
+    if ( (value == 35 /* OPTION_HR_ZONE */) && (info.currentHeartRate != null) )
+    {
+      var hr = info.currentHeartRate.toFloat();
+      if (hr < hrZones[0]) { return hr / hrZones[0]; }
+      
+      for (var i = 1; i < 6; i++)
+      {
+        if (hr < hrZones[i] || i == 5) { return (hr - hrZones[i - 1]) / (hrZones[i] - hrZones[i - 1]) + i; }
+      }
+    }
+    
+    if (value >= 50 /* OPTION_ETA_5K */ && value <= 59 /* OPTION_REQUIRED_PACE_100K */)
+    {
+      var etaGoalTable = [5, 10, 21.0975, 42.195, 100];
+      var baseKey = (value - 50 /* OPTION_ETA_5K */) % 5;
+      var etaDistance = convertUnitIfRequired(etaGoalTable[baseKey], 0.62137119 /* CONVERSION_KM_TO_MILE */, isDistanceUnitsImperial);
+
+      var remainingDistance = etaDistance - distance;
+      if (remainingDistance <= 0) {
+        if (baseKey < 4) { vType[id - 1] = value + 1; }
+        return valueData;
+      }
+      
+      if (value <= 54 /* OPTION_ETA_100K */)
+      {
+        var avgSpeed = 0;
+        if (lapDistance > 0 && distanceOffset != 0)
+        {
+          if (timer > 0) { avgSpeed = distance / timer; }
+        }
+      
+        else if (info.averageSpeed != null)
+        {
+          avgSpeed = convertUnitIfRequired(info.averageSpeed / 1000, 0.62137119 /* CONVERSION_KM_TO_MILE */, isDistanceUnitsImperial);
+        }
+      
+        if (avgSpeed <= 0) { return valueData; }
+        return timer + (remainingDistance / avgSpeed);
+      }
+      
+      // else (value >= 55 /* OPTION_REQUIRED_PACE_5K */)
+      var remainingTimer = (targetPace * etaDistance) - timer;
+      return (remainingTimer / remainingDistance).toNumber();
+    }
+    
     return valueData;
   }
   
@@ -639,16 +655,10 @@ class GRunView extends WatchUi.DataField
       distance = convertUnitIfRequired((info.elapsedDistance + distanceOffset) / 1000.0, 0.62137119 /* CONVERSION_KM_TO_MILE */, isDistanceUnitsImperial);
     }
 
-    v1data = computeValue(info, 1, v1, v1data);
-    v2data = computeValue(info, 2, v2, v2data);
-    v3data = computeValue(info, 3, v3, v3data);
-    v4data = computeValue(info, 4, v4, v4data);
-    v5data = computeValue(info, 5, v5, v5data);
-    v6data = computeValue(info, 6, v6, v6data);
-    v7data = computeValue(info, 7, v7, v7data);
-    v8data = computeValue(info, 8, v8, v8data);
-    v9data = computeValue(info, 9, v9, v9data);
-    v10data = computeValue(info, 10, v10, v10data);
+    for (var i = 0; i < 10; i++)
+    {
+      vData[i] = computeValue(info, i + 1, vType[i], vData[i]);
+    }
   }
   
   
@@ -657,84 +667,93 @@ class GRunView extends WatchUi.DataField
   function onUpdate(dc)
   {
     // Set colors
-    if (DataField.getBackgroundColor() != color2)
+    if (DataField.getBackgroundColor() == primaryForegroundColor)
     {
-      var tempColor = color1;
-      color1 = color2;
-      color2 = tempColor;
-      
-      tempColor = colorBorder;
-      colorBorder = colorHeader;
-      colorHeader = tempColor;
+      primaryForegroundColor = ~primaryForegroundColor & 0xFFFFFF;
+      headerBackgroundColor = ~headerBackgroundColor & 0xFFFFFF;
     }
     
     // Bugfix on Garmin Venue.
-    dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+    var color2 = ~primaryForegroundColor & 0xFFFFFF;
+    dc.setColor(~primaryForegroundColor & 0xFFFFFF, Graphics.COLOR_TRANSPARENT);
     dc.fillRectangle(0, 0, deviceWidth, deviceHeight);
     
     // Inverse background for row 4 and 5
     if (singleBackgroundColor == false)
     {
-      dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
-      dc.fillRectangle(v8area[0], v8area[1], deviceWidth, deviceHeight);
-    } 
+      dc.setColor(primaryForegroundColor, Graphics.COLOR_TRANSPARENT);
+      dc.fillRectangle(vArea[7][0], vArea[7][1], deviceWidth, deviceHeight);
+    }
+    
+    // 6 = 0110 (PARAM_ALL_COLOR or PARAM_TOP_BOTTOM_COLOR_)
+    // 5 = 0101 (PARAM_ALL_COLOR or PARAM_MIDDLE_COLOR)
+    // 4 = 0100 (PARAM_ALL_COLOR)
+    // 2 = 0010 (PARAM_TOP_BOTTOM_COLOR)
+    // 1 = 0001 (PARAM_MIDDLE_COLOR)
+    // 0 = 0000 (PARAM_DISABLE_COLOR)
+    var dynamicDataBackgroundColor = dynamicColor >> 4 & 0xF;
+    var dynamicDataForegroundColor = dynamicColor & 0xF;
+    var bgColorMiddleRow = dynamicDataBackgroundColor & 0x6 > 0; // dynamicDataBackgroundColor == 4 || dynamicDataBackgroundColor == 2;
+    var fgColorMiddleRow = dynamicDataForegroundColor & 0x6 > 0; // dynamicDataForegroundColor == 4 || dynamicDataForegroundColor == 2;
+    var bgColorTopBottomRow = dynamicDataBackgroundColor & 0x5;  //dynamicDataBackgroundColor == 4 || dynamicDataBackgroundColor == 1;
+    var fgColorTopBottomRow = dynamicDataForegroundColor & 0x5;  //dynamicDataForegroundColor == 4 || dynamicDataForegroundColor == 1;
     
     // Display Area
-    displayArea(dc, 1, v1, v1data, v1area);
-    displayArea(dc, 2, v2, v2data, v2area);
-    displayArea(dc, 3, v3, v3data, v3area);
-    displayArea(dc, 4, v4, v4data, v4area);
-    displayArea(dc, 5, v5, v5data, v5area);
-    displayArea(dc, 6, v6, v6data, v6area);
-    displayArea(dc, 7, v7, v7data, v7area);
-    displayArea(dc, 8, v8, v8data, v8area);
-    displayArea(dc, 9, v9, v9data, v9area);
-    displayArea(dc, 10, v10, v10data, v10area);
+    for (var i = 0; i < 10; i++)
+    {
+      if ( (i == 0) || (i >= 7) ) { 
+        displayArea(dc, i + 1, vType[i], vData[i], vArea[i], bgColorTopBottomRow, fgColorTopBottomRow);
+      }
+      
+      else {
+        displayArea(dc, i + 1, vType[i], vData[i], vArea[i], bgColorMiddleRow, fgColorMiddleRow);
+      }
+    }
     
-    if ( (v8 != 0 /* OPTION_EMPTY */) && (v9 != 0 /* OPTION_EMPTY */) )
+    if ( (vType[7] != 0 /* OPTION_EMPTY */) && (vType[8] != 0 /* OPTION_EMPTY */) )
     {
       dc.setPenWidth(3);
-      if (singleBackgroundColor) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
+      if (singleBackgroundColor) { dc.setColor(primaryForegroundColor, Graphics.COLOR_TRANSPARENT); }
       else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
-      dc.drawLine(v8area[2], v8area[1] + 5, v8area[2], v8area[1] + v8area[3] - 5);
+      dc.drawLine(vArea[7][2], vArea[7][1] + 5, vArea[7][2], vArea[7][1] + vArea[7][3] - 5);
       dc.setPenWidth(1);
     }
     
     // Display lines
-    dc.setColor(colorBorder, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(~headerBackgroundColor & 0xFFFFFF, Graphics.COLOR_TRANSPARENT);
     
     // Display horizontal lines
     dc.setPenWidth(2);
-    drawHorizontalLine(dc, v2area[1]);
-    drawHorizontalLine(dc, v5area[1]);
-    drawHorizontalLine(dc, v8area[1]);
+    drawHorizontalLine(dc, 1);
+    drawHorizontalLine(dc, 4);
+    drawHorizontalLine(dc, 7);
     
     // Display vertical lines
-    drawVerticalLine(dc, v3, v3area);
-    drawVerticalLine(dc, v4, v4area);
-    drawVerticalLine(dc, v6, v6area);
-    drawVerticalLine(dc, v7, v7area);
+    drawVerticalLine(dc, 2);
+    drawVerticalLine(dc, 3);
+    drawVerticalLine(dc, 5);
+    drawVerticalLine(dc, 6);
     
     dc.setPenWidth(1);
-    var headerY = (headerPosition == 3) ? v2area[1] + v2area[3] - headerHeight : v2area[1] + headerHeight;
-    drawHorizontalLine(dc, headerY);
-    headerY = (headerPosition == 2) ? v5area[1] + v5area[3] - headerHeight : v5area[1] + headerHeight;
-    drawHorizontalLine(dc, headerY);
-
+    var headerY = (headerPosition == 3) ? vArea[1][1] + vArea[1][3] - headerHeight : vArea[1][1] + headerHeight;
+    dc.drawLine(0, headerY, deviceWidth, headerY);
+    headerY = (headerPosition == 2) ? vArea[4][1] + vArea[4][3] - headerHeight : vArea[4][1] + headerHeight;
+    dc.drawLine(0, headerY, deviceWidth, headerY);
   }
   
-  function drawHorizontalLine(dc, y)
+  function drawHorizontalLine(dc, areaIndex)
   {
-    dc.drawLine(0, y, deviceWidth, y);
+    dc.drawLine(0, vArea[areaIndex][1], deviceWidth, vArea[areaIndex][1]);
   }
   
-  function drawVerticalLine(dc, type, valueArea)
+  
+  function drawVerticalLine(dc, areaIndex)
   {
-    if (type != 0 /* OPTION_EMPTY */) { dc.drawLine(valueArea[0], valueArea[1], valueArea[0], valueArea[1] + valueArea[3]); }
+    if (vType[areaIndex] != 0 /* OPTION_EMPTY */) { dc.drawLine(vArea[areaIndex][0], vArea[areaIndex][1], vArea[areaIndex][0], vArea[areaIndex][1] + vArea[areaIndex][3]); }
   }
 
   
-  function displayArea(dc, id, type, value, valueArea)
+  function displayArea(dc, id, type, value, valueArea, dynamicBackgroundColor, dynamicForegroundColor)
   {
     if (type == 0 /* OPTION_EMPTY */) { return; }
     var hasHeader = false;
@@ -753,6 +772,7 @@ class GRunView extends WatchUi.DataField
     if ( (id >= 2) && (id <= 7) )
     {
       hasHeader = true;
+      
       if (headerHeight > 0)
       {
         var leftOffsetX = 0;
@@ -785,46 +805,52 @@ class GRunView extends WatchUi.DataField
         }
         
         // Header Background Color
-        var headerBackgroundColor = (dynamicHeaderColor && (color != null)) ? color : colorHeader;
-        dc.setColor(headerBackgroundColor, Graphics.COLOR_TRANSPARENT);
+        var dynamicHeaderBackgroundColor = (dynamicColor >> 8) == 1;
+        dc.setColor((dynamicHeaderBackgroundColor && (color != null)) ? color : headerBackgroundColor, Graphics.COLOR_TRANSPARENT);
         dc.fillRectangle(areaX, headerY, areaWidth, headerHeight);
         
         // Header Text
-        var textColor = (dynamicHeaderColor && (color != null)) ? Graphics.COLOR_WHITE : color1;
-        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
+        dc.setColor((dynamicHeaderBackgroundColor && (color != null)) ? Graphics.COLOR_WHITE : primaryForegroundColor, Graphics.COLOR_TRANSPARENT);
         dc.setClip(areaX + leftOffsetX, headerY, areaWidth - leftOffsetX - rightOffsetX, headerHeight);
         dc.drawText(headerXcenter, headerYcenter, fontHeader, getHeaderName(type), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);      
         dc.clearClip();
-        
-        if (color != null)
-        {
-          if ( (dynamicDataColor == 1) || (dynamicDataColor == 3) )
-          {
-            bgColor = color;
-            fgColor = Graphics.COLOR_WHITE;
-          }
-          
-          else if ( (dynamicDataColor == 4) || (dynamicDataColor == 6) )
-          {
-            fgColor = color;
-          }
-        }
       }
     }
     
-    else
+    if (color != null)
     {
-      if (color != null)
+      if (dynamicBackgroundColor)
       {
-        if ( (dynamicDataColor == 1) || (dynamicDataColor == 2) )
+        bgColor = color;
+        fgColor = Graphics.COLOR_WHITE;
+      }
+      
+      else if (dynamicForegroundColor)
+      {
+        fgColor = color;
+        
+        // Replace blue color on white background
+        if (( (primaryForegroundColor == Graphics.COLOR_BLACK) && (singleBackgroundColor || id < 8) ) ||
+            ( (primaryForegroundColor == Graphics.COLOR_WHITE) && (singleBackgroundColor == false) && (id >= 8) ))
         {
-          bgColor = color;
-          fgColor = Graphics.COLOR_WHITE;
+          if (color == Graphics.COLOR_BLUE) // 0x00AAFF
+          {
+            fgColor = 0x0000AA;
+          }
         }
         
-        else if ( (dynamicDataColor == 4) || (dynamicDataColor == 5) )
+        // Replace blue/green on black background
+        else
         {
-          fgColor = color;
+          if (color == Graphics.COLOR_BLUE) // 0x00AAFF
+          {
+            fgColor = 0x00FFFF;
+          }
+          
+          if (color == Graphics.COLOR_DK_GREEN) // 0x00AA00
+          {
+            fgColor = 0x00FF00;
+          }
         }
       }
     }
@@ -880,19 +906,19 @@ class GRunView extends WatchUi.DataField
     else
     {
       if (fgColor != null) { dc.setColor(fgColor, Graphics.COLOR_TRANSPARENT); }
-      else if (id < 8 || singleBackgroundColor) { dc.setColor(color1, Graphics.COLOR_TRANSPARENT); }
-      else { dc.setColor(color2, Graphics.COLOR_TRANSPARENT); }
-    
+      else if (id < 8 || singleBackgroundColor) { dc.setColor(primaryForegroundColor, Graphics.COLOR_TRANSPARENT); }
+      else { dc.setColor(~primaryForegroundColor & 0xFFFFFF, Graphics.COLOR_TRANSPARENT); }
+      
       var formattedValue = getFormattedValue(id, type, value);
       // Display HR icon if in Area 1, 8 or 9
       if ( ((type == 6 /* OPTION_CURRENT_HEART_RATE */) || (type == 9 /* OPTION_AVERAGE_HEART_RATE */)) && (hasHeader == false) )
       {
-        var iconWidth = 24; //dc.getTextWidthInPixels("0", fontIcons);
-        var font = getFont(dc, type, formattedValue, areaWidth - leftOffsetX - rightOffsetX - (iconWidth * 1.5), areaHeight);
-        var textWidth = (iconWidth / 2) + dc.getTextWidthInPixels(formattedValue, font);
+        //var iconWidth = 24; //dc.getTextWidthInPixels("0", fontIcons);
+        var font = getFont(dc, type, formattedValue, areaWidth - leftOffsetX - rightOffsetX - 36 /*(iconWidth * 1.5)*/, areaHeight);
+        var textWidth = 12 /*(iconWidth / 2)*/ + dc.getTextWidthInPixels(formattedValue, font);
         
         // Display HR value
-        dc.drawText(areaXcenter + (iconWidth / 2), areaYcenter, font, formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(areaXcenter + 12 /*(iconWidth / 2)*/, areaYcenter, font, formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         
         // Always display HR icon in color
         if (bgColor != null) { dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT); }
@@ -930,10 +956,6 @@ class GRunView extends WatchUi.DataField
     if (type == 18 /* OPTION_CURRENT_BATTERY */) { return "BAT"; }
     if (type == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */) { return "GPS"; }
     if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) { return "GPS/BAT"; }
-    if (type == 21 /* OPTION_ETA_5K */) { return "ETA 5K"; }
-    if (type == 22 /* OPTION_ETA_10K */) { return "ETA 10K"; }
-    if (type == 23 /* OPTION_ETA_HALF_MARATHON */) { return "ETA 21K"; }
-    if (type == 24 /* OPTION_ETA_MARATHON */) { return "ETA 42K"; }
     if (type == 25 /* OPTION_CURRENT_LAP_TIME */) { return "LTIME"; }
     if (type == 26 /* OPTION_CURRENT_LAP_DISTANCE */) { return "LDIST"; }
     if (type == 27 /* OPTION_CURRENT_LAP_PACE */) { return "LPACE"; }
@@ -941,12 +963,19 @@ class GRunView extends WatchUi.DataField
     if (type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */) { return "LAST LAP"; }
     if (type == 31 /* OPTION_ETA_LAP */) { return "ETA LAP"; }
     if (type == 32 /* OPTION_LAP_COUNT */) { return "LAP"; }
-    if (type == 33 /*OPTION_AVERAGE_CADENCE */) { return "A CAD"; }
+    if (type == 33 /* OPTION_AVERAGE_CADENCE */) { return "A CAD"; }
     if (type == 34 /* OPTION_TIME_OFFSET */) { return "+/-"; }
-    if (type == 35 /* OPTION_REQUIRED_PACE_5K */) { return "RP 5K"; }
-    if (type == 36 /* OPTION_REQUIRED_PACE_10K */) { return "RP 10K"; }
-    if (type == 37 /* OPTION_REQUIRED_PACE_HALF_MARATHON */) { return "RP 21K"; }
-    if (type == 38 /* OPTION_REQUIRED_PACE_MARATHON */) { return "RP 42K"; }
+    if (type == 35 /* OPTION_HR_ZONE */) { return "HR Z"; }
+    if (type == 50 /* OPTION_ETA_5K */) { return "ETA 5K"; }
+    if (type == 51 /* OPTION_ETA_10K */) { return "ETA 10K"; }
+    if (type == 52 /* OPTION_ETA_HALF_MARATHON */) { return "ETA 21K"; }
+    if (type == 53 /* OPTION_ETA_MARATHON */) { return "ETA 42K"; }
+    if (type == 54 /* OPTION_ETA_100K */) { return "ETA 100K"; }
+    if (type == 55 /* OPTION_REQUIRED_PACE_5K */) { return "RP 5K"; }
+    if (type == 56 /* OPTION_REQUIRED_PACE_10K */) { return "RP 10K"; }
+    if (type == 57 /* OPTION_REQUIRED_PACE_HALF_MARATHON */) { return "RP 21K"; }
+    if (type == 58 /* OPTION_REQUIRED_PACE_MARATHON */) { return "RP 42K"; }
+    if (type == 59 /* OPTION_REQUIRED_PACE_100K */) { return "RP 100K"; }
     
     return "";
   }
@@ -968,22 +997,16 @@ class GRunView extends WatchUi.DataField
     if (type == 7 /* OPTION_CURRENT_PACE */ ||
         type == 10 /* OPTION_AVERAGE_PACE */ ||
         type == 27 /* OPTION_CURRENT_LAP_PACE */ ||
-        type == 35 /* OPTION_REQUIRED_PACE_5K */ ||
-        type == 36 /* OPTION_REQUIRED_PACE_10K */ ||
-        type == 37 /* OPTION_REQUIRED_PACE_HALF_MARATHON */ ||
-        type == 38 /* OPTION_REQUIRED_PACE_MARATHON */)
+        (type >= 55 /* OPTION_REQUIRED_PACE_5K */ && type <= 59 /* OPTION_REQUIRED_PACE_100K */) )
     {
       return formatDuration(value, false);
     }
     
     if (type == 2 /* OPTION_TIMER_TIME */ ||
-        type == 21 /* OPTION_ETA_5K */ ||
-        type == 22 /* OPTION_ETA_10K */ ||
-        type == 23 /* OPTION_ETA_HALF_MARATHON */ ||
-        type == 24 /* OPTION_ETA_MARATHON */ ||
         type == 25 /* OPTION_CURRENT_LAP_TIME */ ||
         type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */ ||
-        type == 31 /* OPTION_ETA_LAP */)
+        type == 31 /* OPTION_ETA_LAP */ ||
+        (type >= 50 /* OPTION_ETA_5K */ && type <= 54 /* OPTION_ETA_100K */) )
     {
       return formatDuration(value, true);
     }
@@ -1059,7 +1082,7 @@ class GRunView extends WatchUi.DataField
         type == 12 /* OPTION_AVERAGE_SPEED */)
     {
       if (value > 0) {
-        type = 7;
+        type = 7; /* OPTION_CURRENT_PACE */
         value = 1000 / (value / 3.6);
       }
     }
@@ -1070,9 +1093,9 @@ class GRunView extends WatchUi.DataField
     {
       value = Math.round(value).toNumber();
       if (value <= 0) { return null; }
-      if (value < (targetPace - paceRange)) { return Graphics.COLOR_BLUE; }
-      if (value > (targetPace + paceRange)) { return Graphics.COLOR_RED; }
-      return Graphics.COLOR_DK_GREEN;
+      if (value < (targetPace - paceRange)) { return Graphics.COLOR_BLUE; } // 0x00AAFF
+      if (value > (targetPace + paceRange)) { return Graphics.COLOR_RED; } // 0xFF0000
+      return Graphics.COLOR_DK_GREEN; // 0x00AA00
     }
     
     if (type == 34 /* OPTION_TIME_OFFSET */)
@@ -1148,8 +1171,8 @@ class GRunView extends WatchUi.DataField
     // (Bitwise NOT 0xAAAAAA) = (~0xAAAAAA) = 0xFF55555
     // (0xFF55555 Bitwise AND 0xFFFFFF = 0xFF55555 & 0xFFFFFF = 0x555555 (COLOR_DK_GRAY)
     //var grayColor = (id >= 8) ? colorBorder : ~colorBorder&0xFFFFFF;
-    //var grayColor = (id >= 8) ? colorBorder : colorHeader;
-    var grayColor = (id >= 8 && singleBackgroundColor == false) ? colorHeader : colorBorder;
+    //var grayColor = (id >= 8) ? colorBorder : headerBackgroundColor;
+    var grayColor = (id >= 8 && singleBackgroundColor == false) ? headerBackgroundColor : ~headerBackgroundColor & 0xFFFFFF;
     
     dc.setClip(x1 + width + 1, y1, radius - 1, height);
     dc.setColor(grayColor, Graphics.COLOR_TRANSPARENT);
@@ -1222,10 +1245,6 @@ class GRunView extends WatchUi.DataField
     //else if (type == 18 /* OPTION_CURRENT_BATTERY */) { return "OPTION_CURRENT_BATTERY"; }
     //else if (type == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */) { return "OPTION_CURRENT_LOCATION_ACCURACY"; }
     //else if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) { return "OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY"; }
-    //else if (type == 21 /* OPTION_ETA_5K */) { return "OPTION_ETA_5K"; }
-    //else if (type == 22 /* OPTION_ETA_10K */) { return "OPTION_ETA_10K"; }
-    //else if (type == 23 /* OPTION_ETA_HALF_MARATHON */) { return "OPTION_ETA_HALF_MARATHON"; }
-    //else if (type == 24 /* OPTION_ETA_MARATHON */) { return "OPTION_ETA_MARATHON"; }
     //else if (type == 25 /* OPTION_CURRENT_LAP_TIME */) { return "OPTION_CURRENT_LAP_TIME"; }
     //else if (type == 26 /* OPTION_CURRENT_LAP_DISTANCE */) { return "OPTION_CURRENT_LAP_DISTANCE"; }
     //else if (type == 27 /* OPTION_CURRENT_LAP_PACE */) { return "OPTION_CURRENT_LAP_PACE"; }
@@ -1233,6 +1252,18 @@ class GRunView extends WatchUi.DataField
     //else if (type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */) { return "OPTION_TIMER_TIME_ON_PREVIOUS_LAP"; }
     //else if (type == 31 /* OPTION_ETA_LAP */) { return "OPTION_ETA_LAP"; }
     //else if (type == 32 /* OPTION_LAP_COUNT */) { return "OPTION_LAP_COUNT"; }
+    //else if (type == 33 /* OPTION_AVERAGE_CADENCE */) { return "OPTION_AVERAGE_CADENCE"; }
+    //else if (type == 34 /* OPTION_TIME_OFFSET */) { return "OPTION_TIME_OFFSET"; }
+    //else if (type == 50 /* OPTION_ETA_5K */) { return "OPTION_ETA_5K"; }
+    //else if (type == 51 /* OPTION_ETA_10K */) { return "OPTION_ETA_10K"; }
+    //else if (type == 52 /* OPTION_ETA_HALF_MARATHON */) { return "OPTION_ETA_HALF_MARATHON"; }
+    //else if (type == 53 /* OPTION_ETA_MARATHON */) { return "OPTION_ETA_MARATHON"; }
+    //else if (type == 54 /* OPTION_ETA_100K */) { return "OPTION_ETA_100K"; }
+    //else if (type == 55 /* OPTION_REQUIRED_PACE_5K */) { return "OPTION_REQUIRED_PACE_5K"; }
+    //else if (type == 56 /* OPTION_REQUIRED_PACE_10K */) { return "OPTION_REQUIRED_PACE_10K"; }
+    //else if (type == 57 /* OPTION_REQUIRED_PACE_HALF_MARATHON */) { return "OPTION_REQUIRED_PACE_HALF_MARATHON"; }
+    //else if (type == 58 /* OPTION_REQUIRED_PACE_MARATHON */) { return "OPTION_REQUIRED_PACE_MARATHON"; }
+    //else if (type == 59 /* OPTION_REQUIRED_PACE_100K */) { return "OPTION_REQUIRED_PACE_100K"; }
     //
     //return type;
   //}

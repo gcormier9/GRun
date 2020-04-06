@@ -34,7 +34,8 @@
   <string id="PARAM_MIDDLE_FOREGROUND_COLOR">Foreground on row 2 and 3 only</string>
       
   <string id="PARAM_HEADER_BACKGROUND_COLOR">Dynamic Header Background Color</string>
-  <string id="PARAM_DATA_COLOR">Dynamic Data Color</string>
+  <string id="PARAM_DATA_BACKGROUND_COLOR">Dynamic Data Background Color</string>
+  <string id="PARAM_DATA_FOREGROUND_COLOR">Dynamic Data Foreground Color</string>
 
   <string id="PARAM_AREA1">Field 1</string>
   <string id="PARAM_AREA2">Field 2A</string>
@@ -65,10 +66,6 @@
   <string id="Field18">Battery Icon</string>
   <string id="Field19">GPS Icon</string>
   <string id="Field20">GPS Icon and Battery Icon</string>
-  <string id="Field21">ETA 5K</string>
-  <string id="Field22">ETA 10K</string>
-  <string id="Field23">ETA Half Marathon (21.0975 km)</string>
-  <string id="Field24">ETA Marathon (42.195 km)</string>
   <string id="Field25">Lap Time</string>
   <string id="Field26">Lap Distance</string>
   <string id="Field27">Lap Pace</string>
@@ -78,9 +75,15 @@
   <string id="Field32">Lap Count</string>
   <string id="Field33">Average Cadence</string>
   <string id="Field34">Time Ahead/Behind</string>
-  <string id="Field35">Required Pace 5K</string>
-  <string id="Field36">Required Pace 10K</string>
-  <string id="Field37">Required Pace Half Marathon (21.0975 km)</string>
-  <string id="Field38">Required Pace Marathon (42.195 km)</string>
-
+  <string id="Field35">HR Zone</string>
+  <string id="Field50">ETA 5K</string>
+  <string id="Field51">ETA 10K</string>
+  <string id="Field52">ETA Half Marathon (21.0975 km)</string>
+  <string id="Field53">ETA Marathon (42.195 km)</string>
+  <string id="Field54">ETA 100K</string>
+  <string id="Field55">Required Pace 5K</string>
+  <string id="Field56">Required Pace 10K</string>
+  <string id="Field57">Required Pace Half Marathon (21.0975 km)</string>
+  <string id="Field58">Required Pace Marathon (42.195 km)</string>
+  <string id="Field59">Required Pace 100K</string>
 </strings>

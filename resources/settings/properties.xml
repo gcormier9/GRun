@@ -9,9 +9,10 @@
   <property id="ColumnWidthRatio1" type="string">2,1,2</property>
   <property id="ColumnWidthRatio2" type="string">2,1,2</property>
   <property id="HeaderBackgroundColor" type="boolean">true</property>
-  <property id="DataColor" type="number">0</property>
+  <property id="DataBackgroundColor" type="number">0</property>
+  <property id="DataForegroundColor" type="number">0</property>
   <property id="Area1" type="number">6</property>
-  <property id="Area2" type="number">21</property>
+  <property id="Area2" type="number">50</property>
   <property id="Area3" type="number">0</property>
   <property id="Area4" type="number">7</property>
   <property id="Area5" type="number">5</property>
