@@ -229,6 +229,7 @@ Default value of 30 looks like this:
 "Column Width Ratio" is used to configured the width of each fields on row #2 and #3. You simply have to provide 3 numbers separated by comma. The default value is 2,1,2 meaning colum #1 and #3 are 2 times bigger than column number #2. For those who prefer percentage, similar result would have been achieved with "40,20,40" : column #1 and #3 taking 40% of the available width while column #2 taking 20%. If a parameter is set to "Empty", its percentage will be set to 0. If we keep the example of "2,1,2" with parameter #2 set to empty, value will automatically became "2,0,2". In this case, it will mean column #1 and #3 will take 50% of the screen.
 
 Default value: "2,1,2" with middle parameter set to Empty on first row
+
 Note: Configuration using "1,1,1" with middle parameter set to Empty would give the same result
 
 ![GRun MiddleColumn100](/doc/GRunWatch6.png)
