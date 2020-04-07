@@ -309,6 +309,7 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
  - Replaced option for "Dynamic Data Color". Data Color can now be more customized
  - Replaced blue/green color code on white background
  - Code improvement to optimize memory utilization
+ - Added support for new watches (Approach S62, MARQ Adventurer, MARQ Commander, Darth Vader, Rey)
 
 Memory Usage on va3   (Current | Peak) : 
    * At startup:           24.6 kB | 26.2 kB
