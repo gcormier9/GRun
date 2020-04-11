@@ -45,6 +45,8 @@ The following fields are currently supported:
 - Average Speed
 - Current Cadence
 - Average Cadence
+- Current Power (on supported devices)
+- Average Power (on supported devices)
 - Calories
 - Altitude
 - Total Ascent
@@ -76,8 +78,6 @@ High-Memory devices also supports the following fields:
 - Average Speed (Last X sec)
 - Average Vertical Speed (m/min) (Last X sec)
 - Average Vertical Speed (m/hour) (Last X sec)
-- Current Power (on supported devices)
-- Average Power (on supported devices)
 - Max Power (on supported devices)
 - Required Speed 5K
 - Required Speed 10K
@@ -124,19 +124,26 @@ Power is supported on the following devices:
 - D2 Delta PX
 - D2 Delta S
 - Descent Mk1
+- Edge 130
 - Edge 1030
 - Edge 1030 Bontrager
 - Edge 520 Plus
 - Edge 530
 - Edge 820
 - Edge 830
+- Fenix 5
+- Fenix 5s
 - Fenix 5 Plus
 - Fenix 5S Plus
 - Fenix 5X
 - Fenix 5X Plus
+- Fenix 6
+- Fenix 6s
 - Fenix 6 Pro
 - Fenix 6S Pro
 - Fenix 6X Pro
+- Fenix Chronos
+- Forerunner 935
 - Forerunner 945
 - MARQ Adventurer
 - MARQ Athlete
@@ -305,14 +312,20 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 ### Version 1.26
  - Updated background/foreground colors for better readability
  - Added grey color for HR Zone 1
+ - Added the Current Power and Average Power and supported low memory devices (Fenix 5/5s/6/6s/Chronos, Forerunner 935 and Edge 130)
 
-Memory Usage on va3   (Current | Peak) : 
-   * At startup:           24.8 kB | 26.4 kB
-   * 10 sec running:       24.8 kB | 26.7 kB
-   * After setting change: 24.8 kB | 27.7 kB
+Memory Usage on va3    (Current | Peak) : 
+   * At startup:           24.9 kB | 26.4 kB
+   * 10 sec running:       24.9 kB | 26.8 kB
+   * After setting change: 24.9 kB | 27.8 kB
 
-Memory Usage on fr945 (Current | Peak) : 
-   * At startup:           29.1 kB | 31.0 kB
+Memory Usage on fenix5 (Current | Peak) : 
+   * At startup:           25.0 kB | 26.7 kB
+   * 10 sec running:       25.0 kB | 27.1 kB
+   * After setting change: 25.0 kB | 27.8 kB
+
+Memory Usage on fr945  (Current | Peak) : 
+   * At startup:           29.1 kB | 30.9 kB
    * 10 sec running:       29.1 kB | 31.3 kB
    * After setting change: 29.1 kB | 32.1 kB
 
@@ -408,7 +421,7 @@ Memory Usage on fr945 (Current | Peak) :
  - Changed default parameters
 
 ### Version 1.18
- - Added Training Effect on supported devices (Fenix 5, Fenix 5s, Fenix 5x, Fenix 5x Plus, Fenix Chronos, Forerunnner 645, Forerunnner 645 Music, Forerunnner 935, Edge 1030, Edge 520 Plus)
+ - Added Training Effect on supported devices (Fenix 5, Fenix 5s, Fenix 5x, Fenix 5x Plus, Fenix Chronos, Forerunner 645, Forerunner 645 Music, Forerunner 935, Edge 1030, Edge 520 Plus)
  - Add a parameter to correct distance on lap. Distance is rounded to the nearest "Lap Distance".
  - Code improvement to optimize memory
  - Code Framework using Jungles to implement features for specific devices (Example: Training Effect)

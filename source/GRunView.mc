@@ -127,6 +127,8 @@ class GRunView extends WatchUi.DataField
     OPTION_CURRENT_BATTERY = 18,
     OPTION_CURRENT_LOCATION_ACCURACY = 19,
     OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY = 20,
+    OPTION_CURRENT_POWER = 21,
+    OPTION_AVERAGE_POWER = 22,
     OPTION_CURRENT_LAP_TIME = 25,
     OPTION_CURRENT_LAP_DISTANCE = 26,
     OPTION_CURRENT_LAP_PACE = 27,
@@ -514,6 +516,18 @@ class GRunView extends WatchUi.DataField
       }
               
       return info.currentLocationAccuracy;
+    }
+    
+    // Current power in Watts (W)
+    if ( (value == 21 /* OPTION_CURRENT_POWER */) && (info.currentPower != null) )
+    {
+      return info.currentPower;
+    }
+    
+    // Average power during the current activity in Watts (W)
+    if ( (value == 22 /* OPTION_AVERAGE_POWER */) && (info.averagePower != null) ) 
+    {
+      return info.averagePower;
     }
     
     // Elapsed time for the current lap
@@ -983,6 +997,8 @@ class GRunView extends WatchUi.DataField
     if (type == 18 /* OPTION_CURRENT_BATTERY */) { return "BAT"; }
     if (type == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */) { return "GPS"; }
     if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) { return "GPS/BAT"; }
+    if (type == 21 /* OPTION_CURRENT_POWER */) { return "POW"; }
+    if (type == 22 /* OPTION_AVERAGE_POWER */) { return "A POW"; }
     if (type == 25 /* OPTION_CURRENT_LAP_TIME */) { return "LTIME"; }
     if (type == 26 /* OPTION_CURRENT_LAP_DISTANCE */) { return "LDIST"; }
     if (type == 27 /* OPTION_CURRENT_LAP_PACE */) { return "LPACE"; }

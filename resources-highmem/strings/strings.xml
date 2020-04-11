@@ -1,6 +1,4 @@
 <strings>
-  <string id="Field109">Current Power</string>
-  <string id="Field104">Average Power</string>
   <string id="Field121">Max Power</string>
   <string id="Field137">Pace (Last X sec)</string>
   <string id="Field138">Speed (Last X sec)</string>

@@ -66,6 +66,8 @@
   <string id="Field18">Battery Icon</string>
   <string id="Field19">GPS Icon</string>
   <string id="Field20">GPS Icon and Battery Icon</string>
+  <string id="Field21">Current Power</string>
+  <string id="Field22">Average Power</string>
   <string id="Field25">Lap Time</string>
   <string id="Field26">Lap Distance</string>
   <string id="Field27">Lap Pace</string>

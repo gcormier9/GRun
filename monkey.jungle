@@ -120,8 +120,7 @@ vivoactive4.resourcePath = resources;resources-lowmem-basic
 vivoactive4s.resourcePath = resources;resources-lowmem-basic
 
 # Low Memory (28.7 KB) with "Power" support
-# Power is supported on these models, but not implemented to limit memory
-edge130.resourcePath = resources;resources-lowmem-basic
+edge130.resourcePath = resources;resources-lowmem-power
 
 # Low Memory (28.7 KB) with "Training Effect" support
 fr245.resourcePath = resources;resources-lowmem-te
@@ -129,10 +128,9 @@ fr245m.resourcePath = resources;resources-lowmem-te
 fr645.resourcePath = resources;resources-lowmem-te
 
 # Low Memory (28.7 KB)  with "Power" and "Training Effect" support
-# Power is supported on these models, but not implemented to limit memory
-fenix5.resourcePath = resources;resources-lowmem-te
-fenix5s.resourcePath = resources;resources-lowmem-te
-fenix6.resourcePath = resources;resources-lowmem-te
-fenix6s.resourcePath = resources;resources-lowmem-te
-fenixchronos.resourcePath = resources;resources-lowmem-te
-fr935.resourcePath = resources;resources-lowmem-te
+fenix5.resourcePath = resources;resources-lowmem-power-te
+fenix5s.resourcePath = resources;resources-lowmem-power-te
+fenix6.resourcePath = resources;resources-lowmem-power-te
+fenix6s.resourcePath = resources;resources-lowmem-power-te
+fenixchronos.resourcePath = resources;resources-lowmem-power-te
+fr935.resourcePath = resources;resources-lowmem-power-te
