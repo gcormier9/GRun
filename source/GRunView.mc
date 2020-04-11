@@ -341,6 +341,10 @@ class GRunView extends WatchUi.DataField
       vArea[7][3] = height;
       vArea[8][3] = height;
     }
+    
+    else {
+      vArea[9][3] = vArea[9][3] - 3;
+    }
   }
   
   
@@ -761,6 +765,9 @@ class GRunView extends WatchUi.DataField
     var bgColor = null;
     var color = getColor(type, value);
     
+    var isWhiteBG = (primaryForegroundColor == Graphics.COLOR_BLACK);
+    if ( (id >= 8) && (singleBackgroundColor == false) ) { isWhiteBG = !isWhiteBG; }
+    
     var areaX = valueArea[0];
     var areaY = valueArea[1];
     var areaWidth = valueArea[2];
@@ -805,52 +812,17 @@ class GRunView extends WatchUi.DataField
         
         // Header Background Color
         var dynamicHeaderBackgroundColor = (dynamicColor >> 8) == 1;
-        dc.setColor((dynamicHeaderBackgroundColor && (color != null)) ? color : headerBackgroundColor, Graphics.COLOR_TRANSPARENT);
+        var headerBgColor = (dynamicHeaderBackgroundColor && (color != null)) ? color : headerBackgroundColor;
+        dc.setColor(headerBgColor, Graphics.COLOR_TRANSPARENT);
         dc.fillRectangle(areaX, headerY, areaWidth, headerHeight);
         
         // Header Text
-        dc.setColor((dynamicHeaderBackgroundColor && (color != null)) ? Graphics.COLOR_WHITE : primaryForegroundColor, Graphics.COLOR_TRANSPARENT);
+        var headerFgColor = primaryForegroundColor;
+        if ( (headerBgColor == Graphics.COLOR_RED) || (headerBgColor == Graphics.COLOR_DK_GREEN) ) { headerFgColor = Graphics.COLOR_WHITE; }
+        dc.setColor(headerFgColor, Graphics.COLOR_TRANSPARENT);
         dc.setClip(areaX + leftOffsetX, headerY, areaWidth - leftOffsetX - rightOffsetX, headerHeight);
         dc.drawText(headerXcenter, headerYcenter, fontHeader, getHeaderName(type), Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);      
         dc.clearClip();
-      }
-    }
-    
-    if (color != null)
-    {
-      if (dynamicBackgroundColor)
-      {
-        bgColor = color;
-        fgColor = Graphics.COLOR_WHITE;
-      }
-      
-      else if (dynamicForegroundColor)
-      {
-        fgColor = color;
-        
-        // Replace blue color on white background
-        if (( (primaryForegroundColor == Graphics.COLOR_BLACK) && (singleBackgroundColor || id < 8) ) ||
-            ( (primaryForegroundColor == Graphics.COLOR_WHITE) && (singleBackgroundColor == false) && (id >= 8) ))
-        {
-          if (color == Graphics.COLOR_BLUE) // 0x00AAFF
-          {
-            fgColor = 0x0000AA;
-          }
-        }
-        
-        // Replace blue/green on black background
-        else
-        {
-          if (color == Graphics.COLOR_BLUE) // 0x00AAFF
-          {
-            fgColor = 0x00FFFF;
-          }
-          
-          if (color == Graphics.COLOR_DK_GREEN) // 0x00AA00
-          {
-            fgColor = 0x00FF00;
-          }
-        }
       }
     }
     
@@ -865,10 +837,59 @@ class GRunView extends WatchUi.DataField
     // Realign row 4 and 5 on some devices
     if (id > 7) { areaYcenter += yOffset; }
     
-    if (bgColor != null)
+    if (color != null)
     {
-      dc.setColor(bgColor, Graphics.COLOR_TRANSPARENT);
-      dc.fillRectangle(areaX, areaY, areaWidth, areaHeight);
+      if (dynamicBackgroundColor)
+      {
+        bgColor = color;
+        
+        if (bgColor == Graphics.COLOR_RED) { fgColor = Graphics.COLOR_WHITE; }
+        else { fgColor = primaryForegroundColor; }
+        
+        var bgHeight = areaHeight;
+        if (deviceHeight - areaY - areaHeight <= 10) { bgHeight = deviceHeight; }
+        
+        dc.setColor(bgColor, Graphics.COLOR_TRANSPARENT);
+        dc.fillRectangle(areaX, areaY, areaWidth, bgHeight);
+      }
+      
+      else if (dynamicForegroundColor)
+      {
+        // Replace some colors on white background
+        if (isWhiteBG)
+        {
+          if (color == Graphics.COLOR_BLUE) // 0x00AAFF
+          {
+            color = 0x0000AA;
+          }
+          
+          else if (color == Graphics.COLOR_DK_GREEN) // 0x00AA00
+          {
+            color = 0x005500;
+          }
+          
+          else if (color == Graphics.COLOR_LT_GRAY)
+          {
+            color = Graphics.COLOR_DK_GRAY;
+          }
+        }
+        
+        // Replace some colors on black background
+        else
+        {
+          if (color == Graphics.COLOR_BLUE) // 0x00AAFF
+          {
+            color = 0x00FFFF;
+          }
+          
+          else if (color == Graphics.COLOR_DK_GREEN) // 0x00AA00
+          {
+            color = 0x00FF00;
+          }
+        }
+        
+        fgColor = color;
+      }
     }
     
     dc.setClip(areaX + leftOffsetX, areaY, areaWidth - leftOffsetX - rightOffsetX, areaHeight);
@@ -920,8 +941,15 @@ class GRunView extends WatchUi.DataField
         dc.drawText(areaXcenter + 12 /*(iconWidth / 2)*/, areaYcenter, font, formattedValue, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         
         // Always display HR icon in color
-        if (bgColor != null) { dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT); }
-        else if (color != null) { dc.setColor(color, Graphics.COLOR_TRANSPARENT); }
+        if ( (fgColor == null) && (color != null) )
+        {
+          if (isWhiteBG && (color == Graphics.COLOR_LT_GRAY))
+          {
+            color = Graphics.COLOR_DK_GRAY;
+          }
+          
+          dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+        }
         dc.drawText(areaXcenter - (textWidth / 2), areaYcenter, fontIcons, 0, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
       }
       
@@ -1070,7 +1098,8 @@ class GRunView extends WatchUi.DataField
     if (type == 6 /* OPTION_CURRENT_HEART_RATE */ ||
         type == 9 /* OPTION_AVERAGE_HEART_RATE */)
     {
-      if (value < hrZones[1]) { return null; }     // Black
+      if (value < hrZones[0]) { return null; }     // Black
+      if (value < hrZones[1]) { return 0xAAAAAA; } // Light Gray
       if (value < hrZones[2]) { return 0x00AAFF; } // Blue
       if (value < hrZones[3]) { return 0x00AA00; } // Dark Green
       if (value < hrZones[4]) { return 0xFF5500; } // Orange

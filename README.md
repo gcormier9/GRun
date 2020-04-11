@@ -302,6 +302,20 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 
 ## Release Notes
+### Version 1.26
+ - Updated background/foreground colors for better readability
+ - Added grey color for HR Zone 1
+
+Memory Usage on va3   (Current | Peak) : 
+   * At startup:           24.8 kB | 26.4 kB
+   * 10 sec running:       24.8 kB | 26.7 kB
+   * After setting change: 24.8 kB | 27.7 kB
+
+Memory Usage on fr945 (Current | Peak) : 
+   * At startup:           29.1 kB | 31.0 kB
+   * 10 sec running:       29.1 kB | 31.3 kB
+   * After setting change: 29.1 kB | 32.1 kB
+
 ### Version 1.25
  - Added "Required Pace to meet Target Pace" for 5K, 10K, Half Marathon, Marathon distance and 100K on all devices.
  - Added ETA 100K on all devices
