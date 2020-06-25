@@ -1,4 +1,6 @@
 using Toybox.Application;
+using Toybox.Graphics;
+
 
 class GRunApp extends Application.AppBase
 {
@@ -9,7 +11,28 @@ class GRunApp extends Application.AppBase
     //System.println("Garmin Fenix 5s (Low Memory)");
     AppBase.initialize();
     gRunView = new GRunView();
-    gRunView.yOffset = -1;
+  }
+  
+  
+  public static function getTextDimensions(dc, value, font)
+  {
+    var textDimensions = dc.getTextDimensions(value, font);
+    
+    if (font < 7) { textDimensions[0] += 2; }
+    textDimensions[1] = textDimensions[1] - (2 * dc.getFontDescent(font)) + 4;
+    
+    return textDimensions;
+  }
+    
+  
+  public static function getYOffset(font)
+  {
+    var yOffset = -1;
+    if (font == 8) { yOffset = -2; }
+    if (font == 3) { yOffset = -2; }
+    if (font == 2) { yOffset = -2; }
+    
+    return yOffset;
   }
 
   

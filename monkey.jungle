@@ -6,7 +6,7 @@ project.manifest = manifest.xml
 base.sourcePath = source
 
 # High Memory (124.7 KB)
-approachs62.sourcePath = source;source-highmem;source-highmem-default
+approachs62.sourcePath = source;source-highmem;source-highmem-approachs62
 d2charlie.sourcePath = source;source-highmem;source-highmem-default
 d2delta.sourcePath = source;source-highmem;source-highmem-default
 d2deltapx.sourcePath = source;source-highmem;source-highmem-default
@@ -14,54 +14,56 @@ d2deltas.sourcePath = source;source-highmem;source-highmem-default
 edge1030.sourcePath = source;source-highmem;source-highmem-edge1030
 edge1030bontrager.sourcePath = source;source-highmem;source-highmem-edge1030
 edge520plus.sourcePath = source;source-highmem;source-highmem-edge520plus
-edge530.sourcePath = source;source-highmem;source-highmem-edge520plus
+edge530.sourcePath = source;source-highmem;source-highmem-edge530
 edge820.sourcePath = source;source-highmem;source-highmem-edge520plus
-edge830.sourcePath = source;source-highmem;source-highmem-edge520plus
-edgeexplore.sourcePath = source;source-highmem;source-highmem-edge520plus
+edge830.sourcePath = source;source-highmem;source-highmem-edge830
+edgeexplore.sourcePath = source;source-highmem;source-highmem-edgeexplore
 fenix5plus.sourcePath = source;source-highmem;source-highmem-default
 fenix5splus.sourcePath = source;source-highmem;source-highmem-default
 fenix5x.sourcePath = source;source-highmem;source-highmem-default
 fenix5xplus.sourcePath = source;source-highmem;source-highmem-default
 descentmk1.sourcePath = source;source-highmem;source-highmem-default
-fr945.sourcePath = source;source-highmem;source-highmem-default
-marqadventurer.sourcePath = source;source-highmem;source-highmem-default
-marqathlete.sourcePath = source;source-highmem;source-highmem-default
-marqaviator.sourcePath = source;source-highmem;source-highmem-default
-marqcaptain.sourcePath = source;source-highmem;source-highmem-default
-marqcommander.sourcePath = source;source-highmem;source-highmem-default
-marqdriver.sourcePath = source;source-highmem;source-highmem-default
-marqexpedition.sourcePath = source;source-highmem;source-highmem-default
-oregon7xx.sourcePath = source;source-highmem;source-highmem-default
-rino7xx.sourcePath = source;source-highmem;source-highmem-default
-fenix6pro.sourcePath = source;source-highmem;source-highmem-default
-fenix6spro.sourcePath = source;source-highmem;source-highmem-default
-fenix6xpro.sourcePath = source;source-highmem;source-highmem-default
+fr945.sourcePath = source;source-highmem;source-highmem-fr945
+
+marqadventurer.sourcePath = source;source-highmem;source-highmem-marq
+marqathlete.sourcePath = source;source-highmem;source-highmem-marq
+marqaviator.sourcePath = source;source-highmem;source-highmem-marq
+marqcaptain.sourcePath = source;source-highmem;source-highmem-marq
+marqcommander.sourcePath = source;source-highmem;source-highmem-marq
+marqdriver.sourcePath = source;source-highmem;source-highmem-marq
+marqexpedition.sourcePath = source;source-highmem;source-highmem-marq
+
+oregon7xx.sourcePath = source;source-highmem;source-highmem-oregon7xx
+rino7xx.sourcePath = source;source-highmem;source-highmem-oregon7xx
+fenix6pro.sourcePath = source;source-highmem;source-highmem-fenix6pro
+fenix6spro.sourcePath = source;source-highmem;source-highmem-fenix6xpro
+fenix6xpro.sourcePath = source;source-highmem;source-highmem-fenix6xpro
 
 # High Memory (60.7 KB)
-fr645m.sourcePath = source;source-highmem;source-highmem-default
+fr645m.sourcePath = source;source-highmem;source-highmem-fr645m
 
 # Low Memory (28.7 KB)
-edge130.sourcePath = source;source-lowmem-default
-fenix5.sourcePath = source;source-lowmem-default
+edge130.sourcePath = source;source-lowmem-edge130
+fenix5.sourcePath = source;source-lowmem-fenix5
 fenix5s.sourcePath = source;source-lowmem-fenix5s
 fenixchronos.sourcePath = source;source-lowmem-fenixchronos
-fr245.sourcePath = source;source-lowmem-default
-fr245m.sourcePath = source;source-lowmem-default
-fr645.sourcePath = source;source-lowmem-default
-fr935.sourcePath = source;source-lowmem-default
-vivoactive3.sourcePath = source;source-lowmem-default
-vivoactive3d.sourcePath = source;source-lowmem-default
-vivoactive3m.sourcePath = source;source-lowmem-default
-vivoactive3mlte.sourcePath = source;source-lowmem-default
-legacyherocaptainmarvel.sourcePath = source;source-lowmem-default
-legacyherofirstavenger.sourcePath = source;source-lowmem-default
-legacysagadarthvader.sourcePath = source;source-lowmem-default
-legacysagarey.sourcePath = source;source-lowmem-default
-fenix6.sourcePath = source;source-lowmem-default
-fenix6s.sourcePath = source;source-lowmem-default
-venu.sourcePath = source;source-lowmem-default
-vivoactive4.sourcePath = source;source-lowmem-default
-vivoactive4s.sourcePath = source;source-lowmem-default
+fr245.sourcePath = source;source-lowmem-fr245
+fr245m.sourcePath = source;source-lowmem-fr245
+fr645.sourcePath = source;source-lowmem-fr645
+fr935.sourcePath = source;source-lowmem-fr645
+vivoactive3.sourcePath = source;source-lowmem-vivoactive3
+vivoactive3d.sourcePath = source;source-lowmem-vivoactive3
+vivoactive3m.sourcePath = source;source-lowmem-vivoactive3
+vivoactive3mlte.sourcePath = source;source-lowmem-vivoactive3
+legacyherocaptainmarvel.sourcePath = source;source-lowmem-marvel
+legacysagarey.sourcePath = source;source-lowmem-marvel
+legacyherofirstavenger.sourcePath = source;source-lowmem-avenger
+legacysagadarthvader.sourcePath = source;source-lowmem-avenger
+fenix6.sourcePath = source;source-lowmem-fenix6
+fenix6s.sourcePath = source;source-lowmem-fenix6s
+venu.sourcePath = source;source-lowmem-venu
+vivoactive4.sourcePath = source;source-lowmem-vivoactive4
+vivoactive4s.sourcePath = source;source-lowmem-vivoactive4s
 
 # Resource Files
 #######################################################

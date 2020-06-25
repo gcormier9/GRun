@@ -18,6 +18,9 @@
   <string id="PARAM_HEADER_HEIGHT">Header Height (%)</string>
   <string id="PARAM_DESC_HEADER_HEIGHT">0 to hide headers</string>
   
+  <string id="PARAM_ROW_HEIGHT_RATIO">Row Height Ratio</string>
+  <string id="PARAM_DESC_ROW_HEIGHT_RATIO">Example: 4,7,7,3,3 means row #1 used 4/24 of the screen, row #2 and #3 used 7/24, etc.</string>
+  
   <string id="PARAM_COLUMN_WIDTH_RATIO_1">Column Width Ratio for second row</string>
   <string id="PARAM_DESC_COLUMN_WIDTH_RATIO_1">Example: 1,2,1 means middle column will be 2 times larger than column 1 and 3</string>
   <string id="PARAM_COLUMN_WIDTH_RATIO_2">Column Width Ratio for third row</string>
@@ -82,10 +85,12 @@
   <string id="Field51">ETA 10K</string>
   <string id="Field52">ETA Half Marathon (21.0975 km)</string>
   <string id="Field53">ETA Marathon (42.195 km)</string>
-  <string id="Field54">ETA 100K</string>
-  <string id="Field55">Required Pace 5K</string>
-  <string id="Field56">Required Pace 10K</string>
-  <string id="Field57">Required Pace Half Marathon (21.0975 km)</string>
-  <string id="Field58">Required Pace Marathon (42.195 km)</string>
-  <string id="Field59">Required Pace 100K</string>
+  <string id="Field54">ETA 50K</string>
+  <string id="Field55">ETA 100K</string>
+  <string id="Field56">Required Pace 5K</string>
+  <string id="Field57">Required Pace 10K</string>
+  <string id="Field58">Required Pace Half Marathon (21.0975 km)</string>
+  <string id="Field59">Required Pace Marathon (42.195 km)</string>
+  <string id="Field60">Required Pace 50K</string>
+  <string id="Field61">Required Pace 100K</string>
 </strings>

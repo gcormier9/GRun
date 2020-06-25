@@ -27,6 +27,10 @@
     <settingConfig type="numeric" min="0" max="100" />
   </setting>
   
+  <setting propertyKey="@Properties.RowHeightRatio" title="@Strings.PARAM_ROW_HEIGHT_RATIO" prompt="@Strings.PARAM_DESC_ROW_HEIGHT_RATIO">
+    <settingConfig type="alphaNumeric" />
+  </setting>
+  
   <setting propertyKey="@Properties.ColumnWidthRatio1" title="@Strings.PARAM_COLUMN_WIDTH_RATIO_1" prompt="@Strings.PARAM_DESC_COLUMN_WIDTH_RATIO_1">
     <settingConfig type="alphaNumeric" />
   </setting>

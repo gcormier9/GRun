@@ -55,11 +55,13 @@ The following fields are currently supported:
 - ETA 10K
 - ETA Half Marathon (21.0975 km)
 - ETA Marathon (42.195 km)
+- ETA 50K
 - ETA 100K
 - Required Pace 5K
 - Required Pace 10K
 - Required Pace Half Marathon (21.0975 km)
 - Required Pace Marathon (42.195 km)
+- Required Pace 50K
 - Required Pace 100K
 - ETA Lap
 - Lap Count
@@ -238,6 +240,8 @@ Default value of 30 looks like this:
 
 ![GRun Hide Headers](/doc/GRunHeaders30.png)
 
+### Row Height Ratio
+"Row Height Ratio" is used to configured the height of each rows. You simply have to provide 5 numbers separated by comma. Each number represent the height of the row in relation to the other. With the default value is 4,7,7,3,3, row #1 will used 4 / (4+7+7+3+3) of the screen, or 16.67% of the screen. On a device with a height of 240 pixels, row #1 will used 40 pixels, row #2 and #3 will used 70 pixels and row #4 and #5 will used 30 pixels. If all the parameters in a row are set to "Empty", its height will automatically be set to 0.
 
 ### Column Width Ratio
 "Column Width Ratio" is used to configured the width of each fields on row #2 and #3. You simply have to provide 3 numbers separated by comma. The default value is 2,1,2 meaning colum #1 and #3 are 2 times bigger than column number #2. For those who prefer percentage, similar result would have been achieved with "40,20,40" : column #1 and #3 taking 40% of the available width while column #2 taking 20%. If a parameter is set to "Empty", its percentage will be set to 0. If we keep the example of "2,1,2" with parameter #2 set to empty, value will automatically became "2,0,2". In this case, it will mean column #1 and #3 will take 50% of the screen.
@@ -287,11 +291,11 @@ Up to 10 fields can be displayed using application parameters.
 #### Fields Description
 Most fields do not require explanation, but others might...
 
-##### ETA (5K, 10K, Half Marathon, Marathon, 100K, Lap Distance)
-ETA fields help determine your finish time based on your average speed/pace. It can help determine the finish time for 5 km, 10 km, half-marathon (21.0975 km), marathon (42.195), 100K or the "Lap Distance" configured on the "Lap Distance" parameters.
+##### ETA (5K, 10K, Half Marathon, Marathon, 50K, 100K, Lap Distance)
+ETA fields help determine your finish time based on your average speed/pace. It can help determine the finish time for 5 km, 10 km, half-marathon (21.0975 km), marathon (42.195), 50 km, 100 km or the "Lap Distance" configured on the "Lap Distance" parameters.
 Except for "ETA Lap Distance", each ETA field will automatically changed once distance has been reached. For example, if you use "ETA 5K", the field will automatically changed to "ETA 10K" once you have run 5 kilometers.
 
-##### Required Pace/Speed (5K, 10K, Half Marathon, Marathon, 100K, Lap Distance)
+##### Required Pace/Speed (5K, 10K, Half Marathon, Marathon, 50K, 100K, Lap Distance)
 This field is helpful to determine the pace/speed required to finish your race at "Target Pace". For example, if your "Target Pace" is configured to 360 (6:00 minutes/km) and you have run 3 km in 15 minutes, "Required Pace 5K" will display "7:30" since you still have 15 minutes to run 2 km.
 Except for "Required Pace/Speed Lap Distance", each Required Pace/Speed field will automatically changed once distance has been reached. For example, if you use "Required Pace/Speed 5K", the field will automatically changed to "Required Pace/Speed 10K" once you have run 5 kilometers.
 
@@ -309,6 +313,28 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 
 ## Release Notes
+### Version 1.27
+ - Added option to control row height
+ - Added "Required Pace to meet Target Pace" 50K on all devices.
+ - Added ETA 50K on all devices
+ - Current Time now use standard format hh:mm (Example: 13:00) instead of 13h00¸
+ - Code modification to maximize font size
+
+Memory Usage on va3    (Current | Peak) : 
+   * At startup:           25.5 kB | 27.1 kB
+   * 10 sec running:       25.5 kB | 27.5 kB
+   * After setting change: 25.5 kB | 28.4 kB
+
+Memory Usage on fenix5 (Current | Peak) : 
+   * At startup:           25.4 kB | 27.3 kB
+   * 10 sec running:       25.4 kB | 27.7 kB
+   * After setting change: 25.4 kB | 28.4 kB
+
+Memory Usage on fr945  (Current | Peak) : 
+   * At startup:           29.6 kB | 31.7 kB
+   * 10 sec running:       29.6 kB | 32.0 kB
+   * After setting change: 29.6 kB | 32.7 kB
+
 ### Version 1.26
  - Updated background/foreground colors for better readability
  - Added grey color for HR Zone 1
@@ -325,9 +351,9 @@ Memory Usage on fenix5 (Current | Peak) :
    * After setting change: 25.0 kB | 27.8 kB
 
 Memory Usage on fr945  (Current | Peak) : 
-   * At startup:           29.1 kB | 30.9 kB
-   * 10 sec running:       29.1 kB | 31.3 kB
-   * After setting change: 29.1 kB | 32.1 kB
+   * At startup:           29.6 kB | 31.7 kB
+   * 10 sec running:       29.6 kB | 32.0 kB
+   * After setting change: 29.6 kB | 32.6 kB
 
 ### Version 1.25
  - Added "Required Pace to meet Target Pace" for 5K, 10K, Half Marathon, Marathon distance and 100K on all devices.
