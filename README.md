@@ -243,6 +243,14 @@ Default value of 30 looks like this:
 ### Row Height Ratio
 "Row Height Ratio" is used to configured the height of each rows. You simply have to provide 5 numbers separated by comma. Each number represent the height of the row in relation to the other. With the default value is 4,7,7,3,3, row #1 will used 4 / (4+7+7+3+3) of the screen, or 16.67% of the screen. On a device with a height of 240 pixels, row #1 will used 40 pixels, row #2 and #3 will used 70 pixels and row #4 and #5 will used 30 pixels. If all the parameters in a row are set to "Empty", its height will automatically be set to 0.
 
+Example using 4 rows: 4,7,7,0,3
+
+![GRun MiddleColumn100](/doc/GRunWatch15.png)
+
+Example using 3 rows: 5,7,0,0,2
+
+![GRun MiddleColumn100](/doc/GRunWatch16.png)
+
 ### Column Width Ratio
 "Column Width Ratio" is used to configured the width of each fields on row #2 and #3. You simply have to provide 3 numbers separated by comma. The default value is 2,1,2 meaning colum #1 and #3 are 2 times bigger than column number #2. For those who prefer percentage, similar result would have been achieved with "40,20,40" : column #1 and #3 taking 40% of the available width while column #2 taking 20%. If a parameter is set to "Empty", its percentage will be set to 0. If we keep the example of "2,1,2" with parameter #2 set to empty, value will automatically became "2,0,2". In this case, it will mean column #1 and #3 will take 50% of the screen.
 
