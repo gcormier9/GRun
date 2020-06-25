@@ -351,9 +351,9 @@ Memory Usage on fenix5 (Current | Peak) :
    * After setting change: 25.0 kB | 27.8 kB
 
 Memory Usage on fr945  (Current | Peak) : 
-   * At startup:           29.6 kB | 31.7 kB
-   * 10 sec running:       29.6 kB | 32.0 kB
-   * After setting change: 29.6 kB | 32.6 kB
+   * At startup:           29.1 kB | 30.9 kB
+   * 10 sec running:       29.1 kB | 31.3 kB
+   * After setting change: 29.1 kB | 32.1 kB
 
 ### Version 1.25
  - Added "Required Pace to meet Target Pace" for 5K, 10K, Half Marathon, Marathon distance and 100K on all devices.

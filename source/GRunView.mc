@@ -853,7 +853,7 @@ class GRunView extends WatchUi.DataField
 
         // Header Foreground Color
         var headerFgColor = primaryForegroundColor;
-        if ( (headerBgColor == Graphics.COLOR_RED) || (headerBgColor == Graphics.COLOR_DK_GREEN && !dynamicBackgroundColor) ) { headerFgColor = Graphics.COLOR_WHITE; }
+        if ( (headerBgColor == Graphics.COLOR_RED) || (headerBgColor == Graphics.COLOR_DK_GREEN) ) { headerFgColor = Graphics.COLOR_WHITE; }
         dc.setColor(headerFgColor, Graphics.COLOR_TRANSPARENT);
         
         // Header Text        
