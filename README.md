@@ -329,9 +329,9 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
  - Code modification to maximize font size
 
 Memory Usage on va3    (Current | Peak) : 
-   * At startup:           25.5 kB | 27.1 kB
-   * 10 sec running:       25.5 kB | 27.5 kB
-   * After setting change: 25.5 kB | 28.4 kB
+   * At startup:           25.5 kB | 27.2 kB
+   * 10 sec running:       25.5 kB | 27.6 kB
+   * After setting change: 25.5 kB | 28.5 kB
 
 Memory Usage on fenix5 (Current | Peak) : 
    * At startup:           25.4 kB | 27.3 kB
@@ -339,9 +339,9 @@ Memory Usage on fenix5 (Current | Peak) :
    * After setting change: 25.4 kB | 28.4 kB
 
 Memory Usage on fr945  (Current | Peak) : 
-   * At startup:           29.6 kB | 31.7 kB
+   * At startup:           29.6 kB | 31.6 kB
    * 10 sec running:       29.6 kB | 32.0 kB
-   * After setting change: 29.6 kB | 32.7 kB
+   * After setting change: 29.6 kB | 32.6 kB
 
 ### Version 1.26
  - Updated background/foreground colors for better readability
