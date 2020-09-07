@@ -1222,6 +1222,20 @@ class GRunView extends WatchUi.DataField
       else if (value < 0) { return Graphics.COLOR_BLUE; }
     }
     
+    if (type == 33 /* OPTION_AVERAGE_CADENCE */ ||
+    	type == 14 /* OPTION_CURRENT_CADENCE */)
+    {
+      //these are my best guess for the values used in the Connect plots
+      // They are read from connect graphs, should be accurate to +/- 1. 
+      value = round(value);
+      if (value <= 0) { return null; }
+      if (value < 152) { return Graphics.COLOR_RED; }
+      if (value < 164) { return Graphics.COLOR_ORANGE; }
+      if (value < 174) { return Graphics.COLOR_DK_GREEN; }
+      if (value < 184) { return Graphics.COLOR_BLUE; }
+      return Graphics.COLOR_PINK;
+    }
+    
     return null;
   }
   
