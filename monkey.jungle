@@ -11,13 +11,6 @@ d2charlie.sourcePath = source;source-highmem;source-highmem-default
 d2delta.sourcePath = source;source-highmem;source-highmem-default
 d2deltapx.sourcePath = source;source-highmem;source-highmem-default
 d2deltas.sourcePath = source;source-highmem;source-highmem-default
-edge1030.sourcePath = source;source-highmem;source-highmem-edge1030
-edge1030bontrager.sourcePath = source;source-highmem;source-highmem-edge1030
-edge520plus.sourcePath = source;source-highmem;source-highmem-edge520plus
-edge530.sourcePath = source;source-highmem;source-highmem-edge530
-edge820.sourcePath = source;source-highmem;source-highmem-edge520plus
-edge830.sourcePath = source;source-highmem;source-highmem-edge830
-edgeexplore.sourcePath = source;source-highmem;source-highmem-edgeexplore
 fenix5plus.sourcePath = source;source-highmem;source-highmem-default
 fenix5splus.sourcePath = source;source-highmem;source-highmem-default
 fenix5x.sourcePath = source;source-highmem;source-highmem-default
@@ -33,8 +26,6 @@ marqcommander.sourcePath = source;source-highmem;source-highmem-marq
 marqdriver.sourcePath = source;source-highmem;source-highmem-marq
 marqexpedition.sourcePath = source;source-highmem;source-highmem-marq
 
-oregon7xx.sourcePath = source;source-highmem;source-highmem-oregon7xx
-rino7xx.sourcePath = source;source-highmem;source-highmem-oregon7xx
 fenix6pro.sourcePath = source;source-highmem;source-highmem-fenix6pro
 fenix6spro.sourcePath = source;source-highmem;source-highmem-fenix6xpro
 fenix6xpro.sourcePath = source;source-highmem;source-highmem-fenix6xpro
@@ -43,7 +34,6 @@ fenix6xpro.sourcePath = source;source-highmem;source-highmem-fenix6xpro
 fr645m.sourcePath = source;source-highmem;source-highmem-fr645m
 
 # Low Memory (28.7 KB)
-edge130.sourcePath = source;source-lowmem-edge130
 fenix5.sourcePath = source;source-lowmem-fenix5
 fenix5s.sourcePath = source;source-lowmem-fenix5s
 fenixchronos.sourcePath = source;source-lowmem-fenixchronos
@@ -71,16 +61,12 @@ base.resourcePath = resources
 
 # High Memory (124.7 KB) with no specific feature
 approachs62.resourcePath = resources;resources-highmem;resources-highmem-basic
-edgeexplore.resourcePath = resources;resources-highmem;resources-highmem-basic
-oregon7xx.resourcePath = resources;resources-highmem;resources-highmem-basic
-rino7xx.resourcePath = resources;resources-highmem;resources-highmem-basic
 
 # High Memory (124.7 KB) with "Power" support
 d2charlie.resourcePath = resources;resources-highmem;resources-highmem-power
 d2delta.resourcePath = resources;resources-highmem;resources-highmem-power
 d2deltapx.resourcePath = resources;resources-highmem;resources-highmem-power
 d2deltas.resourcePath = resources;resources-highmem;resources-highmem-power
-edge820.resourcePath = resources;resources-highmem;resources-highmem-power
 fenix5plus.resourcePath = resources;resources-highmem;resources-highmem-power
 fenix5splus.resourcePath = resources;resources-highmem;resources-highmem-power
 
@@ -89,11 +75,6 @@ fr645m.resourcePath = resources;resources-highmem;resources-highmem-te
 
 # High Memory (124.7 KB) with "Power" and "Training Effect" support
 descentmk1.resourcePath = resources;resources-highmem;resources-highmem-power-te
-edge1030.resourcePath = resources;resources-highmem;resources-highmem-power-te
-edge1030bontrager.resourcePath = resources;resources-highmem;resources-highmem-power-te
-edge520plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
-edge530.resourcePath = resources;resources-highmem;resources-highmem-power-te
-edge830.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix5x.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix5xplus.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix6pro.resourcePath = resources;resources-highmem;resources-highmem-power-te
@@ -122,7 +103,6 @@ vivoactive4.resourcePath = resources;resources-lowmem-basic
 vivoactive4s.resourcePath = resources;resources-lowmem-basic
 
 # Low Memory (28.7 KB) with "Power" support
-edge130.resourcePath = resources;resources-lowmem-power
 
 # Low Memory (28.7 KB) with "Training Effect" support
 fr245.resourcePath = resources;resources-lowmem-te
