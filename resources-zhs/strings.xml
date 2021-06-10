@@ -1,0 +1,96 @@
+<strings>
+  <string id="AppName">GRun汉化版</string>
+  <string id="PARAM_APP_VERSION">GRun版本</string>
+
+  <string id="PARAM_TARGET_PACE">目标配速 (秒每千米或者秒每英里)</string>
+  <string id="PARAM_DESC_TARGET_PACE">例如: 330（5*60+30）代表五分三十秒(单位千米/英里根据手表设置确定）</string>
+  <string id="PARAM_PACE_RANGE">配速上下浮动时间 (单位：秒)</string>
+  <string id="PARAM_DESC_PACE_RANGE">当配速不在区间内用颜色警示</string>
+
+  <string id="PARAM_LAP_DISTANCE">圈距（单位：米）</string>
+  <string id="PARAM_DESC_LAP_DISTANCE">当Lap键按下时候自动修正距离 (0-禁用, 1000-1千米, 1609-1英里)</string>
+  
+  <string id="PARAM_HEADER_POSITION">标题头位置</string>
+  <string id="PARAM_HEADER_POSITION_1">顶部/顶部</string>
+  <string id="PARAM_HEADER_POSITION_2">顶部/底部</string>
+  <string id="PARAM_HEADER_POSITION_3">底部/顶部</string>
+  
+  <string id="PARAM_HEADER_HEIGHT">头部高度百分比（0-100）</string>
+  <string id="PARAM_DESC_HEADER_HEIGHT">0表示隐藏头部</string>
+  
+  <string id="PARAM_ROW_HEIGHT_RATIO">行高度比</string>
+  <string id="PARAM_DESC_ROW_HEIGHT_RATIO">例如: 4,7,7,3,3 表示 第一行使用屏幕的4/24, 第二和第三行使用7/24, 依此类推</string>
+  
+  <string id="PARAM_COLUMN_WIDTH_RATIO_1">第二行的列宽度比率</string>
+  <string id="PARAM_DESC_COLUMN_WIDTH_RATIO_1">例如: 1,2,1 意味着第二列将会是第一和第三列的两倍宽</string>
+  <string id="PARAM_COLUMN_WIDTH_RATIO_2">第三行列宽度比率</string>
+
+  <string id="PARAM_SINGLE_BACKGROUND_COLOR">统一背景颜色</string>
+  <string id="PARAM_DESC_SINGLE_BACKGROUND_COLOR">如果设置为true，第四、五行将会和第一、二、三行颜色相同</string>
+  
+  <string id="PARAM_DISABLE_COLOR">禁用</string>
+  <string id="PARAM_ALL_BACKGROUND_COLOR">所有字段背景色</string>
+  <string id="PARAM_TOP_BOTTOM_BACKGROUND_COLOR">仅第一、四、五行的背景色</string>
+  <string id="PARAM_MIDDLE_BACKGROUND_COLOR">仅第二、三行的背景颜色</string>
+  <string id="PARAM_ALL_FOREGROUND_COLOR">所有字段前景色</string>
+  <string id="PARAM_TOP_BOTTOM_FOREGROUND_COLOR">仅第一、四、五行的前景色</string>
+  <string id="PARAM_MIDDLE_FOREGROUND_COLOR">仅第二、三行的前景颜色</string>
+      
+  <string id="PARAM_HEADER_BACKGROUND_COLOR">动态头部背景色</string>
+  <string id="PARAM_DATA_BACKGROUND_COLOR">动态数据背景色</string>
+  <string id="PARAM_DATA_FOREGROUND_COLOR">动态数据前景色</string>
+
+  <string id="PARAM_AREA1">字段 1</string>
+  <string id="PARAM_AREA2">字段 2A</string>
+  <string id="PARAM_AREA3">字段 2B</string>
+  <string id="PARAM_AREA4">字段 2C</string>
+  <string id="PARAM_AREA5">字段 3A</string>
+  <string id="PARAM_AREA6">字段 3B</string>
+  <string id="PARAM_AREA7">字段 3C</string>
+  <string id="PARAM_AREA8">字段 4A</string>
+  <string id="PARAM_AREA9">字段 4B</string>
+  <string id="PARAM_AREA10">字段 5</string>    
+
+  <string id="Field00">空白</string>
+  <string id="Field01">时间</string>
+  <string id="Field02">计时</string>
+  <string id="Field05">距离</string>
+  <string id="Field06">当前心率</string>
+  <string id="Field07">当前配速</string>
+  <string id="Field08">当前速度</string>
+  <string id="Field09">平均心率</string>
+  <string id="Field10">平均配速</string>
+  <string id="Field12">平均速度</string>
+  <string id="Field13">卡路里</string>
+  <string id="Field14">当前步频</string>
+  <string id="Field15">海拔</string>
+  <string id="Field16">总共上升</string>
+  <string id="Field17">总共下降</string>
+  <string id="Field18">电池图标</string>
+  <string id="Field19">GPS图标</string>
+  <string id="Field20">GPS图标和电池图标</string>
+  <string id="Field21">当前功率</string>
+  <string id="Field22">平均功率</string>
+  <string id="Field25">圈时</string>
+  <string id="Field26">圈距</string>
+  <string id="Field27">圈速</string>
+  <string id="Field28">训练效果</string>
+  <string id="Field30">前一圈时</string>
+  <string id="Field31">圈预计耗时</string>
+  <string id="Field32">圈数</string>
+  <string id="Field33">平均步频</string>
+  <string id="Field34">目标配速 落后/超前量</string>
+  <string id="Field35">心率区间</string>
+  <string id="Field50">5K预计耗时</string>
+  <string id="Field51">10K预计耗时</string>
+  <string id="Field52">半马预计耗时</string>
+  <string id="Field53">全马预计耗时</string>
+  <string id="Field54">50K预计耗时</string>
+  <string id="Field55">100K预计耗时</string>
+  <string id="Field56">5K所需配速</string>
+  <string id="Field57">10K所需配速</string>
+  <string id="Field58">半马所需配速</string>
+  <string id="Field59">全马所需配速</string>
+  <string id="Field60">50K所需配速</string>
+  <string id="Field61">100K所需配速</string>
+</strings>
