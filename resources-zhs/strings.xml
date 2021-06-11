@@ -8,7 +8,7 @@
   <string id="PARAM_DESC_PACE_RANGE">当配速不在区间内用颜色警示</string>
 
   <string id="PARAM_LAP_DISTANCE">圈距（单位：米）</string>
-  <string id="PARAM_DESC_LAP_DISTANCE">当Lap键按下时候自动修正距离 (0-禁用, 1000-1千米, 1609-1英里)</string>
+  <string id="PARAM_DESC_LAP_DISTANCE">当Lap键按下时自动修正距离 (0-禁用, 1000-1千米, 1609-1英里)</string>
   
   <string id="PARAM_HEADER_POSITION">标题头位置</string>
   <string id="PARAM_HEADER_POSITION_1">顶部/顶部</string>
@@ -19,7 +19,7 @@
   <string id="PARAM_DESC_HEADER_HEIGHT">0表示隐藏头部</string>
   
   <string id="PARAM_ROW_HEIGHT_RATIO">行高度比</string>
-  <string id="PARAM_DESC_ROW_HEIGHT_RATIO">例如: 4,7,7,3,3 表示 第一行使用屏幕的4/24, 第二和第三行使用7/24, 依此类推</string>
+  <string id="PARAM_DESC_ROW_HEIGHT_RATIO">例如: 4,7,7,3,3 表示 第一行使用屏幕高度的4/24, 第二和第三行使用7/24, 依此类推</string>
   
   <string id="PARAM_COLUMN_WIDTH_RATIO_1">第二行的列宽度比率</string>
   <string id="PARAM_DESC_COLUMN_WIDTH_RATIO_1">例如: 1,2,1 意味着第二列将会是第一和第三列的两倍宽</string>
@@ -93,4 +93,49 @@
   <string id="Field59">全马所需配速</string>
   <string id="Field60">50K所需配速</string>
   <string id="Field61">100K所需配速</string>
+ 
+  <string id="OPTION_CURRENT_TIME">时间</string>
+  <string id="OPTION_TIMER_TIME">计时</string>
+  <string id="OPTION_ELAPSED_DISTANCE">距离</string>
+  <string id="OPTION_CURRENT_HEART_RATE">心率</string>
+  <string id="OPTION_CURRENT_PACE">配速</string>
+  <string id="OPTION_CURRENT_SPEED">速度</string>
+  <string id="OPTION_AVERAGE_HEART_RATE">平均心率</string>
+  <string id="OPTION_AVERAGE_PACE">平均配速</string>
+  <string id="OPTION_AVERAGE_SPEED">平均速度</string>
+  <string id="OPTION_CALORIES">卡路里</string>
+  <string id="OPTION_CURRENT_CADENCE">步频</string>
+  <string id="OPTION_ALTITUDE">海拔</string>
+  <string id="OPTION_TOTAL_ASCENT">上升</string>
+  <string id="OPTION_TOTAL_DESCENT">下降</string>
+  <string id="OPTION_CURRENT_BATTERY">电量</string>
+  <string id="OPTION_CURRENT_LOCATION_ACCURACY">GPS</string>
+  <string id="OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY">GPS/电量</string>
+
+
+  <string id="OPTION_CURRENT_POWER">功率</string>
+  <string id="OPTION_AVERAGE_POWER">平均功率</string>
+  <string id="OPTION_CURRENT_LAP_TIME">圈时</string>
+  <string id="OPTION_CURRENT_LAP_DISTANCE">圈距</string>
+  <string id="OPTION_CURRENT_LAP_PACE">圈速</string>
+  <string id="OPTION_TRAINING_EFFECT">训练效果</string>
+  <string id="OPTION_TIMER_TIME_ON_PREVIOUS_LAP">上一圈时</string>
+  <string id="OPTION_ETA_LAP">圈预计</string>
+  <string id="OPTION_LAP_COUNT">圈数</string>
+  <string id="OPTION_AVERAGE_CADENCE">平均步频</string>
+  <string id="OPTION_TIME_OFFSET">+/-</string>
+  <string id="OPTION_HR_ZONE">心率区间</string>
+  <string id="OPTION_ETA_5K">5K预计</string>
+  <string id="OPTION_ETA_10K">10K预计</string>
+  <string id="OPTION_ETA_HALF_MARATHON">半马预计</string>
+  <string id="OPTION_ETA_MARATHON">全马预计</string>
+
+  <string id="OPTION_ETA_50K">50K预计</string>
+  <string id="OPTION_ETA_100K">100K预计</string>
+  <string id="OPTION_REQUIRED_PACE_5K">5K配速</string>
+  <string id="OPTION_REQUIRED_PACE_10K">10K配速</string>
+  <string id="OPTION_REQUIRED_PACE_HALF_MARATHON">半马配速</string>
+  <string id="OPTION_REQUIRED_PACE_MARATHON">全马配速</string>
+  <string id="OPTION_REQUIRED_PACE_50K">50K配速</string>
+  <string id="OPTION_REQUIRED_PACE_100K">100K配速</string>
 </strings>

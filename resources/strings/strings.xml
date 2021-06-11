@@ -93,4 +93,49 @@
   <string id="Field59">Required Pace Marathon (42.195 km)</string>
   <string id="Field60">Required Pace 50K</string>
   <string id="Field61">Required Pace 100K</string>
+
+
+  <string id="OPTION_CURRENT_TIME">TIME</string>
+  <string id="OPTION_TIMER_TIME">TIMER</string>
+  <string id="OPTION_ELAPSED_DISTANCE">DIST</string>
+  <string id="OPTION_CURRENT_HEART_RATE">HR</string>
+  <string id="OPTION_CURRENT_PACE">PACE</string>
+  <string id="OPTION_CURRENT_SPEED">SPD</string>
+  <string id="OPTION_AVERAGE_HEART_RATE">A HR</string>
+  <string id="OPTION_AVERAGE_PACE">A PACE</string>
+  <string id="OPTION_AVERAGE_SPEED">A SPD</string>
+  <string id="OPTION_CALORIES">CAL</string>
+  <string id="OPTION_CURRENT_CADENCE">CAD</string>
+  <string id="OPTION_ALTITUDE">ALT</string>
+  <string id="OPTION_TOTAL_ASCENT">ASCENT</string>
+  <string id="OPTION_TOTAL_DESCENT">DESCENT</string>
+  <string id="OPTION_CURRENT_BATTERY">BAT</string>
+  <string id="OPTION_CURRENT_LOCATION_ACCURACY">GPS</string>
+  <string id="OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY">GPS/BAT</string>
+
+  <string id="OPTION_CURRENT_POWER">POW</string>
+  <string id="OPTION_AVERAGE_POWER">A POW</string>
+  <string id="OPTION_CURRENT_LAP_TIME">LTIME</string>
+  <string id="OPTION_CURRENT_LAP_DISTANCE">LDIST</string>
+  <string id="OPTION_CURRENT_LAP_PACE">LPACE</string>
+  <string id="OPTION_TRAINING_EFFECT">TE</string>
+  <string id="OPTION_TIMER_TIME_ON_PREVIOUS_LAP">LAST LAP</string>
+  <string id="OPTION_ETA_LAP">ETA LAP</string>
+  <string id="OPTION_LAP_COUNT">LAP</string>
+  <string id="OPTION_AVERAGE_CADENCE">A CAD</string>
+  <string id="OPTION_TIME_OFFSET">+/-</string>
+  <string id="OPTION_HR_ZONE">HR Z</string>
+  <string id="OPTION_ETA_5K">ETA 5K</string>
+  <string id="OPTION_ETA_10K">ETA 10K</string>
+  <string id="OPTION_ETA_HALF_MARATHON">ETA 21K</string>
+  <string id="OPTION_ETA_MARATHON">ETA 42K</string>
+
+  <string id="OPTION_ETA_50K">ETA 50K</string>
+  <string id="OPTION_ETA_100K">ETA 100K</string>
+  <string id="OPTION_REQUIRED_PACE_5K">RP 5K</string>
+  <string id="OPTION_REQUIRED_PACE_10K">RP 10K</string>
+  <string id="OPTION_REQUIRED_PACE_HALF_MARATHON">RP 21K</string>
+  <string id="OPTION_REQUIRED_PACE_MARATHON">RP 42K</string>
+  <string id="OPTION_REQUIRED_PACE_50K">RP 50K</string>
+  <string id="OPTION_REQUIRED_PACE_100K">RP 100K</string>
 </strings>

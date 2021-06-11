@@ -1054,47 +1054,47 @@ class GRunView extends WatchUi.DataField
   
   function getHeaderName(type)
   {
-    if (type == 1 /* OPTION_CURRENT_TIME */) { return "TIME"; }
-    if (type == 2 /* OPTION_TIMER_TIME */) { return "TIMER"; }
-    if (type == 5 /* OPTION_ELAPSED_DISTANCE */) { return "DIST"; }
-    if (type == 6 /* OPTION_CURRENT_HEART_RATE */) { return "HR"; }
-    if (type == 7 /* OPTION_CURRENT_PACE */) { return "PACE"; }
-    if (type == 8 /* OPTION_CURRENT_SPEED */) { return "SPD"; }
-    if (type == 9 /* OPTION_AVERAGE_HEART_RATE */) { return "A HR"; }
-    if (type == 10 /* OPTION_AVERAGE_PACE */) { return "A PACE"; }
-    if (type == 12 /* OPTION_AVERAGE_SPEED */) { return "A SPD"; }
-    if (type == 13 /* OPTION_CALORIES */) { return "CAL"; }
-    if (type == 14 /* OPTION_CURRENT_CADENCE */) { return "CAD"; }
-    if (type == 15 /* OPTION_ALTITUDE */) { return "ALT"; }
-    if (type == 16 /* OPTION_TOTAL_ASCENT */) { return "ASCENT"; }
-    if (type == 17 /* OPTION_TOTAL_DESCENT */) { return "DESCENT"; }
-    if (type == 18 /* OPTION_CURRENT_BATTERY */) { return "BAT"; }
-    if (type == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */) { return "GPS"; }
-    if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) { return "GPS/BAT"; }
-    if (type == 21 /* OPTION_CURRENT_POWER */) { return "POW"; }
-    if (type == 22 /* OPTION_AVERAGE_POWER */) { return "A POW"; }
-    if (type == 25 /* OPTION_CURRENT_LAP_TIME */) { return "LTIME"; }
-    if (type == 26 /* OPTION_CURRENT_LAP_DISTANCE */) { return "LDIST"; }
-    if (type == 27 /* OPTION_CURRENT_LAP_PACE */) { return "LPACE"; }
-    if (type == 28 /* OPTION_TRAINING_EFFECT */) { return "TE"; }
-    if (type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */) { return "LAST LAP"; }
-    if (type == 31 /* OPTION_ETA_LAP */) { return "ETA LAP"; }
-    if (type == 32 /* OPTION_LAP_COUNT */) { return "LAP"; }
-    if (type == 33 /* OPTION_AVERAGE_CADENCE */) { return "A CAD"; }
-    if (type == 34 /* OPTION_TIME_OFFSET */) { return "+/-"; }
-    if (type == 35 /* OPTION_HR_ZONE */) { return "HR Z"; }
-    if (type == 50 /* OPTION_ETA_5K */) { return "ETA 5K"; }
-    if (type == 51 /* OPTION_ETA_10K */) { return "ETA 10K"; }
-    if (type == 52 /* OPTION_ETA_HALF_MARATHON */) { return "ETA 21K"; }
-    if (type == 53 /* OPTION_ETA_MARATHON */) { return "ETA 42K"; }
-    if (type == 54 /* OPTION_ETA_50K */) { return "ETA 50K"; }
-    if (type == 55 /* OPTION_ETA_100K */) { return "ETA 100K"; }
-    if (type == 56 /* OPTION_REQUIRED_PACE_5K */) { return "RP 5K"; }
-    if (type == 57 /* OPTION_REQUIRED_PACE_10K */) { return "RP 10K"; }
-    if (type == 58 /* OPTION_REQUIRED_PACE_HALF_MARATHON */) { return "RP 21K"; }
-    if (type == 59 /* OPTION_REQUIRED_PACE_MARATHON */) { return "RP 42K"; }
-    if (type == 60 /* OPTION_REQUIRED_PACE_50K */) { return "RP 50K"; }
-    if (type == 61 /* OPTION_REQUIRED_PACE_100K */) { return "RP 100K"; }
+    if (type == 1 /* OPTION_CURRENT_TIME */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_TIME ); }
+    if (type == 2 /* OPTION_TIMER_TIME */) { return WatchUi.loadResource( Rez.Strings.OPTION_TIMER_TIME ); }
+    if (type == 5 /* OPTION_ELAPSED_DISTANCE */) { return WatchUi.loadResource( Rez.Strings.OPTION_ELAPSED_DISTANCE ); }
+    if (type == 6 /* OPTION_CURRENT_HEART_RATE */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_HEART_RATE ); }
+    if (type == 7 /* OPTION_CURRENT_PACE */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_PACE ); }
+    if (type == 8 /* OPTION_CURRENT_SPEED */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_SPEED ); }
+    if (type == 9 /* OPTION_AVERAGE_HEART_RATE */) { return WatchUi.loadResource( Rez.Strings.OPTION_AVERAGE_HEART_RATE ); }
+    if (type == 10 /* OPTION_AVERAGE_PACE */) { return WatchUi.loadResource( Rez.Strings.OPTION_AVERAGE_PACE );}
+    if (type == 12 /* OPTION_AVERAGE_SPEED */) { return WatchUi.loadResource( Rez.Strings.OPTION_AVERAGE_SPEED ); }
+    if (type == 13 /* OPTION_CALORIES */) { return WatchUi.loadResource( Rez.Strings.OPTION_CALORIES ); }
+    if (type == 14 /* OPTION_CURRENT_CADENCE */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_CADENCE ); }
+    if (type == 15 /* OPTION_ALTITUDE */) { return WatchUi.loadResource( Rez.Strings.OPTION_ALTITUDE ); }
+    if (type == 16 /* OPTION_TOTAL_ASCENT */) { return WatchUi.loadResource( Rez.Strings.OPTION_TOTAL_ASCENT ); }
+    if (type == 17 /* OPTION_TOTAL_DESCENT */) { return WatchUi.loadResource( Rez.Strings.OPTION_TOTAL_DESCENT ); }
+    if (type == 18 /* OPTION_CURRENT_BATTERY */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_BATTERY ); }
+    if (type == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_LOCATION_ACCURACY ); }
+    if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY ); }
+    if (type == 21 /* OPTION_CURRENT_POWER */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_POWER ); }
+    if (type == 22 /* OPTION_AVERAGE_POWER */) { return WatchUi.loadResource( Rez.Strings.OPTION_AVERAGE_POWER ); }
+    if (type == 25 /* OPTION_CURRENT_LAP_TIME */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_LAP_TIME ); }
+    if (type == 26 /* OPTION_CURRENT_LAP_DISTANCE */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_LAP_DISTANCE ); }
+    if (type == 27 /* OPTION_CURRENT_LAP_PACE */) { return WatchUi.loadResource( Rez.Strings.OPTION_CURRENT_LAP_PACE ); }
+    if (type == 28 /* OPTION_TRAINING_EFFECT */) { return WatchUi.loadResource( Rez.Strings.OPTION_TRAINING_EFFECT ); }
+    if (type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */) { return WatchUi.loadResource( Rez.Strings.OPTION_TIMER_TIME_ON_PREVIOUS_LAP ); }
+    if (type == 31 /* OPTION_ETA_LAP */) { return WatchUi.loadResource( Rez.Strings.OPTION_ETA_LAP ); }
+    if (type == 32 /* OPTION_LAP_COUNT */) { return WatchUi.loadResource( Rez.Strings.OPTION_LAP_COUNT ); }
+    if (type == 33 /* OPTION_AVERAGE_CADENCE */) { return WatchUi.loadResource( Rez.Strings.OPTION_AVERAGE_CADENCE ); }
+    if (type == 34 /* OPTION_TIME_OFFSET */) { return WatchUi.loadResource( Rez.Strings.OPTION_TIME_OFFSET ); }
+    if (type == 35 /* OPTION_HR_ZONE */) { return WatchUi.loadResource( Rez.Strings.OPTION_HR_ZONE ); }
+    if (type == 50 /* OPTION_ETA_5K */) { return WatchUi.loadResource( Rez.Strings.OPTION_ETA_5K ); }
+    if (type == 51 /* OPTION_ETA_10K */) { return WatchUi.loadResource( Rez.Strings.OPTION_ETA_10K ); }
+    if (type == 52 /* OPTION_ETA_HALF_MARATHON */) { return WatchUi.loadResource( Rez.Strings.OPTION_ETA_HALF_MARATHON ); }
+    if (type == 53 /* OPTION_ETA_MARATHON */) { return WatchUi.loadResource( Rez.Strings.OPTION_ETA_MARATHON ); }
+    if (type == 54 /* OPTION_ETA_50K */) { return WatchUi.loadResource( Rez.Strings.OPTION_ETA_50K ); }
+    if (type == 55 /* OPTION_ETA_100K */) { return WatchUi.loadResource( Rez.Strings.OPTION_ETA_100K ); }
+    if (type == 56 /* OPTION_REQUIRED_PACE_5K */) { return WatchUi.loadResource( Rez.Strings.OPTION_REQUIRED_PACE_5K ); }
+    if (type == 57 /* OPTION_REQUIRED_PACE_10K */) { return WatchUi.loadResource( Rez.Strings.OPTION_REQUIRED_PACE_10K ); }
+    if (type == 58 /* OPTION_REQUIRED_PACE_HALF_MARATHON */) { return WatchUi.loadResource( Rez.Strings.OPTION_REQUIRED_PACE_HALF_MARATHON ); }
+    if (type == 59 /* OPTION_REQUIRED_PACE_MARATHON */) { return WatchUi.loadResource( Rez.Strings.OPTION_REQUIRED_PACE_MARATHON );}
+    if (type == 60 /* OPTION_REQUIRED_PACE_50K */) { return WatchUi.loadResource( Rez.Strings.OPTION_REQUIRED_PACE_50K ); }
+    if (type == 61 /* OPTION_REQUIRED_PACE_100K */) { return WatchUi.loadResource( Rez.Strings.OPTION_REQUIRED_PACE_100K ); }
     
     return "";
   }
