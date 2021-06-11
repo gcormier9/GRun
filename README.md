@@ -1,7 +1,9 @@
 # GRun
 Configurable Garmin Watch datafield
 
-![GRun Cover Image](/doc/GRunCover.png) 
+Read this doc in other languages: [简体中文](./README.zh-cn.md)
+
+![GRun Cover Image](/doc/GRunCover.png)
 
 
 ## How to use

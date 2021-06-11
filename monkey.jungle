@@ -24,6 +24,7 @@ fenix5x.sourcePath = source;source-highmem;source-highmem-default
 fenix5xplus.sourcePath = source;source-highmem;source-highmem-default
 descentmk1.sourcePath = source;source-highmem;source-highmem-default
 fr945.sourcePath = source;source-highmem;source-highmem-fr945
+fr945lte.sourcePath = source;source-highmem;source-highmem-fr945
 
 marqadventurer.sourcePath = source;source-highmem;source-highmem-marq
 marqathlete.sourcePath = source;source-highmem;source-highmem-marq
@@ -100,6 +101,7 @@ fenix6pro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix6spro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix6xpro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr945.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr945lte.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqadventurer.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqathlete.resourcePath = resources;resources-highmem;resources-highmem-power-te
 marqaviator.resourcePath = resources;resources-highmem;resources-highmem-power-te

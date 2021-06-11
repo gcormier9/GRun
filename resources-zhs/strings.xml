@@ -21,11 +21,11 @@
   <string id="PARAM_ROW_HEIGHT_RATIO">行高度比</string>
   <string id="PARAM_DESC_ROW_HEIGHT_RATIO">例如: 4,7,7,3,3 表示 第一行使用屏幕高度的4/24, 第二和第三行使用7/24, 依此类推</string>
   
-  <string id="PARAM_COLUMN_WIDTH_RATIO_1">第二行的列宽度比率</string>
+  <string id="PARAM_COLUMN_WIDTH_RATIO_1">第二行的列宽比</string>
   <string id="PARAM_DESC_COLUMN_WIDTH_RATIO_1">例如: 1,2,1 意味着第二列将会是第一和第三列的两倍宽</string>
-  <string id="PARAM_COLUMN_WIDTH_RATIO_2">第三行列宽度比率</string>
+  <string id="PARAM_COLUMN_WIDTH_RATIO_2">第三行列宽比</string>
 
-  <string id="PARAM_SINGLE_BACKGROUND_COLOR">统一背景颜色</string>
+  <string id="PARAM_SINGLE_BACKGROUND_COLOR">统一背景颜色（如果启用，第四、五行将会和第一、二、三行颜色相同）</string>
   <string id="PARAM_DESC_SINGLE_BACKGROUND_COLOR">如果设置为true，第四、五行将会和第一、二、三行颜色相同</string>
   
   <string id="PARAM_DISABLE_COLOR">禁用</string>
@@ -71,15 +71,15 @@
   <string id="Field20">GPS图标和电池图标</string>
   <string id="Field21">当前功率</string>
   <string id="Field22">平均功率</string>
-  <string id="Field25">圈时</string>
-  <string id="Field26">圈距</string>
-  <string id="Field27">圈速</string>
+  <string id="Field25">单圈时间</string>
+  <string id="Field26">单圈距离</string>
+  <string id="Field27">单圈配速</string>
   <string id="Field28">训练效果</string>
   <string id="Field30">前一圈时</string>
   <string id="Field31">圈预计耗时</string>
   <string id="Field32">圈数</string>
   <string id="Field33">平均步频</string>
-  <string id="Field34">目标配速 落后/超前量</string>
+  <string id="Field34">目标配速 落后/超前时间</string>
   <string id="Field35">心率区间</string>
   <string id="Field50">5K预计耗时</string>
   <string id="Field51">10K预计耗时</string>
