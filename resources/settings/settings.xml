@@ -14,15 +14,7 @@
   <setting propertyKey="@Properties.LapDistance" title="@Strings.PARAM_LAP_DISTANCE" prompt="@Strings.PARAM_DESC_LAP_DISTANCE">
     <settingConfig type="numeric" min="0" />
   </setting>
-    
-  <setting propertyKey="@Properties.HeaderPosition" title="@Strings.PARAM_HEADER_POSITION">
-    <settingConfig type="list">
-      <listEntry value="1">@Strings.PARAM_HEADER_POSITION_1</listEntry>
-      <listEntry value="2">@Strings.PARAM_HEADER_POSITION_2</listEntry>
-      <listEntry value="3">@Strings.PARAM_HEADER_POSITION_3</listEntry>
-    </settingConfig>
-  </setting>
-  
+
   <setting propertyKey="@Properties.HeaderHeight" title="@Strings.PARAM_HEADER_HEIGHT" prompt="@Strings.PARAM_DESC_HEADER_HEIGHT">
     <settingConfig type="numeric" min="0" max="100" />
   </setting>

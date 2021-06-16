@@ -10,11 +10,6 @@
   <string id="PARAM_LAP_DISTANCE">Lap Distance (in meters)</string>
   <string id="PARAM_DESC_LAP_DISTANCE">Auto correct distance when lap button is pressed (0=disable, 1000=1km, 1609=1mile)</string>
   
-  <string id="PARAM_HEADER_POSITION">Header Position</string>
-  <string id="PARAM_HEADER_POSITION_1">Top / Top</string>
-  <string id="PARAM_HEADER_POSITION_2">Top / Bottom</string>
-  <string id="PARAM_HEADER_POSITION_3">Bottom / Top</string>
-  
   <string id="PARAM_HEADER_HEIGHT">Header Height (%)</string>
   <string id="PARAM_DESC_HEADER_HEIGHT">0 to hide headers</string>
   

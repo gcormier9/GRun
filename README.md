@@ -321,6 +321,29 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 
 ## Release Notes
+### Version 1.28
+ - Code improvement to optimize memory utilization
+ - Remove Header Position parameter. Header Position is now forced to "Top / Top"
+
+| Memory Usage on va3 (28.6 KB)     | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.3 kB | 26.9 kB |
+| 10 sec running                    | 25.3 kB | 27.3 kB |
+| After setting change              | 25.3 kB | 28.2 kB |
+
+| Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.2 kB | 27.1 kB |
+| 10 sec running                    | 25.2 kB | 27.5 kB |
+| After setting change              | 25.2 kB | 28.2 kB |
+
+
+| Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 29.6 kB | 31.6 kB |
+| 10 sec running                    | 29.6 kB | 32.0 kB |
+| After setting change              | 29.6 kB | 32.6 kB |
+
 ### Version 1.27
  - Added option to control row height
  - Added "Required Pace to meet Target Pace" 50K on all devices.
@@ -328,20 +351,24 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
  - Current Time now use standard format hh:mm (Example: 13:00) instead of 13h00¸
  - Code modification to maximize font size
 
-Memory Usage on va3    (Current | Peak) : 
-   * At startup:           25.5 kB | 27.2 kB
-   * 10 sec running:       25.5 kB | 27.6 kB
-   * After setting change: 25.5 kB | 28.5 kB
+| Memory Usage on va3 (28.6 KB)     | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.2 kB |
+| 10 sec running                    | 25.5 kB | 27.6 kB |
+| After setting change              | 25.5 kB | 28.5 kB |
 
-Memory Usage on fenix5 (Current | Peak) : 
-   * At startup:           25.4 kB | 27.3 kB
-   * 10 sec running:       25.4 kB | 27.7 kB
-   * After setting change: 25.4 kB | 28.4 kB
+| Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.4 kB | 27.3 kB |
+| 10 sec running                    | 25.4 kB | 27.7 kB |
+| After setting change              | 25.4 kB | 28.4 kB |
 
-Memory Usage on fr945  (Current | Peak) : 
-   * At startup:           29.6 kB | 31.6 kB
-   * 10 sec running:       29.6 kB | 32.0 kB
-   * After setting change: 29.6 kB | 32.6 kB
+
+| Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 29.6 kB | 31.6 kB |
+| 10 sec running                    | 29.6 kB | 32.0 kB |
+| After setting change              | 29.6 kB | 32.6 kB |
 
 ### Version 1.26
  - Updated background/foreground colors for better readability
