@@ -94,19 +94,25 @@ High-Memory devices also supports the following fields:
 | Device Qualifier        | Device Name                           | Available Memory | Low Memory | High Memory | Training Effect | Power*  |
 | ----------------------- | ------------------------------------- |:----------------:|:----------:|:-----------:|:---------------:|:-------:|
 | approachs62             | Approach S62                          | 124.7 KB         |            | &check;     |                 |         |
+| d2air                   | D2 Air                                | 28.7 KB          | &check;    |             |                 |         |
 | d2charlie               | D2 Charlie                            | 124.7 KB         |            | &check;     |                 | &check; |
 | d2delta                 | D2 Delta                              | 124.7 KB         |            | &check;     |                 | &check; |
 | d2deltapx               | D2 Delta PX                           | 124.7 KB         |            | &check;     |                 | &check; |
 | d2deltas                | D2 Delta S                            | 124.7 KB         |            | &check;     |                 | &check; |
 | descentmk1              | Descent Mk1                           | 124.7 KB         |            | &check;     | &check;         | &check; |
+| descentmk2              | Descent Mk2                           | 124.7 KB         |            | &check;     | &check;         | &check; |
+| descentmk2s             | Descent Mk2 S                         | 124.7 KB         |            | &check;     | &check;         | &check; |
 | edge1030                | Edge 1030                             | 124.7 KB         |            | &check;     | &check;         | &check; |
+| edge1030plus            | Edge 1030 Plus                        | 124.7 KB         |            | &check;     | &check;         | &check; |
 | edge1030bontrager       | Edge 1030 Bontrager                   | 124.7 KB         |            | &check;     | &check;         | &check; |
 | edge130                 | Edge 130                              | 28.7 KB          | &check;    |             |                 | &check; |
+| edge130plus             | Edge 130 Plus                         | 28.7 KB          | &check;    |             |                 | &check; |
 | edge520plus             | Edge 520 Plus                         | 124.7 KB         |            | &check;     | &check;         | &check; |
 | edge530                 | Edge 530                              | 124.7 KB         |            | &check;     | &check;         | &check; |
 | edge820                 | Edge 820                              | 124.7 KB         |            | &check;     |                 | &check; |
 | edge830                 | Edge 830                              | 124.7 KB         |            | &check;     | &check;         | &check; |
 | edgeexplore             | Edge Explore                          | 124.7 KB         |            | &check;     |                 |         |
+| enduro                  | Enduro                                | 28.7 KB          | &check;    |             | &check;         | &check; |
 | fenix5                  | fēnix 5                               | 28.7 KB          | &check;    |             | &check;         | &check; |
 | fenix5plus              | fēnix 5 Plus                          | 124.7 KB         |            | &check;     |                 | &check; |
 | fenix5s                 | fēnix 5S                              | 28.7 KB          | &check;    |             | &check;         | &check; |
@@ -119,12 +125,15 @@ High-Memory devices also supports the following fields:
 | fenix6spro              | fēnix 6S Pro                          | 124.7 KB         |            | &check;     | &check;         | &check; |
 | fenix6xpro              | fēnix 6X Pro                          | 124.7 KB         |            | &check;     | &check;         | &check; |
 | fenixchronos            | fēnix Chronos                         | 28.7 KB          | &check;    |             | &check;         | &check; |
+| fr55                    | Forerunner 55                         | 28.7 KB          | &check;    |             |                 |         |
 | fr245                   | Forerunner 245                        | 28.7 KB          | &check;    |             | &check;         |         |
 | fr245m                  | Forerunner 245 Music                  | 28.7 KB          | &check;    |             | &check;         |         |
 | fr645                   | Forerunner 645                        | 28.7 KB          | &check;    |             | &check;         |         |
 | fr645m                  | Forerunner 645 Music                  | 60.7 KB          |            | &check;     | &check;         |         |
+| fr745                   | Forerunner 745                        | 124.7 KB         |            | &check;     | &check;         | &check; |
 | fr935                   | Forerunner 935                        | 28.7 KB          | &check;    |             | &check;         | &check; |
 | fr945                   | Forerunner 945                        | 124.7 KB         |            | &check;     | &check;         | &check; |
+| fr945lte                | Forerunner 945 LTE                    | 124.7 KB         |            | &check;     | &check;         | &check; |
 | legacyherocaptainmarvel | Captain Marvel                        | 28.7 KB          | &check;    |             |                 |         |
 | legacyherofirstavenger  | First Avenger                         | 28.7 KB          | &check;    |             |                 |         |
 | legacysagadarthvader    | Darth Vader                           | 28.7 KB          | &check;    |             |                 |         |
@@ -136,9 +145,13 @@ High-Memory devices also supports the following fields:
 | marqcommander           | MARQ Commander                        | 124.7 KB         |            | &check;     | &check;         | &check; |
 | marqdriver              | MARQ Driver                           | 124.7 KB         |            | &check;     | &check;         | &check; |
 | marqexpedition          | MARQ Expedition                       | 124.7 KB         |            | &check;     | &check;         | &check; |
+| marqgolfer              | MARQ Golfer                           | 124.7 KB         |            | &check;     | &check;         | &check; |
 | oregon7xx               | Oregon 7xx                            | 124.7 KB         |            | &check;     |                 |         |
 | rino7xx                 | Rino 7xx                              | 124.7 KB         |            | &check;     |                 |         |
 | venu                    | Venu                                  | 28.7 KB          | &check;    |             |                 |         |
+| venu2                   | Venu 2                                | 28.7 KB          | &check;    |             |                 |         |
+| venu2s                  | Venu 2S                               | 28.7 KB          | &check;    |             |                 |         |
+| venu2d                  | Venu Mercedes-Benz Collection         | 28.7 KB          | &check;    |             |                 |         |
 | vivoactive3             | vívoactive 3                          | 28.7 KB          | &check;    |             |                 |         |
 | vivoactive3d            | vívoactive 3 Mercedes-Benz Collection | 28.7 KB          | &check;    |             |                 |         |
 | vivoactive3m            | vívoactive 3 Music                    | 28.7 KB          | &check;    |             |                 |         |
@@ -274,26 +287,27 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 ## Release Notes
 ### Version 1.28
  - Code improvement to optimize memory utilization
- - Remove Header Position parameter. Header Position is now forced to "Top / Top"
+ - Remove Header Position parameter (to save memory usage). Header Position is now forced to "Top / Top"
+ - Added support for new watches (D2 Air, Descent Mk2, Descent Mk2 S, Edge 1030 Plus, Edge 130 Plus, Enduro, Forerunner 55, Forerunner 745, Forerunner 945 LTE, MARQ Golfer, Venu 2, Venu 2S, Venu Mercedes-Benz Collection)
 
 | Memory Usage on va3 (28.6 KB)     | Current | Peak    |
 | --------------------------------- |:-------:|:-------:|
-| At startup                        | 25.3 kB | 26.9 kB |
-| 10 sec running                    | 25.3 kB | 27.3 kB |
-| After setting change              | 25.3 kB | 28.2 kB |
+| At startup                        | 25.2 kB | 26.9 kB |
+| 10 sec running                    | 25.2 kB | 27.2 kB |
+| After setting change              | 25.2 kB | 28.2 kB |
 
 | Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
 | --------------------------------- |:-------:|:-------:|
 | At startup                        | 25.2 kB | 27.1 kB |
 | 10 sec running                    | 25.2 kB | 27.5 kB |
-| After setting change              | 25.2 kB | 28.2 kB |
+| After setting change              | 25.2 kB | 28.1 kB |
 
 
 | Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
 | --------------------------------- |:-------:|:-------:|
-| At startup                        | 29.6 kB | 31.6 kB |
-| 10 sec running                    | 29.6 kB | 32.0 kB |
-| After setting change              | 29.6 kB | 32.6 kB |
+| At startup                        | 29.4 kB | 31.4 kB |
+| 10 sec running                    | 29.4 kB | 31.8 kB |
+| After setting change              | 29.4 kB | 32.3 kB |
 
 ### Version 1.27
  - Added option to control row height

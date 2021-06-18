@@ -989,6 +989,7 @@ class GRunView extends WatchUi.DataField
       //    System.println("font: " + font + ", width: " + areaWidth + "|" + textDimensions[0] + "|" + textDimensions2[0] + "(" + (areaWidth-textDimensions2[0]) + "), height: " + areaHeight + "|" + textDimensions[1] + "|" + textDimensions2[1] + "(" + (areaHeight-textDimensions2[1]) + ")");
       //  }
       //}
+      ///////////////////////////////////////////////////////////////////////////////////////////////////
       
       // Realign text
       areaYcenter += GRunApp.getYOffset(font);
