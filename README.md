@@ -173,7 +173,7 @@ High-Memory devices also supports the following fields:
   - Zone 3 : Green
   - Zone 4 : Orange
   - Zone 5 : Red
-- Current Pace/Speed, Average Pace/Speed, Lap Pace and "Time Ahead/Behind" are displayed in color based on application parameters
+- Current Pace/Speed, Average Pace/Speed, Previous/Current Lap Pace, "Time Ahead/Behind" and Current/Average Cadence (High-Memory devices only) are displayed in color based on application parameters
   - Blue if too fast, Green if within Target Pace Range, Red if too slow
 
 ## Configuration
