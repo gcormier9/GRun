@@ -18,4 +18,9 @@
   <string id="PARAM_DESC_AVG_SPEED_TIME">Number of seconds to calculate Speed/Pace (Last X sec)</string>
   <string id="PARAM_AVG_VERTICAL_SPEED_TIME">Vertical Speed (Last X sec)</string>
   <string id="PARAM_DESC_AVG_VERTICAL_SPEED_TIME">Number of seconds to calculate Vertical Speed (Last X sec)</string>
+  
+  <string id="PARAM_TARGET_CADENCE">Target Cadence (in revolutions per minute)</string>
+  <string id="PARAM_CADENCE_RANGE">Cadence Range (in revolutions per minute)</string>
+  <string id="PARAM_DESC_CADENCE_RANGE">Use to display cadence in color if outside the range</string>
+
 </strings>

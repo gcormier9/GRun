@@ -35,6 +35,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -81,6 +83,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -127,6 +131,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -173,6 +179,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -219,6 +227,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -265,6 +275,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -311,6 +323,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -357,6 +371,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -403,6 +419,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->
@@ -449,6 +467,8 @@
       <listEntry value="31">@Strings.Field31</listEntry>     <!-- 31 ETA Lap -->
       <listEntry value="32">@Strings.Field32</listEntry>     <!-- 32 Lap Count -->
       <listEntry value="30">@Strings.Field30</listEntry>     <!-- 30 Previous Lap Time -->
+      <listEntry value="23">@Strings.Field23</listEntry>     <!-- 23 Previous Lap Distance -->
+      <listEntry value="24">@Strings.Field24</listEntry>     <!-- 24 Previous Lap Pace -->
       <listEntry value="25">@Strings.Field25</listEntry>     <!-- 25 Lap Time -->
       <listEntry value="26">@Strings.Field26</listEntry>     <!-- 26 Lap Distance -->
       <listEntry value="27">@Strings.Field27</listEntry>     <!-- 27 Lap Pace -->

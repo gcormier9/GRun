@@ -36,7 +36,9 @@ class GRunView extends WatchUi.DataField
   // Number of lap
   protected var lapCount = 0;
   // Time taken on previous lap
-  protected var timerLastLap = 0;
+  protected var timerPreviousLap = 0;
+  // Distance on previous lap
+  protected var distancePreviousLap = 0;
   // Exact time when lap has changed
   protected var startTimerCurrentLap = 0;
   // Exact distance when lap has changed
@@ -64,7 +66,7 @@ class GRunView extends WatchUi.DataField
   
   // If greater than 0, distance will be rounded to the nearest lapDistance every time lap button is pressed
   protected var lapDistance;
-  // Used to determine if we are ahead or behinh de schedule
+  // Used to determine if we are ahead or behind the schedule
   protected var targetPace;
   // Used to determine if speed/pace is too slow or too fast
   protected var paceRange;
@@ -126,11 +128,13 @@ class GRunView extends WatchUi.DataField
     OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY = 20,
     OPTION_CURRENT_POWER = 21,
     OPTION_AVERAGE_POWER = 22,
+    OPTION_PREVIOUS_LAP_DISTANCE = 23,
+    OPTION_PREVIOUS_LAP_PACE = 24,
     OPTION_CURRENT_LAP_TIME = 25,
     OPTION_CURRENT_LAP_DISTANCE = 26,
     OPTION_CURRENT_LAP_PACE = 27,
     OPTION_TRAINING_EFFECT = 28,
-    OPTION_TIMER_TIME_ON_PREVIOUS_LAP = 30,
+    OPTION_PREVIOUS_LAP_TIME = 30,
     OPTION_ETA_LAP = 31.
     OPTION_LAP_COUNT = 32,
     OPTION_AVERAGE_CADENCE = 33,
@@ -374,7 +378,7 @@ class GRunView extends WatchUi.DataField
   function onTimerLap()
   {
     lapCount++;
-    timerLastLap = timer - startTimerCurrentLap;
+    timerPreviousLap = timer - startTimerCurrentLap;
     
     var info = Activity.getActivityInfo();
     startTimerCurrentLap = info.timerTime / 1000.0;
@@ -389,7 +393,9 @@ class GRunView extends WatchUi.DataField
       else { distanceOffset += (lapDistance - diff); }          // Distance lower than expected
     }
     
-    startDistanceCurrentLap = convertUnitIfRequired((info.elapsedDistance + distanceOffset) / 1000.0, 0.62137119 /* CONVERSION_KM_TO_MILE */, isDistanceUnitsImperial); 
+    var startDistancePreviousLap = startDistanceCurrentLap;
+    startDistanceCurrentLap = convertUnitIfRequired((info.elapsedDistance + distanceOffset) / 1000.0, 0.62137119 /* CONVERSION_KM_TO_MILE */, isDistanceUnitsImperial);
+    distancePreviousLap =  startDistanceCurrentLap - startDistancePreviousLap;
   }
   
   
@@ -521,6 +527,19 @@ class GRunView extends WatchUi.DataField
       return info.averagePower;
     }
     
+    // Elapsed distance for the previous lap
+    if (value == 23 /* OPTION_PREVIOUS_LAP_DISTANCE */)
+    {
+      return distancePreviousLap;
+    }
+    
+    // Average Pace for the previous lap
+    if (value == 24 /* OPTION_PREVIOUS_LAP_PACE */)
+    {
+      if (distancePreviousLap <= 0) { return 0; }
+      return timerPreviousLap / distancePreviousLap;
+    }
+    
     // Elapsed time for the current lap
     if (value == 25 /* OPTION_CURRENT_LAP_TIME */)
     {
@@ -550,9 +569,9 @@ class GRunView extends WatchUi.DataField
     }
     
     // Time taken on previous lap
-    if (value == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */) 
+    if (value == 30 /* OPTION_PREVIOUS_LAP_TIME */) 
     {
-      return timerLastLap;
+      return timerPreviousLap;
     }
     
     if (value == 31 /* OPTION_ETA_LAP */)
@@ -1059,11 +1078,13 @@ class GRunView extends WatchUi.DataField
     if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) { return "GPS/BAT"; }
     if (type == 21 /* OPTION_CURRENT_POWER */) { return "POW"; }
     if (type == 22 /* OPTION_AVERAGE_POWER */) { return "A POW"; }
+    if (type == 23 /* OPTION_PREVIOUS_LAP_DISTANCE */) { return "P LDIST"; }
+    if (type == 24 /* OPTION_PREVIOUS_LAP_PACE */) { return "P LPACE"; }
     if (type == 25 /* OPTION_CURRENT_LAP_TIME */) { return "LTIME"; }
     if (type == 26 /* OPTION_CURRENT_LAP_DISTANCE */) { return "LDIST"; }
     if (type == 27 /* OPTION_CURRENT_LAP_PACE */) { return "LPACE"; }
     if (type == 28 /* OPTION_TRAINING_EFFECT */) { return "TE"; }
-    if (type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */) { return "LAST LAP"; }
+    if (type == 30 /* OPTION_PREVIOUS_LAP_TIME */) { return "P LTIME"; }
     if (type == 31 /* OPTION_ETA_LAP */) { return "ETA LAP"; }
     if (type == 32 /* OPTION_LAP_COUNT */) { return "LAP"; }
     if (type == 33 /* OPTION_AVERAGE_CADENCE */) { return "A CAD"; }
@@ -1102,6 +1123,7 @@ class GRunView extends WatchUi.DataField
     
     if (type == 7 /* OPTION_CURRENT_PACE */ ||
         type == 10 /* OPTION_AVERAGE_PACE */ ||
+        type == 24 /* OPTION_PREVIOUS_LAP_PACE */ ||
         type == 27 /* OPTION_CURRENT_LAP_PACE */ ||
         (type >= 56 /* OPTION_REQUIRED_PACE_5K */ && type <= 61 /* OPTION_REQUIRED_PACE_100K */) )
     {
@@ -1110,7 +1132,7 @@ class GRunView extends WatchUi.DataField
     
     if (type == 2 /* OPTION_TIMER_TIME */ ||
         type == 25 /* OPTION_CURRENT_LAP_TIME */ ||
-        type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */ ||
+        type == 30 /* OPTION_PREVIOUS_LAP_TIME */ ||
         type == 31 /* OPTION_ETA_LAP */ ||
         (type >= 50 /* OPTION_ETA_5K */ && type <= 55 /* OPTION_ETA_100K */) )
     {
@@ -1118,6 +1140,7 @@ class GRunView extends WatchUi.DataField
     }
 
     if (type == 5 /* OPTION_ELAPSED_DISTANCE */ ||
+        type == 23 /* OPTION_PREVIOUS_LAP_DISTANCE */ ||
         type == 26 /* OPTION_CURRENT_LAP_DISTANCE */)
     {
       // Calling format("%.1f") will round the value. To truncate the value instead of rounding, we simply multiply by 10, convert to Integer and divide by 10.0 (Float).
@@ -1192,6 +1215,7 @@ class GRunView extends WatchUi.DataField
   
     if (type == 7 /* OPTION_CURRENT_PACE */ ||
         type == 10 /* OPTION_AVERAGE_PACE */ ||
+        type == 24 /* OPTION_PREVIOUS_LAP_PACE */ ||
         type == 27 /* OPTION_CURRENT_LAP_PACE */)
     {
       value = round(value);
@@ -1387,11 +1411,13 @@ class GRunView extends WatchUi.DataField
     //else if (type == 18 /* OPTION_CURRENT_BATTERY */) { return "OPTION_CURRENT_BATTERY"; }
     //else if (type == 19 /* OPTION_CURRENT_LOCATION_ACCURACY */) { return "OPTION_CURRENT_LOCATION_ACCURACY"; }
     //else if (type == 20 /* OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY */) { return "OPTION_CURRENT_LOCATION_ACCURACY_AND_BATTERY"; }
+    //else if (type == 23 /* OPTION_PREVIOUS_LAP_DISTANCE */) { return "OPTION_PREVIOUS_LAP_DISTANCE"; }
+    //else if (type == 24 /* OPTION_PREVIOUS_LAP_PACE */) { return "OPTION_PREVIOUS_LAP_PACE"; }
     //else if (type == 25 /* OPTION_CURRENT_LAP_TIME */) { return "OPTION_CURRENT_LAP_TIME"; }
     //else if (type == 26 /* OPTION_CURRENT_LAP_DISTANCE */) { return "OPTION_CURRENT_LAP_DISTANCE"; }
     //else if (type == 27 /* OPTION_CURRENT_LAP_PACE */) { return "OPTION_CURRENT_LAP_PACE"; }
     //else if (type == 28 /* OPTION_TRAINING_EFFECT */) { return "OPTION_TRAINING_EFFECT"; }
-    //else if (type == 30 /* OPTION_TIMER_TIME_ON_PREVIOUS_LAP */) { return "OPTION_TIMER_TIME_ON_PREVIOUS_LAP"; }
+    //else if (type == 30 /* OPTION_PREVIOUS_LAP_TIME */) { return "OPTION_PREVIOUS_LAP_TIME"; }
     //else if (type == 31 /* OPTION_ETA_LAP */) { return "OPTION_ETA_LAP"; }
     //else if (type == 32 /* OPTION_LAP_COUNT */) { return "OPTION_LAP_COUNT"; }
     //else if (type == 33 /* OPTION_AVERAGE_CADENCE */) { return "OPTION_AVERAGE_CADENCE"; }

@@ -288,26 +288,28 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 ### Version 1.28
  - Code improvement to optimize memory utilization
  - Remove Header Position parameter (to save memory usage). Header Position is now forced to "Top / Top"
+ - Added Previous Lap Distance & Previous Lap Pace on all devices
+ - On high-memory devices only, added Target Cadence & Cadence Range parameters to display cadence in color if outside the range
  - Added support for new watches (D2 Air, Descent Mk2, Descent Mk2 S, Edge 1030 Plus, Edge 130 Plus, Enduro, Forerunner 55, Forerunner 745, Forerunner 945 LTE, MARQ Golfer, Venu 2, Venu 2S, Venu Mercedes-Benz Collection)
 
 | Memory Usage on va3 (28.6 KB)     | Current | Peak    |
 | --------------------------------- |:-------:|:-------:|
-| At startup                        | 25.2 kB | 26.9 kB |
-| 10 sec running                    | 25.2 kB | 27.2 kB |
-| After setting change              | 25.2 kB | 28.2 kB |
+| At startup                        | 25.5 kB | 27.1 kB |
+| 10 sec running                    | 25.5 kB | 27.5 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
 
 | Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
 | --------------------------------- |:-------:|:-------:|
-| At startup                        | 25.2 kB | 27.1 kB |
-| 10 sec running                    | 25.2 kB | 27.5 kB |
-| After setting change              | 25.2 kB | 28.1 kB |
+| At startup                        | 25.5 kB | 27.4 kB |
+| 10 sec running                    | 25.5 kB | 27.8 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
 
 
 | Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
 | --------------------------------- |:-------:|:-------:|
-| At startup                        | 29.4 kB | 31.4 kB |
-| 10 sec running                    | 29.4 kB | 31.8 kB |
-| After setting change              | 29.4 kB | 32.3 kB |
+| At startup                        | 30.0 kB | 32.1 kB |
+| 10 sec running                    | 30.0 kB | 32.5 kB |
+| After setting change              | 30.0 kB | 32.9 kB |
 
 ### Version 1.27
  - Added option to control row height

@@ -71,6 +71,8 @@
   <string id="Field27">Lap Pace</string>
   <string id="Field28">Training Effect</string>
   <string id="Field30">Previous Lap Time</string>
+  <string id="Field23">Previous Lap Distance</string>
+  <string id="Field24">Previous Lap Pace</string>
   <string id="Field31">ETA Lap</string>
   <string id="Field32">Lap Count</string>
   <string id="Field33">Average Cadence</string>
