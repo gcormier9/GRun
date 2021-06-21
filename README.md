@@ -66,6 +66,8 @@ The following fields are currently supported:
 - ETA Lap
 - Lap Count
 - Previous Lap Time
+- Previous Lap Distance
+- Previous Lap Pace
 - Lap Time
 - Lap Distance
 - Lap Pace
@@ -285,6 +287,9 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 
 ## Release Notes
+### Version 1.29
+ - Fix missing options (Required Pace 50K/100K) for high-memory devices with no support for "Power" options
+
 ### Version 1.28
  - Code improvement to optimize memory utilization
  - Remove Header Position parameter (to save memory usage). Header Position is now forced to "Top / Top"

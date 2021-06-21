@@ -1,5 +1,5 @@
 <settings>
-  
+
   <setting propertyKey="@Properties.TargetCadence" title="@Strings.PARAM_TARGET_CADENCE">
     <settingConfig type="numeric" min="0" />
   </setting>
@@ -7,7 +7,7 @@
   <setting propertyKey="@Properties.CadenceRange" title="@Strings.PARAM_CADENCE_RANGE"  prompt="@Strings.PARAM_DESC_CADENCE_RANGE">
     <settingConfig type="numeric" min="0" />
   </setting>
-  
+
   <setting propertyKey="@Properties.Area1" title="@Strings.PARAM_AREA1">
     <settingConfig type="list">
       <listEntry value="0">@Strings.Field00</listEntry>      <!-- 00 Empty -->
@@ -38,13 +38,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -99,13 +99,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -160,13 +160,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -221,13 +221,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -282,13 +282,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -343,13 +343,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -404,13 +404,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -465,13 +465,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -526,13 +526,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
@@ -587,13 +587,13 @@
       <listEntry value="51">@Strings.Field51</listEntry>     <!-- 51 ETA 10K -->
       <listEntry value="52">@Strings.Field52</listEntry>     <!-- 52 ETA Half Marathon (21.0975 km) -->
       <listEntry value="53">@Strings.Field53</listEntry>     <!-- 53 ETA Marathon (42.195 km) -->
-      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 100K -->
+      <listEntry value="54">@Strings.Field54</listEntry>     <!-- 54 ETA 50K -->
       <listEntry value="55">@Strings.Field55</listEntry>     <!-- 55 ETA 100K -->
       <listEntry value="56">@Strings.Field56</listEntry>     <!-- 56 Required Pace 5K -->
       <listEntry value="57">@Strings.Field57</listEntry>     <!-- 57 Required Pace 10K -->
       <listEntry value="58">@Strings.Field58</listEntry>     <!-- 58 Required Pace Half Marathon (21.0975 km) -->
       <listEntry value="59">@Strings.Field59</listEntry>     <!-- 59 Required Pace Marathon (42.195 km) -->
-      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 100K -->
+      <listEntry value="60">@Strings.Field60</listEntry>     <!-- 60 Required Pace 50K -->
       <listEntry value="61">@Strings.Field61</listEntry>     <!-- 61 Required Pace 100K -->
       <listEntry value="152">@Strings.Field152</listEntry>   <!-- 152 Required Pace Lap Distance -->
       <listEntry value="147">@Strings.Field147</listEntry>   <!-- 147 Required Speed 5K -->
