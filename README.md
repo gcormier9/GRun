@@ -289,6 +289,26 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 ## Release Notes
 ### Version 1.29
  - Fix missing options (Required Pace 50K/100K) for high-memory devices with no support for "Power" options
+ - Fix cadence color (high memory devices only): Blue if too fast, Green if within Target Cadence Range, Red if too slow
+ 
+| Memory Usage on va3 (28.6 KB)     | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.1 kB |
+| 10 sec running                    | 25.5 kB | 27.5 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
+
+| Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.4 kB |
+| 10 sec running                    | 25.5 kB | 27.8 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
+
+
+| Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 30.0 kB | 32.1 kB |
+| 10 sec running                    | 30.0 kB | 32.5 kB |
+| After setting change              | 30.0 kB | 33.2 kB |
 
 ### Version 1.28
  - Code improvement to optimize memory utilization

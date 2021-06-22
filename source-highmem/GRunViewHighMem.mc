@@ -725,8 +725,8 @@ class GRunViewHighMem extends GRunView
         type == 33 /* OPTION_AVERAGE_CADENCE */)
     {
       if (value <= 0) { return null; }
-      if (value < (targetCadence - cadenceRange)) { return Graphics.COLOR_BLUE; } // 0x00AAFF
-      if (value > (targetCadence + cadenceRange)) { return Graphics.COLOR_RED; } // 0xFF0000
+      if (value < (targetCadence - cadenceRange)) { return Graphics.COLOR_RED; } // 0x00AAFF
+      if (value > (targetCadence + cadenceRange)) { return Graphics.COLOR_BLUE; } // 0xFF0000
       return Graphics.COLOR_DK_GREEN; // 0x00AA00
     }
     
