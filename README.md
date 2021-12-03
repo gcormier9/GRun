@@ -90,6 +90,7 @@ High-Memory devices also supports the following fields:
 - Required Speed 100K
 - Required Pace Lap Distance
 - Required Speed Lap Distance
+- Lap Average Heart Rate
 
 ### Supported Features/Devices
 
