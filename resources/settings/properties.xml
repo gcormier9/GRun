@@ -1,5 +1,5 @@
 <properties>
-  <property id="AppVersion" type="string">1.29</property>
+  <property id="AppVersion" type="string">1.30</property>
   <property id="HeaderHeight" type="number">30</property>
   <property id="SingleBackgroundColor" type="boolean">false</property>
   <property id="LapDistance" type="number">0</property>

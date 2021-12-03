@@ -16,6 +16,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -76,6 +77,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -136,6 +138,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -196,6 +199,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -256,6 +260,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -316,6 +321,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -376,6 +382,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -436,6 +443,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -496,6 +504,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->
@@ -556,6 +565,7 @@
       <listEntry value="5">@Strings.Field05</listEntry>      <!-- 05 Distance -->
       <listEntry value="6">@Strings.Field06</listEntry>      <!-- 06 Current Heart Rate -->
       <listEntry value="9">@Strings.Field09</listEntry>      <!-- 09 Average Heart Rate -->
+      <listEntry value="170">@Strings.Field170</listEntry>   <!-- 170 Lap Average Heart Rate -->
       <listEntry value="35">@Strings.Field35</listEntry>     <!-- 35 Heart Rate Zone -->
       <listEntry value="7">@Strings.Field07</listEntry>      <!-- 07 Current Pace -->
       <listEntry value="10">@Strings.Field10</listEntry>     <!-- 10 Average Pace -->

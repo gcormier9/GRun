@@ -13,6 +13,8 @@
 
   <string id="Field152">Required Pace Lap Distance</string>
   <string id="Field153">Required Speed Lap Distance</string>
+  
+  <string id="Field170">Lap Average Heart Rate</string>
     
   <string id="PARAM_AVG_SPEED_TIME">Speed/Pace (Last X sec)</string>
   <string id="PARAM_DESC_AVG_SPEED_TIME">Number of seconds to calculate Speed/Pace (Last X sec)</string>

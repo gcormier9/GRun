@@ -980,7 +980,7 @@ class GRunView extends WatchUi.DataField
       var displayIcon = false;
       
       // Display HR icon if in Area 1, 8, 9 or 10
-      if ( ((type == 6 /* OPTION_CURRENT_HEART_RATE */) || (type == 9 /* OPTION_AVERAGE_HEART_RATE */)) && (hasHeader == false) )
+      if ( ((type == 6 /* OPTION_CURRENT_HEART_RATE */) || (type == 9 /* OPTION_AVERAGE_HEART_RATE */) || (type == 170 /* OPTION_LAP_AVERAGE_HEART_RATE */)) && (hasHeader == false) )
       {
         displayIcon = true;
         
