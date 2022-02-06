@@ -6,8 +6,13 @@ project.manifest = manifest.xml
 base.sourcePath = source
 
 # High Memory (252.6 KB)
+epix2.sourcePath = source;source-highmem;source-highmem-epix2
+fenix7.sourcePath = source;source-highmem;source-highmem-fenix7
+fenix7s.sourcePath = source;source-highmem;source-highmem-fenix7s
+fenix7x.sourcePath = source;source-highmem;source-highmem-fenix7
 venu2.sourcePath = source;source-lowmem-venu
 venu2s.sourcePath = source;source-lowmem-venu
+venu2plus.sourcePath = source;source-highmem;source-highmem-venu2
 
 # High Memory (124.7 KB)
 approachs62.sourcePath = source;source-highmem;source-highmem-approachs62
@@ -83,6 +88,13 @@ vivoactive4s.sourcePath = source;source-lowmem-vivoactive4s
 # Resource Files
 #######################################################
 base.resourcePath = resources
+
+# High Memory (252.6 KB) with "Power" and "Training Effect" support
+epix2.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix7.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix7s.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix7x.resourcePath = resources;resources-highmem;resources-highmem-power-te
+venu2plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
 
 # High Memory (124.7 KB) with no specific feature
 approachs62.resourcePath = resources;resources-highmem;resources-highmem-basic
