@@ -8,9 +8,9 @@ class GRunApp extends Application.AppBase
   
   function initialize()
   {
-    //System.println("Garmin Venu2 (High Memory)");
+    //System.println("Garmin Venu2 (Low Memory)");
     AppBase.initialize();
-    gRunView = new GRunViewHighMem();
+    gRunView = new GRunView();
   }
   
   
@@ -18,13 +18,14 @@ class GRunApp extends Application.AppBase
   {
     var textDimensions = dc.getTextDimensions(value, font);
     
-    if (font <= 4) { textDimensions[0] += 1; }
+    if (font >= 7)
+    {
+        textDimensions[0] -= 5;
+        textDimensions[1] = textDimensions[1] - (0.1 * dc.getFontDescent(font));
+    }
     
-    var yFactor = 1.7;
-    if (font == 6) { yFactor = 1.6; }
-    else if (font == 5) { yFactor = 1.6; }
-    else if (font < 5) { yFactor = 1.55; }
-    textDimensions[1] = textDimensions[1] - (yFactor * dc.getFontDescent(font));
+    else if (font <= 1) { textDimensions[0] += 2; }
+    textDimensions[1] = textDimensions[1] - (1.6 * dc.getFontDescent(font));
     
     return textDimensions;
   }
@@ -32,10 +33,9 @@ class GRunApp extends Application.AppBase
   
   public static function getYOffset(font)
   {
-    var yOffset = -2;
-    if (font >= 7) { yOffset = 1; }
-    if (font == 6) { yOffset = -1; }
-    if (font == 5) { yOffset = 0; }
+    var yOffset = 0;
+    if (font >= 7) { yOffset = 2; }
+    else if (font <= 4) { yOffset = -2; }
     
     return yOffset;
   }

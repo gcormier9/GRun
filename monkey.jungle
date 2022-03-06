@@ -6,13 +6,12 @@ project.manifest = manifest.xml
 base.sourcePath = source
 
 # High Memory (252.6 KB)
+d2airx10.sourcePath = source;source-highmem;source-highmem-venu2plus
 epix2.sourcePath = source;source-highmem;source-highmem-epix2
 fenix7.sourcePath = source;source-highmem;source-highmem-fenix7
 fenix7s.sourcePath = source;source-highmem;source-highmem-fenix7s
 fenix7x.sourcePath = source;source-highmem;source-highmem-fenix7
-venu2.sourcePath = source;source-lowmem-venu
-venu2s.sourcePath = source;source-lowmem-venu
-venu2plus.sourcePath = source;source-highmem;source-highmem-venu2
+venu2plus.sourcePath = source;source-highmem;source-highmem-venu2plus
 
 # High Memory (124.7 KB)
 approachs62.sourcePath = source;source-highmem;source-highmem-approachs62
@@ -85,11 +84,16 @@ venud.sourcePath = source;source-lowmem-venu
 vivoactive4.sourcePath = source;source-lowmem-vivoactive4
 vivoactive4s.sourcePath = source;source-lowmem-vivoactive4s
 
+# Simulator shows 252.6 KB of memory for Venu2 and Venu2, but crashes 
+venu2.sourcePath = source;source-lowmem-venu2
+venu2s.sourcePath = source;source-lowmem-venu2
+
 # Resource Files
 #######################################################
 base.resourcePath = resources
 
 # High Memory (252.6 KB) with "Power" and "Training Effect" support
+d2airx10.resourcePath = resources;resources-highmem;resources-highmem-power-te
 epix2.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7s.resourcePath = resources;resources-highmem;resources-highmem-power-te

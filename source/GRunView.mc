@@ -995,19 +995,19 @@ class GRunView extends WatchUi.DataField
       
       // Validate font size (testing)
       ///////////////////////////////////////////////////////////////////////////////////////////////////
-      //dc.clearClip();
-      //if (id == 4) {
-      //  if (timer.toNumber() % 2 == 1) { lapCount = (lapCount + 1) % 9; }
-      //  font = 8 - lapCount;
-      //  
-      //  var textDimensions = GRunApp.getTextDimensions(dc, formattedValue, font);
-      //  if (font == 8) {
-      //    System.println("font: " + font + ", width: " + areaWidth + "|" + textDimensions[0] + ", height: " + areaHeight + "|" + textDimensions[1]);
-      //  } else {
-      //    var textDimensions2 = GRunApp.getTextDimensions(dc, formattedValue, font+1);
-      //    System.println("font: " + font + ", width: " + areaWidth + "|" + textDimensions[0] + "|" + textDimensions2[0] + "(" + (areaWidth-textDimensions2[0]) + "), height: " + areaHeight + "|" + textDimensions[1] + "|" + textDimensions2[1] + "(" + (areaHeight-textDimensions2[1]) + ")");
-      //  }
-      //}
+      dc.clearClip();
+      if (id == 4) {
+        if (timer.toNumber() % 2 == 1) { lapCount = (lapCount + 1) % 9; }
+        font = 8 - lapCount;
+        
+        var textDimensions = GRunApp.getTextDimensions(dc, formattedValue, font);
+        if (font == 8) {
+          System.println("font: " + font + ", width: " + areaWidth + "|" + textDimensions[0] + ", height: " + areaHeight + "|" + textDimensions[1]);
+        } else {
+          var textDimensions2 = GRunApp.getTextDimensions(dc, formattedValue, font+1);
+          System.println("font: " + font + ", width: " + areaWidth + "|" + textDimensions[0] + "|" + textDimensions2[0] + "(" + (areaWidth-textDimensions2[0]) + "), height: " + areaHeight + "|" + textDimensions[1] + "|" + textDimensions2[1] + "(" + (areaHeight-textDimensions2[1]) + ")");
+        }
+      }
       ///////////////////////////////////////////////////////////////////////////////////////////////////
       
       // Realign text
@@ -1040,16 +1040,16 @@ class GRunView extends WatchUi.DataField
       
       // Validate font size (testing)
       ///////////////////////////////////////////////////////////////////////////////////////////////////
-      //if (displayIcon) { areaX += 30; } //  24 (iconWidth) + 6 (padding)
-      //var textDimensions = GRunApp.getTextDimensions(dc, formattedValue, font);
-      //var x2 = areaX + ((areaWidth - textDimensions[0]) / 2);
-      //var y2 = areaY + ((areaHeight - textDimensions[1]) / 2);
-      //dc.setPenWidth(1);
-      //dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-      //dc.drawRectangle(x2, y2, textDimensions[0], textDimensions[1]);
-      //dc.setPenWidth(2);
-      //dc.setColor(Graphics.COLOR_PINK, Graphics.COLOR_TRANSPARENT);
-      //dc.drawRectangle(areaX, areaY, areaWidth, areaHeight);
+      if (displayIcon) { areaX += 30; } //  24 (iconWidth) + 6 (padding)
+      var textDimensions = GRunApp.getTextDimensions(dc, formattedValue, font);
+      var x2 = areaX + ((areaWidth - textDimensions[0]) / 2);
+      var y2 = areaY + ((areaHeight - textDimensions[1]) / 2);
+      dc.setPenWidth(1);
+      dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+      dc.drawRectangle(x2, y2, textDimensions[0], textDimensions[1]);
+      dc.setPenWidth(2);
+      dc.setColor(Graphics.COLOR_PINK, Graphics.COLOR_TRANSPARENT);
+      dc.drawRectangle(areaX, areaY, areaWidth, areaHeight);
       ///////////////////////////////////////////////////////////////////////////////////////////////////
     }
     
