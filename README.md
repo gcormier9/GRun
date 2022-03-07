@@ -288,6 +288,28 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 
 ## Release Notes
+### Version 1.33
+ - Version 1.32 was invalid as I forgot to remove troubleshooting code.
+
+| Memory Usage on va3 (28.6 KB)     | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.1 kB |
+| 10 sec running                    | 25.5 kB | 27.5 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
+
+| Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.4 kB | 27.4 kB |
+| 10 sec running                    | 25.4 kB | 27.7 kB |
+| After setting change              | 25.4 kB | 28.4 kB |
+
+
+| Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 30.5 kB | 32.6 kB |
+| 10 sec running                    | 30.5 kB | 33.0 kB |
+| After setting change              | 30.5 kB | 33.7 kB |
+
 ### Version 1.32
  - Added support for D2 Air X10
 
