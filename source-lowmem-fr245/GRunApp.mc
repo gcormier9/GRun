@@ -8,7 +8,7 @@ class GRunApp extends Application.AppBase
   
   function initialize()
   {
-    //System.println("Garmin Forerunner 245/245m (Low Memory)");
+    //System.println("Garmin Forerunner 245/245 (Low Memory)");
     AppBase.initialize();
     gRunView = new GRunView();
   }

@@ -130,7 +130,7 @@ High-Memory devices also supports the following fields:
 | fenixchronos            | fēnix Chronos                         | 28.7 KB          | &check;    |             | &check;         | &check; |
 | fr55                    | Forerunner 55                         | 28.7 KB          | &check;    |             |                 |         |
 | fr245                   | Forerunner 245                        | 28.7 KB          | &check;    |             | &check;         |         |
-| fr245m                  | Forerunner 245 Music                  | 28.7 KB          | &check;    |             | &check;         |         |
+| fr245m                  | Forerunner 245 Music                  | 124.7 KB         |            | &check;     | &check;         | &check; |
 | fr645                   | Forerunner 645                        | 28.7 KB          | &check;    |             | &check;         |         |
 | fr645m                  | Forerunner 645 Music                  | 60.7 KB          |            | &check;     | &check;         |         |
 | fr745                   | Forerunner 745                        | 124.7 KB         |            | &check;     | &check;         | &check; |
@@ -288,6 +288,29 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 
 ## Release Notes
+### Version 1.34
+ - fr245m was listed has a low memory device, instead of high-memory device.
+ - Display average cadence using `info.averageCadence * 2` to workaround Garmin CIQ
+
+| Memory Usage on va3 (28.6 KB)     | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.3 kB |
+| 10 sec running                    | 25.5 kB | 27.7 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
+
+| Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.4 kB |
+| 10 sec running                    | 25.5 kB | 27.8 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
+
+
+| Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 30.6 kB | 32.8 kB |
+| 10 sec running                    | 30.6 kB | 33.1 kB |
+| After setting change              | 30.6 kB | 33.8 kB |
+
 ### Version 1.33
  - Version 1.32 was invalid as I forgot to remove troubleshooting code.
 

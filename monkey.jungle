@@ -52,6 +52,8 @@ fenix6pro.sourcePath = source;source-highmem;source-highmem-fenix6pro
 fenix6spro.sourcePath = source;source-highmem;source-highmem-fenix6xpro
 fenix6xpro.sourcePath = source;source-highmem;source-highmem-fenix6xpro
 
+fr245m.sourcePath = source;source-highmem;source-highmem-fr245m
+
 # High Memory (60.7 KB)
 fr645m.sourcePath = source;source-highmem;source-highmem-fr645m
 fr745.sourcePath = source;source-highmem;source-highmem-fr945
@@ -66,7 +68,6 @@ fenix5s.sourcePath = source;source-lowmem-fenix5s
 fenixchronos.sourcePath = source;source-lowmem-fenixchronos
 fr55.sourcePath = source;source-lowmem-fr55
 fr245.sourcePath = source;source-lowmem-fr245
-fr245m.sourcePath = source;source-lowmem-fr245
 fr645.sourcePath = source;source-lowmem-fr645
 fr935.sourcePath = source;source-lowmem-fr645
 vivoactive3.sourcePath = source;source-lowmem-vivoactive3
@@ -116,6 +117,7 @@ fenix5plus.resourcePath = resources;resources-highmem;resources-highmem-power
 fenix5splus.resourcePath = resources;resources-highmem;resources-highmem-power
 
 # High Memory (60.7 KB) with "Training Effect" support
+fr245m.resourcePath = resources;resources-highmem;resources-highmem-te
 fr645m.resourcePath = resources;resources-highmem;resources-highmem-te
 
 # High Memory (124.7 KB) with "Power" and "Training Effect" support
@@ -169,7 +171,6 @@ edge130plus.resourcePath = resources;resources-lowmem-power
 
 # Low Memory (28.7 KB) with "Training Effect" support
 fr245.resourcePath = resources;resources-lowmem-te
-fr245m.resourcePath = resources;resources-lowmem-te
 fr645.resourcePath = resources;resources-lowmem-te
 
 # Low Memory (28.7 KB)  with "Power" and "Training Effect" support

@@ -4,7 +4,7 @@
 
   <string id="PARAM_TARGET_PACE">Target Pace (in seconds per km or mile)</string>
   <string id="PARAM_DESC_TARGET_PACE">Example: 330 for 5min and 30sec (km/mile is chosen automatically based on watch settings</string>
-  <string id="PARAM_PACE_RANGE">Pace Range (in seconds)</string>
+  <string id="PARAM_PACE_RANGE">Pace Range (+/- in seconds)</string>
   <string id="PARAM_DESC_PACE_RANGE">Use to display speed/pace in color if outside the range</string>
 
   <string id="PARAM_LAP_DISTANCE">Lap Distance (in meters)</string>

@@ -605,7 +605,7 @@ class GRunView extends WatchUi.DataField
     // Average cadence during the current activity in revolutions per minute (rpm)
     if ( (value == 33 /* OPTION_AVERAGE_CADENCE */) && (info.averageCadence != null) )
     {
-      return info.averageCadence;
+      return info.averageCadence * 2;
     }
     
     // Calculate if we are ahead of behing the target pace
