@@ -288,6 +288,10 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 
 ## Release Notes
+
+### Version 1.35
+- Add support for fr255,fr255m,fr255,fr255s,fr955. These 5 models have 256kB, which is a high memory.
+
 ### Version 1.34
  - fr245m was listed has a low memory device, instead of high-memory device.
  - Display average cadence using `info.averageCadence * 2` to workaround Garmin CIQ

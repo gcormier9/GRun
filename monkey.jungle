@@ -9,6 +9,15 @@ base.sourcePath = source
 d2airx10.sourcePath = source;source-highmem;source-highmem-venu2plus
 epix2.sourcePath = source;source-highmem;source-highmem-epix2
 fenix7.sourcePath = source;source-highmem;source-highmem-fenix7
+
+fr255.sourcePath = source;source-highmem;source-highmem-fenix7
+fr255m.sourcePath = source;source-highmem;source-highmem-fenix7
+
+fr255s.sourcePath = source;source-highmem;source-highmem-fr255s
+fr255sm.sourcePath = source;source-highmem;source-highmem-fr255s
+
+fr955.sourcePath = source;source-highmem;source-highmem-fenix7
+
 fenix7s.sourcePath = source;source-highmem;source-highmem-fenix7s
 fenix7x.sourcePath = source;source-highmem;source-highmem-fenix7
 venu2plus.sourcePath = source;source-highmem;source-highmem-venu2plus
@@ -98,6 +107,15 @@ d2airx10.resourcePath = resources;resources-highmem;resources-highmem-power-te
 epix2.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7s.resourcePath = resources;resources-highmem;resources-highmem-power-te
+
+fr255.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr255s.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr255m.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr255sm.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr955.resourcePath = resources;resources-highmem;resources-highmem-power-te
+
+
+
 fenix7x.resourcePath = resources;resources-highmem;resources-highmem-power-te
 venu2plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
 
