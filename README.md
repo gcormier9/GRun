@@ -131,12 +131,17 @@ High-Memory devices also supports the following fields:
 | fr55                    | Forerunner 55                         | 28.7 KB          | &check;    |             |                 |         |
 | fr245                   | Forerunner 245                        | 28.7 KB          | &check;    |             | &check;         |         |
 | fr245m                  | Forerunner 245 Music                  | 124.7 KB         |            | &check;     | &check;         | &check; |
+| fr255                   | Forerunner 255                        | 252.6 KB         |            | &check;     | &check;         | &check; |
+| fr255m                  | Forerunner 255 Music                  | 252.6 KB         |            | &check;     | &check;         | &check; |
+| fr255s                  | Forerunner 255s                       | 252.6 KB         |            | &check;     | &check;         | &check; |
+| fr255sm                 | Forerunner 255s Music                 | 252.6 KB         |            | &check;     | &check;         | &check; |
 | fr645                   | Forerunner 645                        | 28.7 KB          | &check;    |             | &check;         |         |
 | fr645m                  | Forerunner 645 Music                  | 60.7 KB          |            | &check;     | &check;         |         |
 | fr745                   | Forerunner 745                        | 124.7 KB         |            | &check;     | &check;         | &check; |
 | fr935                   | Forerunner 935                        | 28.7 KB          | &check;    |             | &check;         | &check; |
 | fr945                   | Forerunner 945                        | 124.7 KB         |            | &check;     | &check;         | &check; |
 | fr945lte                | Forerunner 945 LTE                    | 124.7 KB         |            | &check;     | &check;         | &check; |
+| fr955                   | Forerunner 955                        | 252.6 KB         |            | &check;     | &check;         | &check; |
 | legacyherocaptainmarvel | Captain Marvel                        | 28.7 KB          | &check;    |             |                 |         |
 | legacyherofirstavenger  | First Avenger                         | 28.7 KB          | &check;    |             |                 |         |
 | legacysagadarthvader    | Darth Vader                           | 28.7 KB          | &check;    |             |                 |         |
@@ -289,8 +294,27 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 ## Release Notes
 
-### Version 1.35
-- Add support for fr255,fr255m,fr255,fr255s,fr955. These 5 models have 256kB, which is a high memory.
+### Version 1.35 (by @Likenttt)
+- Add support for fr255,fr255m,fr255s,fr255sm,fr955. These 5 models have 256kB, which is a high memory.
+
+| Memory Usage on va3 (28.6 KB)     | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.2 kB |
+| 10 sec running                    | 25.5 kB | 27.5 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
+
+| Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.5 kB | 27.4 kB |
+| 10 sec running                    | 25.5 kB | 27.8 kB |
+| After setting change              | 25.5 kB | 28.4 kB |
+
+
+| Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 30.6 kB | 32.8 kB |
+| 10 sec running                    | 30.6 kB | 33.1 kB |
+| After setting change              | 30.6 kB | 33.5 kB |
 
 ### Version 1.34
  - fr245m was listed has a low memory device, instead of high-memory device.
