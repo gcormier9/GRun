@@ -295,7 +295,7 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 ## Release Notes
 
 ### Version 1.35 (by @Likenttt)
-- Add support for fr255,fr255m,fr255s,fr255sm,fr955. These 5 models have 256kB, which is a high memory.
+ - Add support for fr255,fr255m,fr255s,fr255sm,fr955. These 5 models have 256kB, which is a high memory.
 
 | Memory Usage on va3 (28.6 KB)     | Current | Peak    |
 | --------------------------------- |:-------:|:-------:|
