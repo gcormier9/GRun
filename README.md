@@ -294,6 +294,28 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 ## Release Notes
 
+### Version 1.36 (by @Likenttt)
+ - Using Connect IQ 4.1.5
+
+| Memory Usage on va3 (28.6 KB)     | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.6 kB | 27.3 kB |
+| 10 sec running                    | 25.6 kB | 27.6 kB |
+| After setting change              | 25.6 kB | 28.5 kB |
+
+| Memory Usage on fenix5 (28.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 25.6 kB | 27.5 kB |
+| 10 sec running                    | 25.6 kB | 27.9 kB |
+| After setting change              | 25.6 kB | 28.5 kB |
+
+
+| Memory Usage on fr945 (124.6 KB)  | Current | Peak    |
+| --------------------------------- |:-------:|:-------:|
+| At startup                        | 30.7 kB | 32.8 kB |
+| 10 sec running                    | 30.7 kB | 33.2 kB |
+| After setting change              | 30.7 kB | 33.9 kB |
+
 ### Version 1.35 (by @Likenttt)
  - Add support for fr255,fr255m,fr255s,fr255sm,fr955. These 5 models have 256kB, which is a high memory.
 

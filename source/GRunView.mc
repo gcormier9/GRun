@@ -159,7 +159,9 @@ class GRunView extends WatchUi.DataField
   function getParameter(paramName, defaultValue)
   {
     var paramValue = Application.Properties.getValue(paramName);
-    if (paramValue == null) {
+    if ( (paramValue == null) || 
+         ((paramValue instanceof Toybox.Lang.String == true) && (defaultValue instanceof Toybox.Lang.String == false)))
+    {
       paramValue = defaultValue;
       Application.Properties.setValue(paramName, defaultValue);
     }
@@ -273,7 +275,6 @@ class GRunView extends WatchUi.DataField
       x += width;
     }
   }
-  
   
   function initializeUserData()
   {
@@ -1219,7 +1220,7 @@ class GRunView extends WatchUi.DataField
         type == 27 /* OPTION_CURRENT_LAP_PACE */)
     {
       value = round(value);
-      if (value <= 0) { return null; }
+      if (value <= 0 || targetPace <= 0) { return null; }
       if (value < (targetPace - paceRange)) { return Graphics.COLOR_BLUE; } // 0x00AAFF
       if (value > (targetPace + paceRange)) { return Graphics.COLOR_RED; } // 0xFF0000
       return Graphics.COLOR_DK_GREEN; // 0x00AA00
