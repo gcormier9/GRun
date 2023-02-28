@@ -27,6 +27,9 @@ fr255sm.sourcePath = source;source-highmem;source-highmem-fr255s
 fr955.sourcePath = source;source-highmem;source-highmem-fenix7
 venu2plus.sourcePath = source;source-highmem;source-highmem-venu2plus
 
+marq2.sourcePath = source;source-highmem;source-highmem-marq2
+marq2aviator.sourcePath = source;source-highmem;source-highmem-marq2
+
 # High Memory (124.7 KB)
 approachs62.sourcePath = source;source-highmem;source-highmem-approachs62
 d2charlie.sourcePath = source;source-highmem;source-highmem-default
@@ -128,6 +131,9 @@ fr255s.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr255sm.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr955.resourcePath = resources;resources-highmem;resources-highmem-power-te
 venu2plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marq2.resourcePath = resources;resources-highmem;resources-highmem-power-te
+marq2aviator.resourcePath = resources;resources-highmem;resources-highmem-power-te
+
 
 # High Memory (124.7 KB) with no specific feature
 approachs62.resourcePath = resources;resources-highmem;resources-highmem-basic
