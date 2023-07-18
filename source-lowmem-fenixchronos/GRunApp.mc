@@ -31,7 +31,7 @@ class GRunApp extends Application.AppBase
   }
   
   
-  function getYOffset(font)
+  public static function getYOffset(font)
   {
     var yOffset = -1;
     if (font <= 3) { yOffset = -2; }
