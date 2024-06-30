@@ -1,6 +1,6 @@
 @echo off
-SET SRCFOLDER=D:\Users\GCorm\Documents\Git\GRun
-SET DESTFOLDER=D:\Users\GCorm\Documents\eclipse-workspace\GRun More
+SET SRCFOLDER=..\..\Git\GRun
+SET DESTFOLDER=%cd%
 cd /D "%DESTFOLDER%"
 
 echo "Delete folders into: %DESTFOLDER%"
@@ -36,6 +36,7 @@ FOR /F "delims=" %%d in ('dir "%SRCFOLDER%" /ad /b') DO (
 )
 
 echo.
+echo "Copy <iq:products in file: %DESTFOLDER%\manifest.xml"
 echo "Change AppName in file: %DESTFOLDER%\resources\strings\strings.xml"
 echo.
 pause
