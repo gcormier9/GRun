@@ -1,5 +1,6 @@
 using Toybox.Application;
 using Toybox.Graphics;
+import Toybox.Lang;
 
 
 class GRunApp extends Application.AppBase
@@ -14,11 +15,11 @@ class GRunApp extends Application.AppBase
   }
   
   
-  public static function getTextDimensions(dc, value, font) {
-    var textDimensions = dc.getTextDimensions(value, font);
+  public static function getTextDimensions(dc, value, font) as [Number, Number] {
+    var textDimensions = dc.getTextDimensions(value, font) as [Number, Number];
 
     if (font < 7) { textDimensions[0] += 2; }
-    textDimensions[1] = textDimensions[1] - 1.5 * dc.getFontDescent(font);
+    textDimensions[1] = textDimensions[1] - (1.5 * dc.getFontDescent(font)).toNumber();
 
     return textDimensions;
   }

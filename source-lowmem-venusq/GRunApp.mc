@@ -9,22 +9,19 @@ class GRunApp extends Application.AppBase
   
   function initialize()
   {
-    //System.println("Garmin Venu2plus / D2 Air X10 (High Memory)");
+    //System.println("Garmin Venu Sq (Low Memory)");
     AppBase.initialize();
-    gRunView = new GRunViewHighMem();
+    gRunView = new GRunView();
   }
   
   
   public static function getTextDimensions(dc, value, font) as [Number, Number]
   {
     var textDimensions = dc.getTextDimensions(value, font) as [Number, Number];
-    
-    if (font <= 4) { textDimensions[0] += 1; }
-    
-    var yFactor = 1.7;
-    if (font == 6) { yFactor = 1.6; }
-    else if (font == 5) { yFactor = 1.6; }
-    else if (font < 5) { yFactor = 1.55; }
+
+    var yFactor = 1.2;
+    if (font > 6) { yFactor = 1.6; }
+    else if (font > 3) { yFactor = 1.45; }
     textDimensions[1] = textDimensions[1] - (yFactor * dc.getFontDescent(font)).toNumber();
     
     return textDimensions;
@@ -33,10 +30,8 @@ class GRunApp extends Application.AppBase
   
   public static function getYOffset(font)
   {
-    var yOffset = -2;
-    if (font >= 7) { yOffset = 1; }
-    if (font == 6) { yOffset = -1; }
-    if (font == 5) { yOffset = 0; }
+    var yOffset = 0;
+    if (font <= 6) { yOffset = -1; }
     
     return yOffset;
   }

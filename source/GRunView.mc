@@ -1,9 +1,10 @@
-using Toybox.WatchUi;
 using Toybox.Graphics;
 using Toybox.System;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 using Toybox.UserProfile;
+using Toybox.WatchUi;
+import Toybox.Lang;
 
 
 // In order to use less memory, numbers have been hardcoded instead of using const..
@@ -26,7 +27,7 @@ using Toybox.UserProfile;
 class GRunView extends WatchUi.DataField
 {
   // Array of the current heart rate zone threshold values in beats per minute (bpm)
-  protected var hrZones;
+  protected var hrZones as Array<Number>;
   // Elapsed Distance (km or miles)
   protected var distance = 0.0;
   // Determine distance offset on each lap (in meter)
@@ -72,11 +73,11 @@ class GRunView extends WatchUi.DataField
   protected var paceRange;
   
   // Used to stored the type of data each area will display (Exemple: Current Pace, Distance, etc.)
-  protected var vType = new [10]b;
-  // Contains the actuel value to display. For example, if vData[0] is configure to display current pace, vData[0] will display MM:SS
-  protected var vData = new [10];
+  protected var vType as ByteArray = new [10]b;
+  // Contains the actual value to display. For example, if vData[0] is configure to display current pace, vData[0] will display MM:SS
+  protected var vData as Array<Number or Float or Long or Double or String> = new Array<Number>[10];
   // vArea indicates the x/y coordonate of the Value area, including header
-  protected var vArea = new [10];
+  protected var vArea as Array<Array<Number>> = new Array<Array<Number>>[10];
   
   // Width of the device screen in pixels
   protected var deviceWidth;
@@ -171,11 +172,11 @@ class GRunView extends WatchUi.DataField
   }
   
   
-  function splitString(s, defaultArray)
+  function splitString(s, defaultArray) as ByteArray
   {
     if ( (s == null) || (s.length() == 0) ) { return defaultArray; }
     
-    var parsedArray = new [defaultArray.size()];
+    var parsedArray = new [defaultArray.size()]b;
     for (var i = 0; i < defaultArray.size(); i++)
     {
       var commaIndex = s.find(",");
@@ -190,7 +191,7 @@ class GRunView extends WatchUi.DataField
   }
   
   
-  function sumAreaArray(numberArray, typeArray)
+  function sumAreaArray(numberArray as ByteArray or Array<Number>, typeArray as ByteArray or Array<Number>)
   {
     var arraySum  = 0;
     for (var i = 0; i < typeArray.size(); i++)
@@ -367,7 +368,7 @@ class GRunView extends WatchUi.DataField
     // Initialize 2 dimensional array. The sub-array contains [x,y,width,height]
     for (var i = 0; i < 10; i++ )
     {
-      vArea[i] = new [4];
+      vArea[i] = new [4] as Array<Number>;
     }
     
     initializeUserData();
@@ -702,7 +703,7 @@ class GRunView extends WatchUi.DataField
       headerBackgroundColor = ~headerBackgroundColor & 0xFFFFFF;
     }
     
-    // Bugfix on Garmin Venue.
+    // Bugfix on Garmin Venu.
     var primaryBackgroundColor = ~primaryForegroundColor & 0xFFFFFF;
     dc.setColor(primaryBackgroundColor, Graphics.COLOR_TRANSPARENT);
     dc.fillRectangle(0, 0, deviceWidth, deviceHeight);
@@ -800,7 +801,7 @@ class GRunView extends WatchUi.DataField
   }
   
   
-  function displayArea(dc, id, type, value, valueArea, dynamicBackgroundColor, dynamicForegroundColor)
+  function displayArea(dc, id, type, value, valueArea as Array<Number>, dynamicBackgroundColor, dynamicForegroundColor)
   {
     var hasHeader = false;
     
@@ -1117,9 +1118,9 @@ class GRunView extends WatchUi.DataField
     
     if (type == 1 /* OPTION_CURRENT_TIME */)
     {
-      value = System.getClockTime();
-      var hour = System.getDeviceSettings().is24Hour || value.hour <= 12 ? value.hour : value.hour - 12;
-      return hour + ":" + value.min.format("%02d");
+      var clockTime = System.getClockTime();
+      var hour = System.getDeviceSettings().is24Hour || clockTime.hour <= 12 ? clockTime.hour : clockTime.hour - 12;
+      return hour + ":" + clockTime.min.format("%02d");
     }
     
     if (type == 7 /* OPTION_CURRENT_PACE */ ||

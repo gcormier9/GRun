@@ -1,4 +1,5 @@
 using Toybox.WatchUi;
+import Toybox.Lang;
 
 
 class GRunViewHighMem extends GRunView
@@ -15,7 +16,7 @@ class GRunViewHighMem extends GRunView
   // Precision in seconds for distanceArray
   protected var arrayDistPrecision;
   // Circular Array to calculate custom average speed
-  protected var distanceArray;
+  protected var distanceArray as Array<Float> or Null;
   
   // Current altitude
   var currentAltitude;
@@ -26,7 +27,7 @@ class GRunViewHighMem extends GRunView
   // Precision in seconds for altitudeArray
   protected var arrayAltPrecision;
   // Circular Array to calculate custom average vertical speed
-  protected var altitudeArray;
+  protected var altitudeArray as Array<Float> or Null;
   
   // Used to determine if current cadence is too slow/fast
   protected var targetCadence;

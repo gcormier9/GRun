@@ -6,18 +6,25 @@ project.manifest = manifest.xml
 base.sourcePath = source
 
 # High Memory (252.6 KB)
+approachs7042mm.sourcePath = source;source-highmem;source-highmem-approachs70
+approachs7047mm.sourcePath = source;source-highmem;source-highmem-approachs70
 d2airx10.sourcePath = source;source-highmem;source-highmem-venu2plus
 d2mach1.sourcePath = source;source-highmem;source-highmem-venu2plus
+descentmk343mm.sourcePath = source;source-highmem;source-highmem-approachs70
+descentmk351mm.sourcePath = source;source-highmem;source-highmem-approachs70
 epix2.sourcePath = source;source-highmem;source-highmem-epix2
 epix2pro42mm.sourcePath = source;source-highmem;source-highmem-epix2
 epix2pro47mm.sourcePath = source;source-highmem;source-highmem-epix2
 epix2pro51mm.sourcePath = source;source-highmem;source-highmem-fenix7
 fenix7.sourcePath = source;source-highmem;source-highmem-fenix7
 fenix7pro.sourcePath = source;source-highmem;source-highmem-fenix7
+fenix7pronowifi.sourcePath = source;source-highmem;source-highmem-fenix7
 fenix7spro.sourcePath = source;source-highmem;source-highmem-fenix7
 fenix7xpro.sourcePath = source;source-highmem;source-highmem-fenix7
 fenix7s.sourcePath = source;source-highmem;source-highmem-fenix7s
 fenix7x.sourcePath = source;source-highmem;source-highmem-fenix7
+fr165.sourcePath = source;source-highmem;source-highmem-fr165
+fr165m.sourcePath = source;source-highmem;source-highmem-fr165
 fr255.sourcePath = source;source-highmem;source-highmem-fenix7
 fr255m.sourcePath = source;source-highmem;source-highmem-fenix7
 fr255s.sourcePath = source;source-highmem;source-highmem-fr255s
@@ -27,6 +34,12 @@ fr265s.sourcePath = source;source-highmem;source-highmem-fr265s
 fr955.sourcePath = source;source-highmem;source-highmem-fenix7
 fr965.sourcePath = source;source-highmem;source-highmem-fr265s
 venu2plus.sourcePath = source;source-highmem;source-highmem-venu2plus
+venu3.sourcePath = source;source-highmem;source-highmem-venu3
+venu3s.sourcePath = source;source-highmem;source-highmem-venu3
+venusq2.sourcePath = source;source-highmem;source-highmem-venu2plus
+venusq2m.sourcePath = source;source-highmem;source-highmem-venu2plus
+venu2system5preview.sourcePath = source;source-highmem;source-highmem-venu2plus
+vivoactive5.sourcePath = source;source-highmem;source-highmem-vivoactive5
 
 # High Memory (124.7 KB)
 approachs62.sourcePath = source;source-highmem;source-highmem-approachs62
@@ -101,6 +114,8 @@ fenix6.sourcePath = source;source-lowmem-fenix6
 fenix6s.sourcePath = source;source-lowmem-fenix6s
 venu.sourcePath = source;source-lowmem-venu
 venud.sourcePath = source;source-lowmem-venu
+#venusq.sourcePath = source;source-lowmem-venusq
+#venusqm.sourcePath = source;source-lowmem-venusq
 vivoactive4.sourcePath = source;source-lowmem-vivoactive4
 vivoactive4s.sourcePath = source;source-lowmem-vivoactive4s
 
@@ -113,18 +128,25 @@ venu2s.sourcePath = source;source-lowmem-venu2
 base.resourcePath = resources
 
 # High Memory (252.6 KB) with "Power" and "Training Effect" support
+approachs7042mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
+approachs7047mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
 d2airx10.resourcePath = resources;resources-highmem;resources-highmem-power-te
 d2mach1.resourcePath = resources;resources-highmem;resources-highmem-power-te
+descentmk343mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
+descentmk351mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
 epix2.resourcePath = resources;resources-highmem;resources-highmem-power-te
 epix2pro42mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
 epix2pro47mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
 epix2pro51mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7pro.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix7pronowifi.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7spro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7xpro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7s.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7x.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr165.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fr165m.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr255.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr255m.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr255s.resourcePath = resources;resources-highmem;resources-highmem-power-te
@@ -134,6 +156,14 @@ fr265s.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr955.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr965.resourcePath = resources;resources-highmem;resources-highmem-power-te
 venu2plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
+venu2system5preview.resourcePath = resources;resources-highmem;resources-highmem-power-te
+
+# High Memory (252.6 KB) with no specific feature
+venu3.resourcePath = resources;resources-highmem;resources-highmem-basic
+venu3s.resourcePath = resources;resources-highmem;resources-highmem-basic
+venusq2.resourcePath = resources;resources-highmem;resources-highmem-basic
+venusq2m.resourcePath = resources;resources-highmem;resources-highmem-basic
+vivoactive5.resourcePath = resources;resources-highmem;resources-highmem-basic
 
 # High Memory (124.7 KB) with no specific feature
 approachs62.resourcePath = resources;resources-highmem;resources-highmem-basic
@@ -200,6 +230,8 @@ venu.resourcePath = resources;resources-lowmem-basic
 venu2.resourcePath = resources;resources-lowmem-basic
 venu2s.resourcePath = resources;resources-lowmem-basic
 venud.resourcePath = resources;resources-lowmem-basic
+#venusq.resourcePath = resources;resources-lowmem-basic
+#venusqm.resourcePath = resources;resources-lowmem-basic
 vivoactive4.resourcePath = resources;resources-lowmem-basic
 vivoactive4s.resourcePath = resources;resources-lowmem-basic
 
