@@ -177,7 +177,6 @@ High-Memory devices also supports the following fields:
 | venu2                   | Venu 2                                                |     28.7 KB      |  &check;   |             |                 |         |
 | venu2s                  | Venu 2S                                               |     28.7 KB      |  &check;   |             |                 |         |
 | venu2d                  | Venu Mercedes-Benz Collection                         |     28.7 KB      |  &check;   |             |                 |         |
-| venu2system5preview     | Venu 2 System 5 Preview                               |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | venu3                   | Venu 3                                                |     252.6 KB     |            |   &check;   |                 |         |
 | venu3s                  | Venu 3s                                               |     252.6 KB     |            |   &check;   |                 |         |
 | venusq2                 | Venu Sq 2                                             |     252.6 KB     |            |   &check;   |                 |         |
@@ -317,9 +316,30 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 ## Release Notes
 
+### Version 1.39
+ - Add support for Enduro 3, fenix8 43mm, fenix8 47mm, fenix8 solar 47mm, fenix8 solar 51mm, fenix E
+
+ | Memory Usage on vivoactive3 (28.6 KB) | Current |  Peak   |
+| ----------------------------- | :-----: | :-----: |
+| At startup                    | 25.0 kB | 26.6 kB |
+| 10 sec running                | 25.0 kB | 27.0 kB |
+| After setting change          | 25.0 kB | 27.9 kB |
+
+| Memory Usage on fenix5 (28.6 KB) | Current |  Peak   |
+| -------------------------------- | :-----: | :-----: |
+| At startup                       | 24.9 kB | 26.9 kB |
+| 10 sec running                   | 24.9 kB | 27.3 kB |
+| After setting change             | 24.9 kB | 27.9 kB |
+
+| Memory Usage on fr945 (124.6 KB) | Current |  Peak   |
+| -------------------------------- | :-----: | :-----: |
+| At startup                       | 29.7 kB | 31.9 kB |
+| 10 sec running                   | 29.7 kB | 32.2 kB |
+| After setting change             | 29.7  kB | 32.9 kB |
+
 ### Version 1.38
 
- - Add support for Approach S70, Descent Mk3, Descent Mk3i, fenix 7 PRO (No WiFi), Forerunner 165, Forerunner 165 Music, Venu 2 System 5 Preview, Venu 3, Venu 3s, venu Sq2, venu Sq2 Music, Vivoactive 5
+ - Add support for Approach S70, Descent Mk3, Descent Mk3i, fenix 7 PRO (No WiFi), Forerunner 165, Forerunner 165 Music, Venu 3, Venu 3s, venu Sq2, venu Sq2 Music, Vivoactive 5
 
  | Memory Usage on va3 (28.6 KB) | Current |  Peak   |
 | ----------------------------- | :-----: | :-----: |

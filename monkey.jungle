@@ -38,7 +38,7 @@ venu3.sourcePath = source;source-highmem;source-highmem-venu3
 venu3s.sourcePath = source;source-highmem;source-highmem-venu3
 venusq2.sourcePath = source;source-highmem;source-highmem-venu2plus
 venusq2m.sourcePath = source;source-highmem;source-highmem-venu2plus
-venu2system5preview.sourcePath = source;source-highmem;source-highmem-venu2plus
+#venu2system5preview.sourcePath = source;source-highmem;source-highmem-venu2plus
 vivoactive5.sourcePath = source;source-highmem;source-highmem-vivoactive5
 
 # High Memory (124.7 KB)
@@ -59,10 +59,16 @@ edge820.sourcePath = source;source-highmem;source-highmem-edge520plus
 edge830.sourcePath = source;source-highmem;source-highmem-edge830
 edgeexplore.sourcePath = source;source-highmem;source-highmem-edgeexplore
 edgeexplore2.sourcePath = source;source-highmem;source-highmem-edgeexplore
+enduro3.sourcePath = source;source-highmem;source-highmem-enduro3
 fenix5plus.sourcePath = source;source-highmem;source-highmem-default
 fenix5splus.sourcePath = source;source-highmem;source-highmem-default
 fenix5x.sourcePath = source;source-highmem;source-highmem-default
 fenix5xplus.sourcePath = source;source-highmem;source-highmem-default
+fenix843mm.sourcePath = source;source-highmem;source-highmem-fenix8
+fenix847mm.sourcePath = source;source-highmem;source-highmem-fenix8
+fenix8solar47mm.sourcePath = source;source-highmem;source-highmem-fenix8solar
+fenix8solar51mm.sourcePath = source;source-highmem;source-highmem-fenix8solar
+fenixe.sourcePath = source;source-highmem;source-highmem-fenix8solar
 fr945.sourcePath = source;source-highmem;source-highmem-fr945
 fr945lte.sourcePath = source;source-highmem;source-highmem-fr945
 
@@ -145,6 +151,11 @@ fenix7spro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7xpro.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7s.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix7x.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix843mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix847mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix8solar47mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenix8solar51mm.resourcePath = resources;resources-highmem;resources-highmem-power-te
+fenixe.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr165.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr165m.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr255.resourcePath = resources;resources-highmem;resources-highmem-power-te
@@ -156,7 +167,7 @@ fr265s.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr955.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fr965.resourcePath = resources;resources-highmem;resources-highmem-power-te
 venu2plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
-venu2system5preview.resourcePath = resources;resources-highmem;resources-highmem-power-te
+#venu2system5preview.resourcePath = resources;resources-highmem;resources-highmem-power-te
 
 # High Memory (252.6 KB) with no specific feature
 venu3.resourcePath = resources;resources-highmem;resources-highmem-basic
@@ -195,6 +206,7 @@ edge1030bontrager.resourcePath = resources;resources-highmem;resources-highmem-p
 edge520plus.resourcePath = resources;resources-highmem;resources-highmem-power-te
 edge530.resourcePath = resources;resources-highmem;resources-highmem-power-te
 edge830.resourcePath = resources;resources-highmem;resources-highmem-power-te
+enduro3.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix5x.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix5xplus.resourcePath = resources;resources-highmem;resources-highmem-power-te
 fenix6pro.resourcePath = resources;resources-highmem;resources-highmem-power-te
