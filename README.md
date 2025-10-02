@@ -97,6 +97,7 @@ High-Memory devices also supports the following fields:
 
 | Device Qualifier        | Device Name                                           | Available Memory | Low Memory | High Memory | Training Effect | Power\* |
 | ----------------------- | ----------------------------------------------------- | :--------------: | :--------: | :---------: | :-------------: | :-----: |
+| approachs50             | Approach S50                                          |     252.6 KB     |            |   &check;   |                 |         |
 | approachs62             | Approach S62                                          |     124.7 KB     |            |   &check;   |                 |         |
 | approachs7042mm         | Approach S70                                          |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | approachs7047mm         | Approach S70                                          |     252.6 KB     |            |   &check;   |     &check;     | &check; |
@@ -110,16 +111,21 @@ High-Memory devices also supports the following fields:
 | descentmk2s             | Descent Mk2 S                                         |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | descentmk343mm          | Descent Mk3                                           |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | descentmk351mm          | Descent Mk3i                                          |     124.7 KB     |            |   &check;   |     &check;     | &check; |
-| edge1030                | Edge 1030                                             |     124.7 KB     |            |   &check;   |     &check;     | &check; |
-| edge1030plus            | Edge 1030 Plus                                        |     124.7 KB     |            |   &check;   |     &check;     | &check; |
-| edge1030bontrager       | Edge 1030 Bontrager                                   |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| descentg2               | Descent G2                                            |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | edge130                 | Edge 130                                              |     28.7 KB      |  &check;   |             |                 | &check; |
 | edge130plus             | Edge 130 Plus                                         |     28.7 KB      |  &check;   |             |                 | &check; |
 | edge520plus             | Edge 520 Plus                                         |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | edge530                 | Edge 530                                              |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| edge540                 | Edge 540                                              |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | edge820                 | Edge 820                                              |     124.7 KB     |            |   &check;   |                 | &check; |
 | edge830                 | Edge 830                                              |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| edge840                 | Edge 840                                              |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| edge1030                | Edge 1030                                             |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| edge1030plus            | Edge 1030 Plus                                        |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| edge1030bontrager       | Edge 1030 Bontrager                                   |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| edge1050                | Edge 1050                                             |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | edgeexplore             | Edge Explore                                          |     124.7 KB     |            |   &check;   |                 |         |
+| edgemtb                 | Edge MTB                                              |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | enduro                  | Enduro                                                |     28.7 KB      |  &check;   |             |     &check;     | &check; |
 | fenix5                  | fēnix 5                                               |     28.7 KB      |  &check;   |             |     &check;     | &check; |
 | fenix5plus              | fēnix 5 Plus                                          |     124.7 KB     |            |   &check;   |                 | &check; |
@@ -140,6 +146,11 @@ High-Memory devices also supports the following fields:
 | fenix7x                 | fēnix 7X                                              |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | fenix7xpro              | fēnix 7X Pro                                          |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | fenix7xpronowifi        | fēnix 7X Pro (No Wi-Fi)                               |     252.6 KB     |            |   &check;   |     &check;     | &check; |
+| fenix843mm              | fēnix 8 (43mm)                                        |     124.7 KB     |  &check;   |   &check;   |     &check;     | &check; |
+| fenix847mm              | fēnix 8 (47mm)                                        |     124.7 KB     |  &check;   |   &check;   |     &check;     | &check; |
+| fenix8pro47mm           | fēnix 8 Pro (47mm)                                    |     124.7 KB     |  &check;   |   &check;   |     &check;     | &check; |
+| fenix8solar47mm         | fēnix 8 solar (47mm)                                  |     124.7 KB     |  &check;   |   &check;   |     &check;     | &check; |
+| fenix8solar51mm         | fēnix 8 solar (51mm)                                  |     124.7 KB     |  &check;   |   &check;   |     &check;     | &check; |
 | fenixchronos            | fēnix Chronos                                         |     28.7 KB      |  &check;   |             |     &check;     | &check; |
 | fr55                    | Forerunner 55                                         |     28.7 KB      |  &check;   |             |                 |         |
 | fr165                   | Forerunner 165                                        |     252.6 KB     |            |   &check;   |     &check;     | &check; |
@@ -150,6 +161,8 @@ High-Memory devices also supports the following fields:
 | fr255m                  | Forerunner 255 Music                                  |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | fr255s                  | Forerunner 255s                                       |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | fr255sm                 | Forerunner 255s Music                                 |     252.6 KB     |            |   &check;   |     &check;     | &check; |
+| fr57042mm               | Forerunner 570 (42mm)                                 |     252.6 KB     |            |   &check;   |     &check;     | &check; |
+| fr57047mm               | Forerunner 570 (47mm)                                 |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | fr645                   | Forerunner 645                                        |     28.7 KB      |  &check;   |             |     &check;     |         |
 | fr645m                  | Forerunner 645 Music                                  |     60.7 KB      |            |   &check;   |     &check;     |         |
 | fr745                   | Forerunner 745                                        |     124.7 KB     |            |   &check;   |     &check;     | &check; |
@@ -157,6 +170,10 @@ High-Memory devices also supports the following fields:
 | fr945                   | Forerunner 945                                        |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | fr945lte                | Forerunner 945 LTE                                    |     124.7 KB     |            |   &check;   |     &check;     | &check; |
 | fr955                   | Forerunner 955                                        |     252.6 KB     |            |   &check;   |     &check;     | &check; |
+| fr970                   | Forerunner 970                                        |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| instinct3amoled45mm     | Instinct 3 Amoled (45mm)                              |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| instinct3amoled50mm     | Instinct 3 Amoled (50mm)                              |     124.7 KB     |            |   &check;   |     &check;     | &check; |
+| instincte45mm           | Instinct E (45mm)                                     |     28.7 KB      |  &check;   |             |     &check;     | &check; |
 | legacyherocaptainmarvel | Captain Marvel                                        |     28.7 KB      |  &check;   |             |                 |         |
 | legacyherofirstavenger  | First Avenger                                         |     28.7 KB      |  &check;   |             |                 |         |
 | legacysagadarthvader    | Darth Vader                                           |     28.7 KB      |  &check;   |             |                 |         |
@@ -179,8 +196,11 @@ High-Memory devices also supports the following fields:
 | venu2d                  | Venu Mercedes-Benz Collection                         |     28.7 KB      |  &check;   |             |                 |         |
 | venu3                   | Venu 3                                                |     252.6 KB     |            |   &check;   |                 |         |
 | venu3s                  | Venu 3s                                               |     252.6 KB     |            |   &check;   |                 |         |
+| venu441mm               | Venu 4 (41mm)                                         |     252.6 KB     |            |   &check;   |     &check;     | &check; |
+| venu445mm               | Venu 4 (45mm)                                         |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | venusq2                 | Venu Sq 2                                             |     252.6 KB     |            |   &check;   |                 |         |
 | venusq2m                | Venu Sq 2 Music                                       |     252.6 KB     |            |   &check;   |                 |         |
+| venux1                  | Venu X1                                               |     252.6 KB     |            |   &check;   |     &check;     | &check; |
 | vivoactive3             | vívoactive 3                                          |     28.7 KB      |  &check;   |             |                 |         |
 | vivoactive3d            | vívoactive 3 Mercedes-Benz Collection                 |     28.7 KB      |  &check;   |             |                 |         |
 | vivoactive3m            | vívoactive 3 Music                                    |     28.7 KB      |  &check;   |             |                 |         |
@@ -188,6 +208,7 @@ High-Memory devices also supports the following fields:
 | vivoactive4             | vívoactive 4                                          |     28.7 KB      |  &check;   |             |                 |         |
 | vivoactive4s            | vívoactive 4S                                         |     28.7 KB      |  &check;   |             |                 |         |
 | vivoactive5             | vívoactive 5                                          |     252.6 KB     |            |   &check;   |                 |         |
+| vivoactive6             | vívoactive 6                                          |     252.6 KB     |            |   &check;   |                 |         |
 
 * Power has limited support. The datafield simply display the value of `Toybox.Activity.Info.currentPower`
 
@@ -316,10 +337,31 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
 ## Release Notes
 
+### Version 1.40
+ - Add support for the following devices: approachs50, descentg2, edge1050, edge540, edge840, edgemtb, fenix7xpronowifi, fenix8pro47mm, fr57042mm, fr57047mm, fr970, instinct3amoled45mm, instinct3amoled50mm, instincte45mm, venu441mm, venu445mm, venux1, vivoactive6
+
+| Memory Usage on vivoactive3 (28.6 KB) | Current |  Peak   |
+| ----------------------------- | :-----: | :-----: |
+| At startup                    | 25.0 kB | 26.5 kB |
+| 10 sec running                | 25.0 kB | 26.9 kB |
+| After setting change          | 25.0 kB | 27.9 kB |
+
+| Memory Usage on fenix5 (28.6 KB) | Current |  Peak   |
+| -------------------------------- | :-----: | :-----: |
+| At startup                       | 24.9 kB | 26.8 kB |
+| 10 sec running                   | 24.9 kB | 27.1 kB |
+| After setting change             | 24.9 kB | 27.9 kB |
+
+| Memory Usage on fr945 (124.6 KB) | Current |  Peak   |
+| -------------------------------- | :-----: | :-----: |
+| At startup                       | 29.7 kB | 31.8 kB |
+| 10 sec running                   | 29.7 kB | 32.0 kB |
+| After setting change             | 29.7  kB | 32.9 kB |
+
 ### Version 1.39
  - Add support for Enduro 3, fenix8 43mm, fenix8 47mm, fenix8 solar 47mm, fenix8 solar 51mm, fenix E
 
- | Memory Usage on vivoactive3 (28.6 KB) | Current |  Peak   |
+| Memory Usage on vivoactive3 (28.6 KB) | Current |  Peak   |
 | ----------------------------- | :-----: | :-----: |
 | At startup                    | 25.0 kB | 26.6 kB |
 | 10 sec running                | 25.0 kB | 27.0 kB |
@@ -341,7 +383,7 @@ Calculate the vertical speed in meter/min or feet/min depending on the watch set
 
  - Add support for Approach S70, Descent Mk3, Descent Mk3i, fenix 7 PRO (No WiFi), Forerunner 165, Forerunner 165 Music, Venu 3, Venu 3s, venu Sq2, venu Sq2 Music, Vivoactive 5
 
- | Memory Usage on va3 (28.6 KB) | Current |  Peak   |
+| Memory Usage on va3 (28.6 KB) | Current |  Peak   |
 | ----------------------------- | :-----: | :-----: |
 | At startup                    | 25.0 kB | 26.7 kB |
 | 10 sec running                | 25.0 kB | 27.0 kB |
