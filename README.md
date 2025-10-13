@@ -191,8 +191,8 @@ High-Memory devices also supports the following fields:
 | oregon7xx               | Oregon 7xx                                            |     124.7 KB     |            |   &check;   |                 |         |
 | rino7xx                 | Rino 7xx                                              |     124.7 KB     |            |   &check;   |                 |         |
 | venu                    | Venu                                                  |     28.7 KB      |  &check;   |             |                 |         |
-| venu2                   | Venu 2                                                |     28.7 KB      |  &check;   |             |                 |         |
-| venu2s                  | Venu 2S                                               |     28.7 KB      |  &check;   |             |                 |         |
+| venu2                   | Venu 2                                                |     28.7 KB      |            |  &check;    |                 |         |
+| venu2s                  | Venu 2S                                               |     28.7 KB      |            |  &check;    |                 |         |
 | venu2d                  | Venu Mercedes-Benz Collection                         |     28.7 KB      |  &check;   |             |                 |         |
 | venu3                   | Venu 3                                                |     252.6 KB     |            |   &check;   |                 |         |
 | venu3s                  | Venu 3s                                               |     252.6 KB     |            |   &check;   |                 |         |
